@@ -5,7 +5,7 @@ const Node = require('./Node.class');
 class PreconditionsNode extends Node {
     // Node que representa a(s) pré-condições do fluxo (FlowMap) do ponto em diante
     conditions
-    
+
     constructor({
         name = valueDefault['name'],
         conditions = valueDefault['conditions'] }) {
@@ -20,10 +20,3 @@ class PreconditionsNode extends Node {
 }
 
 module.exports = PreconditionsNode;
-
-// Testes funcionais
-
-// teste = new PreconditionsNode({
-// });
-
-// console.log(teste)

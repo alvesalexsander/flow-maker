@@ -1,8 +1,8 @@
-const ChartEntity = require('../common/ChartEntity.class');
+const Flow = require('./Flow.class');
 
 const OutputMessageNode = require('../nodes/OutputMessageNode.class')
 
-class FlowSequence extends ChartEntity{
+class FlowSequence extends Flow {
     previousNode
     nextNode
 
@@ -18,8 +18,8 @@ class FlowSequence extends ChartEntity{
 }
 
 teste = new FlowSequence({
-        previousNode: 'oi',
+    previousNode: 'oi',
     nextNode: 'oi'
 });
 
-console.log(teste)
+console.log(teste);

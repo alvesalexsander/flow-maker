@@ -46,15 +46,3 @@ class SwitchNode extends Node {
 }
 
 module.exports = SwitchNode;
-
-// Testes funcionais
-// teste = new SwitchNode({
-//     name: 'verifica se é conta digital',
-//     condition: 'É conta digital?',
-//     pathCases: ["Sim", "Não"]
-// });
-
-// teste.setCondition('testando condição');
-// teste.setPathCases(['testando1', 'testando2']);
-
-// console.log(teste);

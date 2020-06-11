@@ -2,20 +2,18 @@ const shortid = require('shortid');
 
 const checkTypeIntegrity = require('../../integrityRequirements/types');
 const checkRequirements = require('../../integrityRequirements/requirements');
+const checkIntegrity = require('../../integrityRequirements/checkIntegrity');
 
 class ChartEntity {
     id
 
-    constructor() {
-        this.set('id', shortid.generate());
-    }
+    constructor() { }
 
     set(property, value) {
         // Verifica se o objeto instanciado possui a propriedade. Caso sim, atribui um novo valor.
         if (this.hasOwnProperty(property) && typeof property == 'string') {
             this[property] = value;
-            console.log(`SET Property :: Object ID: ${this.id} \t| propertyName = ${property} \t| propertyValue = ${this[property]}`);
-
+            console.log(`SET Property :: Object ${this.type} ID: ${this.id} \t| propertyName = ${property} \t| propertyValue = ${this[property]}`);
             this.verifyIntegrity(property, this[property]);
         }
         else {
@@ -34,16 +32,8 @@ class ChartEntity {
     }
 
     verifyIntegrity(propertyName, property) {
-        if (!checkTypeIntegrity(propertyName, property)) {
-            console.log(`FAIL :: VERIFY TYPES :: Object ID: ${this.id} \t| '${propertyName}' ERROR `);
-            return false;
-        }
-        if (!checkRequirements(propertyName, property)) {
-            console.log(`FAIL :: VERIFY REQUIREMENT :: Object ID: ${this.id} \t| '${propertyName}' ERROR `);
-            return false;
-        }
+        checkIntegrity(propertyName, property);
         return true;
-        
     }
 
     throwError(message) {

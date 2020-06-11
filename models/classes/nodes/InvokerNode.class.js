@@ -21,14 +21,3 @@ class InvokerNode extends Node {
 }
 
 module.exports = InvokerNode;
-
-// Testes funcionais
-
-// teste = new InvokerNode({
-//     name: 'oi',
-//     stepMessage: 'tchau',
-//     invokeFlow: 'any',
-//     pathAnswers: ['sim']
-// })
-
-// console.log(teste);

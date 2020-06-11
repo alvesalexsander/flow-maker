@@ -1,5 +1,6 @@
 valuesDefault = {
     // Valores default aplicados nos construtores das classes
+    
     name: '',
     stepMessage: '',
     plugIn: '',
@@ -15,7 +16,7 @@ valuesDefault = {
     pathAnswers: [],
     previousNode: '',
     nextNode: '',
-    fromFlow: null
+    fromFlow: ''
 }
 
 module.exports = valuesDefault;

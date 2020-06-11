@@ -24,12 +24,3 @@ class StartingNode extends Node {
 }
 
 module.exports = StartingNode;
-
-// Testes funcionais
-
-// teste = new StartingNode({
-//     name: 'oi',
-//     fromFlow: 'oi'
-// })
-
-// console.log(teste);

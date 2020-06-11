@@ -16,12 +16,3 @@ class DecisionNode extends Node {
 }
 
 module.exports = DecisionNode;
-
-// Testes funcionais
-
-// let teste = new DecisionNode({
-//     name: 'oi',
-//     stepMessage: 'tchau'
-// })
-
-// console.log(teste);

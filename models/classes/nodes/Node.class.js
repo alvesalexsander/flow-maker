@@ -1,3 +1,4 @@
+const shortid = require('shortid');
 const valueDefault = require('../../integrityRequirements/valueDefault');
 
 const ChartEntity = require('../common/ChartEntity.class');
@@ -16,17 +17,15 @@ class Node extends ChartEntity {
         plugIn = valueDefault['plugIn'],
         plugOut = valueDefault['plugOut'] }) {
         super();
+        this.type = this.constructor.name;
+        this.set('id', shortid.generate());
         this.set('name', name);
         this.set('stepMessage', stepMessage);
         this.set('plugIn', plugIn);
         this.set('plugOut', plugOut);
-        this.type = this.constructor.name;
     }
 
     turnTargetNode() {
-        // if (this.targetNode) {
-        //     this.targetNode = true;
-        // }
         this.targetNode && this.targetNode == false(this.targetNode = true);
     }
 
@@ -36,15 +35,3 @@ class Node extends ChartEntity {
 }
 
 module.exports = Node;
-
-// Testes funcionais
-
-// teste = new Node({
-//     name: 'oi',
-//     stepMessage: '3'
-// });
-
-// console.log(teste.isTargetNode());
-// teste.turnTargetNode();
-
-// console.log(teste);

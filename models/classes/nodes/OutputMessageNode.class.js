@@ -18,13 +18,3 @@ class OutputMessageNode extends Node {
 }
 
 module.exports = OutputMessageNode;
-
-// Testes funcionais
-
-// teste = new OutputMessageNode({
-//     name: 'oi',
-//     stepMessage: 'tchau',
-//     expectedMessage: 'to te vendo'
-// })
-
-// console.log(teste);
