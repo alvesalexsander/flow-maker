@@ -1,0 +1,27 @@
+{
+  "name": "flow-maker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "shortid": "^2.2.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvesalexsander/flow-maker.git"
+  },
+  "author": "Alexsander Alves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alvesalexsander/flow-maker/issues"
+  },
+  "homepage": "https://github.com/alvesalexsander/flow-maker#readme"
+}
