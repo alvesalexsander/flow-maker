@@ -1,6 +1,7 @@
 const shortid = require('shortid');
 
-const propertiesTypes = require('../../types/Nodes.types');
+const checkTypeIntegrity = require('../../integrityRequirements/types');
+const checkRequirements = require('../../integrityRequirements/requirements');
 
 class ChartEntity {
     id
@@ -13,10 +14,11 @@ class ChartEntity {
         // Verifica se o objeto instanciado possui a propriedade. Caso sim, atribui um novo valor.
         if (this.hasOwnProperty(property) && typeof property == 'string') {
             this[property] = value;
-            this.verifyTypeIntegrity(property);
+            this.verifyIntegrity(property, this[property]);
+            console.log(`SET Property :: Object ID: ${this.id} \t| propertyName = ${property} \t| propertyValue = ${this[property]}`);
         }
-        else{
-            this.throwError(`SET ERROR :: Necessário que a Propriedade'${property}' seja do tipo STRING e exista dentro de ${this.type}`);
+        else {
+            console.log(`SET ERROR :: Necessário que a Propriedade '${property}' seja do tipo STRING e EXISTA dentro de ${this.type}(${this.id})`);
         }
     }
 
@@ -26,16 +28,21 @@ class ChartEntity {
             return this[property];
         }
         else {
-            this.throwError(`GET ERROR :: Necessário que a Propriedade '${property}' seja do tipo STRING e exista dentro de ${this.type}`);
+            this.throwError(`GET ERROR :: Necessário que a Propriedade '${property}' seja do tipo STRING e exista dentro de ${this.type}(${this.id})`);
         }
     }
 
-    verifyTypeIntegrity(property) {
-        // Recebe o nome de uma Propriedade e verifica se o tipo está de acordo com o esperado.
-        if (this[property].constructor == propertiesTypes[property]) { }
-        else {
-            this.throwError(`VERIFY INTEGRITY ERROR :: A Propriedade '${property}' não faz parte deste objeto ${this.type} ou não possui a tipagem esperada`);
+    verifyIntegrity(propertyName, property) {
+        if (!checkTypeIntegrity(propertyName, property)) {
+            console.log(`FAIL :: VERIFY TYPES :: Object ID: ${this.id} \t| '${propertyName}' OK `);
+            return false;
         }
+        if (!checkRequirements(propertyName)) {
+            console.log(`FAIL :: VERIFY REQUIREMENT :: Object ID: ${this.id} \t| '${propertyName}' OK `);
+            return false;
+        }
+        return true;
+        
     }
 
     throwError(message) {

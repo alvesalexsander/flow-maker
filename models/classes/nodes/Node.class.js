@@ -1,6 +1,8 @@
+const valueDefault = require('../../integrityRequirements/valueDefault');
+
 const ChartEntity = require('../common/ChartEntity.class');
 
-class Node extends ChartEntity{
+class Node extends ChartEntity {
     // Node básico. Contém propriedades e metódos que podem ser extendidos por quase todos os outros Nodes.
     name
     stepMessage
@@ -8,7 +10,11 @@ class Node extends ChartEntity{
     plugOut
     targetNode = false;
 
-    constructor({ name='', stepMessage='', plugIn='', plugOut=''}) {
+    constructor({
+        name = valueDefault['name'],
+        stepMessage = valueDefault['stepMessage'],
+        plugIn = valueDefault['plugIn'],
+        plugOut = valueDefault['plugOut'] }) {
         super();
         this.set('name', name);
         this.set('stepMessage', stepMessage);
@@ -21,7 +27,7 @@ class Node extends ChartEntity{
         // if (this.targetNode) {
         //     this.targetNode = true;
         // }
-        this.targetNode && this.targetNode == false (this.targetNode = true);
+        this.targetNode && this.targetNode == false(this.targetNode = true);
     }
 
     isTargetNode() {

@@ -1,3 +1,5 @@
+const valueDefault = require('../../integrityRequirements/valueDefault');
+
 const Node = require('./Node.class');
 
 class InvokerNode extends Node {
@@ -5,7 +7,13 @@ class InvokerNode extends Node {
     invokeFlow
     pathAnswers
 
-    constructor({ name, stepMessage, plugIn, plugOut, invokeFlow, pathAnswers }) {
+    constructor({
+        name = valueDefault['name'],
+        stepMessage = valueDefault['stepMessage'],
+        plugIn = valueDefault['plugIn'],
+        plugOut = valueDefault['plugOut'],
+        invokeFlow = valueDefault['invokeFlow'],
+        pathAnswers = valueDefault['pathAnswers'] }) {
         super({ name, stepMessage, plugIn, plugOut });
         this.set('invokeFlow', invokeFlow);
         this.set('pathAnswers', pathAnswers);

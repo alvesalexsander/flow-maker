@@ -1,21 +1,30 @@
+const valueDefault = require('../../integrityRequirements/valueDefault');
+
 const Node = require('./Node.class');
 const DecisionNode = require('./DecisionNode.class');
 
 class SwitchNode extends Node {
     // Node que representa uma decisão condicional.
     condition
-    pathCases
-    pathNodes = []; // Array de DecisionNodes para serem explorados por FlowSequences
+    pathCases// Observable?
+    pathNodes// Observable? // Array de DecisionNodes para serem explorados por FlowSequences
 
-
-    constructor({ name='', stepMessage='', condition='', pathCases='', plugIn='' }) {
+    constructor({
+        name = valueDefault['name'],
+        condition = valueDefault['condition'],
+        pathCases = valueDefault['pathCases'],
+        plugIn = valueDefault['plugIn'] }) {
         super({ name });
         this.set('condition', condition);
         this.set('plugIn', plugIn);
         this.set('pathCases', pathCases);
-        this.set('pathNodes', this.mountPathCasesNodes());
+        this.pathCases.length >= 2 ? 
+            this.set('pathNodes', this.mountPathCasesNodes()) 
+            : this.set('pathNodes', valueDefault['pathNodes']); //Observable
         delete this.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
+        delete this.turnTargetNode;
         delete this.plugOut;
+        delete this.stepMessage;
     }
 
     mountPathCasesNodes(pathCases) {
@@ -28,12 +37,10 @@ class SwitchNode extends Node {
                     stepMessage: `${this.condition} - ${caso}`,
                     plugIn: this.plugIn });
                 delete caso.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
+                delete this.turnTargetNode;
                 caseNodes.push(caso);
             }
             return caseNodes;
-        }
-        else {
-            this.throwError('Necessário, no mínimo, um array com DOIS elementos para pathCases');
         }
     }
 
@@ -51,12 +58,10 @@ class SwitchNode extends Node {
 module.exports = SwitchNode;
 
 // Testes funcionais
-
 teste = new SwitchNode({
-    name: 'Verifica se o usuário é conta digital',
+    name: 'verifica se é conta digital',
     condition: 'É conta digital?',
-    pathCases: ['Sim', 'Não'],
-    plugIn: 'testePassarLinkIn'
+    pathCases: ["Sim", "Não"]
 });
 
 // teste.setCondition('testando condição');
