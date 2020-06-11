@@ -14,8 +14,9 @@ class ChartEntity {
         // Verifica se o objeto instanciado possui a propriedade. Caso sim, atribui um novo valor.
         if (this.hasOwnProperty(property) && typeof property == 'string') {
             this[property] = value;
-            this.verifyIntegrity(property, this[property]);
             console.log(`SET Property :: Object ID: ${this.id} \t| propertyName = ${property} \t| propertyValue = ${this[property]}`);
+
+            this.verifyIntegrity(property, this[property]);
         }
         else {
             console.log(`SET ERROR :: Necessário que a Propriedade '${property}' seja do tipo STRING e EXISTA dentro de ${this.type}(${this.id})`);
@@ -34,11 +35,11 @@ class ChartEntity {
 
     verifyIntegrity(propertyName, property) {
         if (!checkTypeIntegrity(propertyName, property)) {
-            console.log(`FAIL :: VERIFY TYPES :: Object ID: ${this.id} \t| '${propertyName}' OK `);
+            console.log(`FAIL :: VERIFY TYPES :: Object ID: ${this.id} \t| '${propertyName}' ERROR `);
             return false;
         }
-        if (!checkRequirements(propertyName)) {
-            console.log(`FAIL :: VERIFY REQUIREMENT :: Object ID: ${this.id} \t| '${propertyName}' OK `);
+        if (!checkRequirements(propertyName, property)) {
+            console.log(`FAIL :: VERIFY REQUIREMENT :: Object ID: ${this.id} \t| '${propertyName}' ERROR `);
             return false;
         }
         return true;

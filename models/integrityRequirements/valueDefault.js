@@ -1,4 +1,5 @@
 valuesDefault = {
+    // Valores default aplicados nos construtores das classes
     name: '',
     stepMessage: '',
     plugIn: '',

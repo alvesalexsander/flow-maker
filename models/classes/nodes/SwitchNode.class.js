@@ -43,28 +43,18 @@ class SwitchNode extends Node {
             return caseNodes;
         }
     }
-
-    setCondition(condition) {
-        // Setter para 'this.condition'
-        this.condition = condition ? condition : this.throwError('Necessário informar condição para criar node do tipo Switch');
-    }
-
-    setPathCases(pathCases) {
-        // Setter para 'this.pathCases'
-        this.pathCases = Array.isArray(pathCases) && pathCases.length >= 2 ? pathCases : this.throwError('Necessário, no mínimo, um array com DOIS elementos para pathCases');
-    }
 }
 
 module.exports = SwitchNode;
 
 // Testes funcionais
-teste = new SwitchNode({
-    name: 'verifica se é conta digital',
-    condition: 'É conta digital?',
-    pathCases: ["Sim", "Não"]
-});
+// teste = new SwitchNode({
+//     name: 'verifica se é conta digital',
+//     condition: 'É conta digital?',
+//     pathCases: ["Sim", "Não"]
+// });
 
 // teste.setCondition('testando condição');
 // teste.setPathCases(['testando1', 'testando2']);
 
-console.log(teste);
+// console.log(teste);
