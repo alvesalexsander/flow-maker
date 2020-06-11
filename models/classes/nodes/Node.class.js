@@ -4,23 +4,24 @@ class Node extends ChartEntity{
     // Node básico. Contém propriedades e metódos que podem ser extendidos por quase todos os outros Nodes.
     name
     stepMessage
-    linkIn
-    linkOut
+    plugIn
+    plugOut
     targetNode = false;
 
-    constructor({ name='', stepMessage='', linkIn='', linkOut=''}) {
+    constructor({ name='', stepMessage='', plugIn='', plugOut=''}) {
         super();
         this.set('name', name);
         this.set('stepMessage', stepMessage);
-        this.set('linkIn', linkIn);
-        this.set('linkOut', linkOut);
+        this.set('plugIn', plugIn);
+        this.set('plugOut', plugOut);
         this.type = this.constructor.name;
     }
 
     turnTargetNode() {
-        if (this.targetNode) {
-            this.targetNode = true;
-        }
+        // if (this.targetNode) {
+        //     this.targetNode = true;
+        // }
+        this.targetNode && this.targetNode == false (this.targetNode = true);
     }
 
     isTargetNode() {

@@ -4,8 +4,8 @@ class OutputMessageNode extends Node {
     // Node que representa um output específico e esperado da URA que seja interessante registrar.
     expectedMessage
 
-    constructor({ name, stepMessage, linkIn, linkOut='', expectedMessage='' }) {
-        super({ name, stepMessage, linkIn, linkOut });
+    constructor({ name, stepMessage, plugIn, plugOut='', expectedMessage='' }) {
+        super({ name, stepMessage, plugIn, plugOut });
         this.set('expectedMessage', expectedMessage);
     }
 }

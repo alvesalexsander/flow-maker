@@ -2,8 +2,8 @@ const Node = require('./Node.class');
 
 class DecisionNode extends Node {
 
-    constructor({ name, stepMessage, linkIn, linkOut }) {
-        super({ name, stepMessage, linkIn, linkOut});
+    constructor({ name, stepMessage, plugIn, plugOut }) {
+        super({ name, stepMessage, plugIn, plugOut});
         delete this.targetNode;
     }
 }

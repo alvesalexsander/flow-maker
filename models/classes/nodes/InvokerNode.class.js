@@ -5,8 +5,8 @@ class InvokerNode extends Node {
     invokeFlow
     pathAnswers
 
-    constructor({ name, stepMessage, linkIn, linkOut, invokeFlow, pathAnswers }) {
-        super({ name, stepMessage, linkIn, linkOut });
+    constructor({ name, stepMessage, plugIn, plugOut, invokeFlow, pathAnswers }) {
+        super({ name, stepMessage, plugIn, plugOut });
         this.set('invokeFlow', invokeFlow);
         this.set('pathAnswers', pathAnswers);
     }

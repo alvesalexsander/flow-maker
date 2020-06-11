@@ -2,21 +2,19 @@ const ChartEntity = require('../common/ChartEntity.class');
 
 class FlowSequence extends ChartEntity{
 
-    constructor({ previousNode = 'none', nextNode = 'none' }) {
+    constructor({ previousNode = 'empty', nextNode = 'empty' }) {
         super();
-        this.setPreviousNode(previousNode)
+        this.setPreviousNode(previousNode);
         this.setNextNode(nextNode);
     }
 
     setPreviousNode(previousNode) {
-        this.previousNode = previousNode ? previousNode : this.throwError('Necessário informar o node ANTERIOR ao que o FlowSequence se conecta');
+        this.previousNode = previousNode;
     }
 
     setNextNode(nextNode) {
-        this.nextNode = nextNode ? nextNode : this.throwError('Necessário informar o node SEGUINTE ao que o FlowSequence se conecta');
+        this.nextNode = nextNode;
     }
-
-    linkToNode(){}
 }
 
 // teste = new FlowSequence({
