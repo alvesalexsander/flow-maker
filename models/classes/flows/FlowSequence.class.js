@@ -1,15 +1,12 @@
-const Flow = require('./Flow.class');
+const valueDefault = require('../../integrityRequirements/valueDefault');
 
-const OutputMessageNode = require('../nodes/OutputMessageNode.class');
-let teste = new OutputMessageNode({
-    expectedMessage: 'oi'
-})
+const Flow = require('./Flow.class');
 
 class FlowSequence extends Flow {
     previousNode
     nextNode
 
-    constructor({ previousNode = 'empty', nextNode = 'empty' }) {
+    constructor({ previousNode = valueDefault['previousNode'], nextNode = valueDefault['nextNode'] }) {
         super();
         this.set('previousNode', previousNode);
         this.set('nextNode', nextNode);
