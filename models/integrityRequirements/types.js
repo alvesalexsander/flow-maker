@@ -1,12 +1,11 @@
-const chalk = require('chalk');
-
 function checkTypeIntegrity(propertyName, property) {
     // Recebe o nome de uma Propriedade e verifica se o tipo está de acordo com o esperado.
+    const { Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode } = require('../classes/nodes/index');
 
     types = {
         id: String,
-        name: [ Number, String ],
-        fromFlow: String,
+        fromFlow: [String],
+        name: [Number, String],
         stepMessage: String,
         plugIn: String,
         plugOut: String,
@@ -18,13 +17,13 @@ function checkTypeIntegrity(propertyName, property) {
         expectedMessage: String,
         invokeFlow: String,
         pathAnswers: Array,
-        previousNode: String,
-        nextNode: String
+        previousNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode],
+        nextNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode]
     };
 
     if (!types[propertyName]) return;
-    if (Array.isArray(types[propertyName])){
-        for(const requirement of types[propertyName]){
+    if (Array.isArray(types[propertyName])) {
+        for (const requirement of types[propertyName]) {
             if (property.constructor == requirement) return true;
         }
     }
@@ -32,7 +31,6 @@ function checkTypeIntegrity(propertyName, property) {
         return true;
     }
     else {
-        console.log(chalk.bgRed.black(`VERIFY INTEGRITY ERROR :: A Propriedade '${propertyName}'(${property}) não faz parte deste objeto ${this.type} ou não possui a tipagem esperada`));
         return false;
     }
 }

@@ -1,5 +1,5 @@
 const shortid = require('shortid');
-const valueDefault = require('../../integrityRequirements/valueDefault');
+// const valueDefault = require('../../integrityRequirements/valueDefault');
 
 const ChartEntity = require('../common/ChartEntity.class');
 
@@ -11,3 +11,5 @@ class Flow extends ChartEntity{
         this.set('id', shortid.generate());
     }
 }
+
+module.exports = Flow;

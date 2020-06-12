@@ -13,7 +13,7 @@ class ChartEntity {
         // Verifica se o objeto instanciado possui a propriedade. Caso sim, atribui um novo valor.
         if (this.hasOwnProperty(property) && typeof property == 'string') {
             this[property] = value;
-            console.log(`SET Property :: Object ${this.type} ID: ${this.id} \t| propertyName = ${property} \t| propertyValue = ${this[property]}`);
+            //console.log(`SET Property :: Object ${this.type} ID: ${this.id} \t| propertyName = ${property} \t| propertyValue = ${this[property]}`);
             this.verifyIntegrity(property, this[property]);
         }
         else {

@@ -1,6 +1,9 @@
 const Flow = require('./Flow.class');
 
-const OutputMessageNode = require('../nodes/OutputMessageNode.class')
+const OutputMessageNode = require('../nodes/OutputMessageNode.class');
+let teste = new OutputMessageNode({
+    expectedMessage: 'oi'
+})
 
 class FlowSequence extends Flow {
     previousNode
@@ -8,18 +11,9 @@ class FlowSequence extends Flow {
 
     constructor({ previousNode = 'empty', nextNode = 'empty' }) {
         super();
-        teste = new OutputMessageNode({
-            expectedMessage: 'oi'
-        })
-        console.log(teste.constructor);
         this.set('previousNode', previousNode);
         this.set('nextNode', nextNode);
     }
 }
 
-teste = new FlowSequence({
-    previousNode: 'oi',
-    nextNode: 'oi'
-});
-
-console.log(teste);
+module.exports = FlowSequence;

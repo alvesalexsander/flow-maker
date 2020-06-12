@@ -1,6 +1,9 @@
 const shortid = require('shortid');
 
 function checkRequirements(propertyName, property) {
+    const { Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode } = require('../classes/nodes/index');
+    const allNodeTypes = require('../classes/nodes/index');
+
     // Checa a integridade em relação aos requisitos mínimos de cada propriedade
     // propertyName<string> - Nome da propriedade, usado para chamar props de 'requirements'
     // property<any> - Valor da propriedade
@@ -19,11 +22,13 @@ function checkRequirements(propertyName, property) {
         pathNodes: () => property.length >= 2,
         expectedMessage: () => typeof property == 'string',
         invokeFlow: () => typeof property == 'string',
-        pathAnswers: () => Array.isArray(property)
+        pathAnswers: () => Array.isArray(property),
+        previousNode: () => Object.values(allNodeTypes).some((each) => property.constructor == each),
+        nextNode: () => Object.values(allNodeTypes).some((each) => property.constructor == each)
     };
 
     if (!requirements[propertyName]) return;
-    if (requirements[propertyName]() == true){
+    if (requirements[propertyName]() == true) {
         return true;
     }
     else {

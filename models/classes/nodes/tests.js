@@ -1,4 +1,4 @@
-const {Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode} = require('./index');
+const { Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode } = require('./index');
 
 const chalk = require('chalk');
 
@@ -14,24 +14,24 @@ const instantiation = {
             instance.turnTargetNode();
             return true;
         }
-
         catch (e) {
             throw new Error(e);
         }
     },
-    StartingNode: function() {
-        try{
+    StartingNode: function () {
+        try {
             instance = new StartingNode({
                 name: 'oi',
                 fromFlow: 'oi'
             })
+            return true;
         }
         catch (e) {
             throw new Error(e);
         }
     },
-    PreconditionsNode: function() {
-        try{
+    PreconditionsNode: function () {
+        try {
             instance = new PreconditionsNode({
                 name: 'instance',
                 conditions: [
@@ -41,13 +41,12 @@ const instantiation = {
             });
             return true;
         }
-
         catch (e) {
             throw new Error(e);
         }
     },
-    OutputMessageNodeteste: function() {
-        try{
+    OutputMessageNode: function () {
+        try {
             instance = new OutputMessageNode({
                 name: 'oi',
                 stepMessage: 'tchau',
@@ -55,13 +54,12 @@ const instantiation = {
             });
             return true;
         }
-
         catch (e) {
             throw new Error(e);
         }
     },
-    SwitchNode: function() {
-        try{
+    SwitchNode: function () {
+        try {
             instance = new SwitchNode({
                 name: 'verifica se é conta digital',
                 condition: 'É conta digital?',
@@ -69,26 +67,24 @@ const instantiation = {
             });
             return true;
         }
-
         catch {
             throw new Error(e);
         }
     },
-    DecisionNode: function() {
-        try{
+    DecisionNode: function () {
+        try {
             instance = new DecisionNode({
                 name: 'oi',
                 stepMessage: 'tchau'
             });
             return true;
         }
-
         catch (e) {
             throw new Error(e);
         }
     },
-    InvokerNode: function() {
-        try{
+    InvokerNode: function () {
+        try {
             instance = new InvokerNode({
                 name: 'oi',
                 stepMessage: 'tchau',
@@ -106,7 +102,13 @@ const instantiation = {
 testInstantiation();
 
 function testInstantiation() {
+    total = Object.keys(instantiation).length;
+    counter = 0;
     for (const each in instantiation) {
-        if (instantiation[each]()) { console.log(chalk.bgGreen.black(`${each.toUpperCase()} INSTANTIATION TEST :: PASSED`)) }
+        if (instantiation[each]()) {
+            console.log(chalk.bgGreen.black(`${each.toUpperCase()} INSTANTIATION TEST :: PASSED`))
+            counter++;
+        }
     }
+    console.log(chalk.bgGreen.black(`${counter} / ${total} TESTS PASSED`))
 }

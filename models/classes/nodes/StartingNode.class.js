@@ -18,7 +18,7 @@ class StartingNode extends Node {
     }
 
     setFromFlow(fromFlow) {
-        this.fromFlow = fromFlow ? fromFlow : null;
+        this.fromFlow = fromFlow ? fromFlow : '';
         this.initialNode = this.fromFlow ? false : true;
     }
 }
