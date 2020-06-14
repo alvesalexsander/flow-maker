@@ -23,7 +23,8 @@ const instantiation = {
             return true;
         }
         catch (e) {
-            throw new Error(e);
+            console.log(e);
+            return false
         }
     },
 }
