@@ -2,7 +2,7 @@ const valueDefault = require('../../integrityRequirements/valueDefault');
 
 const Node = require('./Node.class');
 const DecisionNode = require('./DecisionNode.class');
-const Observer = require('../shared/Observer.class');
+const EventEmitter = require('../shared/EventEmitter.class');
 
 class SwitchNode extends Node {
     // Node que representa uma decisão condicional.
@@ -21,7 +21,7 @@ class SwitchNode extends Node {
         delete this.plugOut;
         delete this.stepMessage;
 
-        this.observer = new Observer(this);
+        this.observer = new EventEmitter(this);
         this.observer.newEvent('pathCases', 'mountPathCasesNodes');
         this.set('condition', condition);
         this.set('plugIn', plugIn);

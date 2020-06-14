@@ -1,6 +1,6 @@
 const shortid = require('shortid');
 
-class Observer {
+class EventEmitter {
     events = [];
     externalEvents = [];
     observersList = [];
@@ -11,7 +11,7 @@ class Observer {
 
     /**
      * Define um par '
-     * @param {*} subject (String) Representa o nome do evento a ser emitido pelo metodo 'sendEvent'
+     * @param {*} subject (String) Representa o nome do evento a ser emitido pelo metodo 'emitEvent'
      * @param {*} callback (String) Nome do método que será chamado neste host e nos host observers, caso disponível.
      */
     newEvent(eventName, callback) {
@@ -33,7 +33,7 @@ class Observer {
 
     /**
      * 
-     * @param {*} otherHostObject (Object) Host que contém uma instancia de Observer que será usada para se inscrever neste observer,
+     * @param {*} otherHostObject (Object) Host que contém uma instancia de EventEmitter que será usada para se inscrever neste observer,
      * e assim, escutar seus eventos.
      */
     subscribe(otherHostObject) {
@@ -45,7 +45,7 @@ class Observer {
 
     /**
      * 
-     * @param {*} otherHostObject (Object) Host que contém uma instancia de Observer que será atualizada com os events do Observer
+     * @param {*} otherHostObject (Object) Host que contém uma instancia de EventEmitter que será atualizada com os events do EventEmitter
      * recém inscrito. (Usada no método 'subscribe');
      */
     updateNewSubscriberExternalSubjects(otherHostObject) {
@@ -104,7 +104,7 @@ class Observer {
      * @param {*} eventName (String) Envia um evento para o host deste e de todos os observers que assinarem este objeto.
      * Este host e o dos observers deste objeto responderam a sua maneira caso possuam os respectivos metodos.
      */
-    sendEvent(eventName) {
+    emitEvent(eventName) {
         for (const subject of this.events) {
             if (subject[0] == eventName && this.host[subject[1]] && typeof this.host[subject[1]] == 'function') {
                 this.host[subject[1]]();
@@ -117,44 +117,10 @@ class Observer {
         }
         if (this.observersList.length > 0) {
             for (const observer of this.observersList) {
-                observer.sendEvent(eventName);
+                observer.emitEvent(eventName);
             }
         }
     }
 };
 
-module.exports = Observer;
-
-// class Personagem {
-//     saudacao
-
-//     constructor(apresentacao){
-//         this.saudacao = apresentacao
-//     }
-
-//     incomingEvent(eventName) {
-//         switch(eventName){
-//             case 'apresentacao': this.seApresentar();
-//         }
-//     }
-
-//     seApresentar() {
-//         console.log(this.saudacao);
-//     }
-// }
-// const goku = new Personagem("Oi, eu sou Goku!");
-// const luffy = new Personagem("Meu nome é Luffy e eu serei o Rei dos Piratas!");
-// const naruto = new Personagem("Eu sou Naruto Uzumaki da Aldeia da Folha. E eu vou ser Hokage! Tô certo!");
-
-// let teste = new Subject();
-// let teste1 = new Subject();
-// let teste2 = new Subject();
-
-// teste.newObserver(goku);
-// teste1.newObserver(luffy);
-// teste2.newObserver(naruto);
-
-// teste1.subscribe(teste);
-// teste2.subscribe(teste1);
-
-// teste.sendEvent('apresentacao');
+module.exports = EventEmitter;

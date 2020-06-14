@@ -153,7 +153,10 @@ const instantiation = {
             }
             instance3.pleaseStay = function () {
                 console.log(`please be... with me... <3 (${this.id})`);
+                return 'pleaseStay concluido'
             }// Declara o metodo 'pleaseStay' para instancia1 e instancia2. ESTAS devem responder ao evento 'oi' para este callback
+
+            instance3.observer.newEvent('oi', 'pleaseStay');
 
             instance.observer.newEvent('oi', 'tchau'); // Define o event 'oi' para o callback 'tchau'
             instance.observer.newEvent('oi', 'seeYa'); // Define o event 'oi' para o callback 'tchau'
@@ -167,14 +170,17 @@ const instantiation = {
             // Instancias teste se inscrevem em 'instance'.
 
             instance.observer.newEvent('oi', 'pleaseStay'); // Define o event 'oi' para o callback 'pleaseStay'
+            instance.observer.newEvent('asd', 'pleaseStay'); // Define o event 'oi' para o callback 'pleaseStay'
 
-            // console.log('instance: ', instance.observer.events);
+
+            console.log('instance: ', instance.observer.events);
             // console.log('instance 1: ', instance1.observer.externalEvents);
             // console.log('instance 2: ', instance2.observer.externalEvents);
-            // console.log('instance 3: ', instance3.observer.externalEvents);
+            console.log('instance 3: ', instance3.observer.events);
+            console.log('instance 3: ', instance3.observer.externalEvents);
 
             try {
-                instance.observer.sendEvent('oi'); // Instance envia um evento 'oi' e propaga a todos os seus 'observers'
+                instance.observer.emitEvent('oi'); // Instance envia um evento 'oi' e propaga a todos os seus 'observers'
             }
             catch (e) {
                 console.log(e);

@@ -16,7 +16,7 @@ class ChartEntity {
             //console.log(`SET Property :: Object ${this.type} ID: ${this.id} \t| propertyName = ${property} \t| propertyValue = ${this[property]}`);
             this.verifyIntegrity(property, this[property]);
             if (this.observer) {
-                this.observer.sendEvent(property);
+                this.observer.emitEvent(property);
             }
         }
         else {
