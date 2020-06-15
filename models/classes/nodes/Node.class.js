@@ -9,6 +9,8 @@ class Node extends ChartEntity {
     stepMessage
     plugIn
     plugOut
+    nextNode
+    prevNode
     targetNode = false;
 
     constructor({
@@ -31,6 +33,14 @@ class Node extends ChartEntity {
 
     isTargetNode() {
         return this.targetNode ? this.targetNode : false
+    }
+
+    setNextNode(node) {
+        
+    }
+    
+    setPreviousNode(node) {
+
     }
 }
 

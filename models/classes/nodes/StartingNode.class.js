@@ -21,6 +21,10 @@ class StartingNode extends Node {
         this.fromFlow = fromFlow ? fromFlow : '';
         this.initialNode = this.fromFlow ? false : true;
     }
+
+    startMappingScenarios(){
+        
+    }
 }
 
 module.exports = StartingNode;

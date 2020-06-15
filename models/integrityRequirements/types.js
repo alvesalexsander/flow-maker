@@ -18,7 +18,8 @@ function checkTypeIntegrity(propertyName, property) {
         invokeFlow: String,
         pathAnswers: Array,
         previousNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode],
-        nextNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode]
+        nextNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode],
+        prevNode: this.nextNode
     };
 
     if (!types[propertyName]) return;

@@ -7,28 +7,53 @@ class EventEmitter {
 
     constructor(host) {
         this.host = host;
+        this.id = host.id;
     };
 
     /**
-     * Define um par '
-     * @param {*} subject (String) Representa o nome do evento a ser emitido pelo metodo 'emitEvent'
+     * Define um par 'eventName, callback' 
+     * @param {*} eventName (String) Representa o nome do evento a ser emitido pelo metodo 'emitEvent'
      * @param {*} callback (String) Nome do método que será chamado neste host e nos host observers, caso disponível.
      */
     newEvent(eventName, callback) {
         if (typeof eventName == 'string' && typeof callback == 'string') {
-            for (const subject of this.events) {
-                if (subject.slice(0, 2).toString() == [eventName, callback].toString()) {
-                    // console.log('igual');
+            for (var i = 0; i < this.events.length; ++i) {
+                if (this.events[i].slice(0, 2).toString() == [eventName, callback].toString()) {
                     return;
                 }
             }
-            // console.log("unico");
             this.events.push([eventName, callback, shortid.generate()]);
         }
         else {
             throw new Error(`Subject '${eventName}' or Callback '${callback}' não são Strings.`);
         }
-        this.updateObserversExternalSubjects();
+        this.updateObserversExternalEvents();
+    };
+    /**
+     * 
+     * (Object) Método que percorre os 'events' deste objeto e compara com os 'events' e 'externalEvents' dos subscribers.
+     * Caso haja algum 'event' próprio que não esteja em entre os dos subscribers, este é inserido. (Usada no método 'newEvent');
+     */
+    updateObserversExternalEvents() {
+        let count = 0;
+        let total = 0;
+
+        for (let i = 0; i < this.events.length; i++) { // Loop para acessar os eventos originais deste observer.
+            for (let j = 0; j < this.observersList.length; j++) { // Loop para acessar todos os observers inscritos.
+                total = this.observersList[j].externalEvents.concat(this.observersList[j].events).length;  // Recupera a quantidade de events o observer inscrito da vez possui.
+                let allObserverEvents = this.observersList[j].externalEvents.concat(this.observersList[j].events); // Recupera a lista de todos os eventos do observer inscrito (originais e externos).
+                count = 0; // Zera o contador para iniciar a verificação
+                for (let k = 0; k < allObserverEvents.length; k++) { // Loop para acessar os eventos do lista completa de eventos do observer inscrito da vez.
+                    if (!(this.events[i][1] == allObserverEvents[k][1] && this.events[i][0] == allObserverEvents[k][0])
+                        && count < total) { // Compara os evento original desta instancia com os do observer inscrito da vez.
+                        count++; // Caso o evento desta instancia comparado seja diferente dos evento do observer inscrito, incrementa em count.
+                        if (count == total) { // Caso o evento desta instancia não possua nenhum evento espelhado entre os eventos do observer inscrito
+                            this.observersList[j].externalEvents.push(this.events[i]); // Pusha este evento para a lista de eventos externos do observer inscrito da vez.
+                        }
+                    }
+                }
+            }
+        }
     };
 
     /**
@@ -39,64 +64,23 @@ class EventEmitter {
     subscribe(otherHostObject) {
         if (otherHostObject.observer) {
             otherHostObject.observer.observersList.push(this);
-            this.updateNewSubscriberExternalSubjects(otherHostObject);
+            this.updateNewSubscriberExternalEvents(otherHostObject);
         }
     };
-
     /**
      * 
      * @param {*} otherHostObject (Object) Host que contém uma instancia de EventEmitter que será atualizada com os events do EventEmitter
      * recém inscrito. (Usada no método 'subscribe');
      */
-    updateNewSubscriberExternalSubjects(otherHostObject) {
-        // for (const outSubject of otherHostObject.observer.events.concat(this.externalEvents)) {
-        //     for (const insideSubject of this.events.concat(this.externalEvents)) {
-        //         if (insideSubject.toString() != outSubject.toString()) {
-        //             this.externalEvents.push(outSubject);
-        //         }
-        //         break;
-        //     }
-        // } //funcionando
-
-        for (const outSubject of otherHostObject.observer.events.concat(this.externalEvents)) {
+    updateNewSubscriberExternalEvents(otherHostObject) {
+        for (const outSubject of otherHostObject.observer.events.concat(otherHostObject.observer.externalEvents)) {
             for (const insideSubject of this.events.concat(this.externalEvents)) {
-                if (insideSubject[2] != outSubject[2]) {
+                if (insideSubject.slice(0, 2).toString() != outSubject.slice(0, 2).toString()) {
                     this.externalEvents.push(outSubject);
                 }
                 break;
             }
-        }
-    };
-
-    /**
-     * 
-     * (Object) Método que percorre os 'events' deste objeto e compara com os 'events' dos subscribers.
-     * Caso haja algum 'subject' próprio que não esteja em 'externalSubject' dos subscribers, este é inserido. (Usada no método 'newSubject');
-     */
-    updateObserversExternalSubjects() {
-        let count = 0;
-        let total = 0;
-        for (const insideSubject of this.events) {
-            for (const observer of this.observersList) {
-                total = observer.externalEvents.concat(observer.events).length;
-                // console.log('total ', total);
-                count = 0;
-                for (const outsideSubject of observer.externalEvents.concat(observer.events)) {
-                    // console.log(`comparando ${insideSubject}`);
-                    // console.log(`com ${outsideSubject} de ${observer.host.id}`);
-                    // console.log(insideSubject.toString() == outsideSubject.toString());
-
-                    if (!(insideSubject[2] == outsideSubject[2]) && count < total) {
-                        count++;
-                        // console.log(count);
-                        if (count == total) {
-                            observer.externalEvents.push(insideSubject);
-                        }
-                    } // o que funciona é esse 
-                }
-            }
-
-        }
+        } //funcionando
     };
 
     /**
@@ -105,16 +89,14 @@ class EventEmitter {
      * Este host e o dos observers deste objeto responderam a sua maneira caso possuam os respectivos metodos.
      */
     emitEvent(eventName) {
-        for (const subject of this.events) {
-            if (subject[0] == eventName && this.host[subject[1]] && typeof this.host[subject[1]] == 'function') {
-                this.host[subject[1]]();
+        let allEvents = this.events.concat(this.externalEvents);
+
+        for (let i = 0; i < allEvents.length; i++) {
+            if (allEvents[i][0] == eventName && this.host[allEvents[i][1]] && typeof this.host[allEvents[i][1]] == 'function') {
+                this.host[allEvents[i][1]]();
             }
         }
-        for (const subject of this.externalEvents) {
-            if (subject[0] == eventName && this.host[subject[1]] && typeof this.host[subject[1]] == 'function') {
-                this.host[subject[1]]();
-            }
-        }
+
         if (this.observersList.length > 0) {
             for (const observer of this.observersList) {
                 observer.emitEvent(eventName);
