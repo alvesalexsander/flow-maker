@@ -8,7 +8,7 @@ valuesDefault = {
     invokeFlow: '',
     targetNode: false,
     condition: '',
-    conditions: [],
+    preconditions: [],
     pathCases: [],
     pathNodes: [],
     expectedMessage: '',
@@ -16,6 +16,7 @@ valuesDefault = {
     pathAnswers: [],
     previousNode: '',
     nextNode: '',
+    prevNode: '',
     fromFlow: ''
 }
 

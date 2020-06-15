@@ -1,26 +1,48 @@
+const { Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode } = require('../classes/nodes/index');
+
+const types = {
+    id: String,
+    fromFlow: [String],
+    name: [Number, String],
+    stepMessage: String,
+    plugIn: String,
+    plugOut: String,
+    targetNode: Boolean,
+    condition: String,
+    preconditions: Array,
+    pathCases: Array,
+    pathNodes: Array,
+    expectedMessage: String,
+    invokeFlow: String,
+    pathAnswers: Array,
+    previousNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode, String],
+    nextNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode, String],
+    prevNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode, String]
+};
+
 function checkTypeIntegrity(propertyName, property) {
     // Recebe o nome de uma Propriedade e verifica se o tipo está de acordo com o esperado.
-    const { Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode } = require('../classes/nodes/index');
+    
 
-    types = {
-        id: String,
-        fromFlow: [String],
-        name: [Number, String],
-        stepMessage: String,
-        plugIn: String,
-        plugOut: String,
-        targetNode: Boolean,
-        condition: String,
-        conditions: Array,
-        pathCases: Array,
-        pathNodes: Array,
-        expectedMessage: String,
-        invokeFlow: String,
-        pathAnswers: Array,
-        previousNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode],
-        nextNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode],
-        prevNode: this.nextNode
-    };
+    // types = {
+    //     id: String,
+    //     fromFlow: [String],
+    //     name: [Number, String],
+    //     stepMessage: String,
+    //     plugIn: String,
+    //     plugOut: String,
+    //     targetNode: Boolean,
+    //     condition: String,
+    //     preconditions: Array,
+    //     pathCases: Array,
+    //     pathNodes: Array,
+    //     expectedMessage: String,
+    //     invokeFlow: String,
+    //     pathAnswers: Array,
+    //     previousNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode, String],
+    //     nextNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode, String],
+    //     prevNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode, String]
+    // };
 
     if (!types[propertyName]) return;
     if (Array.isArray(types[propertyName])) {
@@ -36,4 +58,4 @@ function checkTypeIntegrity(propertyName, property) {
     }
 }
 
-module.exports = checkTypeIntegrity;
+module.exports = {checkTypeIntegrity, types};

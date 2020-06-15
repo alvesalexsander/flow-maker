@@ -1,10 +1,10 @@
-const checkType = require('./types');
+const { checkTypeIntegrity } = require('./types');
 const checkRequirements = require('./requirements');
 
 const chalk = require('chalk');
 
 function checkIntegrity(propertyName, property) {
-    if (!checkType(propertyName, property)) {
+    if (!checkTypeIntegrity(propertyName, property)) {
         console.log(chalk.bgRed.black(`FAIL :: VERIFY TYPES :: Object ${this.type} ID: ${this.id} \t| '${propertyName}' ERROR `));
         return false;
     }

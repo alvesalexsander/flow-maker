@@ -38,7 +38,7 @@ class EventEmitter {
         let count = 0;
         let total = 0;
 
-        for (let i = 0; i < this.events.length; i++) { // Loop para acessar os eventos originais deste observer.
+        for (let i = 0; i < this.events.length; i++) { // Loop para acessar os eventos originais deste eventEmitter.
             for (let j = 0; j < this.observersList.length; j++) { // Loop para acessar todos os observers inscritos.
                 total = this.observersList[j].externalEvents.concat(this.observersList[j].events).length;  // Recupera a quantidade de events o observer inscrito da vez possui.
                 let allObserverEvents = this.observersList[j].externalEvents.concat(this.observersList[j].events); // Recupera a lista de todos os eventos do observer inscrito (originais e externos).
@@ -62,8 +62,8 @@ class EventEmitter {
      * e assim, escutar seus eventos.
      */
     subscribe(otherHostObject) {
-        if (otherHostObject.observer) {
-            otherHostObject.observer.observersList.push(this);
+        if (otherHostObject.eventEmitter) {
+            otherHostObject.eventEmitter.observersList.push(this);
             this.updateNewSubscriberExternalEvents(otherHostObject);
         }
     };
@@ -73,7 +73,7 @@ class EventEmitter {
      * recém inscrito. (Usada no método 'subscribe');
      */
     updateNewSubscriberExternalEvents(otherHostObject) {
-        for (const outSubject of otherHostObject.observer.events.concat(otherHostObject.observer.externalEvents)) {
+        for (const outSubject of otherHostObject.eventEmitter.events.concat(otherHostObject.eventEmitter.externalEvents)) {
             for (const insideSubject of this.events.concat(this.externalEvents)) {
                 if (insideSubject.slice(0, 2).toString() != outSubject.slice(0, 2).toString()) {
                     this.externalEvents.push(outSubject);
@@ -98,8 +98,8 @@ class EventEmitter {
         }
 
         if (this.observersList.length > 0) {
-            for (const observer of this.observersList) {
-                observer.emitEvent(eventName);
+            for (const eventEmitter of this.observersList) {
+                eventEmitter.emitEvent(eventName);
             }
         }
     }

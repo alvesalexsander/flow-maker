@@ -36,11 +36,12 @@ const instantiation = {
         try {
             instance = new PreconditionsNode({
                 name: 'instance',
-                conditions: [
+                preconditions: [
                     'veio de #desambiguadorNaoRecebimentoDeConta',
                     'veio de #desambiguadorPagarConta'
-                ]
+                ],
             });
+            console.log(instance)
             return true;
         }
         catch (e) {
@@ -132,55 +133,55 @@ const instantiation = {
             }); // Instancia semelhante a uma teste
 
             instance1.tchau = function () {
-                console.log(`Valeu mané, tamo junto! (${this.id})`);
+                // console.log(`Valeu mané, tamo junto! (${this.id})`);
             }
             instance2.tchau = function () {
-                console.log(`bye byeeeeee *---*! (${this.id})`);
+                // console.log(`bye byeeeeee *---*! (${this.id})`);
             }
             instance3.tchau = function () {
-                console.log(`sayonara. (${this.id})`);
+                // console.log(`sayonara. (${this.id})`);
             } // Declara o metodo 'tchau' em todas as instancias teste. TODAS devem responder ao evento 'oi' para este callback
 
             instance1.seeYa = function () {
-                console.log(`até logo! (${this.id})`);
+                // console.log(`até logo! (${this.id})`);
             }
             instance2.seeYa = function () {
-                console.log(`see you around, mate! (${this.id})`);
+                // console.log(`see you around, mate! (${this.id})`);
             } // Declara o metodo 'seeYa' para instancia1 e instancia2. ESTAS devem responder ao evento 'oi' para este callback
 
             instance1.pleaseStay = function () {
-                console.log(`fica mais um pouquinho... (${this.id})`);
+                // console.log(`fica mais um pouquinho... (${this.id})`);
             }
             instance3.pleaseStay = function () {
-                console.log(`please be... with me... <3 (${this.id})`);
+                // console.log(`please be... with me... <3 (${this.id})`);
                 return 'pleaseStay concluido'
             }// Declara o metodo 'pleaseStay' para instancia1 e instancia2. ESTAS devem responder ao evento 'oi' para este callback
 
-            instance3.observer.newEvent('oi', 'pleaseStay');
+            instance3.eventEmitter.newEvent('oi', 'pleaseStay');
 
-            instance.observer.newEvent('oi', 'tchau'); // Define o event 'oi' para o callback 'tchau'
-            instance.observer.newEvent('oi', 'seeYa'); // Define o event 'oi' para o callback 'tchau'
+            instance.eventEmitter.newEvent('oi', 'tchau'); // Define o event 'oi' para o callback 'tchau'
+            instance.eventEmitter.newEvent('oi', 'seeYa'); // Define o event 'oi' para o callback 'tchau'
 
-            instance.observer.newEvent('pathCases', 'mountPathCasesNodes');
+            instance.eventEmitter.newEvent('pathCases', 'mountPathCasesNodes');
             // Tenta definir o event 'pathCases' para o callback 'mountPathCasesNodes', mas como já existe um evento com esses dados, não o faz.
 
-            instance1.observer.subscribe(instance);
-            instance2.observer.subscribe(instance);
-            instance3.observer.subscribe(instance);
+            instance1.eventEmitter.subscribe(instance);
+            instance2.eventEmitter.subscribe(instance);
+            instance3.eventEmitter.subscribe(instance);
             // Instancias teste se inscrevem em 'instance'.
 
-            instance.observer.newEvent('oi', 'pleaseStay'); // Define o event 'oi' para o callback 'pleaseStay'
-            instance.observer.newEvent('asd', 'pleaseStay'); // Define o event 'oi' para o callback 'pleaseStay'
+            instance.eventEmitter.newEvent('oi', 'pleaseStay'); // Define o event 'oi' para o callback 'pleaseStay'
+            instance.eventEmitter.newEvent('asd', 'pleaseStay'); // Define o event 'oi' para o callback 'pleaseStay'
 
 
-            console.log('instance: ', instance.observer.events);
-            // console.log('instance 1: ', instance1.observer.externalEvents);
-            // console.log('instance 2: ', instance2.observer.externalEvents);
-            console.log('instance 3: ', instance3.observer.events);
-            console.log('instance 3: ', instance3.observer.externalEvents);
+            // console.log('instance: ', instance.eventEmitter.events);
+            // console.log('instance 1: ', instance1.eventEmitter.externalEvents);
+            // console.log('instance 2: ', instance2.eventEmitter.externalEvents);
+            // console.log('instance 3: ', instance3.eventEmitter.events);
+            // console.log('instance 3: ', instance3.eventEmitter.externalEvents);
 
             try {
-                instance.observer.emitEvent('oi'); // Instance envia um evento 'oi' e propaga a todos os seus 'observers'
+                instance.eventEmitter.emitEvent('oi'); // Instance envia um evento 'oi' e propaga a todos os seus 'observers'
             }
             catch (e) {
                 console.log(e);

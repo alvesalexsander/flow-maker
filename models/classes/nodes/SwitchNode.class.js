@@ -14,17 +14,19 @@ class SwitchNode extends Node {
         name = valueDefault['name'],
         condition = valueDefault['condition'],
         pathCases = valueDefault['pathCases'],
-        plugIn = valueDefault['plugIn'] }) {
+        plugIn = valueDefault['plugIn'],
+        prevNode = valueDefault['prevNode']}) {
         super({ name });
         delete this.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
         delete this.turnTargetNode;
         delete this.plugOut;
         delete this.stepMessage;
 
-        this.observer = new EventEmitter(this);
-        this.observer.newEvent('pathCases', 'mountPathCasesNodes');
+        this.eventEmitter = new EventEmitter(this);
+        this.eventEmitter.newEvent('pathCases', 'mountPathCasesNodes');
         this.set('condition', condition);
         this.set('plugIn', plugIn);
+        this.set('prevNode', prevNode);
         this.set('pathCases', pathCases);
     }
 
@@ -39,7 +41,8 @@ class SwitchNode extends Node {
                 caso = new DecisionNode({
                     name: `${this.name}(${caso})`,
                     stepMessage: `${this.condition} - ${caso}`,
-                    plugIn: this.plugIn
+                    plugIn: this.plugIn,
+                    prevNode: this.prevNode
                 });
                 delete caso.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
                 delete this.turnTargetNode;

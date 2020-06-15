@@ -1,37 +1,52 @@
 const valueDefault = require('../../integrityRequirements/valueDefault');
 
 const Node = require('./Node.class');
+const OutputMessageNode = require('./OutputMessageNode.class');
+
+const EventEmitter = require('../shared/EventEmitter.class');
 
 class PreconditionsNode extends Node {
     // Node que representa a(s) pré-condições do fluxo (FlowMap) do ponto em diante
-    conditions
+    preconditions
 
     constructor({
         name = valueDefault['name'],
-        conditions = valueDefault['conditions'] }) {
+        preconditions = valueDefault['preconditions'],
+        prevNode = valueDefault['prevNode'] }) {
         super({ name });
-        this.set('conditions', conditions);
+        delete this.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
+        delete this.turnTargetNode;
+        delete this.plugOut;
+        delete this.stepMessage;
+
+        this.eventEmitter = new EventEmitter(this);
+        this.eventEmitter.newEvent('preconditions', 'mountPreconditionsNodes');
+        this.set('name', name);
+        this.set('preconditions', preconditions);
+        this.set('prevNode', prevNode);
     }
 
-    setConditions(conditions) {
-        // Setter para 'this.conditions'
-        this.conditions = Array.isArray(conditions) && conditions.length >= 1 ? conditions : this.throwError(`Necessário, no mínimo, um array com UM elemento para conditions em ${this.type}(${this.id})`);
+    setPreconditions(preconditions) {
+        // Setter para 'this.preconditions'
+        this.preconditions = Array.isArray(preconditions) && preconditions.length >= 1 ? preconditions : this.throwError(`Necessário, no mínimo, um array com UM elemento para preconditions em ${this.type}(${this.id})`);
     }
 
-    mountPreconditionNodes() {
-        if (Array.isArray(this.pathCases)) {
-            let caseNodes = [];
-            for (let caso of this.pathCases) {
-                caso = new DecisionNode({
-                    name: `${this.name}(${caso})`,
-                    stepMessage: `${this.condition} - ${caso}`,
-                    plugIn: this.plugIn
+    mountPreconditionsNodes() {
+        if (Array.isArray(this.preconditions)) {
+            let preconditionsNodes = [];
+            for (let precondition of this.preconditions) {
+                precondition = new OutputMessageNode({
+                    name: `Pré-condição '${precondition}'`,
+                    stepMessage: `Testar condição: ${precondition}`,
+                    expectedMessage: `Testar condição: ${precondition}`,
+                    prevNode: this.prevNode
                 });
-                delete caso.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
-                delete this.turnTargetNode;
-                caseNodes.push(caso);
+                delete precondition.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
+                delete precondition.plugIn;
+
+                preconditionsNodes.push(precondition);
             }
-            this.pathNodes = caseNodes;
+            this.preconditionsNodes = preconditionsNodes;
             return true
         }
     }

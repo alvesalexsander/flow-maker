@@ -1,6 +1,6 @@
 const shortid = require('shortid');
 
-const checkTypeIntegrity = require('../../integrityRequirements/types');
+const {checkTypeIntegrity} = require('../../integrityRequirements/types');
 const checkRequirements = require('../../integrityRequirements/requirements');
 const checkIntegrity = require('../../integrityRequirements/checkIntegrity');
 
@@ -15,8 +15,8 @@ class ChartEntity {
             this[property] = value;
             //console.log(`SET Property :: Object ${this.type} ID: ${this.id} \t| propertyName = ${property} \t| propertyValue = ${this[property]}`);
             this.verifyIntegrity(property, this[property]);
-            if (this.observer) {
-                this.observer.emitEvent(property);
+            if (this.eventEmitter) {
+                this.eventEmitter.emitEvent(property);
             }
         }
         else {

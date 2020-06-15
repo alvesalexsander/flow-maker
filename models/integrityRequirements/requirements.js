@@ -1,8 +1,9 @@
 const shortid = require('shortid');
 
 function checkRequirements(propertyName, property) {
-    const { Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode } = require('../classes/nodes/index');
-    const allNodeTypes = require('../classes/nodes/index');
+    // const { Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode } = require('../classes/nodes/index');
+    // const allNodeTypes = require('../classes/nodes/index');
+    const { types } = require('./types');
 
     // Checa a integridade em relação aos requisitos mínimos de cada propriedade
     // propertyName<string> - Nome da propriedade, usado para chamar props de 'requirements'
@@ -17,14 +18,15 @@ function checkRequirements(propertyName, property) {
         plugOut: () => typeof property == 'string',
         targetNode: () => typeof property == 'boolean',
         condition: () => typeof property == 'string',
-        conditions: () => Array.isArray(property),
+        preconditions: () => Array.isArray(property),
         pathCases: () => property.length >= 2,
         pathNodes: () => property.length >= 2,
         expectedMessage: () => typeof property == 'string',
         invokeFlow: () => typeof property == 'string',
         pathAnswers: () => Array.isArray(property),
-        previousNode: () => Object.values(allNodeTypes).some((each) => property.constructor == each),
-        nextNode: () => Object.values(allNodeTypes).some((each) => property.constructor == each)
+        previousNode: () => types['previousNode'].some((each) => property.constructor == each),
+        nextNode: () => types['nextNode'].some((each) => property.constructor == each),
+        prevNode: () => types['prevNode'].some((each) => property.constructor == each)
     };
 
     if (!requirements[propertyName]) return;
