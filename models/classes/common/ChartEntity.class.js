@@ -11,10 +11,10 @@ class ChartEntity {
 
     set(property, value) {
         // Verifica se o objeto instanciado possui a propriedade. Caso sim, atribui um novo valor.
-        if (this.hasOwnProperty(property) && typeof property == 'string') {
+        if (typeof property == 'string') {
             this[property] = value;
-            //console.log(`SET Property :: Object ${this.type} ID: ${this.id} \t| propertyName = ${property} \t| propertyValue = ${this[property]}`);
-            this.verifyIntegrity(property, this[property]);
+            // console.log(`SET Property :: Object ${this.type} ID: ${this.id} \t| propertyName = ${property} \t| propertyValue = ${this[property]}`);
+            // this.verifyIntegrity(property, this[property]);
             if (this.eventEmitter) {
                 this.eventEmitter.emitEvent(property);
             }
@@ -30,7 +30,7 @@ class ChartEntity {
             return this[property];
         }
         else {
-            this.throwError(`GET ERROR :: Necessário que a Propriedade '${property}' seja do tipo STRING e exista dentro de ${this.type}(${this.id})`);
+            return false;
         }
     }
 

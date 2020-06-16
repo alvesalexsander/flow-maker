@@ -15,9 +15,9 @@ const types = {
     expectedMessage: String,
     invokeFlow: String,
     pathAnswers: Array,
-    previousNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode, String],
-    nextNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode, String],
-    prevNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode, String]
+    // previousNode: [Node || StartingNode || PreconditionsNode || OutputMessageNode || SwitchNode || DecisionNode || InvokerNode || String],
+    // nextNode: Node || StartingNode || PreconditionsNode || OutputMessageNode || SwitchNode || DecisionNode || InvokerNode || String,
+    // prevNode: Node || StartingNode || PreconditionsNode || OutputMessageNode || SwitchNode || DecisionNode || InvokerNode || String
 };
 
 function checkTypeIntegrity(propertyName, property) {
@@ -44,7 +44,7 @@ function checkTypeIntegrity(propertyName, property) {
     //     prevNode: [Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode, String]
     // };
 
-    if (!types[propertyName]) return;
+    if (!types[propertyName]) return true;
     if (Array.isArray(types[propertyName])) {
         for (const requirement of types[propertyName]) {
             if (property.constructor == requirement) return true;

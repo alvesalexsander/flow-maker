@@ -161,7 +161,7 @@ const instantiation = {
 
             instance.eventEmitter.newEvent('oi', 'tchau'); // Define o event 'oi' para o callback 'tchau'
             instance.eventEmitter.newEvent('oi', 'seeYa'); // Define o event 'oi' para o callback 'tchau'
-
+            instance.eventEmitter.newEvent('oi', 'asdasdads');
             instance.eventEmitter.newEvent('pathCases', 'mountPathCasesNodes');
             // Tenta definir o event 'pathCases' para o callback 'mountPathCasesNodes', mas como já existe um evento com esses dados, não o faz.
 
@@ -174,11 +174,11 @@ const instantiation = {
             instance.eventEmitter.newEvent('asd', 'pleaseStay'); // Define o event 'oi' para o callback 'pleaseStay'
 
 
-            // console.log('instance: ', instance.eventEmitter.events);
-            // console.log('instance 1: ', instance1.eventEmitter.externalEvents);
-            // console.log('instance 2: ', instance2.eventEmitter.externalEvents);
-            // console.log('instance 3: ', instance3.eventEmitter.events);
-            // console.log('instance 3: ', instance3.eventEmitter.externalEvents);
+            console.log('instance: ', instance.eventEmitter.events);
+            console.log('instance 1: ', instance1.eventEmitter.externalEvents);
+            console.log('instance 2: ', instance2.eventEmitter.externalEvents);
+            console.log('instance 3: ', instance3.eventEmitter.events);
+            console.log('instance 3: ', instance3.eventEmitter.externalEvents);
 
             try {
                 instance.eventEmitter.emitEvent('oi'); // Instance envia um evento 'oi' e propaga a todos os seus 'observers'

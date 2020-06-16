@@ -2,7 +2,7 @@ valuesDefault = {
     // Valores default aplicados nos construtores das classes
     
     name: '',
-    stepMessage: '',
+    stepMessage: undefined,
     plugIn: '',
     plugOut: '',
     invokeFlow: '',

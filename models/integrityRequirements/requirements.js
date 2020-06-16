@@ -24,12 +24,12 @@ function checkRequirements(propertyName, property) {
         expectedMessage: () => typeof property == 'string',
         invokeFlow: () => typeof property == 'string',
         pathAnswers: () => Array.isArray(property),
-        previousNode: () => types['previousNode'].some((each) => property.constructor == each),
-        nextNode: () => types['nextNode'].some((each) => property.constructor == each),
-        prevNode: () => types['prevNode'].some((each) => property.constructor == each)
+        // previousNode: () => types['previousNode'],
+        // nextNode: () => types['nextNode'],
+        // prevNode: () => types['prevNode']
     };
 
-    if (!requirements[propertyName]) return;
+    if (!requirements[propertyName]) return true;
     if (requirements[propertyName]() == true) {
         return true;
     }

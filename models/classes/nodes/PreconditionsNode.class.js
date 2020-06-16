@@ -8,22 +8,30 @@ const EventEmitter = require('../shared/EventEmitter.class');
 class PreconditionsNode extends Node {
     // Node que representa a(s) pré-condições do fluxo (FlowMap) do ponto em diante
     preconditions
+    preconditionsNodes = []
 
     constructor({
         name = valueDefault['name'],
         preconditions = valueDefault['preconditions'],
         prevNode = valueDefault['prevNode'] }) {
-        super({ name });
+        super({ name, prevNode });
+        // this.eventEmitter = new EventEmitter(this);
+        // this.eventEmitter.newEvent('prevNode', 'updatePrevNodeDestination');
+        // this.eventEmitter.newEvent('nextNode', 'updateNextNodeOrigin');
         delete this.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
         delete this.turnTargetNode;
         delete this.plugOut;
+        delete this.nextNode;
         delete this.stepMessage;
 
-        this.eventEmitter = new EventEmitter(this);
-        this.eventEmitter.newEvent('preconditions', 'mountPreconditionsNodes');
+        // this.eventEmitter.newEvent('preconditions', 'mountPreconditionsNodes');
+        // this.eventEmitter.newEvent('prevNode', 'setPrevNodePreconditions');
+        // this.eventEmitter.newEvent('prevNode', 'updatePrevNodeDestination');
+
         this.set('name', name);
-        this.set('preconditions', preconditions);
-        this.set('prevNode', prevNode);
+        this.setPrevNode(prevNode);
+        this.setPreconditions(preconditions)
+        // this.set('preconditions', preconditions);
     }
 
     setPreconditions(preconditions) {
@@ -39,7 +47,8 @@ class PreconditionsNode extends Node {
                     name: `Pré-condição '${precondition}'`,
                     stepMessage: `Testar condição: ${precondition}`,
                     expectedMessage: `Testar condição: ${precondition}`,
-                    prevNode: this.prevNode
+                    prevNode: this.prevNode,
+                    nextNode: this.nextNode
                 });
                 delete precondition.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
                 delete precondition.plugIn;
@@ -49,6 +58,33 @@ class PreconditionsNode extends Node {
             this.preconditionsNodes = preconditionsNodes;
             return true
         }
+    }
+
+    setPreconditions(preconditions) {
+        this.preconditions = preconditions;
+        this.mountPreconditionsNodes();
+    }
+
+    setNextNode(node) {
+        super.setNextNode(node);
+        this.mountPreconditionsNodes();
+    }
+
+    setPrevNode(node) {
+        super.setPrevNode(node);
+        this.mountPreconditionsNodes();
+        return ['nextNode', this.preconditionsNodes];
+    }
+
+    getNextNode() {
+
+    }
+
+    getPrevNode() {
+        if (this.prevNode) {
+            return this.prevNode;
+        }
+        return false;
     }
 }
 

@@ -8,8 +8,10 @@ class DecisionNode extends Node {
         name = valueDefault['name'],
         stepMessage = valueDefault['stepMessage'],
         plugIn = valueDefault['plugIn'],
-        plugOut = valueDefault['plugOut'] }) {
-        super({ name, stepMessage, plugIn, plugOut });
+        plugOut = valueDefault['plugOut'],
+        prevNode = valueDefault['prevNode'],
+        nextNode = valueDefault['nextNode'] }) {
+        super({ name, stepMessage, plugIn, plugOut, prevNode, nextNode });
         delete this.targetNode;
         delete this.turnTargetNode;
     }
