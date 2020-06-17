@@ -7,14 +7,12 @@ class OutputMessageNode extends Node {
     expectedMessage
 
     constructor({
-        name = valueDefault['name'],
-        stepMessage = valueDefault['stepMessage'],
-        plugIn = valueDefault['plugIn'],
-        plugOut = valueDefault['plugOut'],
-        prevNode = valueDefault['prevNode'],
-        nextNode = valueDefault['nextNode'],
-        expectedMessage = valueDefault['expectedMessage'] }) {
-        super({ name, stepMessage, plugIn, plugOut, prevNode, nextNode });
+        name,
+        stepMessage,
+        prevNode,
+        nextNode,
+        expectedMessage}) {
+        super({ name, stepMessage, prevNode, nextNode });
         this.set('expectedMessage', expectedMessage);
     }
 }

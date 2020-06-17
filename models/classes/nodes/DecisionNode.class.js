@@ -7,11 +7,9 @@ class DecisionNode extends Node {
     constructor({
         name = valueDefault['name'],
         stepMessage = valueDefault['stepMessage'],
-        plugIn = valueDefault['plugIn'],
-        plugOut = valueDefault['plugOut'],
         prevNode = valueDefault['prevNode'],
         nextNode = valueDefault['nextNode'] }) {
-        super({ name, stepMessage, plugIn, plugOut, prevNode, nextNode });
+        super({ name, stepMessage, prevNode, nextNode });
         delete this.targetNode;
         delete this.turnTargetNode;
     }

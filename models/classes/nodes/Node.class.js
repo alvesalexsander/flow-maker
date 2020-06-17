@@ -1,36 +1,23 @@
 const shortid = require('shortid');
-const valueDefault = require('../../integrityRequirements/valueDefault');
 
-const ChartEntity = require('../common/ChartEntity.class');
-
-const EventEmitter = require('../shared/EventEmitter.class');
-
-class Node extends ChartEntity {
+class Node {
     // Node básico. Contém propriedades e metódos que podem ser extendidos por quase todos os outros Nodes.
+    id
     name
     stepMessage
-    plugIn
-    plugOut
     nextNode
     prevNode
     targetNode = false;
 
     constructor({
-        name = valueDefault['name'],
-        stepMessage = valueDefault['stepMessage'],
-        plugIn = valueDefault['plugIn'],
-        plugOut = valueDefault['plugOut'],
-        prevNode = valueDefault['prevNode'],
-        nextNode = valueDefault['nextNode'] }) {
-        super();
-        // this.eventEmitter = new EventEmitter(this);
-
+        name,
+        stepMessage,
+        prevNode,
+        nextNode }) {
         this.type = this.constructor.name;
         this.set('id', shortid.generate());
         this.set('name', name);
         this.set('stepMessage', stepMessage);
-        this.set('plugIn', plugIn);
-        this.set('plugOut', plugOut);
         this.set('prevNode', prevNode);
         this.set('nextNode', nextNode);
     }
@@ -45,55 +32,26 @@ class Node extends ChartEntity {
         return this.targetNode ? this.targetNode : false
     }
 
-    setPrevNode(node) {
-        this.set('prevNode', node);
-        switch (node.type) {
-            case 'Node':
-            case 'OutputMessageNode':
-            case 'InvokerNode':
-            case 'StartingNode':
-                this.prevNode = node;
-                break;
-            case 'SwitchNode':
-                this.prevNode = node.pathNodes;
-                break;
-            case 'PreconditionsNode':
-                this.prevNode = node.preconditionsNodes;
-                break;
+    next(){
+        if (this.nextNode){
+            return this.nextNode;
         }
-
-    }
-
-    setNextNode(node) {
-        this.set('nextNode', node);
-        switch (node.type) {
-            case 'Node':
-            case 'OutputMessageNode':
-            case 'InvokerNode':
-                this.nextNode = node;
-                break;
-            case 'SwitchNode':
-                this.nextNode = node.pathNodes;
-                break;
-            case 'PreconditionsNode':
-                this.nextNode = node.preconditionsNodes;
-                break;
-        }
-        let update = node.setPrevNode(this);
-        // console.log(this.nextNode);
-        if (update){
-            this[update[0]] = update[1];
-            // console.log(this.nextNode);
+        else{
+            return false;
         }
     }
 
-    updateNextNodeValues(values){
-        this.nextNode = values;
+    prev(){
+        if (this.prevNode){
+            return this.prevNode;
+        }
+        else{
+            return false;
+        }
     }
 
     mapScenarios(prevStepMessages) {
-        // console.log(this.type)
-        if (prevStepMessages) {
+        if (prevStepMessages != []) {
             if (this.stepMessage != undefined){
                 if (this.nextNode.targetNode) {
                     prevStepMessages.push(this.stepMessage);
@@ -108,7 +66,9 @@ class Node extends ChartEntity {
                 }
                 else {
                     prevStepMessages.push(this.stepMessage);
-                    this.nextNode.mapScenarios(prevStepMessages);
+                    if (this.nextNode.mapScenarios){
+                        this.nextNode.mapScenarios(prevStepMessages);
+                    }
                 }
             }
             else {
@@ -126,39 +86,28 @@ class Node extends ChartEntity {
                 }
             }
         }
-        else{
-            this.mapScenarios([]);
-        }
     }
 
     endFlowScenario(prevStepMessages) {
         if (this.targetNode == true) {
             prevStepMessages.push(this.stepMessage);
-            console.log(prevStepMessages);
         }
     }
 
-
-    getNextNode() {
-        if (this.nextNode) {
-            return this.nextNode;
+    set(property, value) {
+        // Verifica se o objeto instanciado possui a propriedade. Caso sim, atribui um novo valor.
+        if (typeof property == 'string') {
+            this[property] = value;
         }
-        return false;
+        return this;
     }
 
-    getPrevNode() {
-        if (this.prevNode) {
-            return this.prevNode;
+    get(property) {
+        // Verifica se o objeto instanciado possui a propriedade. Caso sim, retorna o seu valor.
+        if (this.hasOwnProperty(property) && typeof property == 'string') {
+            return this[property];
         }
-        return false;
-    }
-
-    updatePrevNodeDestination() {
-        this.prevNode && this.prevNode.setNextNode(this);
-    }
-
-    updateNextNodeOrigin() {
-        this.nextNode && this.nextNode.setPrevNode(this);
+        return this;
     }
 }
 

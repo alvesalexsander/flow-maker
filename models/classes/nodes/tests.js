@@ -1,4 +1,4 @@
-const { Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode } = require('./index');
+/* const { Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode } = require('./index');
 
 const chalk = require('chalk');
 
@@ -221,4 +221,4 @@ function testInstantiation() {
         console.log(chalk.bgRed.black(`${failed.toString().toUpperCase()} TESTS FAILED`));
         return false;
     }
-}
+} */

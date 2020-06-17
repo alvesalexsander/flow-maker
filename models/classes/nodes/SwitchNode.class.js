@@ -7,27 +7,20 @@ const EventEmitter = require('../shared/EventEmitter.class');
 class SwitchNode extends Node {
     // Node que representa uma decisão condicional.
     condition
-    pathCases = []// Observable?
-    pathNodes// Observable? // Array de DecisionNodes para serem explorados por FlowSequences
+    pathCases = []
+    pathNodes = []
 
     constructor({
-        name = valueDefault['name'],
-        condition = valueDefault['condition'],
-        pathCases = valueDefault['pathCases'],
-        plugIn = valueDefault['plugIn'],
-        prevNode = valueDefault['prevNode']}) {
+        name,
+        condition,
+        pathCases,
+        prevNode}) {
         super({ name });
         delete this.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
         delete this.turnTargetNode;
-        delete this.plugOut;
         delete this.stepMessage;
 
-        // this.eventEmitter.newEvent('pathCases', 'mountPathCasesNodes');
-        // this.eventEmitter.newEvent('prevNode', 'setPrevNodeSwitchNode');
-
-        this.set('condition', condition);
-        this.set('plugIn', plugIn);
-        this.set('prevNode', prevNode);
+        this.set('condition', condition);;
         this.set('pathCases', pathCases);
         this.mountPathCasesNodes()
     }
@@ -51,13 +44,16 @@ class SwitchNode extends Node {
                 caseNodes.push(caso);
             }
             this.pathNodes = caseNodes;
-            return true
+            return this.pathNodes;
         }
     }
 
     setNextNode(node){
         super.setNextNode(node);
         this.mountPathCasesNodes()
+        this.prevNode = node;
+        this.prevNode.nextNode = this.pathNodes;
+
     }
 
     setPrevNodeSwitchNode() {
