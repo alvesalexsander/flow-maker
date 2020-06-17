@@ -33,22 +33,31 @@ class FlowMap {
     }
 
     linkNext(fromId, toId) {
-        const update = this.nextNodeRules(this.queryNode(toId));
-        if(update) {
-            this.queryNode(fromId).set('nextNode', update);
+        const updateNextNode = this.nextNodeRules(fromId, toId);
+        const updateThisNode = this.prevNodeRules(toId, fromId);
+        if (updateNextNode) {
+            this.queryNode(fromId).set('nextNode', updateNextNode);
         }
         else {
             this.queryNode(fromId).set('nextNode', this.queryNode(toId));
         }
-        this.queryNode(toId).set('prevNode', this.queryNode(fromId));
+        if (updateThisNode) {
+            updateNextNode();
+        }
+        else {
+            this.queryNode(toId).set('prevNode', this.queryNode(fromId));
+        }
     }
 
-    nextNodeRules(node) {
-        const nodeType = node.type;
-        console.log(nodeType)
+    nextNodeRules(fromId, toId) {
+        const nodeType = this.queryNode(toId).type;
         const rules = {
             PreconditionsNode: (() => {
-                return node.mountPreconditionsNodes();
+                this.queryNode(toId).set('prevNode', this.queryNode(fromId));
+                this.queryNode(fromId).nextNode = this.queryNode(toId).mountPreconditionsNodes();
+                // .set('nextNode', this.queryNode(toId).mountPreconditionsNodes());
+                // console.log(this.queryNode(fromId).nextNode)
+                return this.queryNode(toId).mountPreconditionsNodes();
             }),
             SwitchNode: (() => {
                 return node.mountPathCasesNodes();
@@ -60,20 +69,65 @@ class FlowMap {
         }
         return false;
     }
+
+    prevNodeRules(toId, fromId) {
+        const nodeType = this.queryNode(fromId).type;
+        const rules = {
+            PreconditionsNode: (() => {
+                this.queryNode(toId).set('prevNode', this.queryNode(fromId).preconditionsNodes);
+                this.queryNode(fromId).set('nextNode', this.queryNode(toId));
+                this.queryNode(fromId).mountPreconditionsNodes();
+            }),
+            SwitchNode: (() => {
+                return node.mountPathCasesNodes;
+            })
+        }
+
+        if (rules.hasOwnProperty(nodeType)) {
+            return rules[nodeType]();
+        }
+        return false;
+    }
+
+    refreshNodes() {
+        for (const node of this.flowchartNodes) {
+            try {
+                this.queryNode(node.id).prevNode = Array.isArray(this.queryNode(this.queryNode(node.id).prevNode)) ?
+                    (() => {
+                        for (const condition of this.queryNode(this.queryNode(node.id).prevNode)) {
+                            return this.queryNode(this.queryNode(node.id).prevNode[this.queryNode(node.id).prevNode.indexOf(condition)].id).mountNodes()
+                        }
+                    }) : this.queryNode(this.queryNode(node.id).prevNode);
+                    this.queryNode(node.id).nextNode = Array.isArray(this.queryNode(this.queryNode(node.id).nextNode)) ?
+                    (() => {
+                        for (const condition of this.queryNode(this.queryNode(node.id).nextNode)) {
+                            return this.queryNode(this.queryNode(node.id).nextNode[this.queryNode(node.id).nextNode.indexOf(condition)].id).mountNodes()
+                        }
+                    }) : this.queryNode(this.queryNode(node.id).nextNode);
+            }
+            catch (error){
+                console.log(error);
+            }
+        }
+    }
 }
 
 teste = new FlowMap();
 
-teste.newNode('node', { name: 'Inicio' });
+teste.newNode('starting', { name: 'Inicio' });
 teste.newNode('preconditions', {
-    name: 'Inicio',
+    name: 'Precondicao',
     preconditions: ['#desambiguadorPagarConta', '#desambiguador2Via']
 });
 teste.newNode('node', { name: 'Fim' });
+teste.flowchartNodes[2].turnTargetNode();
 
 
 teste.linkNext(teste.flowchartNodes[0].id, teste.flowchartNodes[1].id);
-console.log(teste.flowchartNodes);
+teste.linkNext(teste.flowchartNodes[1].id, teste.flowchartNodes[2].id);
 
+
+// console.log(teste.flowchartNodes[1].preconditionsNodes[0], 'dentro do flowmap')
+teste.flowchartNodes[0].mapScenarios();
 
 module.exports = FlowMap;

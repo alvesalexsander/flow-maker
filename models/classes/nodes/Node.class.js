@@ -32,56 +32,40 @@ class Node {
         return this.targetNode ? this.targetNode : false
     }
 
-    next(){
-        if (this.nextNode){
+    next() {
+        if (this.nextNode) {
             return this.nextNode;
         }
-        else{
+        else {
             return false;
         }
     }
 
-    prev(){
-        if (this.prevNode){
+    prev() {
+        if (this.prevNode) {
             return this.prevNode;
         }
-        else{
+        else {
             return false;
         }
     }
 
     mapScenarios(prevStepMessages) {
-        if (prevStepMessages != []) {
-            if (this.stepMessage != undefined){
-                if (this.nextNode.targetNode) {
-                    prevStepMessages.push(this.stepMessage);
-                    this.nextNode.endFlowScenario(prevStepMessages);
-                }
-                else if (Array.isArray(this.nextNode)) {
-                    for (const node of this.nextNode) {
-                        let nodeStepMessage = [].concat(prevStepMessages);
-                        nodeStepMessage.push(this.stepMessage);
-                        node.mapScenarios(nodeStepMessage);
-                    }
-                }
-                else {
-                    prevStepMessages.push(this.stepMessage);
-                    if (this.nextNode.mapScenarios){
-                        this.nextNode.mapScenarios(prevStepMessages);
-                    }
+        if (prevStepMessages) {
+            if (this.nextNode.targetNode) {
+                prevStepMessages.push(this.stepMessage);
+                this.nextNode.endFlowScenario(prevStepMessages);
+            }
+            else if (Array.isArray(this.nextNode)) {
+                for (const node of this.nextNode) {
+                    let nodeStepMessage = [].concat(prevStepMessages);
+                    nodeStepMessage.push(this.stepMessage);
+                    node.mapScenarios(nodeStepMessage);
                 }
             }
             else {
-                if (this.nextNode.targetNode) {
-                    this.nextNode.endFlowScenario(prevStepMessages);
-                }
-                else if (Array.isArray(this.nextNode)) {
-                    for (const node of this.nextNode) {
-                        let nodeStepMessage = [].concat(prevStepMessages);
-                        node.mapScenarios(nodeStepMessage);
-                    }
-                }
-                else {
+                prevStepMessages.push(this.stepMessage);
+                if (this.nextNode.mapScenarios) {
                     this.nextNode.mapScenarios(prevStepMessages);
                 }
             }
@@ -90,7 +74,8 @@ class Node {
 
     endFlowScenario(prevStepMessages) {
         if (this.targetNode == true) {
-            prevStepMessages.push(this.stepMessage);
+            prevStepMessages.push(this.get('stepMessage'));
+            console.log(prevStepMessages)
         }
     }
 
@@ -99,7 +84,6 @@ class Node {
         if (typeof property == 'string') {
             this[property] = value;
         }
-        return this;
     }
 
     get(property) {
@@ -107,7 +91,6 @@ class Node {
         if (this.hasOwnProperty(property) && typeof property == 'string') {
             return this[property];
         }
-        return this;
     }
 }
 

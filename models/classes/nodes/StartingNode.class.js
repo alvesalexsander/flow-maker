@@ -44,10 +44,6 @@ class StartingNode extends Node {
             this.nextNode.mapScenarios([]);
         }
     }
-
-    setNextNode(node) {
-        super.setNextNode(node);
-    }
 }
 
 module.exports = StartingNode;

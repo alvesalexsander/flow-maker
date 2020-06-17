@@ -35,12 +35,37 @@ class PreconditionsNode extends Node {
                     prevNode: this.prevNode,
                     nextNode: this.nextNode
                 });
+                precondition.parent = this.id;
                 delete precondition.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
                 delete precondition.plugIn;
 
                 preconditionsNodes.push(precondition);
             }
             this.preconditionsNodes = preconditionsNodes;
+            this.updatePrevNode();
+            return this.preconditionsNodes;
+        }
+    }
+
+    mountNodes() {
+        if (Array.isArray(this.preconditions)) {
+            let preconditionsNodes = [];
+            for (let precondition of this.preconditions) {
+                precondition = new OutputMessageNode({
+                    name: `Pré-condição '${precondition}'`,
+                    stepMessage: `Testar condição: ${precondition}`,
+                    expectedMessage: `Testar condição: ${precondition}`,
+                    prevNode: this.prevNode,
+                    nextNode: this.nextNode
+                });
+                precondition.parent = this.id;
+                delete precondition.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
+                delete precondition.plugIn;
+
+                preconditionsNodes.push(precondition);
+            }
+            this.preconditionsNodes = preconditionsNodes;
+            this.updatePrevNode();
             return this.preconditionsNodes;
         }
     }
@@ -73,6 +98,12 @@ class PreconditionsNode extends Node {
             return this.prevNode;
         }
         return false;
+    }
+
+    updatePrevNode(){
+        if(this.prevNode) {
+            this.prevNode.set('nextNode', this.preconditionsNodes);
+        }
     }
 }
 
