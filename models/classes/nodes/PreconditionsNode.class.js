@@ -48,56 +48,31 @@ class PreconditionsNode extends Node {
     }
 
     mountNodes() {
-        if (Array.isArray(this.preconditions)) {
-            let preconditionsNodes = [];
-            for (let precondition of this.preconditions) {
-                precondition = new OutputMessageNode({
-                    name: `Pré-condição '${precondition}'`,
-                    stepMessage: `Testar condição: ${precondition}`,
-                    expectedMessage: `Testar condição: ${precondition}`,
-                    prevNode: this.prevNode,
-                    nextNode: this.nextNode
-                });
-                precondition.parent = this.id;
-                delete precondition.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
-                delete precondition.plugIn;
+        // if (Array.isArray(this.preconditions)) {
+        //     let preconditionsNodes = [];
+        //     for (let precondition of this.preconditions) {
+        //         precondition = new OutputMessageNode({
+        //             name: `Pré-condição '${precondition}'`,
+        //             stepMessage: `Testar condição: ${precondition}`,
+        //             expectedMessage: `Testar condição: ${precondition}`,
+        //             prevNode: this.prevNode,
+        //             nextNode: this.nextNode
+        //         });
+        //         precondition.parent = this.id;
+        //         delete precondition.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
+        //         delete precondition.plugIn;
 
-                preconditionsNodes.push(precondition);
-            }
-            this.preconditionsNodes = preconditionsNodes;
-            this.updatePrevNode();
-            return this.preconditionsNodes;
-        }
+        //         preconditionsNodes.push(precondition);
+        //     }
+        //     this.preconditionsNodes = preconditionsNodes;
+        //     // this.updatePrevNode();
+        //     return this.preconditionsNodes;
+        // }
     }
 
     setPreconditions(preconditions) {
         this.preconditions = preconditions;
         this.mountPreconditionsNodes();
-    }
-
-    setNextNode(node) {
-        super.setNextNode(node);
-        this.mountPreconditionsNodes();
-        if (this.prevNode) {
-            this.prevNode.nextNode = this.preconditionsNodes;
-        }
-    }
-
-    setPrevNode(node) {
-        super.setPrevNode(node);
-        this.mountPreconditionsNodes();
-        // return ['nextNode', this.preconditionsNodes];
-    }
-
-    getNextNode() {
-
-    }
-
-    getPrevNode() {
-        if (this.prevNode) {
-            return this.prevNode;
-        }
-        return false;
     }
 
     updatePrevNode(){

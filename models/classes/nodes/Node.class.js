@@ -51,6 +51,7 @@ class Node {
     }
 
     mapScenarios(prevStepMessages) {
+        // console.log(this.type, ' :: MAP SCENARIOS')
         if (prevStepMessages) {
             if (this.nextNode.targetNode) {
                 prevStepMessages.push(this.stepMessage);
@@ -58,6 +59,20 @@ class Node {
             }
             else if (Array.isArray(this.nextNode)) {
                 for (const node of this.nextNode) {
+                    let nodeStepMessage = [].concat(prevStepMessages);
+                    nodeStepMessage.push(this.stepMessage);
+                    node.mapScenarios(nodeStepMessage);
+                }
+            }
+            else if (Array.isArray(this.pathNodes)) {
+                for (const node of this.pathNodes) {
+                    let nodeStepMessage = [].concat(prevStepMessages);
+                    nodeStepMessage.push(this.stepMessage);
+                    node.mapScenarios(nodeStepMessage);
+                }
+            }
+            else if (Array.isArray(this.preconditionsNodes)) {
+                for (const node of this.preconditionsNodes) {
                     let nodeStepMessage = [].concat(prevStepMessages);
                     nodeStepMessage.push(this.stepMessage);
                     node.mapScenarios(nodeStepMessage);
@@ -75,7 +90,8 @@ class Node {
     endFlowScenario(prevStepMessages) {
         if (this.targetNode == true) {
             prevStepMessages.push(this.get('stepMessage'));
-            console.log(prevStepMessages)
+            const testScenario = prevStepMessages.filter((stepMessage) => stepMessage)
+            console.log(testScenario);
         }
     }
 

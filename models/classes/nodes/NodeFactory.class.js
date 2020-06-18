@@ -3,6 +3,8 @@ const valueDefault = require('../../integrityRequirements/valueDefault');
 
 class NodeFactory {
 
+    produces = ['Node', 'StartingNode', 'PreconditionsNode', 'OutputMessageNode', 'SwitchNode', 'DecisionNode', 'InvokerNode'];
+
     getParams({
         name = null,
         stepMessage = null,
