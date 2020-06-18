@@ -32,6 +32,7 @@ class SwitchNode extends Node {
                     plugIn: this.plugIn,
                     prevNode: this.prevNode,
                 });
+                caso.parent = this.id;
                 delete caso.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
                 delete this.turnTargetNode;
                 caseNodes.push(caso);

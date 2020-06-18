@@ -39,7 +39,7 @@ class FlowMap {
                 return this.flowchartNodes[this.flowchartNodes.indexOf(node)];
             }
             if (node.hasOwnProperty('pathNodes')) {
-                for (const path of node.pathNodes){
+                for (const path of node.pathNodes) {
                     if (path.id == data) {
                         return path;
                     }
@@ -80,19 +80,31 @@ class FlowMap {
      * @param {*} toId String - O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como nextNode
      */
     nextNodeRules(fromId, toId) {
-        const nodeType = this.queryNode(toId).type;
+        const fromNodeType = this.queryNode(fromId).type;
+        const toNodeType = this.queryNode(toId).type
         const rules = {
             PreconditionsNode: (() => {
+                if (fromNodeType == 'PreconditionsNode' && toNodeType == 'PreconditionsNode') {
+                    this.queryNode(toId).set('prevNode', this.queryNode(fromId));
+                    this.queryNode(toId).nextNode = this.queryNode(fromId).mountPreconditionsNodes();
+                    // console.log(this.queryNode(fromId), 'FROM')
+                    // console.log(this.queryNode(toId), 'TO')
+                    return this.queryNode(toId).mountPreconditionsNodes();
+                }
                 this.queryNode(toId).set('prevNode', this.queryNode(fromId));
                 return this.queryNode(toId).mountPreconditionsNodes();
             }),
             SwitchNode: (() => {
-                this.queryNode(toId).set('prevNode', this.queryNode(fromId));
+                if (fromNodeType == "PreconditionsNode") {
+                    this.queryNode(toId).set('prevNode', this.queryNode(fromId));
+                    this.queryNode(toId).mountPathNodes();
+                }
+                this.queryNode(toId).prevNode = this.queryNode(fromId);
                 return this.queryNode(toId).mountPathNodes();
             }),
         }
-        if (rules.hasOwnProperty(nodeType)) {
-            return rules[nodeType]();
+        if (rules.hasOwnProperty(toNodeType)) {
+            return rules[toNodeType]();
         }
         return false;
     }
@@ -104,16 +116,18 @@ class FlowMap {
      * @param {*} toId String - O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como nextNode
      */
     prevNodeRules(toId, fromId) {
-        const nodeType = this.queryNode(fromId).type;
+        const fromNodeType = this.queryNode(fromId).type;
+        const toNodeType = this.queryNode(toId).type
         const rules = {
             PreconditionsNode: (() => {
-                if (nodeType == 'SwitchNode') {
+                if (toNodeType == 'SwitchNode') {
                     this.queryNode(fromId).nextNode = this.queryNode(toId).mountPathNodes();
-                    // this.queryNode(fromId).mountPreconditionsNodes();
+                    this.queryNode(fromId).mountPreconditionsNodes();
                     return this.queryNode(toId).pathNodes;
                 }
-                if (nodeType == 'PreconditionsNode') {
-                    
+                if (fromNodeType == 'PreconditionsNode' && toNodeType == 'PreconditionsNode') {
+                    this.queryNode(fromId).nextNode = this.queryNode(toId).mountPreconditionsNodes();
+                    return this.queryNode(toId).pathNodes;
                 }
                 this.queryNode(fromId).set('nextNode', this.queryNode(toId));
                 this.queryNode(fromId).mountPreconditionsNodes();
@@ -123,8 +137,8 @@ class FlowMap {
                 // console.log('trigou');
             })
         }
-        if (rules.hasOwnProperty(nodeType)) {
-            return rules[nodeType]();
+        if (rules.hasOwnProperty(fromNodeType)) {
+            return rules[fromNodeType]();
         }
         return false;
     }

@@ -4,6 +4,7 @@ const teste = new FlowMap();
 
 teste.newNode('starting', { name: 'INICIO' });
 teste.newNode('preconditions', { name: 'Precondicoes', preconditions: ['Testar #desambiguadorPagarConta', 'Testar #desambiguador2Via', ] });
+teste.newNode('preconditions', { name: 'PrecondicoesTESTE', preconditions: ['Testar #desambiguadorPagarContaTESTE', 'Testar #desambiguador2ViaTESTE', ] });
 teste.newNode('switch', { name: 'Obter Dados do Cliente', condition: 'Sucesso no billing-profile?', pathCases: ['Sim', 'Não'] });
 teste.newNode('node', { name: 'Acolhimento', stepMessage: 'URA Cognitiva atende a ligação' });
 teste.newNode('switch', { name: 'Verifica se é Conta Digital', condition: 'É Conta Digital?', pathCases: ['Sim', 'Não'] });
