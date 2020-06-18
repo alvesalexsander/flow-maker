@@ -1,4 +1,5 @@
 const shortid = require('shortid');
+const { PreconditionsNode } = require('.');
 
 class Node {
     // Node básico. Contém propriedades e metódos que podem ser extendidos por quase todos os outros Nodes.
@@ -106,6 +107,28 @@ class Node {
         // Verifica se o objeto instanciado possui a propriedade. Caso sim, retorna o seu valor.
         if (this.hasOwnProperty(property) && typeof property == 'string') {
             return this[property];
+        }
+    }
+
+    setNextNode(node) {
+        if(node.type == 'PreconditionsNode'){
+            const nextNodes = [];
+            for (const path of node.preconditionsNodes){
+                nextNodes.push(path.id);
+            }
+            this.nextNode = nextNodes;
+            return;
+        }
+        else if(node.type == 'SwitchNode'){
+            const nextNodes = [];
+            for (const path of node.pathNodes){
+                nextNodes.push(path.id);
+            }
+            this.nextNode = nextNodes;
+            return;
+        }
+        else {
+            this.nextNode = node.id;
         }
     }
 }
