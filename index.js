@@ -1,4 +1,7 @@
 const FlowMap = require('./models/classes/flows/FlowMap.class');
+const ScenarioStorage = require('./models/classes/common/Scenario.storage');
+
+global.scenarioStorage = new ScenarioStorage();
 
 const teste = new FlowMap();
 
@@ -28,4 +31,6 @@ teste.linkNext(teste.queryNode('Verifica se é Conta Digital').getPath('Sim').id
 teste.linkNext(teste.queryNode('Envia fatura por SMS').id, teste.queryNode('Deu bom').id);
 teste.linkNext(teste.queryNode('Verifica se é Conta Digital').getPath('Não').id, teste.queryNode('Deu ruim').id);
 
-teste.queryNode('INICIO').mapScenarios();
+// teste.queryNode('INICIO').mapScenarios();
+
+teste.mapScenarios();

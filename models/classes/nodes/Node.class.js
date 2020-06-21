@@ -52,7 +52,7 @@ class Node {
     }
 
     mapScenarios(prevStepMessages) {
-        // console.log(this.type, ' :: MAP SCENARIOS')
+
         if (prevStepMessages) {
             if (this.nextNode.targetNode) {
                 prevStepMessages.push(this.stepMessage);
@@ -91,8 +91,8 @@ class Node {
     endFlowScenario(prevStepMessages) {
         if (this.targetNode == true) {
             prevStepMessages.push(this.get('stepMessage'));
-            const testScenario = prevStepMessages.filter((stepMessage) => stepMessage)
-            console.log(testScenario);
+            const testScenario = prevStepMessages.filter((stepMessage) => stepMessage);
+            scenarioStorage.pushNewScenarios(testScenario);
         }
     }
 

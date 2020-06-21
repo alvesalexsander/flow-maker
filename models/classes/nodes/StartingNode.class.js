@@ -30,19 +30,22 @@ class StartingNode extends Node {
     }
 
     mapScenarios() {
-        if (this.nextNode.targetNode) {
-            this.nextNode.endFlowScenario([]);
-        }
-        else if (Array.isArray(this.nextNode)) {
-            for (const node of this.nextNode) {
-                if (node.mapScenarios) {
-                    node.mapScenarios([]);
+        const promise = new Promise((resolve, reject) => {
+            if (this.nextNode.targetNode) {
+                resolve(this.nextNode.endFlowScenario([]));
+            }
+            else if (Array.isArray(this.nextNode)) {
+                for (const node of this.nextNode) {
+                    if (node.mapScenarios) {
+                        resolve(node.mapScenarios([]));
+                    }
                 }
             }
-        }
-        else {
-            this.nextNode.mapScenarios([]);
-        }
+            else {
+                resolve(this.nextNode.mapScenarios([]));
+            }
+        })
+        return promise;
     }
 }
 

@@ -1,5 +1,4 @@
 const shortid = require('shortid');
-const _isEqual = require('lodash.isequal');
 
 const Factory = require('../common/Factory.class');
 
@@ -7,6 +6,7 @@ class FlowMap {
     factory = new Factory();
 
     flowchartNodes = [];
+    scenarios = [];
 
     constructor({ name = 'NewFlow' } = {}) {
         this.id = shortid.generate();
@@ -20,14 +20,20 @@ class FlowMap {
      */
     newNode(type, params) {
         const build = `build${type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()}`;
-        const newNode = this.factory.node[build](params)
-        this.flowchartNodes.push(newNode);
+        const newNode = this.factory.node[build](params);
+        if (newNode) {
+            newNode.flowmap = this.id;
+            this.flowchartNodes.push(newNode);
+            if (newNode.type == 'StartingNode') {
+                this.startingNode = newNode;
+            }
+        }
         return newNode;
     }
 
     /**
      * Localiza um Node pelo 'id' dentro do container de Nodes 'flowchartNode' criado neste FlowMap.
-     * @param {*} id String - Valor da propriedade 'id' de um node
+     * @param {*} data String - Valor da propriedade 'id' de um node ou nome do node.
      */
     queryNode(data) {
         for (const node of this.flowchartNodes) {
@@ -70,7 +76,6 @@ class FlowMap {
         else {
             this.queryNode(toId).set('prevNode', this.queryNode(fromId));
         }
-        // this.refreshNodes();
     }
 
     /**
@@ -87,8 +92,6 @@ class FlowMap {
                 if (fromNodeType == 'PreconditionsNode' && toNodeType == 'PreconditionsNode') {
                     this.queryNode(toId).set('prevNode', this.queryNode(fromId));
                     this.queryNode(toId).nextNode = this.queryNode(fromId).mountPreconditionsNodes();
-                    // console.log(this.queryNode(fromId), 'FROM')
-                    // console.log(this.queryNode(toId), 'TO')
                     return this.queryNode(toId).mountPreconditionsNodes();
                 }
                 this.queryNode(toId).set('prevNode', this.queryNode(fromId));
@@ -132,9 +135,6 @@ class FlowMap {
                 this.queryNode(fromId).set('nextNode', this.queryNode(toId));
                 this.queryNode(fromId).mountPreconditionsNodes();
                 return true;
-            }),
-            DecisionNode: (() => {
-                // console.log('trigou');
             })
         }
         if (rules.hasOwnProperty(fromNodeType)) {
@@ -143,48 +143,14 @@ class FlowMap {
         return false;
     }
 
-    /**
-     * Compara o estado dos 'prevNodes' e 'nextNodes' com o estado atual dos objetos em 'this.flowchartNodes'
-     * Se houverem diferenças, atualiza o node em sua posição respectiva dentro dos outros objetos.
-     * Para garantir a consistência dos estados.
-     */
-    refreshNodes() {
-        for (const node of this.flowchartNodes) {
-            try {
-                //   IMPLEMENTAR REFRESH PARA NON-ARRAYS
-                if (this.queryNode(node.id).prev()) {
-                    if (Array.isArray(this.queryNode(node.id).prev())) {
-                        for (const [idx, condition] of this.queryNode(node.id).prev().entries()) {
-                            if (!_isEqual(condition, node.prev()[idx])) {
-                                this.linkPrev(this.queryNode(node.id), this.queryNode(condition.parent))
-                            }
-                        }
-                    }
-                    else {
-                        if (!_isEqual(node.prev(), this.queryNode(node.prev().id))) {
-                            node.set('prevNode', this.queryNode(node.prev().id));
-                        }
-                    }
-                }
-                if (this.queryNode(node.id).next()) {
-                    if (Array.isArray(this.queryNode(node.id).next())) {
-                        for (const [idx, condition] of this.queryNode(node.id).next().entries()) {
-
-                            if (!_isEqual(condition, node.next()[idx])) {
-                                this.linkNext(this.queryNode(node.id), this.queryNode(condition.parent))
-                            }
-                        }
-                    }
-                    else {
-                        if (!_isEqual(node.next(), this.queryNode(node.next().id))) {
-                            node.set('nextNode', this.queryNode(node.next().id));
-                        }
-                    }
-                }
-            }
-            catch (error) {
-                console.log(error);
-            }
+    mapScenarios() {
+        if (this.startingNode) {
+            this.startingNode.mapScenarios()
+                .then(() => {
+                    this.scenarios = scenarioStorage.extractScenarios();
+                    console.log(this.scenarios);
+                })
+                .catch(error => console.log(error));
         }
     }
 }
