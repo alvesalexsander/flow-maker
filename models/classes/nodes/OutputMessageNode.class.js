@@ -9,10 +9,10 @@ class OutputMessageNode extends Node {
     constructor({
         name,
         stepMessage,
-        prevNode,
+        // prevNode,
         nextNode,
         expectedMessage}) {
-        super({ name, stepMessage, prevNode, nextNode });
+        super({ name, stepMessage, /* prevNode, */ nextNode });
         this.set('expectedMessage', expectedMessage);
     }
 }

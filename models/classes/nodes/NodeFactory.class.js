@@ -9,7 +9,7 @@ class NodeFactory {
         name = null,
         stepMessage = null,
         nextNode = null,
-        prevNode = null,
+        // prevNode = null,
         expectedMessage = null,
         preconditions = [],
         condition = null,

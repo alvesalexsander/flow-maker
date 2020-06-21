@@ -7,19 +7,19 @@ class Node {
     name
     stepMessage
     nextNode
-    prevNode
+    // prevNode
     targetNode = false;
 
     constructor({
         name,
         stepMessage,
-        prevNode,
+        // prevNode,
         nextNode }) {
         this.type = this.constructor.name;
         this.set('id', shortid.generate());
         this.set('name', name);
         this.set('stepMessage', stepMessage);
-        this.set('prevNode', prevNode);
+        // this.set('prevNode', prevNode);
         this.set('nextNode', nextNode);
     }
 
@@ -42,48 +42,53 @@ class Node {
         }
     }
 
-    prev() {
+    /* prev() {
         if (this.prevNode) {
             return this.prevNode;
         }
         else {
             return false;
         }
-    }
+    } */
 
     mapScenarios(prevStepMessages) {
 
         if (prevStepMessages) {
-            if (this.nextNode.targetNode) {
-                prevStepMessages.push(this.stepMessage);
-                this.nextNode.endFlowScenario(prevStepMessages);
-            }
-            else if (Array.isArray(this.nextNode)) {
-                for (const node of this.nextNode) {
-                    let nodeStepMessage = [].concat(prevStepMessages);
-                    nodeStepMessage.push(this.stepMessage);
-                    node.mapScenarios(nodeStepMessage);
+            try {
+                if (this.nextNode.targetNode) {
+                    prevStepMessages.push(this.stepMessage);
+                    this.nextNode.endFlowScenario(prevStepMessages);
+                }
+                else if (Array.isArray(this.nextNode)) {
+                    for (const node of this.nextNode) {
+                        let nodeStepMessage = [].concat(prevStepMessages);
+                        nodeStepMessage.push(this.stepMessage);
+                        node.mapScenarios(nodeStepMessage);
+                    }
+                }
+                else if (Array.isArray(this.pathNodes)) {
+                    for (const node of this.pathNodes) {
+                        let nodeStepMessage = [].concat(prevStepMessages);
+                        nodeStepMessage.push(this.stepMessage);
+                        node.mapScenarios(nodeStepMessage);
+                    }
+                }
+                else if (Array.isArray(this.preconditionsNodes)) {
+                    for (const node of this.preconditionsNodes) {
+                        let nodeStepMessage = [].concat(prevStepMessages);
+                        nodeStepMessage.push(this.stepMessage);
+                        node.mapScenarios(nodeStepMessage);
+                    }
+                }
+                else {
+                    prevStepMessages.push(this.stepMessage);
+                    if (this.nextNode.mapScenarios) {
+                        this.nextNode.mapScenarios(prevStepMessages);
+                    }
                 }
             }
-            else if (Array.isArray(this.pathNodes)) {
-                for (const node of this.pathNodes) {
-                    let nodeStepMessage = [].concat(prevStepMessages);
-                    nodeStepMessage.push(this.stepMessage);
-                    node.mapScenarios(nodeStepMessage);
-                }
-            }
-            else if (Array.isArray(this.preconditionsNodes)) {
-                for (const node of this.preconditionsNodes) {
-                    let nodeStepMessage = [].concat(prevStepMessages);
-                    nodeStepMessage.push(this.stepMessage);
-                    node.mapScenarios(nodeStepMessage);
-                }
-            }
-            else {
-                prevStepMessages.push(this.stepMessage);
-                if (this.nextNode.mapScenarios) {
-                    this.nextNode.mapScenarios(prevStepMessages);
-                }
+            catch (error) {
+                console.log(error);
             }
         }
     }
@@ -111,17 +116,17 @@ class Node {
     }
 
     setNextNode(node) {
-        if(node.type == 'PreconditionsNode'){
+        if (node.type == 'PreconditionsNode') {
             const nextNodes = [];
-            for (const path of node.preconditionsNodes){
+            for (const path of node.preconditionsNodes) {
                 nextNodes.push(path.id);
             }
             this.nextNode = nextNodes;
             return;
         }
-        else if(node.type == 'SwitchNode'){
+        else if (node.type == 'SwitchNode') {
             const nextNodes = [];
-            for (const path of node.pathNodes){
+            for (const path of node.pathNodes) {
                 nextNodes.push(path.id);
             }
             this.nextNode = nextNodes;

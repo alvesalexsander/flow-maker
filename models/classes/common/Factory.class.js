@@ -1,7 +1,6 @@
 const NodeFactory = require('../nodes/NodeFactory.class');
 
 class Factory {
-    node = new NodeFactory();
 
     constructor() {
         console.log('Factory instanciada.');
@@ -17,6 +16,10 @@ class Factory {
             return this[factoryName].produces.some((type) => node.constructor.name == type);
         }
         return false;
+    }
+
+    createNodeFactory(){
+        return new NodeFactory();
     }
 
 }

@@ -3,7 +3,7 @@ const shortid = require('shortid');
 const Factory = require('../common/Factory.class');
 
 class FlowMap {
-    factory = new Factory();
+    factory = new Factory().createNodeFactory();
 
     flowchartNodes = [];
     scenarios = [];
@@ -20,7 +20,7 @@ class FlowMap {
      */
     newNode(type, params) {
         const build = `build${type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()}`;
-        const newNode = this.factory.node[build](params);
+        const newNode = this.factory[build](params);
         if (newNode) {
             newNode.flowmap = this.id;
             this.flowchartNodes.push(newNode);
@@ -65,17 +65,27 @@ class FlowMap {
         const updateNextNode = this.nextNodeRules(fromId, toId);
         const updatePrevNode = this.prevNodeRules(toId, fromId);
         if (updateNextNode) {
-            this.queryNode(fromId).set('nextNode', updateNextNode);
+            try {
+                this.queryNode(fromId).set('nextNode', updateNextNode);
+            }
+            catch(e) {
+                console.log(e);
+            }
         }
         else {
-            this.queryNode(fromId).set('nextNode', this.queryNode(toId));
+            try{
+                this.queryNode(fromId).set('nextNode', this.queryNode(toId));
+            }
+            catch(e){
+                console.log(e);
+            }
         }
-        if (updatePrevNode) {
+        /* if (updatePrevNode) {
             this.queryNode(toId).set('prevNode', updatePrevNode);
         }
         else {
             this.queryNode(toId).set('prevNode', this.queryNode(fromId));
-        }
+        } */
     }
 
     /**
@@ -90,12 +100,14 @@ class FlowMap {
         const rules = {
             PreconditionsNode: (() => {
                 if (fromNodeType == 'PreconditionsNode' && toNodeType == 'PreconditionsNode') {
-                    this.queryNode(toId).set('prevNode', this.queryNode(fromId));
-                    this.queryNode(toId).nextNode = this.queryNode(fromId).mountPreconditionsNodes();
-                    return this.queryNode(toId).mountPreconditionsNodes();
+                    // /* this.queryNode(toId).set('prevNode', this.queryNode(fromId));
+                    // this.queryNode(fromId).nextNode = this.queryNode(fromId).mountPathNodes();
+                    // return this.queryNode(toId).mountPathNodes(); */
+                    const errorMessage = 'Error Linking PreconditionNode a outro PreconditionNode :: Por favor, unifique os dois nós de precondicao em um só.'
+                    console.log(new Error(errorMessage))
                 }
                 this.queryNode(toId).set('prevNode', this.queryNode(fromId));
-                return this.queryNode(toId).mountPreconditionsNodes();
+                return this.queryNode(toId).mountPathNodes();
             }),
             SwitchNode: (() => {
                 if (fromNodeType == "PreconditionsNode") {
@@ -125,15 +137,15 @@ class FlowMap {
             PreconditionsNode: (() => {
                 if (toNodeType == 'SwitchNode') {
                     this.queryNode(fromId).nextNode = this.queryNode(toId).mountPathNodes();
-                    this.queryNode(fromId).mountPreconditionsNodes();
+                    this.queryNode(fromId).mountPathNodes();
                     return this.queryNode(toId).pathNodes;
                 }
                 if (fromNodeType == 'PreconditionsNode' && toNodeType == 'PreconditionsNode') {
-                    this.queryNode(fromId).nextNode = this.queryNode(toId).mountPreconditionsNodes();
+                    this.queryNode(fromId).nextNode = this.queryNode(toId).mountPathNodes();
                     return this.queryNode(toId).pathNodes;
                 }
                 this.queryNode(fromId).set('nextNode', this.queryNode(toId));
-                this.queryNode(fromId).mountPreconditionsNodes();
+                this.queryNode(fromId).mountPathNodes();
                 return true;
             })
         }

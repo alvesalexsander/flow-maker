@@ -13,7 +13,7 @@ class SwitchNode extends Node {
     constructor({
         name,
         condition,
-        pathCases =[]}) {
+        pathCases = [] }) {
         super({ name }); // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
         delete this.turnTargetNode;
 
@@ -30,7 +30,7 @@ class SwitchNode extends Node {
                     name: `${caso}`,
                     stepMessage: `${this.condition} - ${caso}`,
                     plugIn: this.plugIn,
-                    prevNode: this.prevNode,
+                    // prevNode: this.prevNode,
                 });
                 caso.parent = this.id;
                 delete caso.targetNode; // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
@@ -45,13 +45,25 @@ class SwitchNode extends Node {
 
     getPath(pathName) {
         if (Array.isArray(this.pathNodes)) {
-            return this.pathNodes.filter((path) => pathName.toLowerCase() == path.name.toLowerCase())[0];
+            try {
+                if(this.pathNodes.filter((path) => pathName.toLowerCase() == path.name.toLowerCase()).length == 1){
+                    return this.pathNodes.filter((path) => pathName.toLowerCase() == path.name.toLowerCase())[0];
+                }
+                else {
+                    throw new Error(` :: getPath :: Decisão de SwitchNode(${this.name}) com nome '${pathName}' não é válida.`);
+                }
+            }
+            catch(e) {
+                console.log(e);
+                // console.log(`ERROR :: getPath :: Decisão de SwitchNode(${this.name}) com nome '${pathName}' não é válida.`);
+            }
+            
         }
         return false;
     }
 
-    updatePrevNode(){
-        if(this.prevNode) {
+    updatePrevNode() {
+        if (this.prevNode) {
             this.prevNode.set('nextNode', this.pathNodes);
         }
     }
