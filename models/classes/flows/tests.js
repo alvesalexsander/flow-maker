@@ -16,10 +16,6 @@ const instantiation = {
                 condition: 'É conta digital?',
                 pathCases: ["Sim", "Não"]
             });
-            instance = new FlowSequence({
-                previousNode: node1,
-                nextNode: node2
-            });
             return true;
         }
         catch (e) {
