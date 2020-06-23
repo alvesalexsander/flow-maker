@@ -1,8 +1,5 @@
-const valueDefault = require('../../integrityRequirements/valueDefault');
-
 const Node = require('./Node.class');
 const DecisionNode = require('./DecisionNode.class');
-const EventEmitter = require('../shared/EventEmitter.class');
 
 class SwitchNode extends Node {
     // Node que representa uma decisão condicional.

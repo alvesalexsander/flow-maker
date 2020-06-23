@@ -6,7 +6,7 @@ class FlowMap {
     factory = new Factory().createNodeFactory();
 
     flowchartNodes = [];
-    scenarios = [];
+    scenarios = {};
 
     constructor({ name = 'NewFlow' } = {}) {
         this.id = shortid.generate();
@@ -19,16 +19,21 @@ class FlowMap {
      * @param {*} params Parametros de instanciação do Node ()
      */
     newNode(type, params) {
-        const build = `build${type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()}`;
-        const newNode = this.factory[build](params);
-        if (newNode) {
-            newNode.flowmap = this.id;
-            this.flowchartNodes.push(newNode);
-            if (newNode.type == 'StartingNode') {
-                this.startingNode = newNode;
+        try {
+            const build = `build${type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()}`;
+            const newNode = this.factory[build](params);
+            if (newNode) {
+                newNode.flowmap = this.id;
+                this.flowchartNodes.push(newNode);
+                if (newNode.type == 'StartingNode') {
+                    this.startingNode = newNode;
+                }
+                return newNode;
             }
         }
-        return newNode;
+        catch (e) {
+            throw new Error(`NEWNODE :: Erro na criação de node. Verifique os parametros passados - type: '${type}', params: '${JSON.stringify(params)}`)
+        }
     }
 
     /**
@@ -68,15 +73,15 @@ class FlowMap {
             try {
                 this.queryNode(fromId).set('nextNode', updateNextNode);
             }
-            catch(e) {
+            catch (e) {
                 console.log(e);
             }
         }
         else {
-            try{
+            try {
                 this.queryNode(fromId).set('nextNode', this.queryNode(toId));
             }
-            catch(e){
+            catch (e) {
                 console.log(e);
             }
         }
@@ -167,7 +172,7 @@ class FlowMap {
     }
 }
 
-teste = new FlowMap();
+// teste = new FlowMap();
 
 // teste.newNode('starting', { name: 'Inicio' });
 // teste.newNode('preconditions', { name: 'Precondicao', preconditions: ['#desambiguadorPagarConta', '#desambiguador2Via'] });

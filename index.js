@@ -1,3 +1,3 @@
-const ScenarioStorage = require('./models/classes/common/Scenario.storage');
+const ScenarioStorage = require('./models/classes/common/ScenarioStorage.class');
 
 global.scenarioStorage = new ScenarioStorage();
