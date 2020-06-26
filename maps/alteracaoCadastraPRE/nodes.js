@@ -60,7 +60,7 @@ alteracaoCadastral.linkNext(trocaDeTitularidade.getPath('Não').id, transferePar
 alteracaoCadastral.linkNext(trocaDeTitularidade.getPath('Sim').id, senhaResultado.id);
 alteracaoCadastral.linkNext(senhaResultado.getPath('Falha (no Serviço)').id, perguntaQuerAlgoMais.id);
 alteracaoCadastral.linkNext(senhaResultado.getPath('Falha (Data OU CPF)').id, perguntaQuerAlgoMais.id);
-alteracaoCadastral.linkNext(perguntaQuerAlgoMais.getPath('Não').id, agradeceDesliga.id);
+alteracaoCadastral.linkNext(perguntaQuerAlgoMais.getPath('Não').id, desambiguador.id);
 alteracaoCadastral.linkNext(perguntaQuerAlgoMais.getPath('Sim').id, desambiguador.id);
 alteracaoCadastral.linkNext(senhaResultado.getPath('Sucesso (Senha Correta)').id, digiteNovoCPF.id);
 alteracaoCadastral.linkNext(senhaResultado.getPath('Sucesso (Data + CPF)').id, digiteNovoCPF.id);

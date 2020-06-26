@@ -21,6 +21,7 @@ class Node {
         this.set('stepMessage', stepMessage);
         // this.set('prevNode', prevNode);
         this.set('nextNode', nextNode);
+        return this;
     }
 
     turnTargetNode() {
@@ -53,7 +54,7 @@ class Node {
     } */
 
     mapScenarios(prevStepMessages) {
-
+        console.log(`${this.type}`)
         if (prevStepMessages) {
             try {
                 if (this.nextNode.targetNode) {
@@ -107,6 +108,7 @@ class Node {
         // Verifica se o objeto instanciado possui a propriedade. Caso sim, atribui um novo valor.
         if (typeof property == 'string') {
             this[property] = value;
+            return this;
         }
     }
 

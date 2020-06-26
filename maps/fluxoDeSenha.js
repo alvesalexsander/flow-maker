@@ -38,17 +38,17 @@ const direcionaATH = fluxoDeSenha.newNode('node', {
 
 fluxoDeSenha.linkNext(startFluxoDeSenha.id, resultadoFluxoDeSenha.id);
 
-// fluxoDeSenha.linkNext(
-//     resultadoFluxoDeSenha.getPath('Sucesso (Senha Correta)').id,
-//     perguntaQuerAlgoMais.id);
+fluxoDeSenha.linkNext(
+    resultadoFluxoDeSenha.getPath('Sucesso (Senha Correta)').id,
+    perguntaQuerAlgoMais.id);
 
 fluxoDeSenha.linkNext(
     resultadoFluxoDeSenha.getPath('Falha (no Serviço)').id,
     perguntaQuerAlgoMais.id);
 
-// fluxoDeSenha.linkNext(
-//     resultadoFluxoDeSenha.getPath('Sucesso (Data + CPF)').id,
-//     perguntaQuerAlgoMais.id);
+fluxoDeSenha.linkNext(
+    resultadoFluxoDeSenha.getPath('Sucesso (Data + CPF)').id,
+    perguntaQuerAlgoMais.id);
 
 fluxoDeSenha.linkNext(
     resultadoFluxoDeSenha.getPath('Falha (Data OU CPF)').id,
@@ -71,4 +71,5 @@ function mount(flowMap) {
     }
 }
 
-module.exports = mount;
+fluxoDeSenha.mapScenarios();
+fluxoDeSenha.showScenarios();
