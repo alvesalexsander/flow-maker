@@ -29,20 +29,20 @@ class StartingNode extends Node {
         this.initialNode = this.fromFlow ? false : true;
     }
 
-    mapScenarios() {
+    mapScenarios(prevStepMessages = []) {
         const promise = new Promise((resolve, reject) => {
             if (this.nextNode.targetNode) {
-                resolve(this.nextNode.endFlowScenario([]));
+                resolve(this.nextNode.endFlowScenario(prevStepMessages));
             }
             else if (Array.isArray(this.nextNode)) {
                 for (const node of this.nextNode) {
                     if (node.mapScenarios) {
-                        resolve(node.mapScenarios([]));
+                        resolve(node.mapScenarios(prevStepMessages));
                     }
                 }
             }
             else {
-                resolve(this.nextNode.mapScenarios([]));
+                resolve(this.nextNode.mapScenarios(prevStepMessages));
             }
         })
         return promise;

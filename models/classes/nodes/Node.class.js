@@ -26,6 +26,7 @@ class Node {
     turnTargetNode() {
         if (this.targetNode == false) {
             this.targetNode = true;
+            return this;
         }
     }
 
@@ -88,7 +89,7 @@ class Node {
                 }
             }
             catch (error) {
-                console.log(error);
+                console.log(this.name);
             }
         }
     }
@@ -98,6 +99,7 @@ class Node {
             prevStepMessages.push(this.get('stepMessage'));
             const testScenario = prevStepMessages.filter((stepMessage) => stepMessage);
             scenarioStorage.pushNewScenarios(testScenario);
+            console.log(testScenario);
         }
     }
 

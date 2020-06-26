@@ -7,6 +7,7 @@ class FlowMap {
 
     flowchartNodes = [];
     scenarios = {};
+    outlets = [];
 
     constructor({ name = 'NewFlow' } = {}) {
         this.id = shortid.generate();
@@ -26,13 +27,16 @@ class FlowMap {
                 newNode.flowmap = this.id;
                 this.flowchartNodes.push(newNode);
                 if (newNode.type == 'StartingNode') {
-                    this.startingNode = newNode;
+                    this.inlet = this.queryNode(newNode.id);
+                    delete this.factory.buildStarting;
+                    this.factory.produces = this.factory.produces.filter(product => product != 'StartingNode')
+                    console.log('NODEFACTORY :: StartingNode created successfully :: StartingNode production Closed.');
                 }
                 return newNode;
             }
         }
         catch (e) {
-            throw new Error(`NEWNODE :: Erro na criação de node. Verifique os parametros passados - type: '${type}', params: '${JSON.stringify(params)}`)
+            throw new Error(e)
         }
     }
 
@@ -54,24 +58,68 @@ class FlowMap {
                     if (path.id == data) {
                         return path;
                     }
+                    else if (path.name == data) {
+                        return path;
+                    }
                 }
             }
         }
         return false;
     }
 
+    setOutlet(nodeName) {
+        if (this.queryNode(nodeName)) {
+            const outletNode = this.newNode('node', {
+                name: `Outlet ${nodeName}`
+            })
+            this.linkNext(this.queryNode(nodeName), outletNode);
+            this.outlets.push(outletNode);
+            return true;
+        }
+        return false;
+    }
+
+    getOutlet(nodeName) {
+        const outletNode = this.outlets.filter(outletName => nodeName == outletName)
+        if (outletNode.length == 1) {
+            return this.queryNode(outletNode[0]);
+        }
+        return false;
+    }
+
+    showOutlets() {
+        console.log(this.outlets);
+    }
+
+    getInlet() {
+        if (this.inlet) {
+            return this.inlet;
+        }
+    }
+
     /**
      * Conecta um Node a outro Node passando a propriedade id dos mesmos na ordem fromId->toId
-     * @param {*} fromId String - O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como prevNode (atualiza 'nextNode' com o Node-Destino)
-     * @param {*} toId String - O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como nextNode (atualiza 'prevNode' com o Node-Anterior)
+     * @param {*} from String - O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como prevNode (atualiza 'nextNode' com o Node-Destino)
+     * @param {*} to String - O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como nextNode (atualiza 'prevNode' com o Node-Anterior)
      */
-    linkNext(fromId, toId) {
-        // const updateNextNode = this.nextNodeRules(fromId, toId);
-        const updateNextNode = this.nextNodeRules(fromId, toId);
-        const updatePrevNode = this.prevNodeRules(toId, fromId);
+    linkNext(from, to) {
+        const updateNextNode = this.nextNodeRules(from, to);
+        const updatePrevNode = this.prevNodeRules(to, from);
+        if (to.id && !from.id) {
+            this.queryNode(from).set('nextNode', to);
+            return;
+        }
+        else if (from.id && !to.id) {
+            from.set('nextNode', this.queryNode(to));
+            return;
+        }
+        else if (from.id && to.id) {
+            from.set('nextNode', to);
+            return;
+        }
         if (updateNextNode) {
             try {
-                this.queryNode(fromId).set('nextNode', updateNextNode);
+                this.queryNode(from).set('nextNode', updateNextNode);
             }
             catch (e) {
                 console.log(e);
@@ -79,18 +127,12 @@ class FlowMap {
         }
         else {
             try {
-                this.queryNode(fromId).set('nextNode', this.queryNode(toId));
+                this.queryNode(from).set('nextNode', this.queryNode(to));
             }
             catch (e) {
                 console.log(e);
             }
         }
-        /* if (updatePrevNode) {
-            this.queryNode(toId).set('prevNode', updatePrevNode);
-        }
-        else {
-            this.queryNode(toId).set('prevNode', this.queryNode(fromId));
-        } */
     }
 
     /**
@@ -101,7 +143,7 @@ class FlowMap {
      */
     nextNodeRules(fromId, toId) {
         const fromNodeType = this.queryNode(fromId).type;
-        const toNodeType = this.queryNode(toId).type
+        const toNodeType = this.queryNode(toId).type;
         const rules = {
             PreconditionsNode: (() => {
                 if (fromNodeType == 'PreconditionsNode' && toNodeType == 'PreconditionsNode') {
@@ -119,8 +161,13 @@ class FlowMap {
                     this.queryNode(toId).set('prevNode', this.queryNode(fromId));
                     this.queryNode(toId).mountPathNodes();
                 }
+                if (fromNodeType == "DecisionNode") {
+                    this.queryNode(toId).set('prevNode', this.queryNode(fromId));
+                    return this.queryNode(toId).get('pathNodes');
+                }
                 this.queryNode(toId).prevNode = this.queryNode(fromId);
-                return this.queryNode(toId).mountPathNodes();
+                return this.queryNode(toId).get('pathNodes');
+                // return this.queryNode(toId).mountPathNodes();
             }),
         }
         if (rules.hasOwnProperty(toNodeType)) {
@@ -161,14 +208,30 @@ class FlowMap {
     }
 
     mapScenarios() {
-        if (this.startingNode) {
-            this.startingNode.mapScenarios()
+        if (this.inlet) {
+            return this.inlet.mapScenarios()
                 .then(() => {
                     this.scenarios = scenarioStorage.extractScenarios();
-                    console.log(this.scenarios);
+                    // console.log(this.scenarios);
                 })
                 .catch(error => console.log(error));
         }
+    }
+
+    showScenarios() {
+        setTimeout(() => {
+            console.log(this.scenarios);
+        }, 0);
+    }
+
+    getScenarios() {
+        return new Promise((resolve, reject) => {
+            resolve(this.mapScenarios());
+        })
+            .then((result) => {
+                return this.scenarios;
+            })
+            .catch(error => console.log(error))
     }
 }
 
