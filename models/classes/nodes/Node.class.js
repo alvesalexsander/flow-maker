@@ -54,7 +54,7 @@ class Node {
     } */
 
     mapScenarios(prevStepMessages) {
-        console.log(`${this.type}`)
+        // console.log(`${this.type}`)
         if (prevStepMessages) {
             try {
                 if (this.nextNode.targetNode) {
@@ -100,7 +100,7 @@ class Node {
             prevStepMessages.push(this.get('stepMessage'));
             const testScenario = prevStepMessages.filter((stepMessage) => stepMessage);
             scenarioStorage.pushNewScenarios(testScenario);
-            console.log(testScenario);
+            // console.log(testScenario);
         }
     }
 
