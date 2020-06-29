@@ -75,17 +75,17 @@ const resultadoTrocaCPF = alteracaoCadastral.newNode('switch', {
 
 const enviaProtocoloSMS = alteracaoCadastral.newNode('switch', {
     name: 'Número de Protocolo por SMS?',
-    condition: 'Sucesso no envio do protocolo',
+    condition: 'Sucesso no envio do protocolo por SMS',
     pathCases: ['Sim', 'Não']
 });
 
 const msgProtocoloEnviado = alteracaoCadastral.newNode('node', {
-    name:'Informa sucesso na Troca e SMS enviado',
+    name: 'Informa sucesso na Troca e SMS enviado',
     stepMessage: 'URA informa a Troca de Titularidade e envio de protocolo por SMS'
 });
 
 const msgProtocoloNaoEnviado = alteracaoCadastral.newNode('node', {
-    name:'Informa sucesso na Troca',
+    name: 'Informa sucesso na Troca',
     stepMessage: 'URA informa a Troca de Titularidade'
 });
 
@@ -113,6 +113,9 @@ alteracaoCadastral.linkNext(redigiteCPF.id, resultadoValidacao.id);
 alteracaoCadastral.linkNext(
     resultadoValidacao.getPath('Não válido(2ª tentativa)').id,
     perguntaQuerAlgoMais.id);
+alteracaoCadastral.linkNext(
+    resultadoValidacao.getPath('Válido(2ª tentativa)').id,
+    resultadoTrocaCPF.id);
 
 alteracaoCadastral.linkNext(validaCPF.getPath('Válido').id, resultadoTrocaCPF.id);
 alteracaoCadastral.linkNext(resultadoTrocaCPF.getPath('Falha').id, perguntaQuerAlgoMais.id);
