@@ -10,7 +10,9 @@ const {
     transfereParaATH,
     encerraLigacao,
     noInputEncerraLigacao,
-    encaminhaFluxo
+    encaminhaFluxo,
+    intencaoATH,
+    inputATH
 } = require('./nodes');
 
 acolhimento.linkNext(startAcolhimento.id, saudacaoURA.id);
@@ -35,25 +37,24 @@ acolhimento.linkNext(validaInputUsuario.getPath('Não').id, respostasInputInvali
     );
     acolhimento.linkNext(
         validaInputUsuario2.getPath('Sim').id, 
-        respostasInputValido.id
+        intencaoATH.id
     );
 // Path validaInputUsuario 'Input válido'
-
-acolhimento.linkNext(validaInputUsuario.getPath('Sim').id, respostasInputValido.id);
+acolhimento.linkNext(validaInputUsuario.getPath('Sim').id, intencaoATH.id);
+acolhimento.linkNext(intencaoATH.getPath('Sim').id, inputATH.id);
+acolhimento.linkNext(intencaoATH.getPath('Não').id, respostasInputValido.id);
+// Path inputATH
+acolhimento.linkNext(inputATH.getPath('Sim').id, transfereParaATH.id
+);
+acolhimento.linkNext(inputATH.getPath('Não').id, respostasInputValido.id
+);
 
 // Path respostasInputValido
-
-
-acolhimento.linkNext(
-    respostasInputValido.getPath('Sim').id,
-    encaminhaFluxo.id
+acolhimento.linkNext(respostasInputValido.getPath('Sim').id, encaminhaFluxo.id
+);
+acolhimento.linkNext(respostasInputValido.getPath('Não').id, transfereParaATH.id
 );
 
-
-acolhimento.linkNext(
-    respostasInputValido.getPath('Não').id,
-    transfereParaATH.id
-);
 
 acolhimento.mapScenarios();
 acolhimento.showScenarios();

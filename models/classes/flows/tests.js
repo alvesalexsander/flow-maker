@@ -1,5 +1,5 @@
 const { Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode } = require('../nodes/index');
-const { FlowSequence } = require('./index');
+const { FlowMap } = require('./index');
 const chalk = require('chalk');
 
 let instance;
@@ -7,15 +7,27 @@ let instance;
 const instantiation = {
     FlowSequence: function () {
         try {
-            node1 = new Node({
-                name: 'oi',
-                stepMessage: '3'
+            instance = new FlowMap({
+                name: 'Teste FlowMap',
+                segment: 'Pós Pago'
+            })
+            testeStarting = instance.newNode('starting', {
+                name: 'Teste StartingNode Instantiation',
+                stepMessage: 'Iniciando Teste'
             });
-            node2 = new SwitchNode({
-                name: 'verifica se é conta digital',
-                condition: 'É conta digital?',
-                pathCases: ["Sim", "Não"]
+            instance.newNode('starting', {
+                name: 'Teste StartingNode Instantiation2',
             });
+            testeTarget = instance.newNode('node', {
+                name: 'Teste Node Instantiation',
+                stepMessage: 'Finalizando Teste'
+            });
+            instance.queryNode('Teste Node Instantiation').turnTargetNode();
+
+            instance.linkNext(testeStarting.id, testeTarget.id);
+
+            instance.mapScenarios();
+            instance.showScenarios();
             return true;
         }
         catch (e) {

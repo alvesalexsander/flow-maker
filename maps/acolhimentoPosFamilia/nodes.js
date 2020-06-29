@@ -57,6 +57,18 @@ const nodes = {
         name: 'Usuário quer algo mais',
         stepMessage: 'Encaminha cliente para o fluxo.'
     }).turnTargetNode(),
+
+    intencaoATH: acolhimento.newNode('switch', {
+        name: 'Verifica se intencão é ATH',
+        condition: 'Intenção ATH?',
+        pathCases: ['Sim', 'Não']
+    }),
+
+    inputATH: acolhimento.newNode('switch', {
+        name: 'Cliente solicita ATH',
+        condition: 'Pediu ATH mais de uma vez?',
+        pathCases: ['Sim', 'Não']
+    }),
 };
 
 console.log(Object.keys(nodes));

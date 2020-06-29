@@ -1,3 +1,4 @@
+require('../../../index');
 const shortid = require('shortid');
 
 const Factory = require('../common/Factory.class');
@@ -9,9 +10,10 @@ class FlowMap {
     scenarios = {};
     outlets = [];
 
-    constructor({ name = 'NewFlow' } = {}) {
+    constructor({ name = 'NewFlow', segment = 'CommonSegment' } = {}) {
         this.id = shortid.generate();
         this.name = name;
+        this.segment = segment;
     }
 
     /**
@@ -28,8 +30,8 @@ class FlowMap {
                 this.flowchartNodes.push(newNode);
                 if (newNode.type == 'StartingNode') {
                     this.inlet = this.queryNode(newNode.id);
-                    delete this.factory.buildStarting;
-                    this.factory.produces = this.factory.produces.filter(product => product != 'StartingNode')
+                    this.factory.buildStarting = () => console.log('NODEFACTORY :: StartingNode already created :: StartingNode production Closed.');
+                    this.factory.produces = this.factory.produces.filter(product => product != 'StartingNode');
                     console.log('NODEFACTORY :: StartingNode created successfully :: StartingNode production Closed.');
                 }
                 return newNode;
@@ -67,35 +69,36 @@ class FlowMap {
         return false;
     }
 
-    setOutlet(nodeName) {
-        if (this.queryNode(nodeName)) {
-            const outletNode = this.newNode('node', {
-                name: `Outlet ${nodeName}`
-            })
-            this.linkNext(this.queryNode(nodeName), outletNode);
-            this.outlets.push(outletNode);
-            return true;
-        }
-        return false;
-    }
+    // // UNDER DEVELOPMENT
+    // setOutlet(nodeName) {
+    //     if (this.queryNode(nodeName)) {
+    //         const outletNode = this.newNode('node', {
+    //             name: `Outlet ${nodeName}`
+    //         })
+    //         this.linkNext(this.queryNode(nodeName), outletNode);
+    //         this.outlets.push(outletNode);
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
-    getOutlet(nodeName) {
-        const outletNode = this.outlets.filter(outletName => nodeName == outletName)
-        if (outletNode.length == 1) {
-            return this.queryNode(outletNode[0]);
-        }
-        return false;
-    }
+    // getOutlet(nodeName) {
+    //     const outletNode = this.outlets.filter(outletName => nodeName == outletName)
+    //     if (outletNode.length == 1) {
+    //         return this.queryNode(outletNode[0]);
+    //     }
+    //     return false;
+    // }
 
-    showOutlets() {
-        console.log(this.outlets);
-    }
+    // showOutlets() {
+    //     console.log(this.outlets);
+    // }
 
-    getInlet() {
-        if (this.inlet) {
-            return this.inlet;
-        }
-    }
+    // getInlet() {
+    //     if (this.inlet) {
+    //         return this.inlet;
+    //     }
+    // }
 
     /**
      * Conecta um Node a outro Node passando a propriedade id dos mesmos na ordem fromId->toId
@@ -104,7 +107,6 @@ class FlowMap {
      */
     linkNext(from, to) {
         const updateNextNode = this.nextNodeRules(from, to);
-        const updatePrevNode = this.prevNodeRules(to, from);
         if (to.id && !from.id) {
             this.queryNode(from).set('nextNode', to);
             return;
@@ -176,37 +178,6 @@ class FlowMap {
         return false;
     }
 
-    /**
-     * Alguns Nodes-Anteriores possuem regras especiais para atribuição. Este método verifica se os nodes de uma operação possuem alguma regra especial 
-     * e tratam corretamente estas regras para garantir a funcionalidade da operação.
-     * @param {*} fromId String - O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como prevNode
-     * @param {*} toId String - O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como nextNode
-     */
-    prevNodeRules(toId, fromId) {
-        const fromNodeType = this.queryNode(fromId).type;
-        const toNodeType = this.queryNode(toId).type
-        const rules = {
-            PreconditionsNode: (() => {
-                if (toNodeType == 'SwitchNode') {
-                    this.queryNode(fromId).nextNode = this.queryNode(toId).mountPathNodes();
-                    this.queryNode(fromId).mountPathNodes();
-                    return this.queryNode(toId).pathNodes;
-                }
-                if (fromNodeType == 'PreconditionsNode' && toNodeType == 'PreconditionsNode') {
-                    this.queryNode(fromId).nextNode = this.queryNode(toId).mountPathNodes();
-                    return this.queryNode(toId).pathNodes;
-                }
-                this.queryNode(fromId).set('nextNode', this.queryNode(toId));
-                this.queryNode(fromId).mountPathNodes();
-                return true;
-            })
-        }
-        if (rules.hasOwnProperty(fromNodeType)) {
-            return rules[fromNodeType]();
-        }
-        return false;
-    }
-
     mapScenarios() {
         if (this.inlet) {
             return this.inlet.mapScenarios()
@@ -225,7 +196,7 @@ class FlowMap {
     }
 
     getScenarios() {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             resolve(this.mapScenarios());
         })
             .then((result) => {
@@ -234,28 +205,5 @@ class FlowMap {
             .catch(error => console.log(error))
     }
 }
-
-// teste = new FlowMap();
-
-// teste.newNode('starting', { name: 'Inicio' });
-// teste.newNode('preconditions', { name: 'Precondicao', preconditions: ['#desambiguadorPagarConta', '#desambiguador2Via'] });
-
-// teste.newNode('switch', { name: 'Verifica Conta Digital', condition: 'É conta Digital?', pathCases: ['Sim', 'Não'] });
-// teste.newNode('node', { name: 'Fim' });
-// teste.queryNode('Fim').turnTargetNode();
-
-// 
-// teste.linkNext(teste.queryNode('Inicio').id, teste.queryNode('Precondicao').id);
-
-// teste.linkNext(teste.queryNode('Precondicao').id, teste.queryNode('Verifica Conta Digital').id);
-// teste.linkNext(teste.queryNode('Verifica Conta Digital').getPath('Sim').id, teste.queryNode('Fim').id);
-// teste.linkNext(teste.queryNode('Verifica Conta Digital').getPath('Não').id, teste.queryNode('Fim').id);
-
-
-
-// // // teste.linkNext(teste.queryNode('Precondicao').id, teste.queryNode('Fim').id);
-// // // console.log(teste.queryNode('Verifica Conta Digital'))
-
-// teste.flowchartNodes[0].mapScenarios();
 
 module.exports = FlowMap;

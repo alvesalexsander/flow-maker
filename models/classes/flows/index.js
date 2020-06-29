@@ -1,3 +1,3 @@
 module.exports = {
-    FlowMap = require('./FlowMap.class')
+    FlowMap: require('./FlowMap.class')
 }

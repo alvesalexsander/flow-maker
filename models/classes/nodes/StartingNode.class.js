@@ -32,16 +32,19 @@ class StartingNode extends Node {
     mapScenarios(prevStepMessages = []) {
         const promise = new Promise((resolve, reject) => {
             if (this.nextNode.targetNode) {
+                prevStepMessages.push(this.stepMessage);
                 resolve(this.nextNode.endFlowScenario(prevStepMessages));
             }
             else if (Array.isArray(this.nextNode)) {
                 for (const node of this.nextNode) {
                     if (node.mapScenarios) {
+                        prevStepMessages.push(this.stepMessage);
                         resolve(node.mapScenarios(prevStepMessages));
                     }
                 }
             }
             else {
+                prevStepMessages.push(this.stepMessage);
                 resolve(this.nextNode.mapScenarios(prevStepMessages));
             }
         })
