@@ -5,6 +5,7 @@ class Node {
     id
     name
     stepMessage
+    expectedMessage
     nextNode
     // prevNode
     targetNode = false;
@@ -12,12 +13,14 @@ class Node {
     constructor({
         name,
         stepMessage,
+        expectedMessage,
         // prevNode,
         nextNode }) {
         this.type = this.constructor.name;
         this.set('id', shortid.generate());
         this.set('name', name);
         this.set('stepMessage', stepMessage);
+        this.set('expectedMessage', expectedMessage);
         // this.set('prevNode', prevNode);
         this.set('nextNode', nextNode);
         return this;
@@ -52,84 +55,97 @@ class Node {
         }
     } */
 
-    mapScenarios(prevStepMessages) {
-        // console.log(`${this.type}`)
-        if (prevStepMessages) {
+    mapScenarios(prevStepMessages, prevExpectedMessages) {
+        if (prevStepMessages && this.nextNode) {
             try {
                 const handles = {
-                    commonNode(prevStepMessages, thisNode) {
+                    commonNode(prevStepMessages, thisNode, prevExpectedMessages) {
                         prevStepMessages.push(thisNode.stepMessage);
+                        prevExpectedMessages.push(thisNode.expectedMessage);
                         if (thisNode.nextNode.targetNode) {
-                            thisNode.nextNode.endFlowScenario(prevStepMessages);
+                            thisNode.nextNode.endFlowScenario(prevStepMessages, prevExpectedMessages);
                         }
                         else {
-                            thisNode.nextNode.mapScenarios(prevStepMessages);
+                            thisNode.nextNode.mapScenarios(prevStepMessages, prevExpectedMessages);
                         }
                     },
 
-                    Array(prevStepMessages, thisNode) {
+                    Array(prevStepMessages, thisNode, prevExpectedMessages) {
                         for (const node of thisNode.nextNode) {
                             let nodeStepMessage = [].concat(prevStepMessages);
+                            let nodeExpectedMessages = [].concat(prevExpectedMessages);
                             nodeStepMessage.push(thisNode.stepMessage);
-                            node.mapScenarios(nodeStepMessage);
+                            nodeExpectedMessages.push(thisNode.expectedMessage);
+                            node.mapScenarios(nodeStepMessage, nodeExpectedMessages);
                         }
                     }
                 }
                 const handleFunction = this.nextNode && this.nextNode.constructor.name == 'Array' ? // Atribui handleFunction apenas se existe nextNode
                     handles['Array'] : handles['commonNode'] // handleFunction para tratar corretamente o comportamento de nextNode
-                handleFunction(prevStepMessages, this);
+                handleFunction(prevStepMessages, this, prevExpectedMessages);
             }
             catch (error) {
-            console.log(`ERROR :: ${this.name} ('${this.type}') :: `);
-            console.log(error);
+                console.log(`ERROR :: ${this.name} ('${this.type}') :: `);
+                console.log(error);
+            }
+        }
+        else {
+            console.log(`WARNING :: ${this.name} ('${this.type}') :: Unexpected end at 'mapScenarios' method / nextNode is ${this.nextNode}`);
+            console.log(prevStepMessages);
         }
     }
-}
 
-endFlowScenario(prevStepMessages) {
-    if (this.targetNode == true) {
-        prevStepMessages.push(this.get('stepMessage'));
-        const testScenario = prevStepMessages.filter((stepMessage) => stepMessage);
-        scenarioStorage.pushNewScenarios(testScenario);
-    }
-}
-
-set(property, value) {
-    // Verifica se o objeto instanciado possui a propriedade. Caso sim, atribui um novo valor.
-    if (typeof property == 'string') {
-        this[property] = value;
-        return this;
-    }
-}
-
-get(property) {
-    // Verifica se o objeto instanciado possui a propriedade. Caso sim, retorna o seu valor.
-    if (this.hasOwnProperty(property) && typeof property == 'string') {
-        return this[property];
-    }
-}
-
-setNextNode(node) {
-    if (node.type == 'PreconditionsNode') {
-        const nextNodes = [];
-        for (const path of node.preconditionsNodes) {
-            nextNodes.push(path.id);
+    endFlowScenario(prevStepMessages, prevExpectedMessages) {
+        if (this.targetNode == true) {
+            prevStepMessages.push(this.stepMessage);
+            prevExpectedMessages.push(this.expectedMessage);
+            prevStepMessages = prevStepMessages.filter(stepMessage => stepMessage);
+            prevExpectedMessages = prevExpectedMessages.filter(expectedMessage => expectedMessage);
+            const testScenario = {
+                precondition: prevStepMessages,
+                expectedResult: prevExpectedMessages
+            }
+            // const testScenario = prevStepMessages.filter((stepMessage) => stepMessage);
+            scenarioStorage.pushNewScenarios(testScenario);
         }
-        this.nextNode = nextNodes;
-        return;
     }
-    else if (node.type == 'SwitchNode') {
-        const nextNodes = [];
-        for (const path of node.pathNodes) {
-            nextNodes.push(path.id);
+
+    set(property, value) {
+        // Verifica se o objeto instanciado possui a propriedade. Caso sim, atribui um novo valor.
+        if (typeof property == 'string') {
+            this[property] = value;
+            return this;
         }
-        this.nextNode = nextNodes;
-        return;
     }
-    else {
-        this.nextNode = node.id;
+
+    get(property) {
+        // Verifica se o objeto instanciado possui a propriedade. Caso sim, retorna o seu valor.
+        if (this.hasOwnProperty(property) && typeof property == 'string') {
+            return this[property];
+        }
     }
-}
+
+    setNextNode(node) {
+        if (node.type == 'PreconditionsNode') {
+            const nextNodes = [];
+            for (const path of node.preconditionsNodes) {
+                nextNodes.push(path.id);
+            }
+            this.nextNode = nextNodes;
+            return;
+        }
+        else if (node.type == 'SwitchNode') {
+            const nextNodes = [];
+            for (const path of node.pathNodes) {
+                nextNodes.push(path.id);
+            }
+            this.nextNode = nextNodes;
+            return;
+        }
+        else {
+            this.nextNode = node.id;
+        }
+    }
 }
 
 module.exports = Node;

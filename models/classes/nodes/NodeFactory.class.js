@@ -1,5 +1,4 @@
 const { Node, StartingNode, PreconditionsNode, OutputMessageNode, SwitchNode, DecisionNode, InvokerNode } = require('./index');
-const valueDefault = require('../../integrityRequirements/valueDefault');
 
 class NodeFactory {
 

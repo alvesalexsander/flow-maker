@@ -23,8 +23,10 @@ const instantiation = {
         try {
             instance = new StartingNode({
                 name: 'oi',
-                fromFlow: 'oi'
+                fromFlow: 'oi',
+                stepMessage: 'oi stepmessage'
             })
+            instance.mapScenarios()
             return true;
         }
         catch (e) {

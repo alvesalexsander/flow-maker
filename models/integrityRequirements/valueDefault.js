@@ -3,6 +3,7 @@ valuesDefault = {
     
     name: '',
     stepMessage: undefined,
+    expectedMessage: undefined,
     plugIn: '',
     plugOut: '',
     invokeFlow: '',
@@ -11,10 +12,7 @@ valuesDefault = {
     preconditions: [],
     pathCases: [],
     pathNodes: [],
-    expectedMessage: '',
-    invokeFlow: '',
     pathAnswers: [],
-    previousNode: '',
     nextNode: '',
     prevNode: '',
     fromFlow: ''

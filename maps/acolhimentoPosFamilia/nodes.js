@@ -7,7 +7,8 @@ const nodes = {
 
     saudacaoURA: acolhimento.newNode('node', {
         name: 'URA atende a ligação',
-        stepMessage: 'URA pergunta como pode ajudar.'
+        stepMessage: 'URA pergunta como pode ajudar.',
+        expectedMessage: 'URA pergunta como pode ajudar.'
     }),
 
     validaInputUsuario: acolhimento.newNode('switch', {
@@ -34,7 +35,9 @@ const nodes = {
 
     transfereParaATH: acolhimento.newNode('node', {
         name: "URA Informa que vai tranferir para o ATH",
-        stepMessage: "Encaminha para o ATH."
+        stepMessage: "Encaminha para o ATH.",
+        expectedMessage:'URA Informa que vai tranferir para o ATH'
+        
     }).turnTargetNode(),
 
     encerraLigacao: acolhimento.newNode('node', {

@@ -1,3 +1,5 @@
+const valueDefault = require('../../integrityRequirements/valueDefault');
+
 const Node = require('./Node.class');
 const DecisionNode = require('./DecisionNode.class');
 
@@ -10,7 +12,7 @@ class SwitchNode extends Node {
     constructor({
         name,
         condition,
-        pathCases = [] }) {
+        pathCases = valueDefault['pathCases'] }) {
         super({ name }); // 'this.targetNode' não faz sentido existir em um SwitchNode porque não deve ser um Objetivo Final de busca.
         delete this.turnTargetNode;
 

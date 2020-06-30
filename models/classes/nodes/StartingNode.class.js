@@ -9,10 +9,11 @@ class StartingNode extends Node {
     constructor({
         name,
         stepMessage,
+        expectedMessage,
         prevNode,
         nextNode,
         fromFlow }) {
-        super({ name, stepMessage, prevNode, nextNode });
+        super({ name, stepMessage, expectedMessage, prevNode, nextNode });
         this.set('fromFlow', fromFlow);
         this.set('prevNode', this.prevNode);
         this.initialNode = this.fromFlow || this.prevNode ? false
@@ -29,44 +30,37 @@ class StartingNode extends Node {
         this.initialNode = this.fromFlow ? false : true;
     }
 
-    mapScenarios(prevStepMessages = []) {
+    mapScenarios(prevStepMessages = [], prevExpectedMessages = []) {
         const promise = new Promise((resolve, reject) => {
-            const handles = {
-                commonNode(prevStepMessages, thisNode) {
-                    prevStepMessages.push(thisNode.stepMessage);
-                    if (thisNode.nextNode.targetNode) {
-                        resolve(thisNode.nextNode.endFlowScenario(prevStepMessages));
-                    }
-                    resolve(thisNode.nextNode.mapScenarios(prevStepMessages));
-                },
-    
-                Array(prevStepMessages, thisNode) {
-                    for (const node of thisNode.nextNode) {
-                        if (node.mapScenarios) {
-                            prevStepMessages.push(thisNode.stepMessage);
-                            resolve(node.mapScenarios(prevStepMessages));
+            if(this.nextNode){
+                const handles = {
+                    commonNode(prevStepMessages, thisNode, prevExpectedMessages) {
+                        prevStepMessages.push(thisNode.stepMessage);
+                        prevExpectedMessages.push(thisNode.expectedMessage);
+                        if (thisNode.nextNode.targetNode) {
+                            resolve(thisNode.nextNode.endFlowScenario(prevStepMessages, prevExpectedMessages));
+                        }
+                        resolve(thisNode.nextNode.mapScenarios(prevStepMessages, prevExpectedMessages));
+                    },
+        
+                    Array(prevStepMessages, thisNode, prevExpectedMessages) {
+                        for (const node of thisNode.nextNode) {
+                            if (node.mapScenarios) {
+                                prevStepMessages.push(thisNode.stepMessage);
+                                prevExpectedMessages.push(thisNode.expectedMessage);
+                                resolve(node.mapScenarios(prevStepMessages, prevExpectedMessages));
+                            }
                         }
                     }
                 }
+                const handleFunction = this.nextNode && this.nextNode.constructor.name == 'Array' ? // Atribui handleFunction apenas se existe nextNode
+                        handles['Array'] : handles['commonNode'] // handleFunction para tratar corretamente o comportamento de nextNode
+                    handleFunction(prevStepMessages, this, prevExpectedMessages);
             }
-            const handleFunction = this.nextNode.constructor.name == 'Array' ? handles['Array'] : handles['commonNode']
-            handleFunction(prevStepMessages, this);
-            // if (this.nextNode.targetNode) {
-            //     prevStepMessages.push(this.stepMessage);
-            //     resolve(this.nextNode.endFlowScenario(prevStepMessages));
-            // }
-            // else if (Array.isArray(this.nextNode)) {
-            //     for (const node of this.nextNode) {
-            //         if (node.mapScenarios) {
-            //             prevStepMessages.push(this.stepMessage);
-            //             resolve(node.mapScenarios(prevStepMessages));
-            //         }
-            //     }
-            // }
-            // else {
-            //     prevStepMessages.push(this.stepMessage);
-            //     resolve(this.nextNode.mapScenarios(prevStepMessages));
-            // }
+            else {
+                console.log(`WARNING :: ${this.name} ('${this.type}') :: Unexpected end at 'mapScenarios' method / nextNode is ${this.nextNode}`);
+                console.log(prevStepMessages);
+            }
         })
         return promise;
     }
