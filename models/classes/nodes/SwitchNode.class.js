@@ -21,6 +21,13 @@ class SwitchNode extends Node {
         this.mountPathNodes();
     }
 
+    noStepMessage(){
+        for(const node of this.pathNodes) {
+            delete node.stepMessage;
+        }
+        return this;
+    }
+
     mountPathNodes() {
         if (Array.isArray(this.pathCases)) {
             let caseNodes = [];
@@ -49,7 +56,7 @@ class SwitchNode extends Node {
                     return this.pathNodes.filter((path) => pathName.toLowerCase() == path.name.toLowerCase())[0];
                 }
                 else {
-                    throw new Error(` :: getPath :: Decisão de SwitchNode(${this.name}) com nome '${pathName}' não é válida.`);
+                    throw new Error(`ERROR :: getPath :: Decisão de SwitchNode(${this.name}) com nome '${pathName}' não é válida.`);
                 }
             }
             catch(e) {
