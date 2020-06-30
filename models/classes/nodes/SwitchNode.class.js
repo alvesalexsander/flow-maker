@@ -34,7 +34,7 @@ class SwitchNode extends Node {
             for (let caso of this.pathCases) {
                 caso = new DecisionNode({
                     name: `${caso}`,
-                    stepMessage: `${this.condition} - ${caso}`,
+                    stepMessage: this.condition ? `${this.condition} - ${caso}` : `${caso}`,
                     plugIn: this.plugIn,
                     // prevNode: this.prevNode,
                 });
