@@ -1,5 +1,6 @@
 require('../../../index');
 const shortid = require('shortid');
+const write = require('write');
 
 const Factory = require('../common/Factory.class');
 
@@ -195,15 +196,26 @@ class FlowMap {
         }, 0);
     }
 
-    getScenarios() {
-        return new Promise((resolve) => {
-            resolve(this.mapScenarios());
-        })
-            .then((result) => {
-                return this.scenarios;
-            })
-            .catch(error => console.log(error))
+    getSummary() {
+        setTimeout(() => {
+            const summary = {
+            id: this.id,
+            name: this.name,
+            segment: this.segment,
+            'number of nodes': this.flowchartNodes.length,
+            'number of scenarios': Object.keys(this.scenarios).length
+        }
+        console.log(summary);
+        return summary;
+        }, 0);
     }
+
+    exportScenariosToText(){
+        setTimeout(() => {
+            write.sync('./result.txt', JSON.stringify(this.scenarios, null, 2));
+        }, 0);
+    }
+
 }
 
 module.exports = FlowMap;

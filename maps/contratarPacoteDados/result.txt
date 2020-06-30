@@ -1,0 +1,1978 @@
+{
+  "1": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Sim",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva informa que o cliente já possui um pacote ativado e que precisa consumi-lo antes de contratar um novo pacote;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "2": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Sim",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva informa que o cliente já possui um pacote ativado e que precisa consumi-lo antes de contratar um novo pacote;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "3": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Sim",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva informa que está com um bloqueio financeiro e por isso está impedido de contratar um novo pacote;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "4": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Sim",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva informa que está com um bloqueio financeiro e por isso está impedido de contratar um novo pacote;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "5": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Sim",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa o pacote de dados foi consumido e, por estar inadimplente, a velocidade está reduzida e não pode contratar um novo pacote;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "6": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Sim",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa o pacote de dados foi consumido e, por estar inadimplente, a velocidade está reduzida e não pode contratar um novo pacote;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "7": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Sim",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva informa que não existem pacotes disponiveis no momento;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "8": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Sim",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva informa que não existem pacotes disponiveis no momento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "9": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "10": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "11": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "12": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "13": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "14": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "15": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "16": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "17": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "18": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "19": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "20": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "21": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Não",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "22": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Não",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "23": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Sim",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que não existem pacotes disponiveis no momento;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "24": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Sim",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que não existem pacotes disponiveis no momento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "25": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "26": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "27": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "28": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "29": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "30": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "31": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "32": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "33": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "34": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "35": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "36": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "37": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Não",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "38": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Sim",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Não",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "39": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Não",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que o pacote de dados foi consumido e, que por não ser o titular, não poderá contratar um novo pacote;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "40": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Sim",
+      "Billing Profile? - Sucesso",
+      "Cliente Inadimplente? - Não",
+      "Cliente Titular? - Não",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que o pacote de dados foi consumido e, que por não ser o titular, não poderá contratar um novo pacote;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "41": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Sim",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva informa que não existem pacotes disponiveis no momento;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "42": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Sim",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva informa que não existem pacotes disponiveis no momento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "43": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "44": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "45": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "46": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "47": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "48": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "49": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "50": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "51": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "52": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "53": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "54": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "55": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Não",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "56": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Sim",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Não",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "57": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Sim",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que não existem pacotes disponiveis no momento;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "58": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Sim",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva informa que não existem pacotes disponiveis no momento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "59": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "60": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "61": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "62": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "63": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "64": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "65": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "66": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Sim",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "67": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "68": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Sucesso",
+      "Contratação efetuada? - Sucesso",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA informa o pacote foi contratado;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "69": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "70": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Sim",
+      "Confirma contratação? - Sim",
+      "Ligando do próprio aparelho? - Não",
+      "Fluxo de Senha - Falha",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "URA informa que precisa da senha única;",
+      "URA Informa que não foi possível confirmar os dados do cliente e não vai poder prosseguir;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  },
+  "71": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Não",
+      "Ajudo com algo mais? - Sim",
+      "Quer algo mais."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ]
+  },
+  "72": {
+    "precondition": [
+      "Veio de #desambiguadorContrataçãoPacoteDados\nou #desambiguadorProblemaInternet",
+      "Segunda Contratação - Não",
+      "Possui bloqueio Financeiro? - Não",
+      "Está com navegação reduzida? - Não",
+      "Relatou problema na internet? - Não",
+      "Pacote Vazio? - Não",
+      "Algum pacote escolhido? - Não",
+      "Repetir? - Sim",
+      "Algum pacote escolhido(após repetir)? - Não",
+      "Ajudo com algo mais? - Não",
+      "Não quer mais nada."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Contratação de Pacotes;",
+      "A URA Cognitiva pede para aguardar enquanto verifica a internet;",
+      "A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;",
+      "A URA Cognitiva lista e oferece os pacotes disponíveis ao cliente;",
+      "A URA Cognitiva informa que no momento estas são as únicas opções disponíveis;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ]
+  }
+}

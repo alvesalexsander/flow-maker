@@ -237,3 +237,4 @@ contratarPacote.linkNext(
 
 contratarPacote.mapScenarios();
 contratarPacote.showScenarios();
+contratarPacote.getSummary();
