@@ -31,22 +31,42 @@ class StartingNode extends Node {
 
     mapScenarios(prevStepMessages = []) {
         const promise = new Promise((resolve, reject) => {
-            if (this.nextNode.targetNode) {
-                prevStepMessages.push(this.stepMessage);
-                resolve(this.nextNode.endFlowScenario(prevStepMessages));
-            }
-            else if (Array.isArray(this.nextNode)) {
-                for (const node of this.nextNode) {
-                    if (node.mapScenarios) {
-                        prevStepMessages.push(this.stepMessage);
-                        resolve(node.mapScenarios(prevStepMessages));
+            const handles = {
+                commonNode(prevStepMessages, thisNode) {
+                    prevStepMessages.push(thisNode.stepMessage);
+                    if (thisNode.nextNode.targetNode) {
+                        resolve(thisNode.nextNode.endFlowScenario(prevStepMessages));
+                    }
+                    resolve(thisNode.nextNode.mapScenarios(prevStepMessages));
+                },
+    
+                Array(prevStepMessages, thisNode) {
+                    for (const node of thisNode.nextNode) {
+                        if (node.mapScenarios) {
+                            prevStepMessages.push(thisNode.stepMessage);
+                            resolve(node.mapScenarios(prevStepMessages));
+                        }
                     }
                 }
             }
-            else {
-                prevStepMessages.push(this.stepMessage);
-                resolve(this.nextNode.mapScenarios(prevStepMessages));
-            }
+            const handleFunction = this.nextNode.constructor.name == 'Array' ? handles['Array'] : handles['commonNode']
+            handleFunction(prevStepMessages, this);
+            // if (this.nextNode.targetNode) {
+            //     prevStepMessages.push(this.stepMessage);
+            //     resolve(this.nextNode.endFlowScenario(prevStepMessages));
+            // }
+            // else if (Array.isArray(this.nextNode)) {
+            //     for (const node of this.nextNode) {
+            //         if (node.mapScenarios) {
+            //             prevStepMessages.push(this.stepMessage);
+            //             resolve(node.mapScenarios(prevStepMessages));
+            //         }
+            //     }
+            // }
+            // else {
+            //     prevStepMessages.push(this.stepMessage);
+            //     resolve(this.nextNode.mapScenarios(prevStepMessages));
+            // }
         })
         return promise;
     }

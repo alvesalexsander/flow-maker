@@ -71,6 +71,4 @@ const nodes = {
     }),
 };
 
-console.log(Object.keys(nodes));
-
 module.exports = nodes;

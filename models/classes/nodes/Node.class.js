@@ -1,5 +1,4 @@
 const shortid = require('shortid');
-const { PreconditionsNode } = require('.');
 
 class Node {
     // Node básico. Contém propriedades e metódos que podem ser extendidos por quase todos os outros Nodes.
@@ -57,89 +56,80 @@ class Node {
         // console.log(`${this.type}`)
         if (prevStepMessages) {
             try {
-                if (this.nextNode.targetNode) {
-                    prevStepMessages.push(this.stepMessage);
-                    this.nextNode.endFlowScenario(prevStepMessages);
-                }
-                else if (Array.isArray(this.nextNode)) {
-                    for (const node of this.nextNode) {
-                        let nodeStepMessage = [].concat(prevStepMessages);
-                        nodeStepMessage.push(this.stepMessage);
-                        node.mapScenarios(nodeStepMessage);
+                const handles = {
+                    commonNode(prevStepMessages, thisNode) {
+                        prevStepMessages.push(thisNode.stepMessage);
+                        if (thisNode.nextNode.targetNode) {
+                            thisNode.nextNode.endFlowScenario(prevStepMessages);
+                        }
+                        else {
+                            thisNode.nextNode.mapScenarios(prevStepMessages);
+                        }
+                    },
+
+                    Array(prevStepMessages, thisNode) {
+                        for (const node of thisNode.nextNode) {
+                            let nodeStepMessage = [].concat(prevStepMessages);
+                            nodeStepMessage.push(thisNode.stepMessage);
+                            node.mapScenarios(nodeStepMessage);
+                        }
                     }
                 }
-                else if (Array.isArray(this.pathNodes)) {
-                    for (const node of this.pathNodes) {
-                        let nodeStepMessage = [].concat(prevStepMessages);
-                        nodeStepMessage.push(this.stepMessage);
-                        node.mapScenarios(nodeStepMessage);
-                    }
-                }
-                else if (Array.isArray(this.preconditionsNodes)) {
-                    for (const node of this.preconditionsNodes) {
-                        let nodeStepMessage = [].concat(prevStepMessages);
-                        nodeStepMessage.push(this.stepMessage);
-                        node.mapScenarios(nodeStepMessage);
-                    }
-                }
-                else {
-                    prevStepMessages.push(this.stepMessage);
-                    if (this.nextNode.mapScenarios) {
-                        this.nextNode.mapScenarios(prevStepMessages);
-                    }
-                }
+                const handleFunction = this.nextNode && this.nextNode.constructor.name == 'Array' ? // Atribui handleFunction apenas se existe nextNode
+                    handles['Array'] : handles['commonNode'] // handleFunction para tratar corretamente o comportamento de nextNode
+                handleFunction(prevStepMessages, this);
             }
             catch (error) {
-                console.log(this.name);
-            }
+            console.log(`ERROR :: ${this.name} ('${this.type}') :: `);
+            console.log(error);
         }
     }
+}
 
-    endFlowScenario(prevStepMessages) {
-        if (this.targetNode == true) {
-            prevStepMessages.push(this.get('stepMessage'));
-            const testScenario = prevStepMessages.filter((stepMessage) => stepMessage);
-            scenarioStorage.pushNewScenarios(testScenario);
-            // console.log(testScenario);
-        }
+endFlowScenario(prevStepMessages) {
+    if (this.targetNode == true) {
+        prevStepMessages.push(this.get('stepMessage'));
+        const testScenario = prevStepMessages.filter((stepMessage) => stepMessage);
+        scenarioStorage.pushNewScenarios(testScenario);
     }
+}
 
-    set(property, value) {
-        // Verifica se o objeto instanciado possui a propriedade. Caso sim, atribui um novo valor.
-        if (typeof property == 'string') {
-            this[property] = value;
-            return this;
-        }
+set(property, value) {
+    // Verifica se o objeto instanciado possui a propriedade. Caso sim, atribui um novo valor.
+    if (typeof property == 'string') {
+        this[property] = value;
+        return this;
     }
+}
 
-    get(property) {
-        // Verifica se o objeto instanciado possui a propriedade. Caso sim, retorna o seu valor.
-        if (this.hasOwnProperty(property) && typeof property == 'string') {
-            return this[property];
-        }
+get(property) {
+    // Verifica se o objeto instanciado possui a propriedade. Caso sim, retorna o seu valor.
+    if (this.hasOwnProperty(property) && typeof property == 'string') {
+        return this[property];
     }
+}
 
-    setNextNode(node) {
-        if (node.type == 'PreconditionsNode') {
-            const nextNodes = [];
-            for (const path of node.preconditionsNodes) {
-                nextNodes.push(path.id);
-            }
-            this.nextNode = nextNodes;
-            return;
+setNextNode(node) {
+    if (node.type == 'PreconditionsNode') {
+        const nextNodes = [];
+        for (const path of node.preconditionsNodes) {
+            nextNodes.push(path.id);
         }
-        else if (node.type == 'SwitchNode') {
-            const nextNodes = [];
-            for (const path of node.pathNodes) {
-                nextNodes.push(path.id);
-            }
-            this.nextNode = nextNodes;
-            return;
-        }
-        else {
-            this.nextNode = node.id;
-        }
+        this.nextNode = nextNodes;
+        return;
     }
+    else if (node.type == 'SwitchNode') {
+        const nextNodes = [];
+        for (const path of node.pathNodes) {
+            nextNodes.push(path.id);
+        }
+        this.nextNode = nextNodes;
+        return;
+    }
+    else {
+        this.nextNode = node.id;
+    }
+}
 }
 
 module.exports = Node;
