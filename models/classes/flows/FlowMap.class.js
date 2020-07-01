@@ -12,10 +12,11 @@ class FlowMap {
     scenarios = {};
     outlets = [];
 
-    constructor({ name = 'NewFlow', segment = 'CommonSegment' } = {}) {
+    constructor({ name = 'NewFlow', segment = 'CommonSegment', scenarioPrefix = 0 } = {}) {
         this.id = shortid.generate();
         this.name = name;
         this.segment = segment;
+        this.scenarioPrefix = scenarioPrefix;
     }
 
     /**
@@ -293,10 +294,12 @@ class FlowMap {
             let precondicaoHeight = 0;
             let resultadoEsperadoHeight = 0;
 
+            const zeroPadding = (num, places) => String(num).padStart(places, '0');
+
             for (const scenario in this.scenarios) {
                 // Inicia um loop nos scenarios do FlowMap
                 const columnData = {
-                    id: scenario,
+                    id: this.scenarioPrefix ? `${this.scenarioPrefix + '.' + zeroPadding(scenario, 3)}` : scenario,
                     funcionalidade: this.name,
                     segmento: this.segment,
                     dadosDeEntrada: '',
