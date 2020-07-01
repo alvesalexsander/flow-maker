@@ -179,6 +179,9 @@ contratarPacote.linkNext(
                         contratarPacote.linkNext(
                             respostaConfirmaContratacaoNao.id,
                             verificaRepetir.getPath('Não').id);
+                            contratarPacote.linkNext(
+                                verificaRepetir.getPath('Não').id,
+                                respostaRepetir.getPath('Não').id);
                     contratarPacote.linkNext(
                         verificaConfirmaContratacao.getPath('Sim').id,
                         verificaLigandoProprioAparelho.id);
@@ -210,31 +213,16 @@ contratarPacote.linkNext(
                                 verificaContratacaoEfetuada.getPath('Falha').id,
                                 respostaContratacaoEfetuadaFalha.id);
                                 contratarPacote.linkNext(
-                                    respostaContratacaoEfetuadaSucesso.id,
+                                    respostaContratacaoEfetuadaFalha.id,
                                     perguntaQuerAlgoMais.id);
     contratarPacote.linkNext(
         intencaoProblemaNaInternet.getPath('Não').id,
         verificaPacoteVazio.id);
-                        
-    
-// contratarPacote.linkNext(
-//     verificaBillingProfile.getPath('Não').id,
-//     verificaClienteInadimplente.id);
-
-
-
-
-
-
-
-
-
-
-
-
-
+contratarPacote.linkNext(
+    verificaBillingProfile.getPath('Falha').id,
+    verificaClienteInadimplente.id);
 
 
 contratarPacote.mapScenarios();
-contratarPacote.showScenarios();
-contratarPacote.getSummary();
+// contratarPacote.showScenarios();
+contratarPacote.exportScenariosToExcel();

@@ -59,7 +59,7 @@ class StartingNode extends Node {
             }
             else {
                 console.log(`WARNING :: ${this.name} ('${this.type}') :: Unexpected end at 'mapScenarios' method / nextNode is ${this.nextNode}`);
-                console.log(prevStepMessages);
+                console.log(this);
             }
         })
         return promise;

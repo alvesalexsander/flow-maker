@@ -57,4 +57,4 @@ acolhimento.linkNext(respostasInputValido.getPath('Não').id, transfereParaATH.i
 
 
 acolhimento.mapScenarios();
-acolhimento.showScenarios();
+acolhimento.exportScenariosToExcel();

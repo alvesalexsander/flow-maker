@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.0",
+    "excel4node": "^1.7.2",
     "lodash.isequal": "^4.5.0",
     "shortid": "^2.2.15",
     "write": "^2.0.0"

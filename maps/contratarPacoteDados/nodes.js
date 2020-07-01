@@ -37,7 +37,7 @@ const nodes = {
 
     informaQueJaContratou: contratarPacote.newNode('node', {
         name: 'Informa que já contratou um pacote e precisa consumir',
-        expectedMessage: 'A URA Cognitiva informa que o cliente já possui um pacote ativado e que precisa consumi-lo antes de contratar um novo pacote;'
+        expectedMessage: 'A URA Cognitiva informa que o cliente já possui um pacote ativado\ne que precisa consumi-lo antes de contratar um novo pacote;'
     }),
 
     perguntaQuerAlgoMais: contratarPacote.newNode('switch', {
@@ -66,7 +66,7 @@ const nodes = {
 
     respostaBloqueioFinanceiroSim: contratarPacote.newNode('node', {
         name: 'Informa ao cliente que possui bloqueio financeiro',
-        expectedMessage: 'A URA Cognitiva informa que está com um bloqueio financeiro e por isso está impedido de contratar um novo pacote;'
+        expectedMessage: 'A URA Cognitiva informa que está com um bloqueio financeiro e por isso está impedido\nde contratar um novo pacote;'
     }),
 
     respostaBloqueioFinanceiroNao: contratarPacote.newNode('node', {
@@ -82,7 +82,7 @@ const nodes = {
 
     respostaNavegaçãoReduzidaNao: contratarPacote.newNode('node', {
         name: 'Informa ao cliente que já possui um pacote ativo',
-        expectedMessage: 'A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar um novo depois de consumi-lo;'
+        expectedMessage: 'A URA Cognitiva informa que já existe um pacote ativo e que só é possível contratar\num novo depois de consumi-lo;'
     }),
 
     intencaoProblemaNaInternet: contratarPacote.newNode('switch', {
@@ -132,7 +132,7 @@ const nodes = {
 
     respostaClienteInadimplenteSim: contratarPacote.newNode('node', {
         name: 'URA informa que cliente consumiu 100%',
-        expectedMessage: 'A URA Cognitiva informa o pacote de dados foi consumido e, por estar inadimplente, a velocidade está reduzida e não pode contratar um novo pacote;'
+        expectedMessage: 'A URA Cognitiva informa o pacote de dados foi consumido e, por estar inadimplente,\na velocidade está reduzida e não pode contratar um novo pacote;'
     }),
 
     verificaClienteTitular: contratarPacote.newNode('switch', {
@@ -143,12 +143,12 @@ const nodes = {
 
     respostaClienteTitularNao: contratarPacote.newNode('node', {
         name: 'URA informa que cliente consumiu 100% e não é o titular da conta',
-        expectedMessage: 'A URA Cognitiva informa que o pacote de dados foi consumido e, que por não ser o titular, não poderá contratar um novo pacote;'
+        expectedMessage: 'A URA Cognitiva informa que o pacote de dados foi consumido e,\nque por não ser o titular, não poderá contratar um novo pacote;'
     }),
 
     respostaClienteTitularProbInternetSim: contratarPacote.newNode('node', {
-        name: 'URA informa que cliente consumiu 100%',
-        expectedMessage: 'A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote, mas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;'
+        name: 'URA informa que cliente consumiu 100% do pacote',
+        expectedMessage: 'A URA Cognitiva informa que está com velocidade reduzida porque já consumiu o pacote,\nmas pode contratar um pacote adicional e verifica se existem pacotes disponiveis;'
     }),
 
     verificaPacoteVazio: contratarPacote.newNode('switch', {
@@ -235,8 +235,8 @@ const nodes = {
     }),
 
     respostaContratacaoEfetuadaFalha: contratarPacote.newNode('node', {
-        name: 'URA informa o pacote foi contratado',
-        expectedMessage: 'URA informa o pacote foi contratado;'
+        name: 'URA informa o pacote não foi contratado',
+        expectedMessage: 'URA informa o pacote não foi contratado;'
     }),
 
 };
