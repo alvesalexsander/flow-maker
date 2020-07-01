@@ -227,7 +227,8 @@ class FlowMap {
                 },
                 alignment: {
                     horizontal: 'left',
-                    vertical: 'top'
+                    vertical: 'top',
+                    wrapText: true
                 },
                 border: {
                     left: {
@@ -300,7 +301,9 @@ class FlowMap {
                     segmento: this.segment,
                     dadosDeEntrada: '',
                     preCondicao: this.scenarios[scenario]['precondition'].join('\n'),
-                    resultadoEsperado: this.scenarios[scenario]['expectedResult'].join('\n'),
+                    resultadoEsperado: this.scenarios[scenario]['expectedResult']
+                        .map((sentence) => `${this.scenarios[scenario]['expectedResult'].indexOf(sentence) + 1} - ${sentence}`)
+                        .join('\n'),
                 };
 
                 for (const sentence of this.scenarios[scenario]['precondition']) {
