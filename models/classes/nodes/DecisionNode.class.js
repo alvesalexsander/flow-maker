@@ -9,7 +9,7 @@ class DecisionNode extends Node {
         stepMessage = valueDefault['stepMessage'],
         expectedMessage = valueDefault['expectedMessage'],
         // prevNode = valueDefault['prevNode'],
-        nextNode = valueDefault['nextNode'] }) {
+        nextNode }) {
         super({ name, stepMessage, expectedMessage, /* prevNode, */ nextNode });
         delete this.targetNode;
         delete this.turnTargetNode;
