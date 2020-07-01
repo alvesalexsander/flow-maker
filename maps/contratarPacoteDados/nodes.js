@@ -42,8 +42,7 @@ const nodes = {
 
     perguntaQuerAlgoMais: contratarPacote.newNode('switch', {
         name: 'Pergunta se o usuario quer algo mais',
-        condition: 'Ajudo com algo mais?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Quer algo mais', 'Não quer mais nada']
     }),
 
     desambiguador: contratarPacote.newNode('node', {

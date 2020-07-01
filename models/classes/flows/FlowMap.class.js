@@ -103,6 +103,20 @@ class FlowMap {
     //     }
     // }
 
+    linkChain() {
+        for (const arg in arguments) {
+            if (shortid.isValid(arguments[arg][0].id) && shortid.isValid(arguments[arg][0].id)){
+                this.linkNext(arguments[arg][0].id, arguments[arg][1].id)
+            }
+            else if(shortid.isValid(arguments[arg][0]) && shortid.isValid(arguments[arg][0])){
+                this.linkNext(arguments[arg][0], arguments[arg][1])
+            }
+            else {
+                throw new Error(`FLOWMAP :: LINKCHAIN :: Argumento ${arguments[arg][0]} e ${arguments[arg][1]} deve ser do mesmo tipo. Aceita 'Node'(object) ou 'id'(string)`)
+            }
+        }
+    }
+
     /**
      * Conecta um Node a outro Node passando a propriedade id dos mesmos na ordem fromId->toId
      * @param {*} from String - O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como prevNode (atualiza 'nextNode' com o Node-Destino)
