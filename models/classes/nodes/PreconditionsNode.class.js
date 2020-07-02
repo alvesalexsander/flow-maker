@@ -19,9 +19,31 @@ class PreconditionsNode extends Node {
         this.setPreconditions(preconditions);
     }
 
+    noStepMessage(){
+        for(const node of this.pathNodes) {
+            delete node.stepMessage;
+        }
+        return this;
+    }
+
+    noExpectedMessage(){
+        for(const node of this.preconditionsNodes) {
+            delete node.expectedMessage;
+        }
+        return this;
+    }
+
+    noMessage(){
+        for(const node of this.preconditionsNodes) {
+            delete node.stepMessage;
+            delete node.expectedMessage;
+        }
+        return this;
+    }
+
     setPreconditions(conditionsArray){
         this.preconditions = conditionsArray;
-        this.mountPathNodes();
+        this.mountpreconditionsNodes();
     }
 
     mountPathNodes() {

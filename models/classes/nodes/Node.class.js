@@ -1,4 +1,5 @@
 const shortid = require('shortid');
+const cloneDeep = require('lodash.clonedeep');
 
 class Node {
     // Node básico. Contém propriedades e metódos que podem ser extendidos por quase todos os outros Nodes.
@@ -7,6 +8,7 @@ class Node {
     stepMessage
     expectedMessage
     nextNode
+    alts = []
     // prevNode
     targetNode = false;
 
@@ -35,6 +37,51 @@ class Node {
 
     isTargetNode() {
         return this.targetNode ? this.targetNode : false
+    }
+
+    alt(name) {
+        let thisCopy = cloneDeep(this);
+        thisCopy.name = name;
+        let index;
+        if (!this.alts.filter(alt => alt == thisCopy).length) {
+            this.alts.push(thisCopy);
+            index = this.alts.indexOf(thisCopy);
+            return this.alts[index];
+        }
+        else {
+            index = this.alts.indexOf(thisCopy);
+            return this.alts[index];
+        }
+    }
+
+    getAlt(name) {
+        const filter = alt => alt.name === name;
+        if (this.alts.filter(filter).length == 1) {
+            return this.alts.filter(filter)[0];
+        }
+        new Error(`NODE ${this.name} :: Alt ${name} não encontrado.`);
+    }
+
+    noStepMessage() {
+        delete this.stepMessage;
+        return this;
+    }
+
+    noExpectedMessage() {
+        delete this.expectedMessage;
+        return this;
+    }
+
+    noMessage() {
+        delete this.stepMessage;
+        delete this.expectedMessage;
+        return this;
+    }
+
+    silent() {
+        let thisCopy = this;
+        thisCopy.noMessage();
+        return thisCopy;
     }
 
     next() {
