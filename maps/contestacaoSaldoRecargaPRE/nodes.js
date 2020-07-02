@@ -77,12 +77,12 @@ const nodes = {
 
     verificaSaldoMaiorQueZeroValido: contestacaoSaldoRecarga.newNode('switch', {
         name: 'Verifica se o saldo do cliente é maior que zero',
-        pathCases: ['Saldo > zero', 'Saldo <= a zero']
+        pathCases: ['Saldo > zero', 'Saldo < zero', 'Saldo = zero']
     }),
 
     verificaSaldoMaiorQueZeroValido2: contestacaoSaldoRecarga.newNode('switch', {
         name: 'Verifica se o saldo do cliente é maior que zero',
-        pathCases: ['Saldo > zero', 'Saldo <= a zero']
+        pathCases: ['Saldo > zero', 'Saldo < zero', 'Saldo = zero']
     }),
 
     respostaMaiorQueZeroValidoSim: contestacaoSaldoRecarga.newNode('node', {
@@ -117,12 +117,12 @@ const nodes = {
 
     verificaSaldoMaiorQueZeroInvalido: contestacaoSaldoRecarga.newNode('switch', {
         name: 'Verifica se o saldo do cliente é maior que zero',
-        pathCases: ['Saldo > zero (expirado)', 'Saldo <= a zero (expirado)']
+        pathCases: ['Saldo > zero (expirado)', 'Saldo < zero (expirado)', 'Saldo = zero (expirado)']
     }),
     
     verificaSaldoMaiorQueZeroInvalido2: contestacaoSaldoRecarga.newNode('switch', {
         name: 'Verifica se o saldo do cliente é maior que zero',
-        pathCases: ['Saldo > zero (expirado)', 'Saldo <= a zero (expirado)']
+        pathCases: ['Saldo > zero (expirado)', 'Saldo < zero (expirado)', 'Saldo = zero (expirado)']
     }),
 
     respostaMaiorQueZeroInvalidoSim: contestacaoSaldoRecarga.newNode('node', {
