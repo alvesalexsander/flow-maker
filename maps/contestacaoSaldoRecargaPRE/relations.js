@@ -57,12 +57,16 @@ contestacaoSaldoRecarga.linkChain(
 
     [startContestacaoSaldoRecarga, saudacaoURA],
     [saudacaoURA, viaDeAcesso],
+    [saudacaoURA, viaDeAcesso],
+
     // [viaDeAcesso, informativocontestacaoSaldoRecarga],
     [viaDeAcesso.getPath('Intenção Consultar Saldo'), verificaInformacaoSaldoDisponivel],
-        [verificaInformacaoSaldoDisponivel.getPath('Não'), verificaServicoConsultaSaldoRecarga],
+        [verificaInformacaoSaldoDisponivel.getPath('Sem informação de saldo'), verificaServicoConsultaSaldoRecarga],
             [verificaServicoConsultaSaldoRecarga.getPath('Falha na consulta de saldo'), respostaServicoConsultaSaldoRecargaFalha],
                 [respostaServicoConsultaSaldoRecargaFalha, perguntaQuerAlgoMais],
-        [verificaInformacaoSaldoDisponivel.getPath('Sim'), verificaSaldoNaValidade],
+            [verificaServicoConsultaSaldoRecarga.getPath('Sucesso na consulta de saldo'), verificaSaldoNaValidade],
+                [respostaServicoConsultaSaldoRecargaFalha, perguntaQuerAlgoMais],
+        [verificaInformacaoSaldoDisponivel.getPath('Saldo consultado no acolhimento'), verificaSaldoNaValidade],
             [verificaSaldoNaValidade.getPath('Saldo válido'), verificaSaldoMaiorQueZeroValido],
                 [verificaSaldoMaiorQueZeroValido.getPath('Saldo > zero'), respostaMaiorQueZeroValidoSimConsultarSaldo],
                 [verificaSaldoMaiorQueZeroValido.getPath('Saldo = zero'), respostaMaiorQueZeroNaoConsultarSaldo],
@@ -78,10 +82,12 @@ contestacaoSaldoRecarga.linkChain(
 
 //Intenção Contestar Saldo
 [viaDeAcesso.getPath('Intenção Contestar Saldo'), verificaInformacaoSaldoDisponivel2],
-        [verificaInformacaoSaldoDisponivel2.getPath('Não'), verificaServicoConsultaSaldoRecarga2],
+        [verificaInformacaoSaldoDisponivel2.getPath('Sem informação de saldo'), verificaServicoConsultaSaldoRecarga2],
             [verificaServicoConsultaSaldoRecarga2.getPath('Falha na consulta de saldo'), respostaServicoConsultaSaldoRecargaFalha2],
                 [respostaServicoConsultaSaldoRecargaFalha2, perguntaQuerAlgoMais],
-        [verificaInformacaoSaldoDisponivel2.getPath('Sim'), verificaSaldoNaValidade2],
+            [verificaServicoConsultaSaldoRecarga2.getPath('Sucesso na consulta de saldo'), verificaSaldoNaValidade2],
+                [respostaServicoConsultaSaldoRecargaFalha2, perguntaQuerAlgoMais],
+        [verificaInformacaoSaldoDisponivel2.getPath('Saldo consultado no acolhimento'), verificaSaldoNaValidade2],
             [verificaSaldoNaValidade2.getPath('Saldo válido'), verificaSaldoMaiorQueZeroValido2],
                 [verificaSaldoMaiorQueZeroValido2.getPath('Saldo > zero'), respostaMaiorQueZeroValidoSimContestarSaldo],
                 [verificaSaldoMaiorQueZeroValido2.getPath('Saldo = zero'), respostaMaiorQueZeroNaoContestarSaldo],

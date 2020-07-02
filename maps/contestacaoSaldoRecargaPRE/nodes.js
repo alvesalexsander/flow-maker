@@ -45,15 +45,13 @@ const nodes = {
 
     verificaInformacaoSaldoDisponivel: contestacaoSaldoRecarga.newNode('switch', {
         name: 'Verifica se as informações de saldo foram recuperadas no profile',
-        condition: 'Informações saldo disponíveis?',
-        pathCases: ['Sim', 'Não']
-    }).noStepMessage(),
+        pathCases: ['Saldo consultado no acolhimento', 'Sem informação de saldo']
+    }),
     
     verificaInformacaoSaldoDisponivel2: contestacaoSaldoRecarga.newNode('switch', {
         name: 'Verifica se as informações de saldo foram recuperadas no profile',
-        condition: 'Informações saldo disponíveis?',
-        pathCases: ['Sim', 'Não']
-    }).noStepMessage(),
+        pathCases: ['Saldo consultado no acolhimento', 'Sem informação de saldo']
+    }),
 
     verificaServicoConsultaSaldoRecarga: contestacaoSaldoRecarga.newNode('switch', {
         name: 'Chama serviço Consulta Saldo Recarga',
@@ -142,17 +140,17 @@ const nodes = {
     verificaIntencaoConsultarSaldo: contestacaoSaldoRecarga.newNode('switch', {
         name: 'Verifica se a intencao do cliente era consultar saldo',
         pathCases: ['Intenção Consultar Saldo', 'Outra intenção']
-    }),
+    }).noStepMessage(),
 
     verificaIntencaoConsultarSaldoExlusivo: contestacaoSaldoRecarga.newNode('switch', {
         name: 'Verifica se a intencao do cliente era consultar saldo',
-        pathCases: ['Intenção Consultar Saldo', 'oi']
-    }),
+        pathCases: ['Intenção Consultar Saldo']
+    }).noStepMessage(),
 
     verificaIntencaoConsultarSaldoExlusivo2: contestacaoSaldoRecarga.newNode('switch', {
         name: 'Verifica se a intencao do cliente era consultar saldo',
         pathCases: ['Outra intenção']
-    }),
+    }).noStepMessage(),
 
     perguntaQuerAlgoMaisContestacao: contestacaoSaldoRecarga.newNode('switch', {
         name: 'Pergunta se o usuario quer algo mais',
