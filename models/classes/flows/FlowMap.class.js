@@ -361,7 +361,7 @@ class FlowMap {
             ws.column(6).setWidth(resultadoEsperadoWidth / 2);
             ws.row(1).freeze();
 
-            wb.write('./exportedScenarios/scenarios.xlsx');
+            wb.write(`./exportedScenarios/${this.name} Scenarios.xlsx`);
         }, 0);
     }
 
