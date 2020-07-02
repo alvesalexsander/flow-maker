@@ -28,6 +28,21 @@ class SwitchNode extends Node {
         return this;
     }
 
+    noExpectedMessage(){
+        for(const node of this.pathNodes) {
+            delete node.expectedMessage;
+        }
+        return this;
+    }
+
+    noMessage(){
+        for(const node of this.pathNodes) {
+            delete node.stepMessage;
+            delete node.expectedMessage;
+        }
+        return this;
+    }
+
     mountPathNodes() {
         if (Array.isArray(this.pathCases)) {
             let caseNodes = [];
