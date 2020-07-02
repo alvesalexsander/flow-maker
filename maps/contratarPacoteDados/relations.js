@@ -44,185 +44,70 @@ const {
     respostaContratacaoEfetuadaSucesso,
     respostaContratacaoEfetuadaFalha } = require('./nodes');
 
-contratarPacote.linkNext(
-    perguntaQuerAlgoMais.getPath('Sim').id,
-    desambiguador.id);
-contratarPacote.linkNext(
-    perguntaQuerAlgoMais.getPath('Não').id,
-    agradeceDesliga.id);
+contratarPacote.linkChain(
+    [perguntaQuerAlgoMais.getPath('Quer algo mais'), desambiguador],
+    [perguntaQuerAlgoMais.getPath('Não quer mais nada'), agradeceDesliga],
 
-contratarPacote.linkNext(startContratarPacote.id, saudacaoURA.id);
-contratarPacote.linkNext(saudacaoURA.id, viaDeAcesso.id);
-
-contratarPacote.linkNext(viaDeAcesso.id, segundaContratacao.id);
-    contratarPacote.linkNext(
-        segundaContratacao.getPath('Sim').id,
-        informaQueJaContratou.id);
-        contratarPacote.linkNext(
-            informaQueJaContratou.id,
-            perguntaQuerAlgoMais.id);
-    contratarPacote.linkNext(
-        segundaContratacao.getPath('Não').id,
-        verificaBloqueioFinanceiro.id);
-    
-contratarPacote.linkNext(
-    verificaBloqueioFinanceiro.getPath('Sim').id,
-    respostaBloqueioFinanceiroSim.id);
-    contratarPacote.linkNext(
-        respostaBloqueioFinanceiroSim.id,
-        perguntaQuerAlgoMais.id);
-contratarPacote.linkNext(
-    verificaBloqueioFinanceiro.getPath('Não').id,
-    respostaBloqueioFinanceiroNao.id);
-    
-contratarPacote.linkNext(
-    respostaBloqueioFinanceiroNao.id,
-    verificaNavegaçãoReduzida.id);
-    contratarPacote.linkNext(
-        verificaNavegaçãoReduzida.getPath('Não').id,
-        respostaNavegaçãoReduzidaNao.id);
-    contratarPacote.linkNext(
-        respostaNavegaçãoReduzidaNao.id,
-        intencaoProblemaNaInternet.id);
-        contratarPacote.linkNext(
-            intencaoProblemaNaInternet.getPath('Não').id,
-            perguntaQuerAlgoMais.id);
-        contratarPacote.linkNext(
-            intencaoProblemaNaInternet.getPath('Sim').id,
-            respostaoProblemaNaInternetSim.id);
-        contratarPacote.linkNext(
-            respostaoProblemaNaInternetSim.id,
-            verificaReiniciouAparelho.id);
-            contratarPacote.linkNext(
-                verificaReiniciouAparelho.getPath('Não').id,
-                respostaReiniciouAparelhoNao.id);
-                contratarPacote.linkNext(
-                    respostaReiniciouAparelhoNao.id,
-                    verificaQuerReiniciar.id);
-                    contratarPacote.linkNext(
-                        verificaQuerReiniciar.getPath('Sim').id,
-                        encerraLigacao.id);
-                    contratarPacote.linkNext(
-                        verificaQuerReiniciar.getPath('Não').id,
-                        respostaQuerReiniciarNao.id);
-                    contratarPacote.linkNext(
-                        respostaQuerReiniciarNao.id,
-                        perguntaQuerAlgoMais.id);
-            contratarPacote.linkNext(
-                verificaReiniciouAparelho.getPath('Sim').id,
-                respostaQuerReiniciarNao.id);
-    contratarPacote.linkNext(
-        verificaNavegaçãoReduzida.getPath('Sim').id,
-        verificaBillingProfile.id);
-
-contratarPacote.linkNext(
-    verificaBillingProfile.getPath('Sucesso').id,
-    verificaClienteInadimplente.id);
-    contratarPacote.linkNext(
-        verificaClienteInadimplente.getPath('Sim').id,
-        respostaClienteInadimplenteSim.id);
-        contratarPacote.linkNext(
-            respostaClienteInadimplenteSim.id,
-            perguntaQuerAlgoMais.id);
-    contratarPacote.linkNext(
-        verificaClienteInadimplente.getPath('Não').id,
-        verificaClienteTitular.id);
-
-contratarPacote.linkNext(
-    verificaClienteTitular.getPath('Não').id,
-    respostaClienteTitularNao.id);
-    contratarPacote.linkNext(
-        respostaClienteTitularNao.id,
-        perguntaQuerAlgoMais.id);
-contratarPacote.linkNext(
-    verificaClienteTitular.getPath('Sim').id,
-    intencaoProblemaNaInternet.id);
-    contratarPacote.linkNext(
-        intencaoProblemaNaInternet.getPath('Sim').id,
-        respostaClienteTitularProbInternetSim.id);
-        contratarPacote.linkNext(
-            respostaClienteTitularProbInternetSim.id,
-            verificaPacoteVazio.id);
-            contratarPacote.linkNext(
-                verificaPacoteVazio.getPath('Sim').id,
-                respostaVerificaPacoteVazioSim.id);
-            contratarPacote.linkNext(
-                respostaVerificaPacoteVazioSim.id,
-                perguntaQuerAlgoMais.id);
-            contratarPacote.linkNext(
-                verificaPacoteVazio.getPath('Não').id,
-                respostaVerificaPacoteVazioNao.id);
-            contratarPacote.linkNext(
-                respostaVerificaPacoteVazioNao.id,
-                verificaPacoteEscolhido.id);
-                contratarPacote.linkNext(
-                    verificaPacoteEscolhido.getPath('Não').id,
-                    respostaPacoteEscolhidoNao.id);
-                contratarPacote.linkNext(
-                    respostaPacoteEscolhidoNao.id,
-                    verificaRepetir.id);
-                    contratarPacote.linkNext(
-                        verificaRepetir.getPath('Sim').id,
-                        respostaRepetir.id);
-                        contratarPacote.linkNext(
-                            respostaRepetir.getPath('Sim').id,
-                            verificaConfirmaContratacao.id);
-                        contratarPacote.linkNext(
-                            respostaRepetir.getPath('Não').id,
-                            perguntaQuerAlgoMais.id);
-                contratarPacote.linkNext(
-                    verificaPacoteEscolhido.getPath('Sim').id,
-                    verificaConfirmaContratacao.id);
-                    contratarPacote.linkNext(
-                        verificaConfirmaContratacao.getPath('Não').id,
-                        respostaConfirmaContratacaoNao.id);
-                        contratarPacote.linkNext(
-                            respostaConfirmaContratacaoNao.id,
-                            verificaRepetir.getPath('Não').id);
-                            contratarPacote.linkNext(
-                                verificaRepetir.getPath('Não').id,
-                                respostaRepetir.getPath('Não').id);
-                    contratarPacote.linkNext(
-                        verificaConfirmaContratacao.getPath('Sim').id,
-                        verificaLigandoProprioAparelho.id);
-                        contratarPacote.linkNext(
-                            verificaLigandoProprioAparelho.getPath('Não').id,
-                            respostaLigandoProprioAparelhoNao.id);
-                            contratarPacote.linkNext(
-                                respostaLigandoProprioAparelhoNao.id,
-                                verificaFluxoDeSenha.id);
-                                contratarPacote.linkNext(
-                                    verificaFluxoDeSenha.getPath('Falha').id,
-                                    respostaFluxoDeSenhaFalha.id);
-                                    contratarPacote.linkNext(
-                                        respostaFluxoDeSenhaFalha.id,
-                                        perguntaQuerAlgoMais.id);
-                                contratarPacote.linkNext(
-                                    verificaFluxoDeSenha.getPath('Sucesso').id,
-                                    verificaContratacaoEfetuada.id);
-                        contratarPacote.linkNext(
-                            verificaLigandoProprioAparelho.getPath('Sim').id,
-                            verificaContratacaoEfetuada.id);
-                            contratarPacote.linkNext(
-                                verificaContratacaoEfetuada.getPath('Sucesso').id,
-                                respostaContratacaoEfetuadaSucesso.id);
-                                contratarPacote.linkNext(
-                                    respostaContratacaoEfetuadaSucesso.id,
-                                    perguntaQuerAlgoMais.id);
-                            contratarPacote.linkNext(
-                                verificaContratacaoEfetuada.getPath('Falha').id,
-                                respostaContratacaoEfetuadaFalha.id);
-                                contratarPacote.linkNext(
-                                    respostaContratacaoEfetuadaFalha.id,
-                                    perguntaQuerAlgoMais.id);
-    contratarPacote.linkNext(
-        intencaoProblemaNaInternet.getPath('Não').id,
-        verificaPacoteVazio.id);
-contratarPacote.linkNext(
-    verificaBillingProfile.getPath('Falha').id,
-    verificaClienteInadimplente.id);
+    [startContratarPacote, saudacaoURA],
+    [saudacaoURA, viaDeAcesso],
+    [viaDeAcesso, segundaContratacao],
+        [segundaContratacao.getPath('Segunda contratação'), informaQueJaContratou],
+            [informaQueJaContratou, perguntaQuerAlgoMais],
+        [segundaContratacao.getPath('Não é a segunda contratação'), verificaBloqueioFinanceiro],
+            [verificaBloqueioFinanceiro.getPath('Está em BTO'), respostaBloqueioFinanceiroSim],
+                [respostaBloqueioFinanceiroSim, perguntaQuerAlgoMais],
+            [verificaBloqueioFinanceiro.getPath('Não é BTO'), respostaBloqueioFinanceiroNao],
+                [respostaBloqueioFinanceiroNao, verificaNavegaçãoReduzida],
+                    [verificaNavegaçãoReduzida.getPath('Navegação normal'), respostaNavegaçãoReduzidaNao],
+                        [respostaNavegaçãoReduzidaNao, intencaoProblemaNaInternet],
+                            [intencaoProblemaNaInternet.getPath('Internet sem problemas'), perguntaQuerAlgoMais],
+                            [intencaoProblemaNaInternet.getPath('Está com problema na internet'), respostaoProblemaNaInternetSim],
+                                [respostaoProblemaNaInternetSim, verificaReiniciouAparelho],
+                                    [verificaReiniciouAparelho.getPath('Ainda não reiniciou'), respostaReiniciouAparelhoNao],
+                                        [respostaReiniciouAparelhoNao, verificaQuerReiniciar],
+                                            [verificaQuerReiniciar.getPath('Aceita reiniciar'), encerraLigacao],
+                                            [verificaQuerReiniciar.getPath('Não quer reiniciar'), respostaQuerReiniciarNao],
+                                                [respostaQuerReiniciarNao, perguntaQuerAlgoMais],
+                                    [verificaReiniciouAparelho.getPath('Já reiniciou'), respostaQuerReiniciarNao],
+                    [verificaNavegaçãoReduzida.getPath('Navegação reduzida'), verificaBillingProfile],
+                        [verificaBillingProfile.getPath('Sucesso no billing'), verificaClienteInadimplente],
+                            [verificaClienteInadimplente.getPath('Cliente inadimplente'), respostaClienteInadimplenteSim],
+                                [respostaClienteInadimplenteSim, perguntaQuerAlgoMais],
+                            [verificaClienteInadimplente.getPath('Cliente sem débitos'), verificaClienteTitular],
+                                [verificaClienteTitular.getPath('Não é titular'), respostaClienteTitularNao],
+                                    [respostaClienteTitularNao, perguntaQuerAlgoMais],
+                                [verificaClienteTitular.getPath('É titular'), intencaoProblemaNaInternet],
+                                    [intencaoProblemaNaInternet.getPath('Está com problema na internet'), respostaClienteTitularProbInternetSim],
+                                        [respostaClienteTitularProbInternetSim, verificaPacoteVazio],
+                                            [verificaPacoteVazio.getPath('Pacote vazio'), respostaVerificaPacoteVazioSim],
+                                                [respostaVerificaPacoteVazioSim, perguntaQuerAlgoMais],
+                                            [verificaPacoteVazio.getPath('Pacotes disponíveis'), respostaVerificaPacoteVazioNao],
+                                                [respostaVerificaPacoteVazioNao, verificaPacoteEscolhido],
+                                                    [verificaPacoteEscolhido.getPath('Nenhum pacote escolhido'), respostaPacoteEscolhidoNao],
+                                                        [respostaPacoteEscolhidoNao, verificaRepetir],
+                                                            [verificaRepetir.getPath('Quer ouvir opções de novo'), respostaRepetir],
+                                                                [respostaRepetir.getPath('Pacote escolhido(após repetir)'), verificaConfirmaContratacao],
+                                                                [respostaRepetir.getPath('Nenhum pacote escolhido(após repetir)'), perguntaQuerAlgoMais],
+                                                    [verificaPacoteEscolhido.getPath('Pacote escolhido'), verificaConfirmaContratacao],
+                                                        [verificaConfirmaContratacao.getPath('Não confirma contratação'), respostaConfirmaContratacaoNao],
+                                                            [respostaConfirmaContratacaoNao, verificaRepetir.getPath('Não quer ouvir de novo')],
+                                                                [verificaRepetir.getPath('Não quer ouvir de novo'), respostaRepetir.getPath('Nenhum pacote escolhido(após repetir)')],
+                                                        [verificaConfirmaContratacao.getPath('Confirma contratação'), verificaLigandoProprioAparelho],
+                                                            [verificaLigandoProprioAparelho.getPath('Ligando de outro aparelho'), respostaLigandoProprioAparelhoNao],
+                                                                [respostaLigandoProprioAparelhoNao, verificaFluxoDeSenha],
+                                                                    [verificaFluxoDeSenha.getPath('Falha no fluxo de senha'), respostaFluxoDeSenhaFalha],
+                                                                        [respostaFluxoDeSenhaFalha, perguntaQuerAlgoMais],
+                                                                    [verificaFluxoDeSenha.getPath('Sucesso no fluxo de senha'), verificaContratacaoEfetuada],
+                                                            [verificaLigandoProprioAparelho.getPath('Ligando do próprio aparelho'), verificaContratacaoEfetuada],
+                                                                [verificaContratacaoEfetuada.getPath('Sucesso na contratação'), respostaContratacaoEfetuadaSucesso],
+                                                                    [respostaContratacaoEfetuadaSucesso, perguntaQuerAlgoMais],
+                                                                [verificaContratacaoEfetuada.getPath('Falha na contratação'), respostaContratacaoEfetuadaFalha],
+                                                                    [respostaContratacaoEfetuadaFalha, perguntaQuerAlgoMais],
+                                    [intencaoProblemaNaInternet.getPath('Internet sem problemas'), verificaPacoteVazio],
+                        [verificaBillingProfile.getPath('Erro no billing'), verificaClienteInadimplente],
+)
 
 
 contratarPacote.mapScenarios();
-// contratarPacote.showScenarios();
+contratarPacote.showScenarios();
 contratarPacote.exportScenariosToExcel();

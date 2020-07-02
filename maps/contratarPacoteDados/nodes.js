@@ -31,8 +31,7 @@ const nodes = {
 
     segundaContratacao: contratarPacote.newNode('switch', {
         name: 'Já contratou pacote na mesma ligação?',
-        condition: 'Segunda Contratação',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Segunda contratação', 'Não é a segunda contratação']
     }),
 
     informaQueJaContratou: contratarPacote.newNode('node', {
@@ -47,20 +46,17 @@ const nodes = {
 
     desambiguador: contratarPacote.newNode('node', {
         name: 'Usuário quer algo mais',
-        stepMessage: 'Quer algo mais.',
         expectedMessage: 'A URA Cognitiva transfere para o desambiguador.'
     }).turnTargetNode(),
 
     agradeceDesliga: contratarPacote.newNode('node', {
         name: 'URA agradece e desliga a ligação',
-        stepMessage: 'Não quer mais nada.',
         expectedMessage: 'A URA Cognitiva agradece e encerra a ligação.'
     }).turnTargetNode(),
 
     verificaBloqueioFinanceiro: contratarPacote.newNode('switch', {
         name: 'Verifica se o cliente possui bloqueio financeiro',
-        condition: 'Possui bloqueio Financeiro?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Está em BTO', 'Não é BTO']
     }),
 
     respostaBloqueioFinanceiroSim: contratarPacote.newNode('node', {
@@ -75,8 +71,7 @@ const nodes = {
 
     verificaNavegaçãoReduzida: contratarPacote.newNode('switch', {
         name: 'Verifica se o cliente está com navegação reduzida',
-        condition: 'Está com navegação reduzida?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Navegação reduzida', 'Navegação normal']
     }),
 
     respostaNavegaçãoReduzidaNao: contratarPacote.newNode('node', {
@@ -86,8 +81,7 @@ const nodes = {
 
     intencaoProblemaNaInternet: contratarPacote.newNode('switch', {
         name: 'Cliente relatou problema na internet?',
-        condition: 'Relatou problema na internet?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Está com problema na internet', 'Internet sem problemas']
     }),
 
     respostaoProblemaNaInternetSim: contratarPacote.newNode('node', {
@@ -97,8 +91,7 @@ const nodes = {
 
     verificaReiniciouAparelho: contratarPacote.newNode('switch', {
         name: 'Cliente já tentou reiniciar o aparelho?',
-        condition: 'Já reiniciou o aparelho?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Já reiniciou', 'Ainda não reiniciou']
     }),
 
     respostaReiniciouAparelhoNao: contratarPacote.newNode('node', {
@@ -108,8 +101,7 @@ const nodes = {
 
     verificaQuerReiniciar: contratarPacote.newNode('switch', {
         name: 'Cliente quer reiniciar o aparelho?',
-        condition: 'Quer reiniciar o aparelho?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Aceita reiniciar', 'Não quer reiniciar']
     }),
 
     respostaQuerReiniciarNao: contratarPacote.newNode('node', {
@@ -119,14 +111,12 @@ const nodes = {
 
     verificaBillingProfile: contratarPacote.newNode('switch', {
         name: 'Verifica se os dados do serviço Billing Profile estão disponiveis',
-        condition: 'Billing Profile?',
-        pathCases: ['Sucesso', 'Falha']
+        pathCases: ['Sucesso no billing', 'Erro no billing']
     }),
 
     verificaClienteInadimplente: contratarPacote.newNode('switch', {
         name: 'Verifica se o cliente está inadimplente',
-        condition: 'Cliente Inadimplente?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Cliente inadimplente', 'Cliente sem débitos']
     }),
 
     respostaClienteInadimplenteSim: contratarPacote.newNode('node', {
@@ -136,8 +126,7 @@ const nodes = {
 
     verificaClienteTitular: contratarPacote.newNode('switch', {
         name: 'Verifica se o cliente é titular da conta',
-        condition: 'Cliente Titular?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['É titular', 'Não é titular']
     }),
 
     respostaClienteTitularNao: contratarPacote.newNode('node', {
@@ -152,8 +141,7 @@ const nodes = {
 
     verificaPacoteVazio: contratarPacote.newNode('switch', {
         name: 'Verifica se existem pacotes disponiveis',
-        condition: 'Pacote Vazio?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Pacote vazio', 'Pacotes disponíveis']
     }),
 
     respostaVerificaPacoteVazioSim: contratarPacote.newNode('node', {
@@ -168,8 +156,7 @@ const nodes = {
 
     verificaPacoteEscolhido: contratarPacote.newNode('switch', {
         name: 'Verifica se algum pacote foi escolhido',
-        condition: 'Algum pacote escolhido?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Pacote escolhido', 'Nenhum pacote escolhido']
     }),
 
     respostaPacoteEscolhidoNao: contratarPacote.newNode('node', {
@@ -179,20 +166,17 @@ const nodes = {
 
     verificaRepetir: contratarPacote.newNode('switch', {
         name: 'Verifica se o usuário quer ouvir de novo',
-        condition: 'Repetir?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Quer ouvir opções de novo', 'Não quer ouvir de novo']
     }),
 
     respostaRepetir: contratarPacote.newNode('switch', {
         name: 'URA repete as opções disponiveis',
-        condition: 'Algum pacote escolhido(após repetir)?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Pacote escolhido(após repetir)', 'Nenhum pacote escolhido(após repetir)']
     }),
 
     verificaConfirmaContratacao: contratarPacote.newNode('switch', {
         name: 'URA perguntar se o cliente quer confirmar a contratação do pacote',
-        condition: 'Confirma contratação?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Confirma contratação', 'Não confirma contratação']
     }),
 
     respostaConfirmaContratacaoNao: contratarPacote.newNode('node', {
@@ -202,8 +186,7 @@ const nodes = {
 
     verificaLigandoProprioAparelho: contratarPacote.newNode('switch', {
         name: 'URA verifica se está ligando do próprio aparelho',
-        condition: 'Ligando do próprio aparelho?',
-        pathCases: ['Sim', 'Não']
+        pathCases: ['Ligando do próprio aparelho', 'Ligando de outro aparelho']
     }),
 
     respostaLigandoProprioAparelhoNao: contratarPacote.newNode('node', {
@@ -213,8 +196,7 @@ const nodes = {
 
     verificaFluxoDeSenha: contratarPacote.newNode('switch', {
         name: 'Sucesso no fluxo de Senha?',
-        condition: 'Fluxo de Senha',
-        pathCases: ['Sucesso', 'Falha']
+        pathCases: ['Sucesso no fluxo de senha', 'Falha no fluxo de senha']
     }),
 
     respostaFluxoDeSenhaFalha: contratarPacote.newNode('node', {
@@ -224,8 +206,7 @@ const nodes = {
 
     verificaContratacaoEfetuada: contratarPacote.newNode('switch', {
         name: 'Serviço Contratação de Pacotes de dados',
-        condition: 'Contratação efetuada?',
-        pathCases: ['Sucesso', 'Falha']
+        pathCases: ['Sucesso na contratação', 'Falha na contratação']
     }),
 
     respostaContratacaoEfetuadaSucesso: contratarPacote.newNode('node', {
