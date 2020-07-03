@@ -117,7 +117,9 @@ class FlowMap {
                 }
             }
             catch(e) {
-                console.log(`FLOWMAP :: LINKCHAIN :: Error conectando os nodes ${arguments[arg][0]} e ${arguments[arg][1]}`);
+                console.log(e);
+
+                // console.log(`FLOWMAP :: LINKCHAIN :: Error conectando os nodes ${arguments[arg][0]} e ${arguments[arg][1]}`);
             }
         }
     }

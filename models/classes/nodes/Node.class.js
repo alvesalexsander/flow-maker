@@ -78,12 +78,6 @@ class Node {
         return this;
     }
 
-    silent() {
-        let thisCopy = this;
-        thisCopy.noMessage();
-        return thisCopy;
-    }
-
     next() {
         if (this.nextNode) {
             return this.nextNode;
