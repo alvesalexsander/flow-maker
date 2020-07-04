@@ -21,8 +21,8 @@ class FlowMap {
 
     /**
      * 
-     * @param {*} type Tipo do Node - Obrigatório
-     * @param {*} params Parametros de instanciação do Node ()
+     * @param {String} type Tipo do node a ser instanciado.
+     * @param {object} params Parametros de instanciação do Node.
      */
     newNode(type, params) {
         try {
@@ -47,7 +47,7 @@ class FlowMap {
 
     /**
      * Localiza um Node pelo 'id' dentro do container de Nodes 'flowchartNode' criado neste FlowMap.
-     * @param {*} data String - Valor da propriedade 'id' de um node ou nome do node.
+     * @param {String} data Valor da propriedade 'id' de um node ou nome do node.
      */
     queryNode(data) {
         for (const node of this.flowchartNodes) {
@@ -72,37 +72,9 @@ class FlowMap {
         return false;
     }
 
-    // // UNDER DEVELOPMENT
-    // setOutlet(nodeName) {
-    //     if (this.queryNode(nodeName)) {
-    //         const outletNode = this.newNode('node', {
-    //             name: `Outlet ${nodeName}`
-    //         })
-    //         this.linkNext(this.queryNode(nodeName), outletNode);
-    //         this.outlets.push(outletNode);
-    //         return true;
-    //     }
-    //     return false;
-    // }
-
-    // getOutlet(nodeName) {
-    //     const outletNode = this.outlets.filter(outletName => nodeName == outletName)
-    //     if (outletNode.length == 1) {
-    //         return this.queryNode(outletNode[0]);
-    //     }
-    //     return false;
-    // }
-
-    // showOutlets() {
-    //     console.log(this.outlets);
-    // }
-
-    // getInlet() {
-    //     if (this.inlet) {
-    //         return this.inlet;
-    //     }
-    // }
-
+    /**
+     * Recebe como parametros arrays com pares de id ou objetos Node deste flowMap e os conecta sempre na ordem [fromNode, toNode]
+     */
     linkChain() {
         for (const arg in arguments) {
             try{
@@ -126,8 +98,8 @@ class FlowMap {
 
     /**
      * Conecta um Node a outro Node passando a propriedade id dos mesmos na ordem fromId->toId
-     * @param {*} from String - O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como prevNode (atualiza 'nextNode' com o Node-Destino)
-     * @param {*} to String - O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como nextNode (atualiza 'prevNode' com o Node-Anterior)
+     * @param {String} from O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como prevNode (atualiza 'nextNode' com o Node-Destino)
+     * @param {String} to O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como nextNode (atualiza 'prevNode' com o Node-Anterior)
      */
     linkNext(from, to) {
         const updateNextNode = this.nextNodeRules(from, to);
@@ -164,8 +136,8 @@ class FlowMap {
     /**
      * Alguns Nodes-Destinos possuem regras especiais para atribuição. Este método verifica se os nodes de uma operação possuem alguma regra especial 
      * e tratam corretamente estas regras para garantir a funcionalidade da operação.
-     * @param {*} fromId String - O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como prevNode
-     * @param {*} toId String - O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como nextNode
+     * @param {String} fromId O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como prevNode
+     * @param {String} toId O valor da propriedade 'id' de um Objeto Node a ser conectado a outro como nextNode
      */
     nextNodeRules(fromId, toId) {
         const fromNodeType = this.queryNode(fromId).type;
@@ -202,6 +174,9 @@ class FlowMap {
         return false;
     }
 
+    /**
+     * Inicia o processo de mapeamento de seus nodes a partir do seu startingNode.
+     */
     mapScenarios() {
         if (this.inlet) {
             return this.inlet.mapScenarios()
@@ -213,32 +188,73 @@ class FlowMap {
         }
     }
 
+    /**
+     * Imprime no terminal o cenários mapeados.
+     */
     showScenarios() {
         setTimeout(() => {
             console.log(this.scenarios);
         }, 0);
     }
 
+    /**
+     * Imprime no terminal um sumário com informações úteis a respeito desde FlowMap
+     */
     getSummary() {
         setTimeout(() => {
             const summary = {
                 id: this.id,
                 name: this.name,
                 segment: this.segment,
-                'number of nodes': this.flowchartNodes.length,
-                'number of scenarios': Object.keys(this.scenarios).length
+                'number of nodes': this.getNodesCount() || '0',
+                'number of scenarios': this.getScenariosCount() || '0'
             }
             console.log(summary);
             return summary;
         }, 0);
     }
 
+    /**
+     * Conta quantos cenários esse FlowMap possui e retorna o valor
+     */
+    getScenariosCount() {
+        return Object.keys(this.scenarios).length;
+    }
+
+    /**
+     * Conta quantos nodes este FlowMap possui
+     */
+    getNodesCount() {
+        return this.flowchartNodes.length;
+    }
+
+    /**
+     * Recebe scenarioIndex como parametro e imprime no terminal o cenário do FlowMap com este index.
+     * @param {string|number} scenarioIndex Posição do cénario no objeto de cenários deste objeto FlowMap.
+     */
+    inspectScenario(scenarioIndex){
+        setTimeout(() => {
+            if (this.scenarios[String(scenarioIndex)]){
+                console.log(this.scenarios[String(scenarioIndex)]);
+            }
+            else {
+                console.log(`FLOWMAP :: InspectScenario :: Cenário ${scenarioIndex} não encontrado.`)
+            }
+        }, 0);
+    }
+
+    /**
+     * Exporta os cenários deste FlowMap para um arquivo .txt
+     */
     exportScenariosToText() {
         setTimeout(() => {
             write.sync('./exportedScenarios/scenarios.txt', JSON.stringify(this.scenarios, null, 2));
         }, 0);
     }
 
+    /**
+     * Exporta os cenários deste FlowMap para um arquivo .xlsx
+     */
     exportScenariosToExcel() {
         setTimeout(() => {
             const wb = new xl.Workbook(); // Instancia um novo Workbook
@@ -369,8 +385,40 @@ class FlowMap {
             ws.row(1).freeze();
 
             wb.write(`./exportedScenarios/${this.name} Scenarios.xlsx`);
+            console.log(`FlowMap ${this.name}(${this.id}) - ${this.segment} foi exportado para a pasta 'exportedScenarios' contendo ${this.getScenariosCount()} cenários de teste.`)
         }, 0);
     }
+
+    // // UNDER DEVELOPMENT
+    // setOutlet(nodeName) {
+    //     if (this.queryNode(nodeName)) {
+    //         const outletNode = this.newNode('node', {
+    //             name: `Outlet ${nodeName}`
+    //         })
+    //         this.linkNext(this.queryNode(nodeName), outletNode);
+    //         this.outlets.push(outletNode);
+    //         return true;
+    //     }
+    //     return false;
+    // }
+
+    // getOutlet(nodeName) {
+    //     const outletNode = this.outlets.filter(outletName => nodeName == outletName)
+    //     if (outletNode.length == 1) {
+    //         return this.queryNode(outletNode[0]);
+    //     }
+    //     return false;
+    // }
+
+    // showOutlets() {
+    //     console.log(this.outlets);
+    // }
+
+    // getInlet() {
+    //     if (this.inlet) {
+    //         return this.inlet;
+    //     }
+    // }
 
 }
 

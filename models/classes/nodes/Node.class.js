@@ -39,29 +39,6 @@ class Node {
         return this.targetNode ? this.targetNode : false
     }
 
-    alt(name) {
-        let thisCopy = cloneDeep(this);
-        thisCopy.name = name;
-        let index;
-        if (!this.alts.filter(alt => alt == thisCopy).length) {
-            this.alts.push(thisCopy);
-            index = this.alts.indexOf(thisCopy);
-            return this.alts[index];
-        }
-        else {
-            index = this.alts.indexOf(thisCopy);
-            return this.alts[index];
-        }
-    }
-
-    getAlt(name) {
-        const filter = alt => alt.name === name;
-        if (this.alts.filter(filter).length == 1) {
-            return this.alts.filter(filter)[0];
-        }
-        new Error(`NODE ${this.name} :: Alt ${name} não encontrado.`);
-    }
-
     noStepMessage() {
         delete this.stepMessage;
         return this;
@@ -96,34 +73,39 @@ class Node {
         }
     } */
 
-    mapScenarios(prevStepMessages, prevExpectedMessages) {
+    mapScenarios(prevStepMessages, prevExpectedMessages, nodeRoad) {
         if (prevStepMessages && this.nextNode) {
             try {
                 const handles = {
-                    commonNode(prevStepMessages, thisNode, prevExpectedMessages) {
+                    commonNode(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
                         prevStepMessages.push(thisNode.stepMessage);
                         prevExpectedMessages.push(thisNode.expectedMessage);
+                        nodeRoad[Object.keys(nodeRoad).length + 1] = thisNode.getBasicInfo();
+
                         if (thisNode.nextNode.targetNode) {
-                            thisNode.nextNode.endFlowScenario(prevStepMessages, prevExpectedMessages);
+                            thisNode.nextNode.endFlowScenario(prevStepMessages, prevExpectedMessages, nodeRoad);
                         }
                         else {
-                            thisNode.nextNode.mapScenarios(prevStepMessages, prevExpectedMessages);
+                            thisNode.nextNode.mapScenarios(prevStepMessages, prevExpectedMessages, nodeRoad);
                         }
                     },
 
-                    Array(prevStepMessages, thisNode, prevExpectedMessages) {
+                    Array(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
                         for (const node of thisNode.nextNode) {
                             let nodeStepMessage = [].concat(prevStepMessages);
                             let nodeExpectedMessages = [].concat(prevExpectedMessages);
+                            let newRoad = { ...nodeRoad };
                             nodeStepMessage.push(thisNode.stepMessage);
                             nodeExpectedMessages.push(thisNode.expectedMessage);
-                            node.mapScenarios(nodeStepMessage, nodeExpectedMessages);
+                            newRoad[Object.keys(nodeRoad).length + 1] = thisNode.getBasicInfo();
+
+                            node.mapScenarios(nodeStepMessage, nodeExpectedMessages, newRoad);
                         }
                     }
                 }
                 const handleFunction = this.nextNode && this.nextNode.constructor.name == 'Array' ? // Atribui handleFunction apenas se existe nextNode
                     handles['Array'] : handles['commonNode'] // handleFunction para tratar corretamente o comportamento de nextNode
-                handleFunction(prevStepMessages, this, prevExpectedMessages);
+                handleFunction(prevStepMessages, this, prevExpectedMessages, nodeRoad);
             }
             catch (error) {
                 console.log(`ERROR :: ${this.name} ('${this.type}') :: `);
@@ -136,17 +118,20 @@ class Node {
         }
     }
 
-    endFlowScenario(prevStepMessages, prevExpectedMessages) {
+    endFlowScenario(prevStepMessages, prevExpectedMessages, nodeRoad) {
         if (this.targetNode == true) {
             prevStepMessages.push(this.stepMessage);
             prevExpectedMessages.push(this.expectedMessage);
             prevStepMessages = prevStepMessages.filter(stepMessage => stepMessage);
             prevExpectedMessages = prevExpectedMessages.filter(expectedMessage => expectedMessage);
+            nodeRoad[Object.keys(nodeRoad).length + 1] = this.getBasicInfo();
+
             const testScenario = {
                 precondition: prevStepMessages,
-                expectedResult: prevExpectedMessages
+                expectedResult: prevExpectedMessages,
+                nodeRoad
             }
-            // const testScenario = prevStepMessages.filter((stepMessage) => stepMessage);
+
             scenarioStorage.pushNewScenarios(testScenario);
         }
     }
@@ -163,6 +148,14 @@ class Node {
         // Verifica se o objeto instanciado possui a propriedade. Caso sim, retorna o seu valor.
         if (this.hasOwnProperty(property) && typeof property == 'string') {
             return this[property];
+        }
+    }
+
+    getBasicInfo() {
+        return {
+            id: this.id,
+            name: this.name,
+            type: this.type
         }
     }
 

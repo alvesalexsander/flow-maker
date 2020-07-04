@@ -77,7 +77,7 @@ acolhimentoPre.linkChain(
 
 //--------------------------------------------------- INICIO INPUT ---------------------------------------------------------
 
-    [comoPossoAjudar, verificaInputUsuario],
+    [comoPossoAjudar, desambiguador],
         [verificaInputUsuario.getPath('Intenção conhecida'), desambiguador],
         [verificaInputUsuario.getPath('Intenção não tratada'), transfereParaATH],
         [verificaInputUsuario.getPath('Nenhum input'), verificaInputUsuario2Tentativa],

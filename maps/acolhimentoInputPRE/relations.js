@@ -1,6 +1,6 @@
-const acolhimentoPre = require('./map');
+const acolhimentoInputPre = require('./map');
 const {
-    startAcolhimentoPre,
+    startacolhimentoInputPre,
     saudacaoURA,
     comoPossoAjudar,
     transfereParaATH,
@@ -65,11 +65,11 @@ const {
     respostaInputATHInsistenciaOutroDesconhecido
 } = require('./nodes');
 
-acolhimentoPre.linkChain(
+acolhimentoInputPre.linkChain(
     [perguntaQuerAlgoMais.getPath('Quer algo mais'), desambiguador],
     [perguntaQuerAlgoMais.getPath('Não quer mais nada'), agradeceDesliga],
 
-    [verificaQuerFazerRecarga.getPath('Quer fazer recarga'), encaminhaFluxoRecarga],
+    // [verificaQuerFazerRecarga.getPath('Quer fazer recarga'), encaminhaFluxoRecarga],
     [verificaQuerFazerRecarga.getPath('Não quer fazer recarga'), comoPossoAjudar],
 
     [verificaQuerFazerRenovacao.getPath('Quer fazer renovação'), encaminhaFluxoRenovacao],
@@ -101,122 +101,48 @@ acolhimentoPre.linkChain(
 //--------------------------------------------------- FIM INPUT ---------------------------------------------------------
 
 //--------------------------------------------------- INICIO PRE ---------------------------------------------------------
-    [startAcolhimentoPre, verificaServicoProfile],
-        [verificaServicoProfile.getPath('Falha no profile'), transfereParaATH],
+
+    [startacolhimentoInputPre, verificaServicoProfile.getPath('Sucesso no profile')],
         [verificaServicoProfile.getPath('Sucesso no profile'), saudacaoURA],
-        [saudacaoURA, verificaPreTop],
+        [saudacaoURA, verificaPreTop.getPath('É Pré Top')], // Colocar como nextNode o fluxo base a ser testado ANTES da ura pergunta se ajuda em algo mais
             [verificaPreTop.getPath('É Pré Top'), verificaBeneficiosValidos],
                 [verificaBeneficiosValidos.getPath('Benefícios válidos'), verificaPossuiSaldoRecarga],
                     [verificaPossuiSaldoRecarga.getPath('Possui saldo em conta'), respostaPossuiSaldoRecargaSim],
                         [respostaPossuiSaldoRecargaSim, verificaQuerFazerRecarga],
-                    [verificaPossuiSaldoRecarga.getPath('Não possui saldo em conta'), respostaPossuiSaldoRecargaNao],
-                        [respostaPossuiSaldoRecargaNao, verificaQuerFazerRecarga],
 
-                [verificaBeneficiosValidos.getPath('Benefícios expirados'), respostaBeneficiosValidosNao],
-                    [respostaBeneficiosValidosNao, verificaQuerFazerRecarga],
-
-            [verificaPreTop.getPath('Não é Pré Top').noStepMessage(), verificaPromocaoDiaria],
 //--------------------------------------------------- FIM PRE ---------------------------------------------------------
 //--------------------------------------------------- INICIO PROMO DIARIA ---------------------------------------------------------
 
         [verificaPromocaoDiaria.getPath('Possui promoção diária'), verificaPacotesDadosContratadoNaData],
             [verificaPacotesDadosContratadoNaData.getPath('Contratou pacote hoje'), verificaConsumiuTodoPacote],
-                [verificaConsumiuTodoPacote.getPath('Consumiu 100% do pacote'), verificaSaldoMinimoRenovar],
-                    [verificaSaldoMinimoRenovar.getPath('Possui saldo para renovar'), respostaSaldoMinimoRenovarSim],
-                        [respostaSaldoMinimoRenovarSim, verificaConfirmaRenovar],
-                        [verificaConfirmaRenovar.getPath('Quer renovar'), encaminhaFluxoRenovacao],
-                        [verificaConfirmaRenovar.getPath('Não quer renovar'), comoPossoAjudar],
-                        //
-                    [verificaSaldoMinimoRenovar.getPath('Não possui saldo para renovar'), respostaSaldoMinimoRenovarNão],
-                        [respostaSaldoMinimoRenovarNão, verificaQuerFazerRecarga],
-                        //
                 [verificaConsumiuTodoPacote.getPath('Não consumiu 100% do pacote'), respostaConsumiuTodoPacoteNao],
                     [respostaConsumiuTodoPacoteNao, comoPossoAjudar],
-                    //
-            [verificaPacotesDadosContratadoNaData.getPath('Não contratou pacote hoje'), verificaSaldoMinimoContratar],
-                [verificaSaldoMinimoContratar.getPath('Possui saldo para contratar'), respostaSaldoMinimoContratarSim],
-                    [respostaSaldoMinimoContratarSim, comoPossoAjudar],
-                    //
-                [verificaSaldoMinimoContratar.getPath('Não Possui saldo para contratar'), respostaSaldoMinimoContratarNão],
-                    [respostaSaldoMinimoContratarNão, verificaQuerFazerRecarga],
-                    //
 
-        [verificaPromocaoDiaria.getPath('Não possui promoção diária').noStepMessage(), verificaBeta],
 //--------------------------------------------------- FIM PROMO DIARIA ---------------------------------------------------------
 //--------------------------------------------------- INICIO BETA ---------------------------------------------------------
+
         [verificaBeta.getPath('Cliente é Beta'), verificaBeneficiosValidosBeta],
             [verificaBeneficiosValidosBeta.getPath('Benefícios válidos'), verificaConsumiuPacote],
-                [verificaConsumiuPacote.getPath('Pacote 100% consumido'), verificaSaldoRenovarBeta],
-                    [verificaSaldoRenovarBeta.getPath('Possui saldo(renovar)'), respostaSaldoRenovarBeta],
-                        [respostaSaldoRenovarBeta.getPath('Quer contratar novo pacote'), encaminhaFluxoContratacao],
-                        [respostaSaldoRenovarBeta.getPath('Quer renovar'), encaminhaFluxoRenovacao],
-                        [respostaSaldoRenovarBeta.getPath('Nenhuma das opções'), comoPossoAjudar],
-                        //
-                    [verificaSaldoRenovarBeta.getPath('Não possui saldo(renovar)'), verificaSaldoContratarBeta],
-                        [verificaSaldoContratarBeta.getPath('Possui saldo(contratar)'), respostaSaldoContratarBetaSim],
-                            [respostaSaldoContratarBetaSim.getPath('Quer contratar novo pacote'), encaminhaFluxoContratacao],
-                            [respostaSaldoContratarBetaSim.getPath('Não quer contratar'), respostaSaldoContratarBetaNao],
-                            [respostaSaldoContratarBetaNao, comoPossoAjudar],
-                            //
-                        [verificaSaldoContratarBeta.getPath('Não possui saldo(contratar)'), verificaQuerFazerRecarga],
-                        //
                 [verificaConsumiuPacote.getPath('Pacote disponível'), verificaPossuiBonus],
                     [verificaPossuiBonus.getPath('Possui bônus'), respostaPossuiBonusSim],
                         [respostaPossuiBonusSim, comoPossoAjudar],
-                        //
-                    [verificaPossuiBonus.getPath('Não possui bônus'), respostaPossuiBonusNao],
-                        [respostaPossuiBonusNao, comoPossoAjudar],
-                        //
-            [verificaBeneficiosValidosBeta.getPath('Benefícios expirados'), verificaSaldoMinimoRenovarBeta],
-                [verificaSaldoMinimoRenovarBeta.getPath('Possui saldo mínimo'), respostaSaldoMinimoRenovarBetaSim],
-                    [respostaSaldoMinimoRenovarBetaSim, verificaQuerRenovacaoAntecipada],
-                        [verificaQuerRenovacaoAntecipada.getPath('Quer renovação antecipada'), encaminhaFluxoRenovacao],
-                        [verificaQuerRenovacaoAntecipada.getPath('Não quer renovação antecipada'), comoPossoAjudar],
-                        //
-                [verificaSaldoMinimoRenovarBeta.getPath('Não possui saldo mínimo'), respostaSaldoMinimoRenovarBetaNao],
-                    [respostaSaldoMinimoRenovarBetaNao, verificaQuerFazerRecarga],
-                    //
 
-        [verificaBeta.getPath('Cliente não é Beta').noStepMessage(), verificaSmart],
 //--------------------------------------------------- FIM BETA ---------------------------------------------------------
-//--------------------------------------------------- INICIO BETA ---------------------------------------------------------
+//--------------------------------------------------- INICIO SMART ---------------------------------------------------------
+
         [verificaSmart.getPath('Cliente é SMART'), verificaBeneficiosValidosSmart],
             [verificaBeneficiosValidosSmart.getPath('Benefícios válidos'), verificaConsumiuPacote],
-                [verificaConsumiuPacote.getPath('Pacote 100% consumido'), verificaSaldoRenovarSmart],
-                    [verificaSaldoRenovarSmart.getPath('Possui saldo(renovar)'), respostaSaldoRenovarSmart],
-                        [respostaSaldoRenovarSmart.getPath('Quer contratar novo pacote'), encaminhaFluxoContratacao],
-                        [respostaSaldoRenovarSmart.getPath('Quer renovar'), encaminhaFluxoRenovacao],
-                        [respostaSaldoRenovarSmart.getPath('Nenhuma das opções'), comoPossoAjudar],
-                        //
-                    [verificaSaldoRenovarSmart.getPath('Não possui saldo(renovar)'), respostaSaldoRenovarSmartNao],
-                    //
                 [verificaConsumiuPacote.getPath('Pacote disponível'), verificaPossuiBonus],
                     [verificaPossuiBonus.getPath('Possui bônus'), respostaPossuiBonusSim],
                     [respostaPossuiBonusSim, comoPossoAjudar],
-                    //
-                    [verificaPossuiBonus.getPath('Não possui bônus'), respostaPossuiBonusNao],
-                    [respostaPossuiBonusNao, comoPossoAjudar],
-                    //
-            [verificaBeneficiosValidosSmart.getPath('Benefícios expirados'), verificaSaldoMinimoRenovarSmart],
-                [verificaSaldoMinimoRenovarSmart.getPath('Possui saldo mínimo'), verificaQuerRenovacaoAntecipada],
-                    [verificaQuerRenovacaoAntecipada.getPath('Quer renovação antecipada'), encaminhaFluxoRenovacao],
-                    [verificaQuerRenovacaoAntecipada.getPath('Não quer renovação antecipada'), comoPossoAjudar],
-                    //
-                [verificaSaldoMinimoRenovarSmart.getPath('Não possui saldo mínimo'), respostaSaldoRenovarSmartNao],
-                [respostaSaldoRenovarSmartNao, verificaQuerFazerRecarga],
-                
 
-        [verificaSmart.getPath('Cliente não é SMART').noStepMessage(), comoPossoAjudar],
 //--------------------------------------------------- FIM SMART ---------------------------------------------------------
 )
 
 
-acolhimentoPre.mapScenarios();
-// acolhimentoPre.showScenarios();
-acolhimentoPre.getSummary();
-// acolhimentoPre.inspectScenario(1193);
-acolhimentoPre.exportScenariosToExcel();
-// acolhimentoPre.exportScenariosToText();
-
-
-// console.log(verificaServicoProfile.getPath('Sucesso no profile').nextNode)
+acolhimentoInputPre.mapScenarios();
+// acolhimentoInputPre.showScenarios();
+acolhimentoInputPre.getSummary();
+// acolhimentoInputPre.inspectScenario(38);
+// acolhimentoInputPre.exportScenariosToExcel();
+// acolhimentoInputPre.exportScenariosToText();

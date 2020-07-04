@@ -1,108 +1,108 @@
-const acolhimentoPre = require('./map');
+const acolhimentoPromocaoPre = require('./map');
 
 const nodes = {
-    startAcolhimentoPre: acolhimentoPre.newNode('starting', {
+    startAcolhimentoPre: acolhimentoPromocaoPre.newNode('starting', {
         name: 'Inicia fluxo de Acolhimento',
         expectedMessage: 'Chamada é encaminhada para a URA Cognitiva;'
     }),
 
-    saudacaoURA: acolhimentoPre.newNode('node', {
+    saudacaoURA: acolhimentoPromocaoPre.newNode('node', {
         name: 'URA atende a ligação',
         expectedMessage: 'Ouvir a saudação da URA Cognitiva conforme descrito na DF.'
     }),
 
-    comoPossoAjudar: acolhimentoPre.newNode('node', {
+    comoPossoAjudar: acolhimentoPromocaoPre.newNode('node', {
         name: 'URA pergunta como pode ajudar',
         expectedMessage: 'URA Cognitiva pede para o cliente falar em poucas palavras sobre o que precisa de atendimento;'
     }),
 
-    transfereParaATH: acolhimentoPre.newNode('node', {
+    transfereParaATH: acolhimentoPromocaoPre.newNode('node', {
         name: "URA Informa que vai transferir para o ATH",
         stepMessage: "Encaminha para o ATH.",
         expectedMessage: 'URA Informa que vai transferir para o ATH'
 
     }).turnTargetNode(),
 
-    encerraLigacao: acolhimentoPre.newNode('node', {
+    encerraLigacao: acolhimentoPromocaoPre.newNode('node', {
         name: 'URA encerra a ligação',
         stepMessage: 'URA encerra a ligação',
         expectedMessage: 'URA informa que, como não conseguiu escutar, irá encerrar a ligação.'
     }).turnTargetNode(),
 
-    viaDeAcesso: acolhimentoPre.newNode('node', {
+    viaDeAcesso: acolhimentoPromocaoPre.newNode('node', {
         name: 'Desambiguadores que acionam o fluxo',
-        stepMessage: 'Veio de #desambiguadoracolhimentoPre',
+        stepMessage: 'Veio de #desambiguadoracolhimentoPromocaoPre',
         expectedMessage: 'A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;'
     }),
 
-    perguntaQuerAlgoMais: acolhimentoPre.newNode('switch', {
+    perguntaQuerAlgoMais: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Pergunta se o usuario quer algo mais',
         pathCases: ['Quer algo mais', 'Não quer mais nada']
     }),
 
-    desambiguador: acolhimentoPre.newNode('node', {
+    desambiguador: acolhimentoPromocaoPre.newNode('node', {
         name: 'Usuário quer algo mais',
         stepMessage: 'Encaminha para o fluxo da intenção.',
         expectedMessage: 'A URA Cognitiva transfere para o desambiguador.'
     }).turnTargetNode(),
 
-    agradeceDesliga: acolhimentoPre.newNode('node', {
+    agradeceDesliga: acolhimentoPromocaoPre.newNode('node', {
         name: 'URA agradece e desliga a ligação',
         expectedMessage: 'A URA Cognitiva agradece e encerra a ligação.'
     }).turnTargetNode(),
 
-    verificaServicoProfile: acolhimentoPre.newNode('switch', {
+    verificaServicoProfile: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Sucesso ao consultar as informações do cliente?',
         pathCases: ['Sucesso no profile', 'Falha no profile']
     }),
 
 // -------------------------------------------------- INICIO PRE TOP -------------------------------------------------------
 
-    verificaPreTop: acolhimentoPre.newNode('switch', {
+    verificaPreTop: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se é cliente Pré Top',
         pathCases: ['É Pré Top', 'Não é Pré Top']
     }),
 
-    verificaBeneficiosValidos: acolhimentoPre.newNode('switch', {
+    verificaBeneficiosValidos: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se é cliente Pré Top',
         pathCases: ['Benefícios válidos', 'Benefícios expirados']
     }),
 
-    respostaBeneficiosValidosNao: acolhimentoPre.newNode('node', {
+    respostaBeneficiosValidosNao: acolhimentoPromocaoPre.newNode('node', {
         name: 'URA informa que os beneficios estão expirados e oferece recarga',
         expectedMessage: 'A URA Cognitiva informa que o cliente está na promoção Pré Top, porém, os benefícios estão expirados e pergunta se o usuário gostaria de fazer uma recarga.'
     }),
 
-    verificaQuerFazerRecarga: acolhimentoPre.newNode('switch', {
+    verificaQuerFazerRecarga: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se o cliente quer fazer recarga',
         pathCases: ['Quer fazer recarga', 'Não quer fazer recarga']
     }),
 
-    verificaQuerFazerRenovacao: acolhimentoPre.newNode('switch', {
+    verificaQuerFazerRenovacao: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se o cliente quer fazer recarga',
         pathCases: ['Quer fazer renovação', 'Não quer fazer renovação']
     }),
 
-    encaminhaFluxoRecarga: acolhimentoPre.newNode('node', {
+    encaminhaFluxoRecarga: acolhimentoPromocaoPre.newNode('node', {
         name: 'Usuário encaminhado para fluxo de Recarga de Saldo',
         expectedMessage: 'A URA Cognitiva transfere para o Fluxo de Recarga de Saldo.'
     }).turnTargetNode(),
 
-    respostaQuerFazerRecargaNao: acolhimentoPre.newNode('node', {
+    respostaQuerFazerRecargaNao: acolhimentoPromocaoPre.newNode('node', {
         name: 'Usuário não quer fazer recarga',
     }),
 
-    verificaPossuiSaldoRecarga: acolhimentoPre.newNode('switch', {
+    verificaPossuiSaldoRecarga: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se o cliente possui saldo para fazer uma recarga',
         pathCases: ['Possui saldo em conta', 'Não possui saldo em conta']
     }),
 
-    respostaPossuiSaldoRecargaNao: acolhimentoPre.newNode('node', {
+    respostaPossuiSaldoRecargaNao: acolhimentoPromocaoPre.newNode('node', {
         name: 'Usuário não possui saldo para recarga',
         expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção Pré Top e a validade. Também informa que a franquia de dados já foi consumida e oferece uma recarga;'
     }),
 
-    respostaPossuiSaldoRecargaSim: acolhimentoPre.newNode('node', {
+    respostaPossuiSaldoRecargaSim: acolhimentoPromocaoPre.newNode('node', {
         name: 'Usuário possui saldo para recarga',
         expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção Pré Top e a validade. Também informa que a franquia de dados já foi consumida e oferece uma recarga;'
     }),
@@ -110,216 +110,216 @@ const nodes = {
 // -------------------------------------------------- FIM PRE TOP -------------------------------------------------------
 // -------------------------------------------------- INICIO PROMO DIARIA -------------------------------------------------------
 
-    verificaPromocaoDiaria: acolhimentoPre.newNode('switch', {
+    verificaPromocaoDiaria: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se o cliente é elegível a promoção diaria',
         pathCases: ['Possui promoção diária', 'Não possui promoção diária']
     }),
 
-    verificaPacotesDadosContratadoNaData: acolhimentoPre.newNode('switch', {
+    verificaPacotesDadosContratadoNaData: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se o cliente contratou algum pacote de dados no dia',
         pathCases: ['Contratou pacote hoje', 'Não contratou pacote hoje']
     }),
 
-    verificaConsumiuTodoPacote: acolhimentoPre.newNode('switch', {
+    verificaConsumiuTodoPacote: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se o cliente consumiu todo o pacote',
         pathCases: ['Consumiu 100% do pacote', 'Não consumiu 100% do pacote']
     }),
 
-    respostaConsumiuTodoPacoteNao: acolhimentoPre.newNode('node', {
+    respostaConsumiuTodoPacoteNao: acolhimentoPromocaoPre.newNode('node', {
         name: 'Usuário não consumiu todo o pacote de dados',
         expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção diária e informa a quantidade de dados disponível;'
     }),
 
-    verificaSaldoMinimoRenovar: acolhimentoPre.newNode('switch', {
+    verificaSaldoMinimoRenovar: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se o cliente possui saldo minimo para fazer uma renovação',
         pathCases: ['Possui saldo para renovar', 'Não possui saldo para renovar']
     }),
 
-    respostaSaldoMinimoRenovarSim: acolhimentoPre.newNode('node', {
+    respostaSaldoMinimoRenovarSim: acolhimentoPromocaoPre.newNode('node', {
         name: 'Usuário possui saldo minimo para renovar',
         expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção diária, quanto de saldo o usuário possui e sua validade. Também oferece a renovação do pacote diário;'
     }),
 
-    verificaConfirmaRenovar: acolhimentoPre.newNode('switch', {
+    verificaConfirmaRenovar: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se o cliente quer renovar o promoção diária',
         pathCases: ['Quer renovar', 'Não quer renovar']
     }),
 
-    encaminhaFluxoRenovacao: acolhimentoPre.newNode('node', {
+    encaminhaFluxoRenovacao: acolhimentoPromocaoPre.newNode('node', {
         name: 'Usuário encaminhado para o fluxo de Renovação',
         expectedMessage: 'A URA Cognitiva transfere para o Fluxo de Renovação;'
     }).turnTargetNode(),
 
-    encaminhaFluxoContratacao: acolhimentoPre.newNode('node', {
+    encaminhaFluxoContratacao: acolhimentoPromocaoPre.newNode('node', {
         name: 'Usuário encaminhado para o fluxo de Contratacao de Pacote',
         expectedMessage: 'A URA Cognitiva transfere para o Fluxo de Contratação de Pacote;'
     }).turnTargetNode(),
 
-    respostaSaldoMinimoRenovarNão: acolhimentoPre.newNode('node', {
+    respostaSaldoMinimoRenovarNão: acolhimentoPromocaoPre.newNode('node', {
         name: 'Usuário não possui saldo minimo para renovar',
         expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção diária, quanto de saldo o usuário possui e sua validade. Também oferece uma recarga;'
     }),
 
-    verificaConfirmaRecargaRenovar: acolhimentoPre.newNode('switch', {
+    verificaConfirmaRecargaRenovar: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se o cliente possui saldo para contratar a promoção diaria',
         pathCases: ['Quer fazer recarga', 'Não quer fazer recarga']
     }),
 
-    verificaSaldoMinimoContratar: acolhimentoPre.newNode('switch', {
+    verificaSaldoMinimoContratar: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se o cliente possui saldo para contratar a promoção diaria',
         pathCases: ['Possui saldo para contratar', 'Não Possui saldo para contratar']
     }),
 
-    respostaSaldoMinimoContratarSim: acolhimentoPre.newNode('node', {
+    respostaSaldoMinimoContratarSim: acolhimentoPromocaoPre.newNode('node', {
         name: 'Usuário possui saldo minimo para renovar',
         expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção diária, quanto de saldo o usuário possui e sua validade. Também fornece instruções sobre como utilizar o pacote;'
     }),
 
-    respostaSaldoMinimoContratarNão: acolhimentoPre.newNode('node', {
+    respostaSaldoMinimoContratarNão: acolhimentoPromocaoPre.newNode('node', {
         name: 'Usuário não possui saldo minimo para renovar',
         expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção diária e informa que o saldo expirou. Também oferece uma recarga;'
     }),
 // -------------------------------------------------- FIM PROMO DIARIA -------------------------------------------------------
 // -------------------------------------------------- INICIO BETA -------------------------------------------------------
 
-    verificaBeta: acolhimentoPre.newNode('switch', {
+    verificaBeta: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se o cliente é Beta',
         pathCases: ['Cliente é Beta', 'Cliente não é Beta']
     }),
 
-    verificaBeneficiosValidosBeta: acolhimentoPre.newNode('switch', {
+    verificaBeneficiosValidosBeta: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se os beneficios são validos',
         pathCases: ['Benefícios válidos', 'Benefícios expirados']
     }),
 
-        verificaSaldoMinimoRenovarBeta: acolhimentoPre.newNode('switch', {
+        verificaSaldoMinimoRenovarBeta: acolhimentoPromocaoPre.newNode('switch', {
             name: 'Verifica se o cliente possui saldo minimo para renovar',
             pathCases: ['Possui saldo mínimo', 'Não possui saldo mínimo']
         }),
 
-            respostaSaldoMinimoRenovarBetaSim: acolhimentoPre.newNode('node', {
+            respostaSaldoMinimoRenovarBetaSim: acolhimentoPromocaoPre.newNode('node', {
                 name: 'Usuário possui saldo minimo para renovar Beta',
                 expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção Beta e que possui saldo para renovar seus benefícios. Oferece renovação antecipada;'
             }),
 
-            verificaQuerRenovacaoAntecipada: acolhimentoPre.newNode('switch', {
+            verificaQuerRenovacaoAntecipada: acolhimentoPromocaoPre.newNode('switch', {
                 name: 'Verifica se o cliente quer renovacao antecipada dos beneficios',
                 pathCases: ['Quer renovação antecipada', 'Não quer renovação antecipada']
             }),
 
-            respostaSaldoMinimoRenovarBetaNao: acolhimentoPre.newNode('node', {
+            respostaSaldoMinimoRenovarBetaNao: acolhimentoPromocaoPre.newNode('node', {
                 name: 'Usuário não possui saldo minimo para renovar Beta',
                 expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção Beta mas não possui saldo para renovar. Oferece recarga de saldo;'
             }),
 
-        verificaConsumiuPacote: acolhimentoPre.newNode('switch', {
+        verificaConsumiuPacote: acolhimentoPromocaoPre.newNode('switch', {
             name: 'Verifica se o cliente consumiu todo o pacote',
             pathCases: ['Pacote 100% consumido', 'Pacote disponível']
         }),
 
-            verificaPossuiBonus: acolhimentoPre.newNode('switch', {
+            verificaPossuiBonus: acolhimentoPromocaoPre.newNode('switch', {
                 name: 'Verifica se o cliente possui bônus',
                 pathCases: ['Possui bônus', 'Não possui bônus']
             }),
 
-                respostaPossuiBonusNao: acolhimentoPre.newNode('node', {
+                respostaPossuiBonusNao: acolhimentoPromocaoPre.newNode('node', {
                     name: 'Usuário não possui bônus',
                     expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção Beta, a validade da promoção e a quantidade de dados disponíveis;'
                 }),
 
-                respostaPossuiBonusSim: acolhimentoPre.newNode('node', {
+                respostaPossuiBonusSim: acolhimentoPromocaoPre.newNode('node', {
                     name: 'Usuário possui bônus',
                     expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção Beta, a validade da promoção, quantidade de dados disponíveis e quantidade de bônus;'
                 }),
 
-            verificaSaldoRenovarBeta: acolhimentoPre.newNode('switch', {
+            verificaSaldoRenovarBeta: acolhimentoPromocaoPre.newNode('switch', {
                 name: 'Verifica se o cliente possui saldo para renovar Beta',
                 pathCases: ['Possui saldo(renovar)', 'Não possui saldo(renovar)']
             }),
 
-                respostaSaldoRenovarBeta:  acolhimentoPre.newNode('switch', {
+                respostaSaldoRenovarBeta:  acolhimentoPromocaoPre.newNode('switch', {
                     name: 'Verifica se o cliente quer contratar um novo pacote, renovar ou renovar os beneficios da sua promoção',
                     pathCases: ['Quer contratar novo pacote', 'Quer renovar', 'Nenhuma das opções']
                 }),
 
-            verificaSaldoContratarBeta: acolhimentoPre.newNode('switch', {
+            verificaSaldoContratarBeta: acolhimentoPromocaoPre.newNode('switch', {
                 name: 'Verifica se o cliente possui saldo para renovar Beta',
                 pathCases: ['Possui saldo(contratar)', 'Não possui saldo(contratar)']
             }),
 
-                respostaSaldoContratarBetaSim:  acolhimentoPre.newNode('switch', {
+                respostaSaldoContratarBetaSim:  acolhimentoPromocaoPre.newNode('switch', {
                     name: 'Verifica se o cliente quer contratar um novo pacote, renovar ou renovar os beneficios da sua promoção',
                     pathCases: ['Quer contratar novo pacote', 'Não quer contratar']
                 }),
 
-                respostaSaldoContratarBetaNao: acolhimentoPre.newNode('node', {
+                respostaSaldoContratarBetaNao: acolhimentoPromocaoPre.newNode('node', {
                     name: 'Usuário não possui saldo para contratar beta',
                     expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção Beta, a validade da promoção, porém, não possui saldo para navegar. Oferece recarga;'
                 }),
 // -------------------------------------------------- FIM BETA -------------------------------------------------------
 // -------------------------------------------------- INICIO SMART -------------------------------------------------------
 
-    verificaSmart: acolhimentoPre.newNode('switch', {
+    verificaSmart: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se o cliente é SMART',
         pathCases: ['Cliente é SMART', 'Cliente não é SMART']
     }),
 
-    verificaBeneficiosValidosSmart: acolhimentoPre.newNode('switch', {
+    verificaBeneficiosValidosSmart: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica se os beneficios são validos',
         pathCases: ['Benefícios válidos', 'Benefícios expirados']
     }),
 
-        verificaSaldoMinimoRenovarSmart: acolhimentoPre.newNode('switch', {
+        verificaSaldoMinimoRenovarSmart: acolhimentoPromocaoPre.newNode('switch', {
             name: 'Verifica se o cliente possui saldo minimo para renovar',
             pathCases: ['Possui saldo mínimo', 'Não possui saldo mínimo']
         }),
 
-            respostaSaldoMinimoRenovarSmartSim: acolhimentoPre.newNode('node', {
+            respostaSaldoMinimoRenovarSmartSim: acolhimentoPromocaoPre.newNode('node', {
                 name: 'Usuário possui saldo minimo para renovar Smart',
                 expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção Smart e que possui saldo para renovar seus benefícios. Oferece renovação antecipada;'
             }),
 
-            verificaQuerRenovacaoAntecipada: acolhimentoPre.newNode('switch', {
+            verificaQuerRenovacaoAntecipada: acolhimentoPromocaoPre.newNode('switch', {
                 name: 'Verifica se o cliente quer renovacao antecipada dos beneficios',
                 pathCases: ['Quer renovação antecipada', 'Não quer renovação antecipada']
             }),
 
-            respostaSaldoMinimoRenovarSmartNao: acolhimentoPre.newNode('node', {
+            respostaSaldoMinimoRenovarSmartNao: acolhimentoPromocaoPre.newNode('node', {
                 name: 'Usuário não possui saldo minimo para renovar Smart',
                 expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção Smart mas não possui saldo para renovar. Oferece recarga de saldo;'
             }),
 
-        verificaConsumiuPacote: acolhimentoPre.newNode('switch', {
+        verificaConsumiuPacote: acolhimentoPromocaoPre.newNode('switch', {
             name: 'Verifica se o cliente consumiu todo o pacote',
             pathCases: ['Pacote 100% consumido', 'Pacote disponível']
         }),
 
-            verificaPossuiBonus: acolhimentoPre.newNode('switch', {
+            verificaPossuiBonus: acolhimentoPromocaoPre.newNode('switch', {
                 name: 'Verifica se o cliente possui bônus',
                 pathCases: ['Possui bônus', 'Não possui bônus']
             }),
 
-                respostaPossuiBonusNao: acolhimentoPre.newNode('node', {
+                respostaPossuiBonusNao: acolhimentoPromocaoPre.newNode('node', {
                     name: 'Usuário não possui bônus',
                     expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção Smart, a validade da promoção e a quantidade de dados disponíveis;'
                 }),
 
-                respostaPossuiBonusSim: acolhimentoPre.newNode('node', {
+                respostaPossuiBonusSim: acolhimentoPromocaoPre.newNode('node', {
                     name: 'Usuário possui bônus',
                     expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção Smart, a validade da promoção, quantidade de dados disponíveis e quantidade de bônus;'
                 }),
 
-            verificaSaldoRenovarSmart: acolhimentoPre.newNode('switch', {
+            verificaSaldoRenovarSmart: acolhimentoPromocaoPre.newNode('switch', {
                 name: 'Verifica se o cliente possui saldo para renovar Smart',
                 pathCases: ['Possui saldo(renovar)', 'Não possui saldo(renovar)']
             }),
 
-                respostaSaldoRenovarSmart:  acolhimentoPre.newNode('switch', {
+                respostaSaldoRenovarSmart:  acolhimentoPromocaoPre.newNode('switch', {
                     name: 'Verifica se o cliente quer contratar um novo pacote, renovar ou renovar os beneficios da sua promoção',
                     pathCases: ['Quer contratar novo pacote', 'Quer renovar', 'Nenhuma das opções']
                 }),
 
-                respostaSaldoRenovarSmartNao: acolhimentoPre.newNode('node', {
+                respostaSaldoRenovarSmartNao: acolhimentoPromocaoPre.newNode('node', {
                     name: 'Não possui saldo para renovar',
                     expectedMessage: 'A URA Cognitiva informa que o usuário está na promoção Smart, a validade da promoção;'
                 }),
@@ -327,7 +327,7 @@ const nodes = {
 // -------------------------------------------------- FIM SMART -------------------------------------------------------
 // -------------------------------------------------- PARTE DO INPUT DO USUARIO -------------------------------------------------------
 
-    verificaInputUsuario: acolhimentoPre.newNode('switch', {
+    verificaInputUsuario: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica o input do usuário',
         pathCases: [
             'Intenção conhecida', 
@@ -339,7 +339,7 @@ const nodes = {
         ]
     }),
 
-    verificaInputUsuario2Tentativa: acolhimentoPre.newNode('switch', {
+    verificaInputUsuario2Tentativa: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica o input do usuário',
         pathCases: [
             'Intenção conhecida (2ª tentativa)', 
@@ -349,7 +349,7 @@ const nodes = {
             'Input DTMF (2ª tentativa)']
     }),
 
-    verificaInputUsuario3Tentativa: acolhimentoPre.newNode('switch', {
+    verificaInputUsuario3Tentativa: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica o input do usuário',
         pathCases: [
             'Intenção conhecida (3ª tentativa)', 
@@ -359,7 +359,7 @@ const nodes = {
             'Input DTMF (3ª tentativa)']
     }),
 
-    verificaInputATHInsistencia: acolhimentoPre.newNode('switch', {
+    verificaInputATHInsistencia: acolhimentoPromocaoPre.newNode('switch', {
         name: 'Verifica o input do usuário',
         pathCases: [
             'Insistencia ATH', 
@@ -368,12 +368,12 @@ const nodes = {
         ]
     }),
 
-    respostaInputATHInsistenciaOutroConhecido: acolhimentoPre.newNode('node', {
+    respostaInputATHInsistenciaOutroConhecido: acolhimentoPromocaoPre.newNode('node', {
         name: 'Quer outro desambiguador conhecido',
         expectedMessage: 'A URA Cognitiva transfere para o fluxo do desambiguador conhecido;'
     }),
 
-    respostaInputATHInsistenciaOutroDesconhecido: acolhimentoPre.newNode('node', {
+    respostaInputATHInsistenciaOutroDesconhecido: acolhimentoPromocaoPre.newNode('node', {
         name: 'Quer outro desambiguador desconhecido',
         expectedMessage: 'A URA Cognitiva transfere para o ATH;'
     }),
