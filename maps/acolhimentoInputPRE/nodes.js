@@ -332,9 +332,7 @@ const nodes = {
         pathCases: [
             'Intenção conhecida', 
             'Intenção não tratada', 
-            'Nenhum input', 
-            'Falha de reconhecimento', 
-            'Input DTMF',
+            'Input inválido(DTMF, ruído, falha de reconhecimento)',
             'Input ATH'
         ]
     }),

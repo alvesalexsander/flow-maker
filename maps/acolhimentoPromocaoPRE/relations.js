@@ -1,4 +1,4 @@
-const acolhimentoPre = require('./map');
+const acolhimentoPromocaoPre = require('./map');
 const {
     startAcolhimentoPre,
     saudacaoURA,
@@ -65,7 +65,7 @@ const {
     respostaInputATHInsistenciaOutroDesconhecido
 } = require('./nodes');
 
-acolhimentoPre.linkChain(
+acolhimentoPromocaoPre.linkChain(
     [perguntaQuerAlgoMais.getPath('Quer algo mais'), desambiguador],
     [perguntaQuerAlgoMais.getPath('Não quer mais nada'), agradeceDesliga],
 
@@ -211,12 +211,9 @@ acolhimentoPre.linkChain(
 )
 
 
-acolhimentoPre.mapScenarios();
-// acolhimentoPre.showScenarios();
-acolhimentoPre.getSummary();
-// acolhimentoPre.inspectScenario(1193);
-acolhimentoPre.exportScenariosToExcel();
-// acolhimentoPre.exportScenariosToText();
-
-
-// console.log(verificaServicoProfile.getPath('Sucesso no profile').nextNode)
+acolhimentoPromocaoPre.mapScenarios();
+// acolhimentoPromocaoPre.showScenarios();
+acolhimentoPromocaoPre.getSummary();
+// acolhimentoPromocaoPre.inspectScenario(1193);
+acolhimentoPromocaoPre.exportScenariosToExcel();
+// acolhimentoPromocaoPre.exportScenariosToText();

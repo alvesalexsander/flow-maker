@@ -80,9 +80,7 @@ acolhimentoInputPre.linkChain(
     [comoPossoAjudar, verificaInputUsuario],
         [verificaInputUsuario.getPath('Intenção conhecida'), desambiguador],
         [verificaInputUsuario.getPath('Intenção não tratada'), transfereParaATH],
-        [verificaInputUsuario.getPath('Nenhum input'), verificaInputUsuario2Tentativa],
-        [verificaInputUsuario.getPath('Falha de reconhecimento'), verificaInputUsuario2Tentativa],
-        [verificaInputUsuario.getPath('Input DTMF'), verificaInputUsuario2Tentativa],
+        [verificaInputUsuario.getPath('Input inválido(DTMF, ruído, falha de reconhecimento)'), verificaInputUsuario2Tentativa],
             [verificaInputUsuario2Tentativa.getPath('Intenção conhecida (2ª tentativa)'), desambiguador],
             [verificaInputUsuario2Tentativa.getPath('Intenção não tratada (2ª tentativa)'), transfereParaATH],
             [verificaInputUsuario2Tentativa.getPath('Nenhum input (2ª tentativa)'), verificaInputUsuario3Tentativa],
@@ -144,5 +142,5 @@ acolhimentoInputPre.mapScenarios();
 // acolhimentoInputPre.showScenarios();
 acolhimentoInputPre.getSummary();
 // acolhimentoInputPre.inspectScenario(38);
-// acolhimentoInputPre.exportScenariosToExcel();
-// acolhimentoInputPre.exportScenariosToText();
+acolhimentoInputPre.exportScenariosToExcel();
+acolhimentoInputPre.exportScenariosToText();
