@@ -385,7 +385,7 @@ class FlowMap {
             ws.row(1).freeze();
 
             wb.write(`./exportedScenarios/${this.name} Scenarios.xlsx`);
-            console.log(`FlowMap ${this.name}(${this.id}) - ${this.segment} foi exportado para a pasta 'exportedScenarios' contendo ${this.getScenariosCount()} cenários de teste.`)
+            console.log(`FlowMap '${this.name}'(${this.id}) - ${this.segment} foi exportado para a pasta 'exportedScenarios' contendo ${this.getScenariosCount()} cenários de teste.`)
         }, 0);
     }
 

@@ -5,6 +5,7 @@ class Node {
     // Node básico. Contém propriedades e metódos que podem ser extendidos por quase todos os outros Nodes.
     id
     name
+    description
     stepMessage
     expectedMessage
     nextNode
