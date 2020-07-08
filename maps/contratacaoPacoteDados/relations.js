@@ -71,14 +71,14 @@ contratacaoPacoteDados.linkChain(
 
             [verificaBeneficiosValidos.getPath('Benefícios válidos'), verificaPreTOPConsumiuTodoPacote],
                 [verificaPreTOPConsumiuTodoPacote.getPath('Consumiu 100%'), verificaPossuiSaldoRecarga],
-                    [verificaPossuiSaldoRecarga.getPath('Possui saldo para recarga'), respostaPossuiSaldoRecargaSim],
+                    [verificaPossuiSaldoRecarga.getPath('Possui saldo em conta'), respostaPossuiSaldoRecargaSim],
                         [respostaPossuiSaldoRecargaSim, verificaRenovar],
                             [verificaRenovar.getPath('Quer renovar'), encaminhaFluxoRenovacao],
                             //
                             [verificaRenovar.getPath('Não quer renovar'), perguntaQuerAlgoMais],
                             //
 
-                    [verificaPossuiSaldoRecarga.getPath('Não possui saldo para recarga'), respostaPossuiSaldoRecargaNao],
+                    [verificaPossuiSaldoRecarga.getPath('Não possui saldo em conta'), respostaPossuiSaldoRecargaNao],
                         [respostaPossuiSaldoRecargaNao, verificaQuerRecargaRenovar],
                             [verificaQuerRecargaRenovar.getPath('Quer fazer recarga'), encaminhaFluxoRecarga],
                             [verificaQuerRecargaRenovar.getPath('Não quer fazer recarga'), perguntaQuerAlgoMais],
@@ -162,3 +162,4 @@ contratacaoPacoteDados.getSummary();
 // contratacaoPacoteDados.inspectScenario(1);
 // contratacaoPacoteDados.showScenarios();
 // contratacaoPacoteDados.exportScenariosToExcel();
+contratacaoPacoteDados.exportScenariosToText();
