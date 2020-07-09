@@ -62,7 +62,7 @@ contestacaoSaldoRecarga.linkChain(
 
     // [viaDeAcesso, informativocontestacaoSaldoRecarga],
     [viaDeAcesso.getPath('Intenção Consultar Saldo'), verificaInformacaoSaldoDisponivel],
-        [verificaInformacaoSaldoDisponivel.getPath('Sem informação de saldo'), verificaConsultarSaldoFalhaAcolhimento],
+        [verificaInformacaoSaldoDisponivel.getPath('Sem informação de saldo vindo do acolhimento'), verificaConsultarSaldoFalhaAcolhimento],
             [verificaConsultarSaldoFalhaAcolhimento.getPath('Intenção Consultar Saldo (Falha Serv. Recarga/Saldo acolhimento)'), respostaIntencaoConsultarSaldoFalhaAcolhimento],
                 [respostaIntencaoConsultarSaldoFalhaAcolhimento, perguntaQuerAlgoMais],
                 //
@@ -84,7 +84,7 @@ contestacaoSaldoRecarga.linkChain(
 
 //Intenção Contestar Saldo
 [viaDeAcesso.getPath('Intenção Contestar Saldo'), verificaInformacaoSaldoDisponivel2],
-        [verificaInformacaoSaldoDisponivel2.getPath('Sem informação de saldo'), verificaServicoConsultaSaldoRecarga2],
+        [verificaInformacaoSaldoDisponivel2.getPath('Sem informação de saldo vindo do acolhimento'), verificaServicoConsultaSaldoRecarga2],
             [verificaServicoConsultaSaldoRecarga2.getPath('Falha na consulta de saldo'), respostaServicoConsultaSaldoRecargaFalha2],
                 [respostaServicoConsultaSaldoRecargaFalha2, perguntaQuerAlgoMais],
             [verificaServicoConsultaSaldoRecarga2.getPath('Sucesso na consulta de saldo'), verificaSaldoNaValidade2],

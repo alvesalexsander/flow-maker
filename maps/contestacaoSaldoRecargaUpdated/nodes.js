@@ -45,12 +45,12 @@ const nodes = {
 
     verificaInformacaoSaldoDisponivel: contestacaoSaldoRecarga.newNode('switch', {
         name: 'Verifica se as informações de saldo foram recuperadas no profile',
-        pathCases: ['Saldo consultado no acolhimento', 'Sem informação de saldo']
+        pathCases: ['Saldo consultado no acolhimento', 'Sem informação de saldo vindo do acolhimento']
     }),
     
     verificaInformacaoSaldoDisponivel2: contestacaoSaldoRecarga.newNode('switch', {
         name: 'Verifica se as informações de saldo foram recuperadas no profile',
-        pathCases: ['Saldo consultado no acolhimento', 'Sem informação de saldo']
+        pathCases: ['Saldo consultado no acolhimento', 'Sem informação de saldo vindo do acolhimento']
     }),
 
     verificaServicoConsultaSaldoRecarga: contestacaoSaldoRecarga.newNode('switch', {
