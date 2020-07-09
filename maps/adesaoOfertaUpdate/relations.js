@@ -50,7 +50,10 @@ const {
   verificaServicoAdesao,
   verificaSMSProtocolo,
   enviaSMSProtocoloSim,
-  enviaSMSProtocoloNao
+  enviaSMSProtocoloNao,
+  verificaConsultaPlanDataAction,
+  respostaConsultaPlanDataActionFalha,
+  verificaSMSBeta
 } = require('./nodes');
 
 adesaoOferta.linkChain(
@@ -59,7 +62,9 @@ adesaoOferta.linkChain(
 
     [startAdesaoOferta, viaDeAcesso],
     [viaDeAcesso, verificaClienteBeta],
-        [verificaClienteBeta.getPath('Cliente é Beta'), verificaClienteBetaLab],
+        [verificaClienteBeta.getPath('Cliente é Beta'), verificaSMSBeta],
+        [verificaSMSBeta.getPath('Sucesso no SMS Beta'), verificaClienteBetaLab],
+        [verificaSMSBeta.getPath('Falha no SMS Beta'), verificaClienteBetaLab],
             [verificaClienteBetaLab.getPath('Cliente é Beta LAB'), respostaClienteBetaLabSim],
                 [respostaClienteBetaLabSim, perguntaQuerAlgoMais],
                 //
@@ -68,27 +73,28 @@ adesaoOferta.linkChain(
                 //
         [verificaClienteBeta.getPath('Cliente não é Beta'), respostaClienteBetaSim],
             [respostaClienteBetaSim, verificaInputCliente],
-                [verificaInputCliente.getPath('Input Inválido (1ª tentativa)'), respostaInputInvalido1],
-                    [respostaInputInvalido1, verificaInputCliente2],
-                        [verificaInputCliente2.getPath('Input Inválido (2ª tentativa)'), respostaInputInvalido2],
-                            [respostaInputInvalido2, perguntaQuerAlgoMais],
-                            //
-                        [verificaInputCliente2.getPath('Input Válido(2ª tentativa)'), verificaInputValido],
-                            [verificaInputValido.getPath('Quer aderir a promoção'), respostaInputValidoQuerAderir],
-                            [verificaInputValido.getPath('Não relacionado a adesão'), perguntaQuerAlgoMais],
-                            //
-                [verificaInputCliente.getPath('Input Válido'), respostaInputValidoQuerAderir],
-                    [respostaInputValidoQuerAderir, verificaServiçoConsultaPromocoes],
+                // [verificaInputCliente.getPath('Input Inválido (2x)'), perguntaQuerAlgoMais],
+                // [verificaInputCliente.getPath('Input Inválido -> Válido'), verificaServiçoConsultaPromocoes],
+
+                // [verificaInputCliente.getPath('Input Válido'), respostaInputValidoQuerAderir],
+                [verificaInputCliente.getPath('Input Válido'), verificaServiçoConsultaPromocoes],
+                    // [respostaInputValidoQuerAderir, verificaServiçoConsultaPromocoes],
                         [verificaServiçoConsultaPromocoes.getPath('Falha ao Consultar Promoções'), respostaFalhaConsultaPromocoes],
                             [respostaFalhaConsultaPromocoes, perguntaQuerAlgoMais],
                             //
-                        [verificaServiçoConsultaPromocoes.getPath('Sucesso ao Consultar Promoções'), verificaOfertasElegiveis],
+                        [verificaServiçoConsultaPromocoes.getPath('Sucesso ao Consultar Promoções'), verificaConsultaPlanDataAction],
+                        [verificaConsultaPlanDataAction.getPath('Falha no serviço Plan Data Action'), respostaConsultaPlanDataActionFalha],
+                        [respostaConsultaPlanDataActionFalha, perguntaQuerAlgoMais],
+                        // [verificaConsultaPlanDataAction.getPath('Sucesso no Plan Data Action'), verificaOfertasElegiveis],
+                        [verificaConsultaPlanDataAction.getPath('Sucesso no Plan Data Action'), respostaInputValidoQuerAderir],
+                        [respostaInputValidoQuerAderir, verificaOfertasElegiveis],
                             [verificaOfertasElegiveis.getPath('Sem ofertas Elegíveis'), respostaSemOfertasElegiveis],
                                 [respostaSemOfertasElegiveis, perguntaQuerAlgoMais],
                                 //
                             [verificaOfertasElegiveis.getPath('Elegível a ofertas'), respostaElegivelAOfertas],
                                 [respostaElegivelAOfertas, verificaInputQuerAderir],
-                                    [verificaInputQuerAderir.getPath('Input Inválido (1ª tentativa)'), respostaInputQuerAderirInvalido1],
+                                    // [verificaInputQuerAderir.getPath('Input Inválido (2x)'), perguntaQuerAlgoMais],
+                                    // [verificaInputQuerAderir.getPath('Input Inválido -> Válido'), perguntaClienteQuerAderir],
                                         [respostaInputQuerAderirInvalido1, verificaInputQuerAderirCliente2],
                                             [verificaInputQuerAderirCliente2.getPath('Input Inválido (2ª tentativa)'), respostaInputInvalido2],
                                             //
@@ -105,7 +111,8 @@ adesaoOferta.linkChain(
                                                 //
                                                 [verificaInputQuerAderirValido.getPath('Quer mais informações'), respostaInputMaisInfo],
                                                     [respostaInputMaisInfo, verificaInputMaisInfo],
-                                                        [verificaInputMaisInfo.getPath('Input Inválido (1ª tentativa)'), respostaInputMaisInfoInvalido1],
+                                                        [verificaInputMaisInfo.getPath('Input Inválido (2x)'), perguntaQuerAlgoMais],
+                                                        // [verificaInputMaisInfo.getPath('Input Inválido -> Válido'), respostaInputMaisInfoValido],
                                                             [respostaInputMaisInfoInvalido1, verificaInputMaisInfoCliente2],
                                                                 [verificaInputMaisInfoCliente2.getPath('Input Inválido (2ª tentativa)'), respostaInputInvalido2],
                                                                 //
@@ -117,7 +124,8 @@ adesaoOferta.linkChain(
                                                                 //
                                                                 [verificaMaisInfoQuerAderir.getPath('Quer aderir após mais info'), respostaConfirmaAdesao],
                                                                     [respostaConfirmaAdesao, verificaInputConfirmaAdesao],
-                                                                        [verificaInputConfirmaAdesao.getPath('Input Inválido (1ª tentativa)'), respostaInputConfirmaAdesaoInvalido1],
+                                                                        // [verificaInputConfirmaAdesao.getPath('Input Inválido (2x)'), perguntaQuerAlgoMais],
+                                                                        // [verificaInputConfirmaAdesao.getPath('Input Inválido -> Válido'), verificaConfirmaAdesao],
                                                                             [respostaInputConfirmaAdesaoInvalido1, verificaInputConfirmaAdesaoCliente2],
                                                                                 [verificaInputConfirmaAdesaoCliente2.getPath('Input Inválido (2ª tentativa)'), perguntaQuerAlgoMais],
                                                                                 //
@@ -148,10 +156,9 @@ adesaoOferta.linkChain(
 
 
                                     [verificaInputQuerAderir.getPath('Input Válido'), perguntaClienteQuerAderir],
-                                    [verificaInputQuerAderir.getPath('Input Válido'), perguntaClienteQuerAderir],
-                                    [perguntaClienteQuerAderir.getPath('Quer aderir'), respostaConfirmaAdesao],
-                                    [perguntaClienteQuerAderir.getPath('Quer informações'), respostaInputMaisInfo],
-                                    [perguntaClienteQuerAderir.getPath('Não quer este'), verificaTemOutraPromocao],
+                                        [perguntaClienteQuerAderir.getPath('Quer aderir'), respostaConfirmaAdesao],
+                                        [perguntaClienteQuerAderir.getPath('Quer informações'), respostaInputMaisInfo],
+                                        [perguntaClienteQuerAderir.getPath('Não quer este'), verificaTemOutraPromocao],
 
 
 
@@ -161,6 +168,7 @@ adesaoOferta.linkChain(
 
 
 adesaoOferta.mapScenarios();
-adesaoOferta.getSummary();
 // adesaoOferta.showScenarios();
+// adesaoOferta.inspectScenario(1);
+adesaoOferta.getSummary();
 adesaoOferta.exportScenariosToExcel();

@@ -166,4 +166,6 @@ adesaoOferta.linkChain(
 
 adesaoOferta.mapScenarios();
 // adesaoOferta.showScenarios();
+// adesaoOferta.inspectScenario(1);
+adesaoOferta.getSummary();
 adesaoOferta.exportScenariosToExcel();
