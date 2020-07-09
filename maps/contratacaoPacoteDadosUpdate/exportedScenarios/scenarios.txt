@@ -1,0 +1,5546 @@
+{
+  "1": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Consumiu 100%",
+      "Possui saldo em conta",
+      "Quer renovar"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP e a validade e pergunta se quer renovar os beneficios da promoção agora;",
+      "URA encaminha para o fluxo de Renovação;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "Qn3eUn1i-mU",
+        "name": "Consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "quOnwM3GAEk",
+        "name": "Possui saldo em conta",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "050LFUqBBAQ",
+        "name": "URA informa que o cliente está na promoção Pré TOP e a validade e pergunta se quer renovar os beneficios da promoção agora.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "lyvtZJ7_Oem",
+        "name": "Quer renovar",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "rRNCxHLz8EE",
+        "name": "URA encaminha para o fluxo de Renovação.",
+        "type": "Node"
+      }
+    }
+  },
+  "2": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Consumiu 100%",
+      "Possui saldo em conta",
+      "Não quer renovar",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP e a validade e pergunta se quer renovar os beneficios da promoção agora;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "Qn3eUn1i-mU",
+        "name": "Consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "quOnwM3GAEk",
+        "name": "Possui saldo em conta",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "050LFUqBBAQ",
+        "name": "URA informa que o cliente está na promoção Pré TOP e a validade e pergunta se quer renovar os beneficios da promoção agora.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "_bsx6WlMr2f",
+        "name": "Não quer renovar",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "3": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Consumiu 100%",
+      "Não possui saldo em conta",
+      "Quer fazer recarga"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP mas que a validade dos benefícios expirou. Também informa que para voltar a utilizar os benefícios basta fazer uma recarga e oferece a recarga, assim como a quantidade de bônus;",
+      "URA encaminha para o fluxo de Recarga;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "Qn3eUn1i-mU",
+        "name": "Consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "sS3x2vmZCbI",
+        "name": "Não possui saldo em conta",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "D-SbCztCAJ9",
+        "name": "URA informa que o cliente está na promoção Pré TOP e a validade e pergunta se quer fazer uma recarga para renovar os benefícios.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "7me-JmqiZm_",
+        "name": "Quer fazer recarga",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "txhmYs8EhEZ",
+        "name": "URA encaminha para o fluxo de Recarga.",
+        "type": "Node"
+      }
+    }
+  },
+  "4": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Consumiu 100%",
+      "Não possui saldo em conta",
+      "Não quer fazer recarga",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP mas que a validade dos benefícios expirou. Também informa que para voltar a utilizar os benefícios basta fazer uma recarga e oferece a recarga, assim como a quantidade de bônus;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "Qn3eUn1i-mU",
+        "name": "Consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "sS3x2vmZCbI",
+        "name": "Não possui saldo em conta",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "D-SbCztCAJ9",
+        "name": "URA informa que o cliente está na promoção Pré TOP e a validade e pergunta se quer fazer uma recarga para renovar os benefícios.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "5xMrdFGAoKy",
+        "name": "Não quer fazer recarga",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "5": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Não consumiu 100%",
+      "Possui bônus",
+      "Input - Dificuldade na internet"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis;",
+      "URA transfere a ligação para o fluxo de Suporte Técnico;",
+      "URA encaminha para o fluxo de Suporte Técnico;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YcWtJ0Qzs2y",
+        "name": "Não consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "5ziskMzWKdY",
+        "name": "Possui bônus",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "x71YsqXPgW-",
+        "name": "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "fFh89FxlZVh",
+        "name": "Input - Dificuldade na internet",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "xeJKZm30UgX",
+        "name": "URA transfere para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      },
+      "11": {
+        "id": "LpEQcCprvVk",
+        "name": "URA encaminha para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      }
+    }
+  },
+  "6": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Não consumiu 100%",
+      "Possui bônus",
+      "Input - Sem dificuldades na internet",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YcWtJ0Qzs2y",
+        "name": "Não consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "5ziskMzWKdY",
+        "name": "Possui bônus",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "x71YsqXPgW-",
+        "name": "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "2EIDtMQJOx6",
+        "name": "Input - Sem dificuldades na internet",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "7": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Não consumiu 100%",
+      "Possui bônus",
+      "Input - Não reconhecido(dificuldades)",
+      "Dificuldade na internet (após repetir)"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis;",
+      "URA repete a pergunta sobre estar com dificuldade para usar a internet;",
+      "URA transfere a ligação para o fluxo de Suporte Técnico;",
+      "URA encaminha para o fluxo de Suporte Técnico;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YcWtJ0Qzs2y",
+        "name": "Não consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "5ziskMzWKdY",
+        "name": "Possui bônus",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "x71YsqXPgW-",
+        "name": "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "lM02vRBFQze",
+        "name": "Input - Não reconhecido(dificuldades)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "Nt5lLY2oPJn",
+        "name": "URA repete a pergunta.",
+        "type": "Node"
+      },
+      "11": {
+        "id": "f4LALWQmUmZ",
+        "name": "Dificuldade na internet (após repetir)",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "xeJKZm30UgX",
+        "name": "URA transfere para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "LpEQcCprvVk",
+        "name": "URA encaminha para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      }
+    }
+  },
+  "8": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Não consumiu 100%",
+      "Possui bônus",
+      "Input - Não reconhecido(dificuldades)",
+      "Sem dificuldades na internet (após repetir)",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis;",
+      "URA repete a pergunta sobre estar com dificuldade para usar a internet;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YcWtJ0Qzs2y",
+        "name": "Não consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "5ziskMzWKdY",
+        "name": "Possui bônus",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "x71YsqXPgW-",
+        "name": "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "lM02vRBFQze",
+        "name": "Input - Não reconhecido(dificuldades)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "Nt5lLY2oPJn",
+        "name": "URA repete a pergunta.",
+        "type": "Node"
+      },
+      "11": {
+        "id": "JhcaPxyP13r",
+        "name": "Sem dificuldades na internet (após repetir)",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "9": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Não consumiu 100%",
+      "Possui bônus",
+      "Input - Não reconhecido(dificuldades)",
+      "Não reconhecido (após repetir)",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis;",
+      "URA repete a pergunta sobre estar com dificuldade para usar a internet;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YcWtJ0Qzs2y",
+        "name": "Não consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "5ziskMzWKdY",
+        "name": "Possui bônus",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "x71YsqXPgW-",
+        "name": "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "lM02vRBFQze",
+        "name": "Input - Não reconhecido(dificuldades)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "Nt5lLY2oPJn",
+        "name": "URA repete a pergunta.",
+        "type": "Node"
+      },
+      "11": {
+        "id": "nEEsZhttLO5",
+        "name": "Não reconhecido (após repetir)",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "10": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Não consumiu 100%",
+      "Não possui bônus",
+      "Input - Dificuldade na internet"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP mas que a validade dos benefícios expirou. Também informa que para voltar a utilizar os benefícios basta fazer uma recarga e oferece a recarga, assim como a quantidade de bônus;",
+      "URA transfere a ligação para o fluxo de Suporte Técnico;",
+      "URA encaminha para o fluxo de Suporte Técnico;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YcWtJ0Qzs2y",
+        "name": "Não consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "ixNap7OOvnV",
+        "name": "Não possui bônus",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "2gIdPKLREvv",
+        "name": "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis, assim como a quantidade de bônus.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "fFh89FxlZVh",
+        "name": "Input - Dificuldade na internet",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "xeJKZm30UgX",
+        "name": "URA transfere para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      },
+      "11": {
+        "id": "LpEQcCprvVk",
+        "name": "URA encaminha para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      }
+    }
+  },
+  "11": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Não consumiu 100%",
+      "Não possui bônus",
+      "Input - Sem dificuldades na internet",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP mas que a validade dos benefícios expirou. Também informa que para voltar a utilizar os benefícios basta fazer uma recarga e oferece a recarga, assim como a quantidade de bônus;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YcWtJ0Qzs2y",
+        "name": "Não consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "ixNap7OOvnV",
+        "name": "Não possui bônus",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "2gIdPKLREvv",
+        "name": "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis, assim como a quantidade de bônus.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "2EIDtMQJOx6",
+        "name": "Input - Sem dificuldades na internet",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "12": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Não consumiu 100%",
+      "Não possui bônus",
+      "Input - Não reconhecido(dificuldades)",
+      "Dificuldade na internet (após repetir)"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP mas que a validade dos benefícios expirou. Também informa que para voltar a utilizar os benefícios basta fazer uma recarga e oferece a recarga, assim como a quantidade de bônus;",
+      "URA repete a pergunta sobre estar com dificuldade para usar a internet;",
+      "URA transfere a ligação para o fluxo de Suporte Técnico;",
+      "URA encaminha para o fluxo de Suporte Técnico;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YcWtJ0Qzs2y",
+        "name": "Não consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "ixNap7OOvnV",
+        "name": "Não possui bônus",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "2gIdPKLREvv",
+        "name": "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis, assim como a quantidade de bônus.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "lM02vRBFQze",
+        "name": "Input - Não reconhecido(dificuldades)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "Nt5lLY2oPJn",
+        "name": "URA repete a pergunta.",
+        "type": "Node"
+      },
+      "11": {
+        "id": "f4LALWQmUmZ",
+        "name": "Dificuldade na internet (após repetir)",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "xeJKZm30UgX",
+        "name": "URA transfere para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "LpEQcCprvVk",
+        "name": "URA encaminha para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      }
+    }
+  },
+  "13": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Não consumiu 100%",
+      "Não possui bônus",
+      "Input - Não reconhecido(dificuldades)",
+      "Sem dificuldades na internet (após repetir)",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP mas que a validade dos benefícios expirou. Também informa que para voltar a utilizar os benefícios basta fazer uma recarga e oferece a recarga, assim como a quantidade de bônus;",
+      "URA repete a pergunta sobre estar com dificuldade para usar a internet;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YcWtJ0Qzs2y",
+        "name": "Não consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "ixNap7OOvnV",
+        "name": "Não possui bônus",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "2gIdPKLREvv",
+        "name": "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis, assim como a quantidade de bônus.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "lM02vRBFQze",
+        "name": "Input - Não reconhecido(dificuldades)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "Nt5lLY2oPJn",
+        "name": "URA repete a pergunta.",
+        "type": "Node"
+      },
+      "11": {
+        "id": "JhcaPxyP13r",
+        "name": "Sem dificuldades na internet (após repetir)",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "14": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios válidos",
+      "Não consumiu 100%",
+      "Não possui bônus",
+      "Input - Não reconhecido(dificuldades)",
+      "Não reconhecido (após repetir)",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP mas que a validade dos benefícios expirou. Também informa que para voltar a utilizar os benefícios basta fazer uma recarga e oferece a recarga, assim como a quantidade de bônus;",
+      "URA repete a pergunta sobre estar com dificuldade para usar a internet;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "xiuIZ50lkQJ",
+        "name": "Benefícios válidos",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YcWtJ0Qzs2y",
+        "name": "Não consumiu 100%",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "ixNap7OOvnV",
+        "name": "Não possui bônus",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "2gIdPKLREvv",
+        "name": "URA informa que o cliente está na promoção Pré TOP, a validade e a quantidade de dados disponiveis, assim como a quantidade de bônus.",
+        "type": "Node"
+      },
+      "9": {
+        "id": "lM02vRBFQze",
+        "name": "Input - Não reconhecido(dificuldades)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "Nt5lLY2oPJn",
+        "name": "URA repete a pergunta.",
+        "type": "Node"
+      },
+      "11": {
+        "id": "nEEsZhttLO5",
+        "name": "Não reconhecido (após repetir)",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "15": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios expirados",
+      "Quer fazer recarga"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP mas que a validade dos benefícios expirou. Também informa que para voltar a utilizar os benefícios basta fazer uma recarga e oferece a recarga;",
+      "URA encaminha para o fluxo de Recarga;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "UIk08B9fumS",
+        "name": "Benefícios expirados",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "5PCkIBL0fqx",
+        "name": "URA informa que o cliente está na promoção Pré TOP mas que a validade dos benefícios expirou.",
+        "type": "Node"
+      },
+      "7": {
+        "id": "Sp5-KFiTSwb",
+        "name": "Quer fazer recarga",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "txhmYs8EhEZ",
+        "name": "URA encaminha para o fluxo de Recarga.",
+        "type": "Node"
+      }
+    }
+  },
+  "16": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Sucesso serviços no acolhimento",
+      "Benefícios expirados",
+      "Não quer recarga",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que o cliente está na promoção Pré TOP mas que a validade dos benefícios expirou. Também informa que para voltar a utilizar os benefícios basta fazer uma recarga e oferece a recarga;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "Ft-bDv69Xf",
+        "name": "Sucesso serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "UIk08B9fumS",
+        "name": "Benefícios expirados",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "5PCkIBL0fqx",
+        "name": "URA informa que o cliente está na promoção Pré TOP mas que a validade dos benefícios expirou.",
+        "type": "Node"
+      },
+      "7": {
+        "id": "GLKGfS8b2xI",
+        "name": "Não quer recarga",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "17": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "É cliente Pré TOP",
+      "Falha serviços no acolhimento",
+      "Não quer recarga",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "xYHdjKK9nQ",
+        "name": "É cliente Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "NGCxZDA9m90",
+        "name": "Falha serviços no acolhimento",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "GLKGfS8b2xI",
+        "name": "Não quer recarga",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "18": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Já contratou pacote na ligação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa que como o usuário ja contratou um pacote, deve consumir 100% antes de contratar um novo pacote e orientações sobre como navegar e usar aplicativos;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "JkGBrTHrXpw",
+        "name": "Já contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "4VIzpJIF6ME",
+        "name": "URA informa que como o usuário ja contratou um pacote, deve consumir 100% antes de contratar um novo pacote.",
+        "type": "Node"
+      },
+      "7": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "19": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Escolhe pacote diário",
+      "Confirma contratação",
+      "Ligando do próprio aparelho",
+      "Sucesso na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa que o pacote foi contratado com sucesso;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ycJVMgvjNDG",
+        "name": "Escolhe pacote diário",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ySnWuu26-B0",
+        "name": "Confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "83GWWEa-wED",
+        "name": "Ligando do próprio aparelho",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "qKWOTc13uk0",
+        "name": "Sucesso na contratação",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "cnahgbEryp0",
+        "name": "URA informa sucesso na contratação.",
+        "type": "Node"
+      },
+      "15": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "20": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Escolhe pacote diário",
+      "Confirma contratação",
+      "Ligando do próprio aparelho",
+      "Falha na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa que não foi possível concluir a solicitação por uma instabilidade;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ycJVMgvjNDG",
+        "name": "Escolhe pacote diário",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ySnWuu26-B0",
+        "name": "Confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "83GWWEa-wED",
+        "name": "Ligando do próprio aparelho",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "dNMlCEL7tVA",
+        "name": "Falha na contratação",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "qkv30gejxkW",
+        "name": "URA informa que não foi possível concluir a solicitação por uma instabilidade.",
+        "type": "Node"
+      },
+      "15": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "21": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Escolhe pacote diário",
+      "Confirma contratação",
+      "Ligando de outro aparelho",
+      "Sucesso no fluxo de senha",
+      "Sucesso na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa que o pacote foi contratado com sucesso;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ycJVMgvjNDG",
+        "name": "Escolhe pacote diário",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ySnWuu26-B0",
+        "name": "Confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "vOlXLHgz-Az",
+        "name": "Ligando de outro aparelho",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "-S6ydIk5ncs",
+        "name": "Sucesso no fluxo de senha",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "qKWOTc13uk0",
+        "name": "Sucesso na contratação",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "cnahgbEryp0",
+        "name": "URA informa sucesso na contratação.",
+        "type": "Node"
+      },
+      "16": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "22": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Escolhe pacote diário",
+      "Confirma contratação",
+      "Ligando de outro aparelho",
+      "Sucesso no fluxo de senha",
+      "Falha na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa que não foi possível concluir a solicitação por uma instabilidade;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ycJVMgvjNDG",
+        "name": "Escolhe pacote diário",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ySnWuu26-B0",
+        "name": "Confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "vOlXLHgz-Az",
+        "name": "Ligando de outro aparelho",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "-S6ydIk5ncs",
+        "name": "Sucesso no fluxo de senha",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "dNMlCEL7tVA",
+        "name": "Falha na contratação",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "qkv30gejxkW",
+        "name": "URA informa que não foi possível concluir a solicitação por uma instabilidade.",
+        "type": "Node"
+      },
+      "16": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "23": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Escolhe pacote diário",
+      "Confirma contratação",
+      "Ligando de outro aparelho",
+      "Falha no fluxo de senha",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa que o cliente já atingiu o limite de tentativas de senha e não vai conseguir prosseguir com a solicitação;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ycJVMgvjNDG",
+        "name": "Escolhe pacote diário",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ySnWuu26-B0",
+        "name": "Confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "vOlXLHgz-Az",
+        "name": "Ligando de outro aparelho",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "t3TUqj6yi89",
+        "name": "Falha no fluxo de senha",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "KD5NKcMTrov",
+        "name": "URA informa que não vai conseguir prosseguir com a solicitação.",
+        "type": "Node"
+      },
+      "15": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "24": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Escolhe pacote diário",
+      "Não confirma contratação",
+      "Quer ouvir novamente e contrata",
+      "Ligando do próprio aparelho",
+      "Sucesso na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "URA informa que o pacote foi contratado com sucesso;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ycJVMgvjNDG",
+        "name": "Escolhe pacote diário",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bZUB07GpZUt",
+        "name": "Quer ouvir novamente e contrata",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "83GWWEa-wED",
+        "name": "Ligando do próprio aparelho",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "qKWOTc13uk0",
+        "name": "Sucesso na contratação",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "cnahgbEryp0",
+        "name": "URA informa sucesso na contratação.",
+        "type": "Node"
+      },
+      "17": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "25": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Escolhe pacote diário",
+      "Não confirma contratação",
+      "Quer ouvir novamente e contrata",
+      "Ligando do próprio aparelho",
+      "Falha na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "URA informa que não foi possível concluir a solicitação por uma instabilidade;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ycJVMgvjNDG",
+        "name": "Escolhe pacote diário",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bZUB07GpZUt",
+        "name": "Quer ouvir novamente e contrata",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "83GWWEa-wED",
+        "name": "Ligando do próprio aparelho",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "dNMlCEL7tVA",
+        "name": "Falha na contratação",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "qkv30gejxkW",
+        "name": "URA informa que não foi possível concluir a solicitação por uma instabilidade.",
+        "type": "Node"
+      },
+      "17": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "26": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Escolhe pacote diário",
+      "Não confirma contratação",
+      "Quer ouvir novamente e contrata",
+      "Ligando de outro aparelho",
+      "Sucesso no fluxo de senha",
+      "Sucesso na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "URA informa que o pacote foi contratado com sucesso;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ycJVMgvjNDG",
+        "name": "Escolhe pacote diário",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bZUB07GpZUt",
+        "name": "Quer ouvir novamente e contrata",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "vOlXLHgz-Az",
+        "name": "Ligando de outro aparelho",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "-S6ydIk5ncs",
+        "name": "Sucesso no fluxo de senha",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "qKWOTc13uk0",
+        "name": "Sucesso na contratação",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "cnahgbEryp0",
+        "name": "URA informa sucesso na contratação.",
+        "type": "Node"
+      },
+      "18": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "19": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "27": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Escolhe pacote diário",
+      "Não confirma contratação",
+      "Quer ouvir novamente e contrata",
+      "Ligando de outro aparelho",
+      "Sucesso no fluxo de senha",
+      "Falha na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "URA informa que não foi possível concluir a solicitação por uma instabilidade;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ycJVMgvjNDG",
+        "name": "Escolhe pacote diário",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bZUB07GpZUt",
+        "name": "Quer ouvir novamente e contrata",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "vOlXLHgz-Az",
+        "name": "Ligando de outro aparelho",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "-S6ydIk5ncs",
+        "name": "Sucesso no fluxo de senha",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "dNMlCEL7tVA",
+        "name": "Falha na contratação",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "qkv30gejxkW",
+        "name": "URA informa que não foi possível concluir a solicitação por uma instabilidade.",
+        "type": "Node"
+      },
+      "18": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "19": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "28": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Escolhe pacote diário",
+      "Não confirma contratação",
+      "Quer ouvir novamente e contrata",
+      "Ligando de outro aparelho",
+      "Falha no fluxo de senha",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "URA informa que o cliente já atingiu o limite de tentativas de senha e não vai conseguir prosseguir com a solicitação;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ycJVMgvjNDG",
+        "name": "Escolhe pacote diário",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bZUB07GpZUt",
+        "name": "Quer ouvir novamente e contrata",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "vOlXLHgz-Az",
+        "name": "Ligando de outro aparelho",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "t3TUqj6yi89",
+        "name": "Falha no fluxo de senha",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "KD5NKcMTrov",
+        "name": "URA informa que não vai conseguir prosseguir com a solicitação.",
+        "type": "Node"
+      },
+      "17": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "29": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Escolhe pacote diário",
+      "Não confirma contratação",
+      "Quer ouvir novamente e não contrata",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ycJVMgvjNDG",
+        "name": "Escolhe pacote diário",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "Mf7xEk2c0p7",
+        "name": "Quer ouvir novamente e não contrata",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "30": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Escolhe pacote diário",
+      "Não confirma contratação",
+      "Não quer ouvir novamente",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ycJVMgvjNDG",
+        "name": "Escolhe pacote diário",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "PB0t2KT6y6u",
+        "name": "Não quer ouvir novamente",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "31": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Não escolher nenhum pacote",
+      "Existe pacote maior",
+      "Quer recarga (pacote maior)"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA encaminha para o fluxo de Recarga;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "LqGLMV8Y7Ia",
+        "name": "Não escolher nenhum pacote",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "2VQkUI9Ca-r",
+        "name": "Existe pacote maior",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "aOZlL8FSOjw",
+        "name": "Quer recarga (pacote maior)",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "txhmYs8EhEZ",
+        "name": "URA encaminha para o fluxo de Recarga.",
+        "type": "Node"
+      }
+    }
+  },
+  "32": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Não escolher nenhum pacote",
+      "Existe pacote maior",
+      "Não quer recarga (pacote maior)",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "LqGLMV8Y7Ia",
+        "name": "Não escolher nenhum pacote",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "2VQkUI9Ca-r",
+        "name": "Existe pacote maior",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "D_H6q4a3u2Y",
+        "name": "Não quer recarga (pacote maior)",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "33": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Somente pacote diário",
+      "Não escolher nenhum pacote",
+      "Nenhum outro pacote",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "k91UsYxTMj0",
+        "name": "Somente pacote diário",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "LqGLMV8Y7Ia",
+        "name": "Não escolher nenhum pacote",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "aU8ScOLsIMW",
+        "name": "Nenhum outro pacote",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "34": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Escolhe pacote das opções",
+      "Confirma contratação",
+      "Ligando do próprio aparelho",
+      "Sucesso na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa que o pacote foi contratado com sucesso;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "EEzeabwpRfw",
+        "name": "Escolhe pacote das opções",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ySnWuu26-B0",
+        "name": "Confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "83GWWEa-wED",
+        "name": "Ligando do próprio aparelho",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "qKWOTc13uk0",
+        "name": "Sucesso na contratação",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "cnahgbEryp0",
+        "name": "URA informa sucesso na contratação.",
+        "type": "Node"
+      },
+      "15": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "35": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Escolhe pacote das opções",
+      "Confirma contratação",
+      "Ligando do próprio aparelho",
+      "Falha na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa que não foi possível concluir a solicitação por uma instabilidade;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "EEzeabwpRfw",
+        "name": "Escolhe pacote das opções",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ySnWuu26-B0",
+        "name": "Confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "83GWWEa-wED",
+        "name": "Ligando do próprio aparelho",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "dNMlCEL7tVA",
+        "name": "Falha na contratação",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "qkv30gejxkW",
+        "name": "URA informa que não foi possível concluir a solicitação por uma instabilidade.",
+        "type": "Node"
+      },
+      "15": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "36": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Escolhe pacote das opções",
+      "Confirma contratação",
+      "Ligando de outro aparelho",
+      "Sucesso no fluxo de senha",
+      "Sucesso na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa que o pacote foi contratado com sucesso;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "EEzeabwpRfw",
+        "name": "Escolhe pacote das opções",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ySnWuu26-B0",
+        "name": "Confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "vOlXLHgz-Az",
+        "name": "Ligando de outro aparelho",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "-S6ydIk5ncs",
+        "name": "Sucesso no fluxo de senha",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "qKWOTc13uk0",
+        "name": "Sucesso na contratação",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "cnahgbEryp0",
+        "name": "URA informa sucesso na contratação.",
+        "type": "Node"
+      },
+      "16": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "37": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Escolhe pacote das opções",
+      "Confirma contratação",
+      "Ligando de outro aparelho",
+      "Sucesso no fluxo de senha",
+      "Falha na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa que não foi possível concluir a solicitação por uma instabilidade;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "EEzeabwpRfw",
+        "name": "Escolhe pacote das opções",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ySnWuu26-B0",
+        "name": "Confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "vOlXLHgz-Az",
+        "name": "Ligando de outro aparelho",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "-S6ydIk5ncs",
+        "name": "Sucesso no fluxo de senha",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "dNMlCEL7tVA",
+        "name": "Falha na contratação",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "qkv30gejxkW",
+        "name": "URA informa que não foi possível concluir a solicitação por uma instabilidade.",
+        "type": "Node"
+      },
+      "16": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "38": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Escolhe pacote das opções",
+      "Confirma contratação",
+      "Ligando de outro aparelho",
+      "Falha no fluxo de senha",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa que o cliente já atingiu o limite de tentativas de senha e não vai conseguir prosseguir com a solicitação;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "EEzeabwpRfw",
+        "name": "Escolhe pacote das opções",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ySnWuu26-B0",
+        "name": "Confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "vOlXLHgz-Az",
+        "name": "Ligando de outro aparelho",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "t3TUqj6yi89",
+        "name": "Falha no fluxo de senha",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "KD5NKcMTrov",
+        "name": "URA informa que não vai conseguir prosseguir com a solicitação.",
+        "type": "Node"
+      },
+      "15": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "39": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Escolhe pacote das opções",
+      "Não confirma contratação",
+      "Quer ouvir novamente e contrata",
+      "Ligando do próprio aparelho",
+      "Sucesso na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "URA informa que o pacote foi contratado com sucesso;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "EEzeabwpRfw",
+        "name": "Escolhe pacote das opções",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bZUB07GpZUt",
+        "name": "Quer ouvir novamente e contrata",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "83GWWEa-wED",
+        "name": "Ligando do próprio aparelho",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "qKWOTc13uk0",
+        "name": "Sucesso na contratação",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "cnahgbEryp0",
+        "name": "URA informa sucesso na contratação.",
+        "type": "Node"
+      },
+      "17": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "40": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Escolhe pacote das opções",
+      "Não confirma contratação",
+      "Quer ouvir novamente e contrata",
+      "Ligando do próprio aparelho",
+      "Falha na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "URA informa que não foi possível concluir a solicitação por uma instabilidade;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "EEzeabwpRfw",
+        "name": "Escolhe pacote das opções",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bZUB07GpZUt",
+        "name": "Quer ouvir novamente e contrata",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "83GWWEa-wED",
+        "name": "Ligando do próprio aparelho",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "dNMlCEL7tVA",
+        "name": "Falha na contratação",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "qkv30gejxkW",
+        "name": "URA informa que não foi possível concluir a solicitação por uma instabilidade.",
+        "type": "Node"
+      },
+      "17": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "41": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Escolhe pacote das opções",
+      "Não confirma contratação",
+      "Quer ouvir novamente e contrata",
+      "Ligando de outro aparelho",
+      "Sucesso no fluxo de senha",
+      "Sucesso na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "URA informa que o pacote foi contratado com sucesso;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "EEzeabwpRfw",
+        "name": "Escolhe pacote das opções",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bZUB07GpZUt",
+        "name": "Quer ouvir novamente e contrata",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "vOlXLHgz-Az",
+        "name": "Ligando de outro aparelho",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "-S6ydIk5ncs",
+        "name": "Sucesso no fluxo de senha",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "qKWOTc13uk0",
+        "name": "Sucesso na contratação",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "cnahgbEryp0",
+        "name": "URA informa sucesso na contratação.",
+        "type": "Node"
+      },
+      "18": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "19": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "42": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Escolhe pacote das opções",
+      "Não confirma contratação",
+      "Quer ouvir novamente e contrata",
+      "Ligando de outro aparelho",
+      "Sucesso no fluxo de senha",
+      "Falha na contratação",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "URA informa que não foi possível concluir a solicitação por uma instabilidade;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "EEzeabwpRfw",
+        "name": "Escolhe pacote das opções",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bZUB07GpZUt",
+        "name": "Quer ouvir novamente e contrata",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "vOlXLHgz-Az",
+        "name": "Ligando de outro aparelho",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "-S6ydIk5ncs",
+        "name": "Sucesso no fluxo de senha",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "dNMlCEL7tVA",
+        "name": "Falha na contratação",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "qkv30gejxkW",
+        "name": "URA informa que não foi possível concluir a solicitação por uma instabilidade.",
+        "type": "Node"
+      },
+      "18": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "19": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "43": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Escolhe pacote das opções",
+      "Não confirma contratação",
+      "Quer ouvir novamente e contrata",
+      "Ligando de outro aparelho",
+      "Falha no fluxo de senha",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "URA informa que o cliente já atingiu o limite de tentativas de senha e não vai conseguir prosseguir com a solicitação;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "EEzeabwpRfw",
+        "name": "Escolhe pacote das opções",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bZUB07GpZUt",
+        "name": "Quer ouvir novamente e contrata",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "vOlXLHgz-Az",
+        "name": "Ligando de outro aparelho",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "t3TUqj6yi89",
+        "name": "Falha no fluxo de senha",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "KD5NKcMTrov",
+        "name": "URA informa que não vai conseguir prosseguir com a solicitação.",
+        "type": "Node"
+      },
+      "17": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "44": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Escolhe pacote das opções",
+      "Não confirma contratação",
+      "Quer ouvir novamente e não contrata",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "EEzeabwpRfw",
+        "name": "Escolhe pacote das opções",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "Mf7xEk2c0p7",
+        "name": "Quer ouvir novamente e não contrata",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "45": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Escolhe pacote das opções",
+      "Não confirma contratação",
+      "Não quer ouvir novamente",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA se oferece para repetir as opções;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "EEzeabwpRfw",
+        "name": "Escolhe pacote das opções",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "VTRG_zUozLG",
+        "name": "Não confirma contratação",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "IHJWau9_5CU",
+        "name": "URA se oferece para repetir.",
+        "type": "Node"
+      },
+      "13": {
+        "id": "PB0t2KT6y6u",
+        "name": "Não quer ouvir novamente",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "46": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Não escolher nenhum pacote",
+      "Existe pacote maior",
+      "Quer recarga (pacote maior)"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA encaminha para o fluxo de Recarga;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "OUmRtYPJl7x",
+        "name": "Não escolher nenhum pacote",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "2VQkUI9Ca-r",
+        "name": "Existe pacote maior",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "aOZlL8FSOjw",
+        "name": "Quer recarga (pacote maior)",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "txhmYs8EhEZ",
+        "name": "URA encaminha para o fluxo de Recarga.",
+        "type": "Node"
+      }
+    }
+  },
+  "47": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Não escolher nenhum pacote",
+      "Existe pacote maior",
+      "Não quer recarga (pacote maior)",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "OUmRtYPJl7x",
+        "name": "Não escolher nenhum pacote",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "2VQkUI9Ca-r",
+        "name": "Existe pacote maior",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "D_H6q4a3u2Y",
+        "name": "Não quer recarga (pacote maior)",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "48": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Possui saldo (pacote mínimo)",
+      "Pacotes disponíveis",
+      "Não escolher nenhum pacote",
+      "Nenhum outro pacote",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "w45SqHLSboB",
+        "name": "Possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "TqwpiFIEhQc",
+        "name": "Pacotes disponíveis",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "OUmRtYPJl7x",
+        "name": "Não escolher nenhum pacote",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "aU8ScOLsIMW",
+        "name": "Nenhum outro pacote",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "49": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação bloqueada",
+      "Não possui saldo (pacote mínimo)"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA encaminha para o fluxo de Recarga;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "wLKbEqydXto",
+        "name": "Navegação bloqueada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "D5LUg3nCakb",
+        "name": "Não possui saldo (pacote mínimo)",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "txhmYs8EhEZ",
+        "name": "URA encaminha para o fluxo de Recarga.",
+        "type": "Node"
+      }
+    }
+  },
+  "50": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação normal",
+      "Possui bônus",
+      "Input - Dificuldade na internet"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa a quantidade de dados disponíveis e o somatorio de bônus e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis;",
+      "URA transfere a ligação para o fluxo de Suporte Técnico;",
+      "URA encaminha para o fluxo de Suporte Técnico;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "pQxUMlidC2d",
+        "name": "Navegação normal",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "0sSdeQePz9K",
+        "name": "Possui bônus",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "1g-P2IsU0vM",
+        "name": "URA informa a quantidade de dados disponíveis e o somatorio de bônus e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis.",
+        "type": "Node"
+      },
+      "10": {
+        "id": "fFh89FxlZVh",
+        "name": "Input - Dificuldade na internet",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "xeJKZm30UgX",
+        "name": "URA transfere para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      },
+      "12": {
+        "id": "LpEQcCprvVk",
+        "name": "URA encaminha para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      }
+    }
+  },
+  "51": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação normal",
+      "Possui bônus",
+      "Input - Sem dificuldades na internet",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa a quantidade de dados disponíveis e o somatorio de bônus e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "pQxUMlidC2d",
+        "name": "Navegação normal",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "0sSdeQePz9K",
+        "name": "Possui bônus",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "1g-P2IsU0vM",
+        "name": "URA informa a quantidade de dados disponíveis e o somatorio de bônus e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis.",
+        "type": "Node"
+      },
+      "10": {
+        "id": "2EIDtMQJOx6",
+        "name": "Input - Sem dificuldades na internet",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "52": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação normal",
+      "Possui bônus",
+      "Input - Não reconhecido(dificuldades)",
+      "Dificuldade na internet (após repetir)"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa a quantidade de dados disponíveis e o somatorio de bônus e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis;",
+      "URA repete a pergunta sobre estar com dificuldade para usar a internet;",
+      "URA transfere a ligação para o fluxo de Suporte Técnico;",
+      "URA encaminha para o fluxo de Suporte Técnico;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "pQxUMlidC2d",
+        "name": "Navegação normal",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "0sSdeQePz9K",
+        "name": "Possui bônus",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "1g-P2IsU0vM",
+        "name": "URA informa a quantidade de dados disponíveis e o somatorio de bônus e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis.",
+        "type": "Node"
+      },
+      "10": {
+        "id": "lM02vRBFQze",
+        "name": "Input - Não reconhecido(dificuldades)",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "Nt5lLY2oPJn",
+        "name": "URA repete a pergunta.",
+        "type": "Node"
+      },
+      "12": {
+        "id": "f4LALWQmUmZ",
+        "name": "Dificuldade na internet (após repetir)",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "xeJKZm30UgX",
+        "name": "URA transfere para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      },
+      "14": {
+        "id": "LpEQcCprvVk",
+        "name": "URA encaminha para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      }
+    }
+  },
+  "53": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação normal",
+      "Possui bônus",
+      "Input - Não reconhecido(dificuldades)",
+      "Sem dificuldades na internet (após repetir)",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa a quantidade de dados disponíveis e o somatorio de bônus e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis;",
+      "URA repete a pergunta sobre estar com dificuldade para usar a internet;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "pQxUMlidC2d",
+        "name": "Navegação normal",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "0sSdeQePz9K",
+        "name": "Possui bônus",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "1g-P2IsU0vM",
+        "name": "URA informa a quantidade de dados disponíveis e o somatorio de bônus e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis.",
+        "type": "Node"
+      },
+      "10": {
+        "id": "lM02vRBFQze",
+        "name": "Input - Não reconhecido(dificuldades)",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "Nt5lLY2oPJn",
+        "name": "URA repete a pergunta.",
+        "type": "Node"
+      },
+      "12": {
+        "id": "JhcaPxyP13r",
+        "name": "Sem dificuldades na internet (após repetir)",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "54": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação normal",
+      "Possui bônus",
+      "Input - Não reconhecido(dificuldades)",
+      "Não reconhecido (após repetir)",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa a quantidade de dados disponíveis e o somatorio de bônus e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis;",
+      "URA repete a pergunta sobre estar com dificuldade para usar a internet;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "pQxUMlidC2d",
+        "name": "Navegação normal",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "0sSdeQePz9K",
+        "name": "Possui bônus",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "1g-P2IsU0vM",
+        "name": "URA informa a quantidade de dados disponíveis e o somatorio de bônus e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis.",
+        "type": "Node"
+      },
+      "10": {
+        "id": "lM02vRBFQze",
+        "name": "Input - Não reconhecido(dificuldades)",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "Nt5lLY2oPJn",
+        "name": "URA repete a pergunta.",
+        "type": "Node"
+      },
+      "12": {
+        "id": "nEEsZhttLO5",
+        "name": "Não reconhecido (após repetir)",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "55": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação normal",
+      "Não possui bônus",
+      "Input - Dificuldade na internet"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa a quantidade de dados disponíveis e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis;",
+      "URA transfere a ligação para o fluxo de Suporte Técnico;",
+      "URA encaminha para o fluxo de Suporte Técnico;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "pQxUMlidC2d",
+        "name": "Navegação normal",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "fZW6zk3QEug",
+        "name": "Não possui bônus",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "-P0Xq9FEJ2N",
+        "name": "URA informa a quantidade de dados disponíveis e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis.",
+        "type": "Node"
+      },
+      "10": {
+        "id": "fFh89FxlZVh",
+        "name": "Input - Dificuldade na internet",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "xeJKZm30UgX",
+        "name": "URA transfere para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      },
+      "12": {
+        "id": "LpEQcCprvVk",
+        "name": "URA encaminha para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      }
+    }
+  },
+  "56": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação normal",
+      "Não possui bônus",
+      "Input - Sem dificuldades na internet",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa a quantidade de dados disponíveis e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "pQxUMlidC2d",
+        "name": "Navegação normal",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "fZW6zk3QEug",
+        "name": "Não possui bônus",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "-P0Xq9FEJ2N",
+        "name": "URA informa a quantidade de dados disponíveis e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis.",
+        "type": "Node"
+      },
+      "10": {
+        "id": "2EIDtMQJOx6",
+        "name": "Input - Sem dificuldades na internet",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "57": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação normal",
+      "Não possui bônus",
+      "Input - Não reconhecido(dificuldades)",
+      "Dificuldade na internet (após repetir)"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa a quantidade de dados disponíveis e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis;",
+      "URA repete a pergunta sobre estar com dificuldade para usar a internet;",
+      "URA transfere a ligação para o fluxo de Suporte Técnico;",
+      "URA encaminha para o fluxo de Suporte Técnico;"
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "pQxUMlidC2d",
+        "name": "Navegação normal",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "fZW6zk3QEug",
+        "name": "Não possui bônus",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "-P0Xq9FEJ2N",
+        "name": "URA informa a quantidade de dados disponíveis e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis.",
+        "type": "Node"
+      },
+      "10": {
+        "id": "lM02vRBFQze",
+        "name": "Input - Não reconhecido(dificuldades)",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "Nt5lLY2oPJn",
+        "name": "URA repete a pergunta.",
+        "type": "Node"
+      },
+      "12": {
+        "id": "f4LALWQmUmZ",
+        "name": "Dificuldade na internet (após repetir)",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "xeJKZm30UgX",
+        "name": "URA transfere para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      },
+      "14": {
+        "id": "LpEQcCprvVk",
+        "name": "URA encaminha para o fluxo de Suporte Técnico.",
+        "type": "Node"
+      }
+    }
+  },
+  "58": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação normal",
+      "Não possui bônus",
+      "Input - Não reconhecido(dificuldades)",
+      "Sem dificuldades na internet (após repetir)",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa a quantidade de dados disponíveis e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis;",
+      "URA repete a pergunta sobre estar com dificuldade para usar a internet;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "pQxUMlidC2d",
+        "name": "Navegação normal",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "fZW6zk3QEug",
+        "name": "Não possui bônus",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "-P0Xq9FEJ2N",
+        "name": "URA informa a quantidade de dados disponíveis e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis.",
+        "type": "Node"
+      },
+      "10": {
+        "id": "lM02vRBFQze",
+        "name": "Input - Não reconhecido(dificuldades)",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "Nt5lLY2oPJn",
+        "name": "URA repete a pergunta.",
+        "type": "Node"
+      },
+      "12": {
+        "id": "JhcaPxyP13r",
+        "name": "Sem dificuldades na internet (após repetir)",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "59": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Sucesso no serv. Quota (acolhim.)",
+      "Navegação normal",
+      "Não possui bônus",
+      "Input - Não reconhecido(dificuldades)",
+      "Não reconhecido (após repetir)",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa a quantidade de dados disponíveis e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis;",
+      "URA repete a pergunta sobre estar com dificuldade para usar a internet;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "eP4vvxHmnHt",
+        "name": "Sucesso no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "pQxUMlidC2d",
+        "name": "Navegação normal",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "fZW6zk3QEug",
+        "name": "Não possui bônus",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "-P0Xq9FEJ2N",
+        "name": "URA informa a quantidade de dados disponíveis e fornece orientações sobre como navegar e utilizar aplicativos usando dados móveis.",
+        "type": "Node"
+      },
+      "10": {
+        "id": "lM02vRBFQze",
+        "name": "Input - Não reconhecido(dificuldades)",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "Nt5lLY2oPJn",
+        "name": "URA repete a pergunta.",
+        "type": "Node"
+      },
+      "12": {
+        "id": "nEEsZhttLO5",
+        "name": "Não reconhecido (após repetir)",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "60": {
+    "precondition": [
+      "Veio de #desambiguadorContratacaoPacoteDados ou redirecionado dos fluxos de Acolhimento ou Problemas Técnicos",
+      "Não é Pré TOP",
+      "Não contratou pacote na ligação",
+      "Falha no serv. Quota (acolhim.)",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva que ao passar pelo acolhimento, cliente tem intenção de contratar pacote de dados;",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "URA informa que vai verificar a internet;",
+      "URA informa que não foi possível concluir a solicitação por uma instabilidade e que pode contratar pacotes pelo APP;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "t6XqIJui-H",
+        "name": "Inicia fluxo de contratacaoPacoteDados",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "BdX7aWcRYl",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wR7dTDKP9I",
+        "name": "Não é Pré TOP",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "yvLpmMoU_95",
+        "name": "URA informa que vai verificar a internet.",
+        "type": "Node"
+      },
+      "5": {
+        "id": "oVxN7iUiHxl",
+        "name": "Não contratou pacote na ligação",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "d7ycgpu50bX",
+        "name": "Falha no serv. Quota (acolhim.)",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "f_UfCT7QsjD",
+        "name": "URA informa que não foi possível concluir a solicitação por uma instabilidade.",
+        "type": "Node"
+      },
+      "8": {
+        "id": "-RK66oaOrV",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "VHalm2-5_6",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  }
+}
