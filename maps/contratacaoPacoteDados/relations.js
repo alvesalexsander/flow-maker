@@ -59,8 +59,8 @@ contratacaoPacoteDados.linkChain(
     [perguntaQuerAlgoMais.getPath('Quer algo mais'), desambiguador],
     [perguntaQuerAlgoMais.getPath('Não quer mais nada'), agradeceDesliga],
 
-    [startContratacaoPacoteDados, viaDeAcesso],
-    [viaDeAcesso, verificaPreTop],
+    [startContratacaoPacoteDados, verificaPreTop],
+    // [viaDeAcesso, verificaPreTop],
         [verificaPreTop.getPath('É cliente Pré TOP'), verificaBeneficiosValidos],
             [verificaBeneficiosValidos.getPath('Benefícios expirados'), respostaBeneficiosExpirados],
                 [respostaBeneficiosExpirados, verificaExpiradoQuerRecarga],

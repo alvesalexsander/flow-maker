@@ -26,7 +26,7 @@ const nodes = {
     viaDeAcesso: contratacaoPacoteDados.newNode('node', {
         name: 'Desambiguadores que acionam o fluxo',
         stepMessage: 'Veio de #desambiguadorContratacaoPacoteDados',
-        expectedMessage: 'A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;'
+        expectedMessage: 'A URA Congnitiva informa que entendeu que deseja contratar um pacote;'
     }),
 
     perguntaQuerAlgoMais: contratacaoPacoteDados.newNode('switch', {

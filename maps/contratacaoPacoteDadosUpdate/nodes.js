@@ -57,6 +57,11 @@ const nodes = {
         pathCases: ['Sucesso serviços no acolhimento', 'Falha serviços no acolhimento']
     }),
 
+    respostaPreTopFalhaServiçosNoAcolhimento: contratacaoPacoteDados.newNode('node', {
+        name: 'URA informa que o cliente está na promoção Pré Top e dá orientações sobre com o usar o pacote de dados e o período de validade.',
+        expectedMessage: 'URA informa que o cliente está na promoção Pré Top e dá orientações sobre com o usar o pacote de dados e o período de validade;'
+    }),
+
     verificaBeneficiosValidos: contratacaoPacoteDados.newNode('switch', {
         name: 'Verifica se os beneficios ainda são válidos',
         pathCases: ['Benefícios válidos', 'Benefícios expirados']
@@ -75,6 +80,11 @@ const nodes = {
     verificaPreTOPConsumiuTodoPacote: contratacaoPacoteDados.newNode('switch', {
         name: 'Verifica se o usuário consumiu 100% do pacote',
         pathCases: ['Consumiu 100%', 'Não consumiu 100%']
+    }),
+
+    respostaPreTOPConsumiuTodoPacote: contratacaoPacoteDados.newNode('node', {
+        name: 'Informa que possui pacote de dados disponivel',
+        expectedMessage: 'URA informa que o cliente está no promoção Pré Top, a validade dos seus benefícios e a quantidade de dados disponíveis para navegar;'
     }),
 
     verificaPossuiBonus: contratacaoPacoteDados.newNode('switch', {
@@ -171,6 +181,11 @@ const nodes = {
 
 //----------------------------------------------------------PACOTE MINIMO----------------------------------------------
 
+    verificaConsultaSaldoPacotesDisponiveis: contratacaoPacoteDados.newNode('switch', {
+        name: 'Verifica se as informações de saldo e pacotes disponiveis foram consultadas no acolhimento',
+        pathCases: ['Sucesso consulta saldo e pacotes no acolhimento', 'Falha consulta saldo e pacotes no acolhimento']
+    }),
+
     verificaSaldoParaPacoteMinimo: contratacaoPacoteDados.newNode('switch', {
         name: 'Verifica se o cliente possui saldo para contratar o pacote minimo',
         pathCases: ['Possui saldo (pacote mínimo)', 'Não possui saldo (pacote mínimo)']
@@ -179,6 +194,11 @@ const nodes = {
     verificaConsultaPacotesDados: contratacaoPacoteDados.newNode('switch', {
         name: 'Verifica o serviço de Pacotes Dados retorna ok',
         pathCases: ['Sucesso Consulta Pacote Dados', 'Falha Consulta Pacote Dados']
+    }),
+
+    apresentaPacotesDisponiveis: contratacaoPacoteDados.newNode('node', {
+        name: 'URA apresenta pacotes disponiveis para contratação.',
+        expectedMessage: 'URA apresenta pacotes disponiveis para contratação;'
     }),
 
     verificaElegivelSomentePacoteDiario: contratacaoPacoteDados.newNode('switch', {
@@ -279,6 +299,11 @@ const nodes = {
     respostaConsultaQuota: contratacaoPacoteDados.newNode('node', {
         name: 'URA informa que não foi possível concluir a solicitação por uma instabilidade.',
         expectedMessage: 'URA informa que não foi possível concluir a solicitação por uma instabilidade e que pode contratar pacotes pelo APP;'
+    }),
+
+    perguntaDificuldadeUsarInternet: contratacaoPacoteDados.newNode('node', {
+        name: 'URA pergunta se cliente está com dificuldade de usar a internet.',
+        expectedMessage: 'URA pergunta se cliente está com dificuldade de usar a internet;'
     }),
     
     verificaDificuldadeUsarInternet: contratacaoPacoteDados.newNode('switch', {
