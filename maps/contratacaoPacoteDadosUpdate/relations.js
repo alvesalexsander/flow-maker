@@ -6,20 +6,19 @@ const {
   encerraLigacao,
   viaDeAcesso,
   perguntaQuerAlgoMais,
-  apresentaPacotesDisponiveis,   
+  vocalizaQuerAlgoMais,
   desambiguador,
   agradeceDesliga,
   verificaPreTop,
-  verificaBeneficiosValidos,
+  verificaServiçosNoAcolhimento,
   respostaPreTopFalhaServiçosNoAcolhimento,
-  perguntaDificuldadeUsarInternet,
+  verificaBeneficiosValidos,
   respostaBeneficiosExpirados,
   verificaExpiradoQuerRecarga,
-  verificaConsultaSaldoPacotesDisponiveis,
   verificaPreTOPConsumiuTodoPacote,
+  respostaPreTOPConsumiuTodoPacote,
   verificaPossuiBonus,
   respostaPossuiBonusSim,
-  respostaPreTOPConsumiuTodoPacote,
   respostaPossuiBonusNao,
   verificaPossuiSaldoRecarga,
   respostaPossuiSaldoRecargaSim,
@@ -31,14 +30,15 @@ const {
   informaVerificarInternet,
   verificaJaContratouPacote,
   respostaJaContratouPacoteSim,
-  respostaConfirmaContratacaoNao,
   verificaConsultaQuota,
   verificaNavegaçãoBloqueada,
   verificaNavBloqPossuiBonus,
   respostaNavBloqPossuiBonusSim,
   respostaNavBloqPossuiBonusNao,
+  verificaConsultaSaldoPacotesDisponiveis,
   verificaSaldoParaPacoteMinimo,
   verificaConsultaPacotesDados,
+  apresentaPacotesDisponiveis,
   verificaElegivelSomentePacoteDiario,
   respostaElegivelSomentePacoteDiarioSim,
   respostaElegivelSomentePacoteDiarioNao,
@@ -48,6 +48,7 @@ const {
   respostaPacoteSaldoMaiorSim,
   verificaQuerRecargaPacoteMaior,
   confirmaContratacao,
+  respostaConfirmaContratacaoNao,
   verificaQuerOuvirNovamente,
   verificaLigandoProprioAparelho,
   verificaFluxoSenha,
@@ -58,30 +59,31 @@ const {
   respostaContratacaoDoPacoteFalha,
   respostaConsultaPacotesDados,
   respostaConsultaQuota,
-  verificaServiçosNoAcolhimento,
-  encaminhaFluxoSuporteTecnico,
-  repeteInputDificuldadeUsarInternet,
-  respostaDificuldadeUsarInternetSim,
+  perguntaDificuldadeUsarInternet,
   verificaDificuldadeUsarInternet,
-  respostaRepeteDificuldadeUsarInternet
+  respostaDificuldadeUsarInternetSim,
+  repeteInputDificuldadeUsarInternet,
+  respostaRepeteDificuldadeUsarInternet,
+  encaminhaFluxoSuporteTecnico
 } = require('./nodes');
 
 contratacaoPacoteDados.linkChain(
     // [perguntaQuerAlgoMais.getPath('Quer algo mais'), desambiguador],
-    [perguntaQuerAlgoMais.getPath('Não quer mais nada'), agradeceDesliga],
+    [perguntaQuerAlgoMais.getPath('Não quer mais nada'), vocalizaQuerAlgoMais],
+    [vocalizaQuerAlgoMais, agradeceDesliga],
 
     [perguntaDificuldadeUsarInternet, verificaDificuldadeUsarInternet],
 
     [verificaDificuldadeUsarInternet.getPath('Input - Dificuldade na internet'), respostaDificuldadeUsarInternetSim],
     [respostaDificuldadeUsarInternetSim, encaminhaFluxoSuporteTecnico],
 
-    [verificaDificuldadeUsarInternet.getPath('Input - Sem dificuldades na internet'), perguntaQuerAlgoMais],
+    [verificaDificuldadeUsarInternet.getPath('Input - Sem dificuldades na internet'), perguntaQuerAlgoMais.getPath('Não quer mais nada')],
 
     [verificaDificuldadeUsarInternet.getPath('Input - Não reconhecido(dificuldades)'), respostaRepeteDificuldadeUsarInternet],
     [respostaRepeteDificuldadeUsarInternet, repeteInputDificuldadeUsarInternet],
     [repeteInputDificuldadeUsarInternet.getPath('Dificuldade na internet (após repetir)'), respostaDificuldadeUsarInternetSim],
-    [repeteInputDificuldadeUsarInternet.getPath('Sem dificuldades na internet (após repetir)'), perguntaQuerAlgoMais],
-    [repeteInputDificuldadeUsarInternet.getPath('Não reconhecido (após repetir)'), perguntaQuerAlgoMais],
+    [repeteInputDificuldadeUsarInternet.getPath('Sem dificuldades na internet (após repetir)'), perguntaQuerAlgoMais.getPath('Não quer mais nada')],
+    [repeteInputDificuldadeUsarInternet.getPath('Não reconhecido (após repetir)'), perguntaQuerAlgoMais.getPath('Não quer mais nada')],
 
 
     [startContratacaoPacoteDados, verificaPreTop],
@@ -89,13 +91,13 @@ contratacaoPacoteDados.linkChain(
         [verificaPreTop.getPath('É cliente Pré TOP'), verificaServiçosNoAcolhimento],
         [verificaServiçosNoAcolhimento.getPath('Sucesso serviços no acolhimento'), verificaBeneficiosValidos],
         [verificaServiçosNoAcolhimento.getPath('Falha serviços no acolhimento'), respostaPreTopFalhaServiçosNoAcolhimento],
-        [respostaPreTopFalhaServiçosNoAcolhimento, perguntaQuerAlgoMais]
+        [respostaPreTopFalhaServiçosNoAcolhimento.set('nextNode', perguntaQuerAlgoMais.getPath('Não quer mais nada')), perguntaQuerAlgoMais.getPath('Não quer mais nada')]
 
-            [verificaBeneficiosValidos.getPath('Benefícios expirados'), respostaBeneficiosExpirados],
+            [verificaBeneficiosValidos.getPath('Benefícios expirados').set('nextNode', respostaBeneficiosExpirados), respostaBeneficiosExpirados],
                 [respostaBeneficiosExpirados, verificaExpiradoQuerRecarga],
                     [verificaExpiradoQuerRecarga.getPath('Quer fazer recarga'), encaminhaFluxoRecarga],
                     //
-                    [verificaExpiradoQuerRecarga.getPath('Não quer recarga'), perguntaQuerAlgoMais],
+                    [verificaExpiradoQuerRecarga.getPath('Não quer recarga'), perguntaQuerAlgoMais.getPath('Não quer mais nada')],
                     //
 
             [verificaBeneficiosValidos.getPath('Benefícios válidos'), verificaPreTOPConsumiuTodoPacote],
@@ -104,13 +106,13 @@ contratacaoPacoteDados.linkChain(
                         [respostaPossuiSaldoRecargaSim, verificaRenovar],
                             [verificaRenovar.getPath('Quer renovar'), encaminhaFluxoRenovacao],
                             //
-                            [verificaRenovar.getPath('Não quer renovar'), perguntaQuerAlgoMais],
+                            [verificaRenovar.getPath('Não quer renovar'), perguntaQuerAlgoMais.getPath('Não quer mais nada')],
                             //
 
                     [verificaPossuiSaldoRecarga.getPath('Não possui saldo em conta'), respostaPossuiSaldoRecargaNao],
                         [respostaPossuiSaldoRecargaNao, verificaQuerRecargaRenovar],
                             [verificaQuerRecargaRenovar.getPath('Quer fazer recarga'), encaminhaFluxoRecarga],
-                            [verificaQuerRecargaRenovar.getPath('Não quer fazer recarga'), perguntaQuerAlgoMais],
+                            [verificaQuerRecargaRenovar.getPath('Não quer fazer recarga'), perguntaQuerAlgoMais.getPath('Não quer mais nada')],
 
                 [verificaPreTOPConsumiuTodoPacote.getPath('Não consumiu 100%'), respostaPreTOPConsumiuTodoPacote],
                 [respostaPreTOPConsumiuTodoPacote, perguntaDificuldadeUsarInternet],
@@ -124,7 +126,7 @@ contratacaoPacoteDados.linkChain(
         [verificaPreTop.getPath('Não é Pré TOP'), informaVerificarInternet],
         [informaVerificarInternet, verificaJaContratouPacote],
             [verificaJaContratouPacote.getPath('Já contratou pacote na ligação'), respostaJaContratouPacoteSim],
-                [respostaJaContratouPacoteSim, perguntaQuerAlgoMais],
+                [respostaJaContratouPacoteSim, perguntaQuerAlgoMais.getPath('Não quer mais nada')],
                 //
             [verificaJaContratouPacote.getPath('Não contratou pacote na ligação'), verificaConsultaQuota],
                 [verificaConsultaQuota.getPath('Sucesso no serv. Quota (acolhim.)'), verificaNavegaçãoBloqueada],
@@ -154,16 +156,18 @@ contratacaoPacoteDados.linkChain(
                                     [acoesEscolherPacoteDisp.getPath('Não escolher nenhum pacote'), verificaQuerOuvirNovamente],
                                         [verificarPacoteSaldoMaior.getPath('Existe pacote maior'), verificaQuerRecargaPacoteMaior],
                                             [verificaQuerRecargaPacoteMaior.getPath('Quer recarga (pacote maior)'), encaminhaFluxoRecarga],
-                                            [verificaQuerRecargaPacoteMaior.getPath('Não quer recarga (pacote maior)'), perguntaQuerAlgoMais],
+                                            [verificaQuerRecargaPacoteMaior.getPath('Não quer recarga (pacote maior)'), perguntaQuerAlgoMais.getPath('Não quer mais nada')],
                                             //
-                                        [verificarPacoteSaldoMaior.getPath('Nenhum outro pacote'), perguntaQuerAlgoMais],
+                                        [verificarPacoteSaldoMaior.getPath('Nenhum outro pacote'), perguntaQuerAlgoMais.getPath('Não quer mais nada')],
                                         //
-                                    [acoesEscolherPacoteDisp.getPath('Escolhe pacote das opções'), confirmaContratacao],
+                                    [acoesEscolherPacoteDisp.getPath('Escolhe primeiro pacote'), confirmaContratacao],
+                                    [acoesEscolherPacoteDisp.getPath('Escolhe segundo pacote'), confirmaContratacao],
+                                    [acoesEscolherPacoteDisp.getPath('Escolhe terceiro pacote'), confirmaContratacao],
                                         [confirmaContratacao.getPath('Não confirma contratação'), respostaConfirmaContratacaoNao],
                                         [respostaConfirmaContratacaoNao, verificaQuerOuvirNovamente],
                                             [verificaQuerOuvirNovamente.getPath('Quer ouvir novamente e contrata'), verificaLigandoProprioAparelho],
-                                            [verificaQuerOuvirNovamente.getPath('Quer ouvir novamente e não contrata'), perguntaQuerAlgoMais],
-                                            [verificaQuerOuvirNovamente.getPath('Não quer ouvir novamente'), perguntaQuerAlgoMais],
+                                            [verificaQuerOuvirNovamente.getPath('Quer ouvir novamente e não contrata'), perguntaQuerAlgoMais.getPath('Não quer mais nada')],
+                                            [verificaQuerOuvirNovamente.getPath('Não quer ouvir novamente'), perguntaQuerAlgoMais.getPath('Não quer mais nada')],
 
                                         [confirmaContratacao.getPath('Confirma contratação'), verificaLigandoProprioAparelho],
                                             [verificaLigandoProprioAparelho.getPath('Ligando do próprio aparelho'), verificaContratacaoDoPacote],
@@ -171,13 +175,13 @@ contratacaoPacoteDados.linkChain(
                                             [verificaLigandoProprioAparelho.getPath('Ligando de outro aparelho'), verificaFluxoSenha],
                                                 [verificaFluxoSenha.getPath('Sucesso no fluxo de senha'), verificaContratacaoDoPacote],
                                                     [verificaContratacaoDoPacote.getPath('Sucesso na contratação'), respostaContratacaoDoPacoteSim],
-                                                    [respostaContratacaoDoPacoteSim, perguntaQuerAlgoMais],
+                                                    [respostaContratacaoDoPacoteSim, perguntaQuerAlgoMais.getPath('Não quer mais nada')],
                                                     //
                                                     [verificaContratacaoDoPacote.getPath('Falha na contratação'), respostaContratacaoDoPacoteFalha],
-                                                    [respostaContratacaoDoPacoteFalha, perguntaQuerAlgoMais],
+                                                    [respostaContratacaoDoPacoteFalha, perguntaQuerAlgoMais.getPath('Não quer mais nada')],
 
                                                 [verificaFluxoSenha.getPath('Falha no fluxo de senha'), respostaFalhaFluxoSenha],
-                                                [respostaFalhaFluxoSenha, perguntaQuerAlgoMais],
+                                                [respostaFalhaFluxoSenha, perguntaQuerAlgoMais.getPath('Não quer mais nada')],
 
 
                         [verificaSaldoParaPacoteMinimo.getPath('Não possui saldo (pacote mínimo)'), encaminhaFluxoRecarga],
@@ -185,7 +189,7 @@ contratacaoPacoteDados.linkChain(
 
 
                 [verificaConsultaQuota.getPath('Falha no serv. Quota (acolhim.)'), respostaConsultaQuota],
-                    [respostaConsultaQuota, perguntaQuerAlgoMais],
+                    [respostaConsultaQuota, perguntaQuerAlgoMais.getPath('Não quer mais nada')],
 
         
 )

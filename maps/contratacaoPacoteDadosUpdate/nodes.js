@@ -34,6 +34,11 @@ const nodes = {
         pathCases: ['Quer algo mais', 'Não quer mais nada']
     }),
 
+    vocalizaQuerAlgoMais: contratacaoPacoteDados.newNode('node', {
+        name: 'Usuário quer algo mais',
+        expectedMessage: 'A URA Cognitiva pergunta se cliente precisa de ajuda com algo mais.'
+    }),
+
     desambiguador: contratacaoPacoteDados.newNode('node', {
         name: 'Usuário quer algo mais',
         expectedMessage: 'A URA Cognitiva transfere para o desambiguador.'
@@ -223,7 +228,7 @@ const nodes = {
 
     acoesEscolherPacoteDisp: contratacaoPacoteDados.newNode('switch', {
         name: 'Ações de escolher pacote',
-        pathCases: ['Escolhe pacote das opções', 'Não escolher nenhum pacote']
+        pathCases: ['Escolhe primeiro pacote', 'Escolhe segundo pacote', 'Escolhe terceiro pacote', 'Não escolher nenhum pacote']
     }),
 
     verificarPacoteSaldoMaior: contratacaoPacoteDados.newNode('switch', {
@@ -313,7 +318,7 @@ const nodes = {
 
     respostaDificuldadeUsarInternetSim: contratacaoPacoteDados.newNode('node', {
         name: 'URA transfere para o fluxo de Suporte Técnico.',
-        expectedMessage: 'URA transfere a ligação para o fluxo de Suporte Técnico;'
+        // expectedMessage: 'URA transfere a ligação para o fluxo de Suporte Técnico;'
     }),
 
     repeteInputDificuldadeUsarInternet: contratacaoPacoteDados.newNode('switch', {
@@ -333,7 +338,7 @@ const nodes = {
 
 };
 
-// console.log(Object.keys(nodes))
-// console.log(`Número de nodes: ${Object.keys(nodes).length}`)
+console.log(Object.keys(nodes))
+console.log(`Número de nodes: ${Object.keys(nodes).length}`)
 
 module.exports = nodes;
