@@ -8,6 +8,7 @@ const nodes = {
 
     impedido: religa.newNode('node', {
         name: 'Impedido de prosseguir por motivos externos',
+        stepMessage: 'FLUXO IMPEDIDO DE PROSSEGUIR POR MOTIVOS EXTERNOS (FALTA INFORMAÇÃO/CONTINUAÇÃO NÃO IMPLEMENTADA/SOB REVISÃO, POR EXEMPLO).',
         expectedMessage: 'FLUXO IMPEDIDO DE PROSSEGUIR POR MOTIVOS EXTERNOS (FALTA INFORMAÇÃO/CONTINUAÇÃO NÃO IMPLEMENTADA/SOB REVISÃO, POR EXEMPLO).'
     }).turnTargetNode(),
 
@@ -20,6 +21,13 @@ const nodes = {
         name: "URA Informa que vai tranferir para o ATH",
         stepMessage: "Encaminha para o ATH.",
         expectedMessage: 'URA informa que vai tranferir para o ATH.'
+
+    }).turnTargetNode(),
+
+    encaminhaFluxoContratarPacotes: religa.newNode('node', {
+        name: "URA encaminha para o fluxo de contratação de pacotes",
+        stepMessage: "Encaminha para o Fluxo de Contratação de Pacotes.",
+        expectedMessage: 'URA entra no fluxo de contratação de pacotes.'
 
     }).turnTargetNode(),
 
@@ -46,7 +54,7 @@ const nodes = {
 
     perguntaQuerAlgoMais: religa.newNode('switch', {
         name: 'Pergunta se o usuario quer algo mais',
-        pathCases: ['Quer algo mais', 'Não quer mais nada']
+        pathCases: [/* 'Quer algo mais',  */'Não quer mais nada']
     }),
 
     desambiguador: religa.newNode('node', {
@@ -293,6 +301,101 @@ const nodes = {
     falhaServicoReliga: religa.newNode('node', {
         name: 'Mensagem de falha no serviço religa',
         expectedMessage: 'A URA Cognitiva informa que não foi possivel concluir a solicitação por instabilidade nos sistemas;'
+    }),
+
+    expectPerguntaDificuldade: religa.newNode('node', {
+        name: 'Mensagem perguntando se ter dificuldade na internet',
+        expectedMessage: 'A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;'
+    }),
+
+    possuiDificuldade: religa.newNode('switch', {
+        name: 'Possui dificuldade de usar os serviços?',
+        pathCases: ['Sem dificuldades', 'Está enfrentando dificuldade']
+    }),
+
+    expectPerguntaQualDificuldade: religa.newNode('node', {
+        name: 'Mensagem perguntando em qual serviço está com dificuldade',
+        expectedMessage: 'A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;'
+    }),
+
+    qualDificuldade: religa.newNode('switch', {
+        name: 'Dificuldade em qual serviço?',
+        pathCases: ['Prob. na Internet', 'Prob. nas ligações']
+    }),
+
+    servicoConsultaDados: religa.newNode('switch', {
+        name: 'Serviço Consulta Dados?',
+        pathCases: ['* Sucesso na Consulta de Dados', '* Falha na Consulta de Dados']
+    }),
+
+    internetReduzida: religa.newNode('switch', {
+        name: 'Possui internet reduzida?',
+        pathCases: ['* Navegação Reduzida', '* Navegação Normal']
+    }),
+
+    billingProfile: religa.newNode('switch', {
+        name: 'Serviço Billing Profile',
+        pathCases: ['* Sucesso no billing', '* Falha no billing']
+    }),
+
+    expectVelocidadeReduzida: religa.newNode('node', {
+        name: 'Mensagem informando velocidade reduzida',
+        expectedMessage: 'A URA Cognitiva informa que a velocidade está reduzida e a data de renovação;'
+    }),
+
+    querSaberDosPacotes: religa.newNode('switch', {
+        name: 'URA pergunta se usuário quer saber mais sobre os pacotes de dados adicionais',
+        pathCases: ['Quer pacote adicional', 'Não quer pacote adicional']
+    }),
+
+    expectNavegacaoNormal: religa.newNode('node', {
+        name: 'Mensagem informando internet normal',
+        expectedMessage: 'A URA Cognitiva informa que o usuário ainda possui internet para navegar normalmente;'
+    }),
+
+    continuarOuATH: religa.newNode('switch', {
+        name: 'URA pergunta se usuário quer continuar o atendimento na URA ou no ATH',
+        pathCases: ['Quer falar com ATH', 'Quer continuar na URA']
+    }),
+    
+    jaReiniciou: religa.newNode('switch', {
+        name: 'URA pergunta se usuário já tentou reiniciou o aparelho',
+        pathCases: ['Já reiniciou', 'Não reiniciou']
+    }),
+
+    enviaGuiaApararelho: religa.newNode('switch', {
+        name: 'Serviço Envio Guia Aparelho',
+        pathCases: ['* Sucesso no Envio do Guia', '* Falha no Envio do Guia']
+    }),
+
+    expectSucessoEnvioGuia: religa.newNode('node', {
+        name: 'Mensagem informando que enviou o Guia de Aparelho',
+        expectedMessage: 'A URA Cognitiva informa que enviou o guia do aparelho por SMS para ajudar a configurar;'
+    }),
+
+    expectFalhaEnvioGuia: religa.newNode('node', {
+        name: 'Mensagem informando que o guia do aparelho está disponivel no site',
+        expectedMessage: 'A URA Cognitiva informa que o guia do aparelho está disponível no site para ajudar a configurar;'
+    }),
+
+    insisteReinicio: religa.newNode('switch', {
+        name: 'Serviço Envio Guia Aparelho',
+        pathCases: ['Aceita Reiniciar', 'Não quer reiniciar']
+    }),
+
+    expectContinuarOuATH: religa.newNode('node', {
+        name: 'URA pergunta se quer continuar ou ir ATH',
+        expectedMessage: 'A URA Cognitiva pergunta se o usuário quer continuar o atendimento ou falar com o ATH;'
+    }),
+
+    expectQuerSaberDosPacotes: religa.newNode('node', {
+        name: 'URA pergunta se quer saber dos pacotes adicionais',
+        expectedMessage: 'A URA Cognitiva pergunta se o usuário quer saber mais sobre os pacotes adicionais;'
+    }),
+
+    expectInsisteReinicio: religa.newNode('node', {
+        name: 'URA insiste e pergunta se usuario nao gostaria de tentar reiniciar',
+        expectedMessage: 'A URA Cognitiva pergunta se usuário não gostaria de tentar reiniciar o aparelho;'
     }),
 
 };

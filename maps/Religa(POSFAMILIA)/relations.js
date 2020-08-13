@@ -4,6 +4,7 @@ const {
     impedido,
     saudacaoURA,
     transfereParaATH,
+    encaminhaFluxoContratarPacotes,
     encerraLigacao,
     viaDeAcesso,
     verificaProprioAparelho,
@@ -56,7 +57,27 @@ const {
     expectNaoTitular24h,
     querFaturaBloqNaoTitular,
     falhaLinkNegocia6,
-    falhaServicoReliga
+    expectNaoQuerFatura,
+    falhaServicoReliga,
+    expectPerguntaDificuldade,
+    possuiDificuldade,
+    expectPerguntaQualDificuldade,
+    qualDificuldade,
+    servicoConsultaDados,
+    internetReduzida,
+    billingProfile,
+    expectVelocidadeReduzida,
+    querSaberDosPacotes,
+    expectNavegacaoNormal,
+    continuarOuATH,
+    jaReiniciou,
+    enviaGuiaApararelho,
+    expectSucessoEnvioGuia,
+    expectFalhaEnvioGuia,
+    insisteReinicio,
+    expectContinuarOuATH,
+    expectQuerSaberDosPacotes,
+    expectInsisteReinicio
 } = require('./nodes');
 
 religa.linkChain(
@@ -85,8 +106,25 @@ religa.linkChain(
         // [expectNaoQuerFatura, perguntaQuerAlgoMais],
     // Serviço Religa
     [servicoReliga.getPath('* Falha no Religa'), falhaServicoReliga],
-    [falhaServicoReliga, perguntaQuerAlgoMais],
-
+        [falhaServicoReliga, perguntaQuerAlgoMais],
+    // Serviço Consulta Dados
+    [servicoConsultaDados.getPath('* Falha na Consulta de Dados'), jaReiniciou],
+    [jaReiniciou.getPath('Já reiniciou'), enviaGuiaApararelho],
+    [jaReiniciou.getPath('Não reiniciou'), expectInsisteReinicio],
+    [expectInsisteReinicio, insisteReinicio],
+        [insisteReinicio.getPath('Aceita Reiniciar'), agradeceDesliga],
+        [insisteReinicio.getPath('Não quer reiniciar'), enviaGuiaApararelho],
+    // Serviço Billing
+    [billingProfile.getPath('* Falha no billing'), expectQuerSaberDosPacotes],
+    [expectQuerSaberDosPacotes, querSaberDosPacotes],
+        [querSaberDosPacotes.getPath('Quer pacote adicional'), encaminhaFluxoContratarPacotes],
+        [querSaberDosPacotes.getPath('Não quer pacote adicional'), perguntaQuerAlgoMais],
+    // Serviço Guia de Aparelhos
+    [enviaGuiaApararelho.getPath('* Sucesso no Envio do Guia'), expectSucessoEnvioGuia],
+    [expectSucessoEnvioGuia, perguntaQuerAlgoMais],
+    [enviaGuiaApararelho.getPath('* Falha no Envio do Guia'), expectFalhaEnvioGuia],
+        [expectFalhaEnvioGuia, perguntaQuerAlgoMais],
+    
 
     [startReliga, viaDeAcesso],
     [viaDeAcesso, btt],
@@ -160,7 +198,22 @@ religa.linkChain(
                                 [querFaturaBloqNaoTitular.getPath('Não quer fatura do bloqueio'), perguntaQuerAlgoMais],
                                 [querFaturaBloqNaoTitular.getPath('Quer fatura do bloqueio'), servicoCodigoBarras7],
 
-        [bto.getPath('* Cliente não é BTO').noStepMessage(), impedido],
+        [bto.getPath('* Cliente não é BTO').noStepMessage(), expectPerguntaDificuldade],
+            [expectPerguntaDificuldade, possuiDificuldade],
+            [possuiDificuldade.getPath('Sem dificuldades'), perguntaQuerAlgoMais],
+            [possuiDificuldade.getPath('Está enfrentando dificuldade'), expectPerguntaQualDificuldade],
+                [expectPerguntaQualDificuldade, qualDificuldade],
+                    [qualDificuldade.getPath('Prob. na Internet'), servicoConsultaDados],
+                        [servicoConsultaDados.getPath('* Sucesso na Consulta de Dados'), internetReduzida],
+                            [internetReduzida.getPath('* Navegação Reduzida'), billingProfile],
+                                [billingProfile.getPath('* Sucesso no billing'), expectVelocidadeReduzida],
+                                    [expectVelocidadeReduzida, querSaberDosPacotes],
+                            [internetReduzida.getPath('* Navegação Normal'), expectNavegacaoNormal],
+                                [expectNavegacaoNormal, expectContinuarOuATH],
+                                [expectContinuarOuATH, continuarOuATH],
+                                    [continuarOuATH.getPath('Quer falar com ATH'), transfereParaATH],
+                                    [continuarOuATH.getPath('Quer continuar na URA'), jaReiniciou],
+                    [qualDificuldade.getPath('Prob. nas ligações'), continuarOuATH],
 
 )
 
