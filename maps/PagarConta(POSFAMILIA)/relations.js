@@ -117,7 +117,7 @@ religa.linkChain(
     // Serviço Billing
     [billingProfile.getPath('* Falha no billing'), expectQuerSaberDosPacotes],
     [expectQuerSaberDosPacotes, querSaberDosPacotes],
-        [querSaberDosPacotes.getPath('Quer pacote adicional'), transfereParaATH],
+        [querSaberDosPacotes.getPath('Quer pacote adicional'), encaminhaFluxoContratarPacotes],
         [querSaberDosPacotes.getPath('Não quer pacote adicional'), perguntaQuerAlgoMais],
     // Serviço Guia de Aparelhos
     [enviaGuiaApararelho.getPath('* Sucesso no Envio do Guia'), expectSucessoEnvioGuia],
