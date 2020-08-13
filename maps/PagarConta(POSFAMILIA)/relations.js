@@ -1,6 +1,6 @@
-const religa = require('./map');
+const pagarConta = require('./map');
 const {
-    startReliga,
+    startPagarConta,
     impedido,
     saudacaoURA,
     transfereParaATH,
@@ -17,8 +17,8 @@ const {
     mais1Fatura,
     mais1FaturaNao,
     mais1FaturaSim,
-    bttClienteTitular,
-    bttClienteTitularMais1,
+    mainClienteTitular,
+    mainClienteTitularMais1,
     servicoCodigoBarras7,
     servicoCodigoBarras1,
     servicoCodigoBarras1Mais1,
@@ -77,10 +77,24 @@ const {
     insisteReinicio,
     expectContinuarOuATH,
     expectQuerSaberDosPacotes,
-    expectInsisteReinicio
+    expectInsisteReinicio,
+    veioDeNaoRecebimentoFatura,
+    expectNaoRecebimentoFatura,
+    contaDigital,
+    expectContaDigital,
+    expectNaoContaDigital,
+    faturaEmAberto,
+    intencaoCodigoBarras,
+    aceitaCodBarras,
+    expectNaoAceitaCodBarra,
+    clienteInsiste,
+    insisteFaturasAberto,
+    insisteFaturasAbertoNao,
+    insisteFaturasAbertoSim,
+    expectNaoPossuiFaturaAberto
 } = require('./nodes');
 
-religa.linkChain(
+pagarConta.linkChain(
     // comum
     [perguntaQuerAlgoMais.getPath('Não quer mais nada'), agradeceDesliga],
 
@@ -126,98 +140,48 @@ religa.linkChain(
         [expectFalhaEnvioGuia, perguntaQuerAlgoMais],
     
 
-    [startReliga, viaDeAcesso],
-    [viaDeAcesso, btt],
-        // BTT
-        [btt.getPath('* Cliente BTT'), dizBloqFinanceiro],
-            [dizBloqFinanceiro, mais1Fatura],
-                [mais1Fatura.getPath('* 1 Fatura em Aberto'), mais1FaturaNao],
-                    [mais1FaturaNao, bttClienteTitular],
-                        [bttClienteTitular.getPath('* Não é titular'), servicoCodigoBarras7],
-                            [servicoCodigoBarras7.getPath('* Sucesso no envio SMS'), enviaFaturasSMS],
-                            [enviaFaturasSMS, perguntaQuerAlgoMais],
-                            //
-                        [bttClienteTitular.getPath('* É titular'), servicoCodigoBarras1],
-                            [servicoCodigoBarras1.getPath('* Sucesso no envio SMS'), enviaFaturasSMS],
-                                [enviaFaturasSMS, perguntaQuerAlgoMais],
-                [mais1Fatura.getPath('* Mais de 1 Fatura em Aberto'), mais1FaturaSim],
-                    [mais1FaturaSim, bttClienteTitularMais1],
-                        [bttClienteTitularMais1.getPath('* Não é titular'), servicoCodigoBarras7],
-                        [bttClienteTitularMais1.getPath('* É titular'), servicoCodigoBarras1Mais1],
-                                [servicoCodigoBarras1Mais1.getPath('* Sucesso no envio SMS'), enviaFaturasSMSMais1],
-                                [enviaFaturasSMSMais1, servicoLinkNegocia2],
-                                    [servicoLinkNegocia2.getPath('Link Negocia enviado'), enviaLinkNegocia],
-                                    [enviaLinkNegocia, perguntaQuerAlgoMais],
-
-        [btt.getPath('* Cliente não é BTT').noStepMessage(), bto],
-
-        // BTO
-        [bto.getPath('* Cliente é BTO'), elegivelReliga],
-            [elegivelReliga.getPath('* Elegível ao Religa'), btoClienteTitular],
-                [btoClienteTitular.getPath('* É titular'), veioFluxoInformaContaPaga],
-                    [veioFluxoInformaContaPaga.getPath('* Não veio de "Informa Conta Paga"').noStepMessage(), naoInformouContaPaga],
-                    [naoInformouContaPaga, ofereceReliga],
-                    [ofereceReliga, respostaOfereceReliga],
-                        [respostaOfereceReliga.getPath('Não aceita Religa'), perguntaQuerAlgoMais],
-
-                        [respostaOfereceReliga.getPath('Aceita Religa'), verificaProprioAparelho],
-                            [verificaProprioAparelho.getPath('* Ligando do próprio aparelho'), servicoReliga],
-                            [servicoReliga.getPath('* Sucesso no Religa'), impedido],
-
-                            [verificaProprioAparelho.getPath('* Ligando de outro aparelho'), impedido],
-
-                [btoClienteTitular.getPath('* Não é titular'), respNaoETitular],
-                [respNaoETitular, servicoCodigoBarras7],
-            [elegivelReliga.getPath('* Não elegível ao Religa'), motivoBloq],
-                [motivoBloq.getPath('* Motivo: Quebra de confiança'), motivoBloqQuebra],
-                    [motivoBloqQuebra, quebraTitular],
-                        [quebraTitular.getPath('* É titular'), servicoLinkNegocia6],
-                            [servicoLinkNegocia6.getPath('* Sucesso SMS (Link Negocia)'), SucessoLinkNegocia6],
-                            [SucessoLinkNegocia6, querFaturaBloq],
-                                [querFaturaBloq.getPath('* Quer fatura do bloqueio'), servicoCodigoBarras5],
-                                    [servicoCodigoBarras5.getPath('* Sucesso Serviço Cód.Barras/SMS'), expectSucessoCodBarras5],
-                                    [expectSucessoCodBarras5, maisDe1FaturaAberto],
-                                        [maisDe1FaturaAberto.getPath('* Não possui mais de 1 fatura em aberto'), perguntaQuerAlgoMais],
-                                        [maisDe1FaturaAberto.getPath('* Possui mais de 1 fatura em aberto'), expectOfereceFatAberto],
-                                        [expectOfereceFatAberto, querReceberFatEmAberto],
-                                            [querReceberFatEmAberto.getPath('Não quer receber demais faturas'), perguntaQuerAlgoMais],
-                                            
-                                            [querReceberFatEmAberto.getPath('Quer receber todas as faturas'), enviaDemaisFaturas],
-                                                [enviaDemaisFaturas.getPath('* Falha ao enviar demais faturas'), expectFalhaCodBarra5],
-                                                [enviaDemaisFaturas.getPath('* Sucesso ao enviar demais faturas'), expectEnviaDemaisFaturas],
-                                                [expectEnviaDemaisFaturas, perguntaQuerAlgoMais],
-                                            //
-                        [quebraTitular.getPath('* Não é titular'), servicoCodigoBarras7],
+    [startPagarConta, billingProfile],
+        [billingProfile.getPath('* Sucesso no billing'), veioDeNaoRecebimentoFatura],
+            [veioDeNaoRecebimentoFatura.getPath('Veio de #desambiguadorNaoRecebimentoDeFatura'), expectNaoRecebimentoFatura],
+                [expectNaoRecebimentoFatura, contaDigital],
+                    [contaDigital.getPath('* É conta digital'), expectContaDigital],
+                        [expectContaDigital, mainClienteTitular],
+                    [contaDigital.getPath('* Não é conta digital'), expectNaoContaDigital],
+                        [expectNaoContaDigital, mainClienteTitular],
                         //
-                [motivoBloq.getPath('* Motivo: Já solicitou nas últimas 24h'), motivoBloq24h],
-                    [motivoBloq24h, ultimas24hTitular],
-                        [ultimas24hTitular.getPath('* É titular'), expectTitular24h],
-                            [expectTitular24h, querFaturaBloq],
-                        [ultimas24hTitular.getPath('* Não é titular'), expectNaoTitular24h],
-                            [expectNaoTitular24h, querFaturaBloqNaoTitular],
-                                [querFaturaBloqNaoTitular.getPath('Não quer fatura do bloqueio'), perguntaQuerAlgoMais],
-                                [querFaturaBloqNaoTitular.getPath('Quer fatura do bloqueio'), servicoCodigoBarras7],
+            [veioDeNaoRecebimentoFatura.getPath('Não veio de #desambiguadorNaoRecebimentoDeFatura').noStepMessage(), mainClienteTitular],
+            [mainClienteTitular.getPath('* Não é titular'), faturaEmAberto],
+                [faturaEmAberto.getPath('* Possui fatura em aberto'), intencaoCodigoBarras],
+                [intencaoCodigoBarras.getPath('VEIO DE DESAMBIGUADOR CODIGOBARRAS'), servicoCodigoBarras5],
+                    [servicoCodigoBarras5.getPath('* Sucesso Serviço Cód.Barras/SMS'), maisDe1FaturaAberto],
+                        [maisDe1FaturaAberto.getPath('* Não possui mais de 1 fatura em aberto'), mais1FaturaNao],
+                            [mais1FaturaNao, perguntaQuerAlgoMais],
+                        [maisDe1FaturaAberto.getPath('* Possui mais de 1 fatura em aberto'), mais1FaturaSim],
+                            [mais1FaturaSim, perguntaQuerAlgoMais],
+                [intencaoCodigoBarras.getPath('Não veio de desambiguadorCodigoBarras'), expectOfereceFatAberto],
+                [expectOfereceFatAberto, aceitaCodBarras],
+                    [aceitaCodBarras.getPath('Aceita receber Código de Barras'), servicoCodigoBarras5],
+                    [aceitaCodBarras.getPath('Não aceita receber Código de Barras'), expectNaoAceitaCodBarra],
+                        [expectNaoAceitaCodBarra, clienteInsiste],
+                            [clienteInsiste.getPath('Quer algo mais: #desambiguadorCodigoBarras ou SegundaVia ou Pagar Conta ou NaoRecebimentoFatura'), insisteFaturasAberto],
+                                [insisteFaturasAberto.getPath('* (insistencia) Não possui faturas em aberto'), insisteFaturasAbertoNao],
+                                    [insisteFaturasAbertoNao, perguntaQuerAlgoMais],
+                                [insisteFaturasAberto.getPath('* (insistencia) Possui faturas em aberto'), insisteFaturasAbertoSim],
+                                    [insisteFaturasAbertoSim, perguntaQuerAlgoMais],
+                            [clienteInsiste.getPath('Não quer mais nada').noStepMessage(), perguntaQuerAlgoMais],
+            //     // CONTINUAR DAQUI
+                [faturaEmAberto.getPath('* Não possui fatura em aberto'), expectNaoPossuiFaturaAberto],
+                    [expectNaoPossuiFaturaAberto, perguntaQuerAlgoMais],
+            // [mainClienteTitular.getPath('* É titular'), mainClienteTitular],
 
-        [bto.getPath('* Cliente não é BTO').noStepMessage(), expectPerguntaDificuldade],
-            [expectPerguntaDificuldade, possuiDificuldade],
-            [possuiDificuldade.getPath('Sem dificuldades'), perguntaQuerAlgoMais],
-            [possuiDificuldade.getPath('Está enfrentando dificuldade'), expectPerguntaQualDificuldade],
-                [expectPerguntaQualDificuldade, qualDificuldade],
-                    [qualDificuldade.getPath('Problema na Internet'), servicoConsultaDados],
-                        [servicoConsultaDados.getPath('* Sucesso na Consulta de Dados'), internetReduzida],
-                            [internetReduzida.getPath('* Navegação Reduzida'), billingProfile],
-                                [billingProfile.getPath('* Sucesso no billing'), expectVelocidadeReduzida],
-                                    [expectVelocidadeReduzida, querSaberDosPacotes],
-                            [internetReduzida.getPath('* Navegação Normal'), expectNavegacaoNormal],
-                                [expectNavegacaoNormal, expectContinuarOuATH],
-                                [expectContinuarOuATH, continuarOuATH],
-                                    [continuarOuATH.getPath('Quer falar com ATH'), transfereParaATH],
-                                    [continuarOuATH.getPath('Quer continuar na URA'), jaReiniciou],
-                    [qualDificuldade.getPath('Problema nas ligações'), continuarOuATH],
+
+
+        [billingProfile.getPath('* Falha no billing'), viaDeAcesso],
+    
 
 )
 
 
-religa.mapScenarios();
-// religa.showScenarios();
-religa.exportScenariosToExcel();
+pagarConta.mapScenarios();
+pagarConta.showScenarios();
+pagarConta.exportScenariosToExcel();
