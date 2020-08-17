@@ -229,7 +229,7 @@ pagarConta.linkChain(
                 [faturaEmAberto.getPath('* Não possui fatura em aberto'), expectNaoPossuiFaturaAberto],
                     [expectNaoPossuiFaturaAberto, perguntaQuerAlgoMais],
             //        
-            // [mainClienteTitular.getPath('* É titular'), pediuAlgumMes],
+            [mainClienteTitular.getPath('* É titular'), pediuAlgumMes],
                 [pediuAlgumMes.getPath('Fatura de um mês espefícico'), mesPossuiFaturaAberto],
                     [mesPossuiFaturaAberto.getPath('Mês não está nas faturas em aberto'), faturaUltimos12meses],
                         [faturaUltimos12meses.getPath('Não é dos últimos 12 meses'), expectNaoUltimos12meses],
@@ -299,7 +299,7 @@ pagarConta.linkChain(
                                             [ofereceSegundaChance.getPath('Escolha inválida (Segunda tentativa)'), verificaProprioAparelhoSMS],
                     [mesPossuiFaturaAberto.getPath('Mês está nas faturas em aberto'), emailValido],
 
-                [pediuAlgumMes.getPath('Não pediu mês específico'), semMesFaturaAberto],
+                // [pediuAlgumMes.getPath('Não pediu mês específico'), semMesFaturaAberto],
                     [semMesFaturaAberto.getPath('* Não possui fatura em aberto'), expectSemMesNaoPossuiFatura],
                         [expectSemMesNaoPossuiFatura, precisaSegundaVia],
                             [precisaSegundaVia.getPath('Não precisa de segunda via'), perguntaQuerAlgoMais],
