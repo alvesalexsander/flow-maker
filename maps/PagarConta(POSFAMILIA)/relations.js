@@ -198,14 +198,7 @@ pagarConta.linkChain(
 
     [startPagarConta, billingProfile],
         [billingProfile.getPath('* Sucesso no billing'), veioDeNaoRecebimentoFatura],
-            [veioDeNaoRecebimentoFatura.getPath('Veio de #desambiguadorNaoRecebimentoDeFatura'), expectNaoRecebimentoFatura],
-                [expectNaoRecebimentoFatura, contaDigital],
-                    [contaDigital.getPath('* É conta digital'), expectContaDigital],
-                        [expectContaDigital, mainClienteTitular],
-                    [contaDigital.getPath('* Não é conta digital'), expectNaoContaDigital],
-                        [expectNaoContaDigital, mainClienteTitular],
-                        //
-            [veioDeNaoRecebimentoFatura.getPath('Não veio de #desambiguadorNaoRecebimentoDeFatura').noStepMessage(), mainClienteTitular],
+            [veioDeNaoRecebimentoFatura, mainClienteTitular],
             [mainClienteTitular.getPath('* Não é titular'), faturaEmAberto],
                 [faturaEmAberto.getPath('* Possui fatura em aberto'), intencaoCodigoBarras],
                 [intencaoCodigoBarras.getPath('VEIO DE DESAMBIGUADOR CODIGOBARRAS'), servicoCodigoBarras5],

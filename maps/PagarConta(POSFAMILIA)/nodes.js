@@ -403,9 +403,9 @@ const nodes = {
         expectedMessage: 'A URA Cognitiva pergunta se usuário não gostaria de tentar reiniciar o aparelho;'
     }),
 
-    veioDeNaoRecebimentoFatura: pagarConta.newNode('switch', {
+    veioDeNaoRecebimentoFatura: pagarConta.newNode('node', {
         name: 'veio de desambiguador naoRecebimentoFatura',
-        pathCases: ['Veio de #desambiguadorNaoRecebimentoDeFatura', 'Não veio de #desambiguadorNaoRecebimentoDeFatura']
+        expectedMessage: 'Caso tenha vindo de #desambiguadorNaoRecebimentoDeFatura a URA Cognitiva verifica se o cliente é conta digital ou não. Caso seja conta digital, informa que o cliente recebe as faturas por e-mail. Caso não seja, solicita que o cliente confira se o endereço está correto no APP;'
     }),
 
     expectNaoRecebimentoFatura: pagarConta.newNode('node', {
