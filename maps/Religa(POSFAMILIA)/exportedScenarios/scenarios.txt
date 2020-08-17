@@ -1,0 +1,6393 @@
+{
+  "1": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente BTT",
+      "* 1 Fatura em Aberto",
+      "* Não é titular",
+      "* Sucesso no envio SMS",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que o usuário possui bloqueio financeiro por falta de pagamento;",
+      "A URA Cognitiva explica porque o usuário não consegue realizar ou receber chamadas, navegar na internet e que deve regularizar a situação para ter os benefícios de volta;",
+      "A URA Cognitiva informa que as faturas foram enviadas por SMS;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "ocnJOpJvStZ",
+        "name": "* Cliente BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "IMhJoyzBKcC",
+        "name": "Informa que o usuário possui bloqueio financeiro",
+        "type": "Node"
+      },
+      "5": {
+        "id": "gIje9oPNsR3",
+        "name": "* 1 Fatura em Aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "lmas1tsFCN1",
+        "name": "Nao tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "7": {
+        "id": "UfmjlOTVvY5",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "m8a4BkJQUEM",
+        "name": "* Sucesso no envio SMS",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "_ltDJRpq3Qo",
+        "name": "Informa que as faturas foram enviadas por SMS",
+        "type": "Node"
+      },
+      "10": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "2": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente BTT",
+      "* 1 Fatura em Aberto",
+      "* Não é titular",
+      "* Falha Serviço Cód.Barras",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que o usuário possui bloqueio financeiro por falta de pagamento;",
+      "A URA Cognitiva explica porque o usuário não consegue realizar ou receber chamadas, navegar na internet e que deve regularizar a situação para ter os benefícios de volta;",
+      "A URA Cognitiva informa que o usuário pode acessar, negociar e fazer o pagamento das faturas pelo site;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "ocnJOpJvStZ",
+        "name": "* Cliente BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "IMhJoyzBKcC",
+        "name": "Informa que o usuário possui bloqueio financeiro",
+        "type": "Node"
+      },
+      "5": {
+        "id": "gIje9oPNsR3",
+        "name": "* 1 Fatura em Aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "lmas1tsFCN1",
+        "name": "Nao tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "7": {
+        "id": "UfmjlOTVvY5",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "RmM9pn1uJNW",
+        "name": "* Falha Serviço Cód.Barras",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "BMxWj6K4ZyZ",
+        "name": "Informa que usuário pode acessar faturas no site",
+        "type": "Node"
+      },
+      "10": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "3": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente BTT",
+      "* 1 Fatura em Aberto",
+      "* É titular",
+      "* Sucesso no envio SMS",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que o usuário possui bloqueio financeiro por falta de pagamento;",
+      "A URA Cognitiva explica porque o usuário não consegue realizar ou receber chamadas, navegar na internet e que deve regularizar a situação para ter os benefícios de volta;",
+      "A URA Cognitiva informa que as faturas foram enviadas por SMS;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "ocnJOpJvStZ",
+        "name": "* Cliente BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "IMhJoyzBKcC",
+        "name": "Informa que o usuário possui bloqueio financeiro",
+        "type": "Node"
+      },
+      "5": {
+        "id": "gIje9oPNsR3",
+        "name": "* 1 Fatura em Aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "lmas1tsFCN1",
+        "name": "Nao tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "7": {
+        "id": "4kqm-43yZmD",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "hswB7MAaZJ9",
+        "name": "* Sucesso no envio SMS",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "_ltDJRpq3Qo",
+        "name": "Informa que as faturas foram enviadas por SMS",
+        "type": "Node"
+      },
+      "10": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "4": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente BTT",
+      "* 1 Fatura em Aberto",
+      "* É titular",
+      "* Falha Serviço Cód.Barras/Fatura",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que o usuário possui bloqueio financeiro por falta de pagamento;",
+      "A URA Cognitiva explica porque o usuário não consegue realizar ou receber chamadas, navegar na internet e que deve regularizar a situação para ter os benefícios de volta;",
+      "A URA Cognitiva informa que o usuário pode acessar, negociar e fazer o pagamento das faturas pelo site;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "ocnJOpJvStZ",
+        "name": "* Cliente BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "IMhJoyzBKcC",
+        "name": "Informa que o usuário possui bloqueio financeiro",
+        "type": "Node"
+      },
+      "5": {
+        "id": "gIje9oPNsR3",
+        "name": "* 1 Fatura em Aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "lmas1tsFCN1",
+        "name": "Nao tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "7": {
+        "id": "4kqm-43yZmD",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "GtUomeerW5s",
+        "name": "* Falha Serviço Cód.Barras/Fatura",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "BMxWj6K4ZyZ",
+        "name": "Informa que usuário pode acessar faturas no site",
+        "type": "Node"
+      },
+      "10": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "5": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente BTT",
+      "* Mais de 1 Fatura em Aberto",
+      "* Não é titular",
+      "* Sucesso no envio SMS",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que o usuário possui bloqueio financeiro por falta de pagamento;",
+      "A URA Cognitiva explica porque o usuário não consegue realizar ou receber chamadas, navegar na internet e que deve regularizar a situação para ter os benefícios de volta;",
+      "A URA Cognitiva informa que as faturas foram enviadas por SMS;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "ocnJOpJvStZ",
+        "name": "* Cliente BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "IMhJoyzBKcC",
+        "name": "Informa que o usuário possui bloqueio financeiro",
+        "type": "Node"
+      },
+      "5": {
+        "id": "v5sHIg1ZT76",
+        "name": "* Mais de 1 Fatura em Aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "-915A914dn5",
+        "name": "Tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "7": {
+        "id": "UxqmSAFoWe9",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "m8a4BkJQUEM",
+        "name": "* Sucesso no envio SMS",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "_ltDJRpq3Qo",
+        "name": "Informa que as faturas foram enviadas por SMS",
+        "type": "Node"
+      },
+      "10": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "6": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente BTT",
+      "* Mais de 1 Fatura em Aberto",
+      "* Não é titular",
+      "* Falha Serviço Cód.Barras",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que o usuário possui bloqueio financeiro por falta de pagamento;",
+      "A URA Cognitiva explica porque o usuário não consegue realizar ou receber chamadas, navegar na internet e que deve regularizar a situação para ter os benefícios de volta;",
+      "A URA Cognitiva informa que o usuário pode acessar, negociar e fazer o pagamento das faturas pelo site;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "ocnJOpJvStZ",
+        "name": "* Cliente BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "IMhJoyzBKcC",
+        "name": "Informa que o usuário possui bloqueio financeiro",
+        "type": "Node"
+      },
+      "5": {
+        "id": "v5sHIg1ZT76",
+        "name": "* Mais de 1 Fatura em Aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "-915A914dn5",
+        "name": "Tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "7": {
+        "id": "UxqmSAFoWe9",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "RmM9pn1uJNW",
+        "name": "* Falha Serviço Cód.Barras",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "BMxWj6K4ZyZ",
+        "name": "Informa que usuário pode acessar faturas no site",
+        "type": "Node"
+      },
+      "10": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "7": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente BTT",
+      "* Mais de 1 Fatura em Aberto",
+      "* É titular",
+      "* Sucesso no envio SMS",
+      "Link Negocia enviado",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que o usuário possui bloqueio financeiro por falta de pagamento;",
+      "A URA Cognitiva explica porque o usuário não consegue realizar ou receber chamadas, navegar na internet e que deve regularizar a situação para ter os benefícios de volta;",
+      "A URA Cognitiva informa que as faturas foram enviadas por SMS;",
+      "A URA Cognitiva informa que enviou o link do Negocia pelo SMS;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "ocnJOpJvStZ",
+        "name": "* Cliente BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "IMhJoyzBKcC",
+        "name": "Informa que o usuário possui bloqueio financeiro",
+        "type": "Node"
+      },
+      "5": {
+        "id": "v5sHIg1ZT76",
+        "name": "* Mais de 1 Fatura em Aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "-915A914dn5",
+        "name": "Tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "7": {
+        "id": "RXfzFSqZ2km",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "xvn5OcCV6x4",
+        "name": "* Sucesso no envio SMS",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "29uCuqXBQZq",
+        "name": "Informa que as faturas foram enviadas por SMS",
+        "type": "Node"
+      },
+      "10": {
+        "id": "ivEIBUP2QAg",
+        "name": "Link Negocia enviado",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "x72cDEXnALU",
+        "name": "Informa que enviou o link negocia",
+        "type": "Node"
+      },
+      "12": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "8": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente BTT",
+      "* Mais de 1 Fatura em Aberto",
+      "* É titular",
+      "* Sucesso no envio SMS",
+      "* Falha SMS (Link Negocia)",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que o usuário possui bloqueio financeiro por falta de pagamento;",
+      "A URA Cognitiva explica porque o usuário não consegue realizar ou receber chamadas, navegar na internet e que deve regularizar a situação para ter os benefícios de volta;",
+      "A URA Cognitiva informa que as faturas foram enviadas por SMS;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "ocnJOpJvStZ",
+        "name": "* Cliente BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "IMhJoyzBKcC",
+        "name": "Informa que o usuário possui bloqueio financeiro",
+        "type": "Node"
+      },
+      "5": {
+        "id": "v5sHIg1ZT76",
+        "name": "* Mais de 1 Fatura em Aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "-915A914dn5",
+        "name": "Tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "7": {
+        "id": "RXfzFSqZ2km",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "xvn5OcCV6x4",
+        "name": "* Sucesso no envio SMS",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "29uCuqXBQZq",
+        "name": "Informa que as faturas foram enviadas por SMS",
+        "type": "Node"
+      },
+      "10": {
+        "id": "2Edo6PPQh4u",
+        "name": "* Falha SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "9": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente BTT",
+      "* Mais de 1 Fatura em Aberto",
+      "* É titular",
+      "* Falha Serviço Cód.Barras/Fatura",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que o usuário possui bloqueio financeiro por falta de pagamento;",
+      "A URA Cognitiva explica porque o usuário não consegue realizar ou receber chamadas, navegar na internet e que deve regularizar a situação para ter os benefícios de volta;",
+      "A URA Cognitiva informa que o usuário pode acessar, negociar e fazer o pagamento das faturas pelo site;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "ocnJOpJvStZ",
+        "name": "* Cliente BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "IMhJoyzBKcC",
+        "name": "Informa que o usuário possui bloqueio financeiro",
+        "type": "Node"
+      },
+      "5": {
+        "id": "v5sHIg1ZT76",
+        "name": "* Mais de 1 Fatura em Aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "-915A914dn5",
+        "name": "Tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "7": {
+        "id": "RXfzFSqZ2km",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "VtH9YlVqzjr",
+        "name": "* Falha Serviço Cód.Barras/Fatura",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "BMxWj6K4ZyZ",
+        "name": "Informa que usuário pode acessar faturas no site",
+        "type": "Node"
+      },
+      "10": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "10": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Elegível ao Religa",
+      "* Não é titular",
+      "* Sucesso no envio SMS",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que a linha está bloqueada porque não identificou o pagamento. Informa como funciona o desbloqueio em confiança e também informa que para solicitar o desbloqueio, precisa ser o titular.;",
+      "A URA Cognitiva informa que as faturas foram enviadas por SMS;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "B38l2_CgqkX",
+        "name": "* Elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "tZPh-53CYtu",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "MyT7dyNZogF",
+        "name": "Fala da URA quando cliente é BTO mas nao é titular)",
+        "type": "Node"
+      },
+      "8": {
+        "id": "m8a4BkJQUEM",
+        "name": "* Sucesso no envio SMS",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "_ltDJRpq3Qo",
+        "name": "Informa que as faturas foram enviadas por SMS",
+        "type": "Node"
+      },
+      "10": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "11": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Elegível ao Religa",
+      "* Não é titular",
+      "* Falha Serviço Cód.Barras",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que a linha está bloqueada porque não identificou o pagamento. Informa como funciona o desbloqueio em confiança e também informa que para solicitar o desbloqueio, precisa ser o titular.;",
+      "A URA Cognitiva informa que o usuário pode acessar, negociar e fazer o pagamento das faturas pelo site;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "B38l2_CgqkX",
+        "name": "* Elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "tZPh-53CYtu",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "MyT7dyNZogF",
+        "name": "Fala da URA quando cliente é BTO mas nao é titular)",
+        "type": "Node"
+      },
+      "8": {
+        "id": "RmM9pn1uJNW",
+        "name": "* Falha Serviço Cód.Barras",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "BMxWj6K4ZyZ",
+        "name": "Informa que usuário pode acessar faturas no site",
+        "type": "Node"
+      },
+      "10": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "12": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Elegível ao Religa",
+      "* É titular",
+      "Não aceita Religa",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que o usuário está com a linha bloqueada e que pode solicitar o desbloqueio, mas lembra ao usuário que precisa pagar em 24 horas;",
+      "A URA Cognitiva oferece o desbloqueio em confiança (religa) da linha;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "B38l2_CgqkX",
+        "name": "* Elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "QLC7woesPL_",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "lV_74UYbtTw",
+        "name": "* Não veio de \"Informa Conta Paga\"",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "epAcNSVP-J2",
+        "name": "Informa que usuario está com a linha bloq., que pode solicitar o desbloq. mas que precisa pagar",
+        "type": "Node"
+      },
+      "9": {
+        "id": "pCpNyOHukLN",
+        "name": "Informa que oferece o desbloqueio em confiança (religa)",
+        "type": "Node"
+      },
+      "10": {
+        "id": "xwj7D9DOvdp",
+        "name": "Não aceita Religa",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "13": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Elegível ao Religa",
+      "* É titular",
+      "Aceita Religa",
+      "* Ligando do próprio aparelho",
+      "* Sucesso no Religa",
+      "FLUXO IMPEDIDO DE PROSSEGUIR POR MOTIVOS EXTERNOS (FALTA INFORMAÇÃO/CONTINUAÇÃO NÃO IMPLEMENTADA/SOB REVISÃO, POR EXEMPLO)."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que o usuário está com a linha bloqueada e que pode solicitar o desbloqueio, mas lembra ao usuário que precisa pagar em 24 horas;",
+      "A URA Cognitiva oferece o desbloqueio em confiança (religa) da linha;",
+      "FLUXO IMPEDIDO DE PROSSEGUIR POR MOTIVOS EXTERNOS (FALTA INFORMAÇÃO/CONTINUAÇÃO NÃO IMPLEMENTADA/SOB REVISÃO, POR EXEMPLO)."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "B38l2_CgqkX",
+        "name": "* Elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "QLC7woesPL_",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "lV_74UYbtTw",
+        "name": "* Não veio de \"Informa Conta Paga\"",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "epAcNSVP-J2",
+        "name": "Informa que usuario está com a linha bloq., que pode solicitar o desbloq. mas que precisa pagar",
+        "type": "Node"
+      },
+      "9": {
+        "id": "pCpNyOHukLN",
+        "name": "Informa que oferece o desbloqueio em confiança (religa)",
+        "type": "Node"
+      },
+      "10": {
+        "id": "iuWry679Xqc",
+        "name": "Aceita Religa",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "4u0R05E1iZ",
+        "name": "* Ligando do próprio aparelho",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "U5r10p4_uT3",
+        "name": "* Sucesso no Religa",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "Fv5BtSZW4E",
+        "name": "Impedido de prosseguir por motivos externos",
+        "type": "Node"
+      }
+    }
+  },
+  "14": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Elegível ao Religa",
+      "* É titular",
+      "Aceita Religa",
+      "* Ligando do próprio aparelho",
+      "* Falha no Religa",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que o usuário está com a linha bloqueada e que pode solicitar o desbloqueio, mas lembra ao usuário que precisa pagar em 24 horas;",
+      "A URA Cognitiva oferece o desbloqueio em confiança (religa) da linha;",
+      "A URA Cognitiva informa que não foi possivel concluir a solicitação por instabilidade nos sistemas;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "B38l2_CgqkX",
+        "name": "* Elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "QLC7woesPL_",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "lV_74UYbtTw",
+        "name": "* Não veio de \"Informa Conta Paga\"",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "epAcNSVP-J2",
+        "name": "Informa que usuario está com a linha bloq., que pode solicitar o desbloq. mas que precisa pagar",
+        "type": "Node"
+      },
+      "9": {
+        "id": "pCpNyOHukLN",
+        "name": "Informa que oferece o desbloqueio em confiança (religa)",
+        "type": "Node"
+      },
+      "10": {
+        "id": "iuWry679Xqc",
+        "name": "Aceita Religa",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "4u0R05E1iZ",
+        "name": "* Ligando do próprio aparelho",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "8qGtYSoxjRT",
+        "name": "* Falha no Religa",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "7xF2G3c9d4v",
+        "name": "Mensagem de falha no serviço religa",
+        "type": "Node"
+      },
+      "14": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "15": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Elegível ao Religa",
+      "* É titular",
+      "Aceita Religa",
+      "* Ligando de outro aparelho",
+      "FLUXO IMPEDIDO DE PROSSEGUIR POR MOTIVOS EXTERNOS (FALTA INFORMAÇÃO/CONTINUAÇÃO NÃO IMPLEMENTADA/SOB REVISÃO, POR EXEMPLO)."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva informa que o usuário está com a linha bloqueada e que pode solicitar o desbloqueio, mas lembra ao usuário que precisa pagar em 24 horas;",
+      "A URA Cognitiva oferece o desbloqueio em confiança (religa) da linha;",
+      "FLUXO IMPEDIDO DE PROSSEGUIR POR MOTIVOS EXTERNOS (FALTA INFORMAÇÃO/CONTINUAÇÃO NÃO IMPLEMENTADA/SOB REVISÃO, POR EXEMPLO)."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "B38l2_CgqkX",
+        "name": "* Elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "QLC7woesPL_",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "lV_74UYbtTw",
+        "name": "* Não veio de \"Informa Conta Paga\"",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "epAcNSVP-J2",
+        "name": "Informa que usuario está com a linha bloq., que pode solicitar o desbloq. mas que precisa pagar",
+        "type": "Node"
+      },
+      "9": {
+        "id": "pCpNyOHukLN",
+        "name": "Informa que oferece o desbloqueio em confiança (religa)",
+        "type": "Node"
+      },
+      "10": {
+        "id": "iuWry679Xqc",
+        "name": "Aceita Religa",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "IcxMjOoDED",
+        "name": "* Ligando de outro aparelho",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "Fv5BtSZW4E",
+        "name": "Impedido de prosseguir por motivos externos",
+        "type": "Node"
+      }
+    }
+  },
+  "16": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Sucesso SMS (Link Negocia)",
+      "* Não quer fatura do bloqueio",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que enviou o Link Negocia e pergunta se o usuário deseja o envio da fatura que gerou o bloqueio;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "nVxLvOcaoBj",
+        "name": "* Sucesso SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "bT3q2gcWuen",
+        "name": "URA informa o sucesso do serviço LINK NEGOCIA 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "HcY3678txQZ",
+        "name": "* Não quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "17": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Sucesso SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Não possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que enviou o Link Negocia e pergunta se o usuário deseja o envio da fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "nVxLvOcaoBj",
+        "name": "* Sucesso SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "bT3q2gcWuen",
+        "name": "URA informa o sucesso do serviço LINK NEGOCIA 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "5P6AuqNR_pT",
+        "name": "* Não possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "18": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Sucesso SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Não quer receber demais faturas",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que enviou o Link Negocia e pergunta se o usuário deseja o envio da fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "nVxLvOcaoBj",
+        "name": "* Sucesso SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "bT3q2gcWuen",
+        "name": "URA informa o sucesso do serviço LINK NEGOCIA 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "76kWE_zSD_q",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "umyARxi0nHm",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "16": {
+        "id": "B4n3GplCVr6",
+        "name": "Não quer receber demais faturas",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "19": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Sucesso SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Quer receber todas as faturas",
+      "* Falha ao enviar demais faturas",
+      "Aceita ir para ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que enviou o Link Negocia e pergunta se o usuário deseja o envio da fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e oferece transferencia para o ATH para concluir o atendimento;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "nVxLvOcaoBj",
+        "name": "* Sucesso SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "bT3q2gcWuen",
+        "name": "URA informa o sucesso do serviço LINK NEGOCIA 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "76kWE_zSD_q",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "umyARxi0nHm",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "16": {
+        "id": "ivBQbkPG2EB",
+        "name": "Quer receber todas as faturas",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "95EY9kz8TuX",
+        "name": "* Falha ao enviar demais faturas",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "JMbhPvvZMiH",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "19": {
+        "id": "OapxVbrLj4c",
+        "name": "Aceita ir para ATH",
+        "type": "DecisionNode"
+      },
+      "20": {
+        "id": "AhWAgWCwry",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "20": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Sucesso SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Quer receber todas as faturas",
+      "* Falha ao enviar demais faturas",
+      "Não quer falar com ATH",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que enviou o Link Negocia e pergunta se o usuário deseja o envio da fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e oferece transferencia para o ATH para concluir o atendimento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "nVxLvOcaoBj",
+        "name": "* Sucesso SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "bT3q2gcWuen",
+        "name": "URA informa o sucesso do serviço LINK NEGOCIA 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "76kWE_zSD_q",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "umyARxi0nHm",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "16": {
+        "id": "ivBQbkPG2EB",
+        "name": "Quer receber todas as faturas",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "95EY9kz8TuX",
+        "name": "* Falha ao enviar demais faturas",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "JMbhPvvZMiH",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "19": {
+        "id": "hVc37IVQncg",
+        "name": "Não quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "20": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "21": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "21": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Sucesso SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Quer receber todas as faturas",
+      "* Sucesso ao enviar demais faturas",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que enviou o Link Negocia e pergunta se o usuário deseja o envio da fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que enviou as demais faturas em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "nVxLvOcaoBj",
+        "name": "* Sucesso SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "bT3q2gcWuen",
+        "name": "URA informa o sucesso do serviço LINK NEGOCIA 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "76kWE_zSD_q",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "umyARxi0nHm",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "16": {
+        "id": "ivBQbkPG2EB",
+        "name": "Quer receber todas as faturas",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "ccPCklpe44H",
+        "name": "* Sucesso ao enviar demais faturas",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "aVBXXCtqhad",
+        "name": "URA informa que enviou as demais faturas",
+        "type": "Node"
+      },
+      "19": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "20": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "22": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Sucesso SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Aceita ir para ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que enviou o Link Negocia e pergunta se o usuário deseja o envio da fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e oferece transferencia para o ATH para concluir o atendimento;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "nVxLvOcaoBj",
+        "name": "* Sucesso SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "bT3q2gcWuen",
+        "name": "URA informa o sucesso do serviço LINK NEGOCIA 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "9FtXhEx0zqW",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "JMbhPvvZMiH",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "OapxVbrLj4c",
+        "name": "Aceita ir para ATH",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "AhWAgWCwry",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "23": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Sucesso SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Não quer falar com ATH",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que enviou o Link Negocia e pergunta se o usuário deseja o envio da fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e oferece transferencia para o ATH para concluir o atendimento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "nVxLvOcaoBj",
+        "name": "* Sucesso SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "bT3q2gcWuen",
+        "name": "URA informa o sucesso do serviço LINK NEGOCIA 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "9FtXhEx0zqW",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "JMbhPvvZMiH",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "hVc37IVQncg",
+        "name": "Não quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "24": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Falha SMS (Link Negocia)",
+      "* Não quer fatura do bloqueio",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que no site Negocia é possivel visualizar todas as faturas abertas e pergunta se mesmo assim gostaria que enviasse a fatura que gerou o bloqueio;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "iCRQAmCO7Q-",
+        "name": "* Falha SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "KB8F1wpgEhT",
+        "name": "Mensagem de falha no serviço link negocia 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "HcY3678txQZ",
+        "name": "* Não quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "25": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Falha SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Não possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que no site Negocia é possivel visualizar todas as faturas abertas e pergunta se mesmo assim gostaria que enviasse a fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "iCRQAmCO7Q-",
+        "name": "* Falha SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "KB8F1wpgEhT",
+        "name": "Mensagem de falha no serviço link negocia 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "5P6AuqNR_pT",
+        "name": "* Não possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "26": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Falha SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Não quer receber demais faturas",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que no site Negocia é possivel visualizar todas as faturas abertas e pergunta se mesmo assim gostaria que enviasse a fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "iCRQAmCO7Q-",
+        "name": "* Falha SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "KB8F1wpgEhT",
+        "name": "Mensagem de falha no serviço link negocia 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "76kWE_zSD_q",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "umyARxi0nHm",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "16": {
+        "id": "B4n3GplCVr6",
+        "name": "Não quer receber demais faturas",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "27": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Falha SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Quer receber todas as faturas",
+      "* Falha ao enviar demais faturas",
+      "Aceita ir para ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que no site Negocia é possivel visualizar todas as faturas abertas e pergunta se mesmo assim gostaria que enviasse a fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e oferece transferencia para o ATH para concluir o atendimento;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "iCRQAmCO7Q-",
+        "name": "* Falha SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "KB8F1wpgEhT",
+        "name": "Mensagem de falha no serviço link negocia 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "76kWE_zSD_q",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "umyARxi0nHm",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "16": {
+        "id": "ivBQbkPG2EB",
+        "name": "Quer receber todas as faturas",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "95EY9kz8TuX",
+        "name": "* Falha ao enviar demais faturas",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "JMbhPvvZMiH",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "19": {
+        "id": "OapxVbrLj4c",
+        "name": "Aceita ir para ATH",
+        "type": "DecisionNode"
+      },
+      "20": {
+        "id": "AhWAgWCwry",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "28": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Falha SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Quer receber todas as faturas",
+      "* Falha ao enviar demais faturas",
+      "Não quer falar com ATH",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que no site Negocia é possivel visualizar todas as faturas abertas e pergunta se mesmo assim gostaria que enviasse a fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e oferece transferencia para o ATH para concluir o atendimento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "iCRQAmCO7Q-",
+        "name": "* Falha SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "KB8F1wpgEhT",
+        "name": "Mensagem de falha no serviço link negocia 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "76kWE_zSD_q",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "umyARxi0nHm",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "16": {
+        "id": "ivBQbkPG2EB",
+        "name": "Quer receber todas as faturas",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "95EY9kz8TuX",
+        "name": "* Falha ao enviar demais faturas",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "JMbhPvvZMiH",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "19": {
+        "id": "hVc37IVQncg",
+        "name": "Não quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "20": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "21": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "29": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Falha SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Quer receber todas as faturas",
+      "* Sucesso ao enviar demais faturas",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que no site Negocia é possivel visualizar todas as faturas abertas e pergunta se mesmo assim gostaria que enviasse a fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que enviou as demais faturas em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "iCRQAmCO7Q-",
+        "name": "* Falha SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "KB8F1wpgEhT",
+        "name": "Mensagem de falha no serviço link negocia 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "76kWE_zSD_q",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "umyARxi0nHm",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "16": {
+        "id": "ivBQbkPG2EB",
+        "name": "Quer receber todas as faturas",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "ccPCklpe44H",
+        "name": "* Sucesso ao enviar demais faturas",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "aVBXXCtqhad",
+        "name": "URA informa que enviou as demais faturas",
+        "type": "Node"
+      },
+      "19": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "20": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "30": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Falha SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Aceita ir para ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que no site Negocia é possivel visualizar todas as faturas abertas e pergunta se mesmo assim gostaria que enviasse a fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e oferece transferencia para o ATH para concluir o atendimento;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "iCRQAmCO7Q-",
+        "name": "* Falha SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "KB8F1wpgEhT",
+        "name": "Mensagem de falha no serviço link negocia 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "9FtXhEx0zqW",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "JMbhPvvZMiH",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "OapxVbrLj4c",
+        "name": "Aceita ir para ATH",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "AhWAgWCwry",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "31": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* É titular",
+      "* Falha SMS (Link Negocia)",
+      "* Quer fatura do bloqueio",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Não quer falar com ATH",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que no site Negocia é possivel visualizar todas as faturas abertas e pergunta se mesmo assim gostaria que enviasse a fatura que gerou o bloqueio;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e oferece transferencia para o ATH para concluir o atendimento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "uDf0P2YGF8A",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "iCRQAmCO7Q-",
+        "name": "* Falha SMS (Link Negocia)",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "KB8F1wpgEhT",
+        "name": "Mensagem de falha no serviço link negocia 6",
+        "type": "Node"
+      },
+      "11": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "9FtXhEx0zqW",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "JMbhPvvZMiH",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "hVc37IVQncg",
+        "name": "Não quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "32": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* Não é titular",
+      "* Sucesso no envio SMS",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que as faturas foram enviadas por SMS;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "YEMuAyBcdH1",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "m8a4BkJQUEM",
+        "name": "* Sucesso no envio SMS",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "_ltDJRpq3Qo",
+        "name": "Informa que as faturas foram enviadas por SMS",
+        "type": "Node"
+      },
+      "11": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "33": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Quebra de confiança",
+      "* Não é titular",
+      "* Falha Serviço Cód.Barras",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que o motivo do bloqueio é QUEBRA DE CONFIANÇA;",
+      "A URA Cognitiva informa que o usuário pode acessar, negociar e fazer o pagamento das faturas pelo site;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "YaRyuWSeHAY",
+        "name": "* Motivo: Quebra de confiança",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "R2KB5mSduYv",
+        "name": "URA Explica o motivo do bloqueio QUEBRA DE CONFIANÇA",
+        "type": "Node"
+      },
+      "8": {
+        "id": "YEMuAyBcdH1",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "RmM9pn1uJNW",
+        "name": "* Falha Serviço Cód.Barras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "BMxWj6K4ZyZ",
+        "name": "Informa que usuário pode acessar faturas no site",
+        "type": "Node"
+      },
+      "11": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "34": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Já solicitou nas últimas 24h",
+      "* É titular",
+      "* Não quer fatura do bloqueio",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que já foi feito um pedido de desbloqueio em confiança nas ultimas 24h  e que está em andamento;",
+      "A URA Cognitiva pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "_obVdqdf2t6",
+        "name": "* Motivo: Já solicitou nas últimas 24h",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "Ux0awekjctN",
+        "name": "URA Explica o motivo do bloqueio SOLICITADO NAS ULTIMAS 24H",
+        "type": "Node"
+      },
+      "8": {
+        "id": "YKFpIHtegM4",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "ANpl2-h8ejQ",
+        "name": "URA pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio",
+        "type": "Node"
+      },
+      "10": {
+        "id": "HcY3678txQZ",
+        "name": "* Não quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "35": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Já solicitou nas últimas 24h",
+      "* É titular",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Não possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que já foi feito um pedido de desbloqueio em confiança nas ultimas 24h  e que está em andamento;",
+      "A URA Cognitiva pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "_obVdqdf2t6",
+        "name": "* Motivo: Já solicitou nas últimas 24h",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "Ux0awekjctN",
+        "name": "URA Explica o motivo do bloqueio SOLICITADO NAS ULTIMAS 24H",
+        "type": "Node"
+      },
+      "8": {
+        "id": "YKFpIHtegM4",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "ANpl2-h8ejQ",
+        "name": "URA pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio",
+        "type": "Node"
+      },
+      "10": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "13": {
+        "id": "5P6AuqNR_pT",
+        "name": "* Não possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "36": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Já solicitou nas últimas 24h",
+      "* É titular",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Não quer receber demais faturas",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que já foi feito um pedido de desbloqueio em confiança nas ultimas 24h  e que está em andamento;",
+      "A URA Cognitiva pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "_obVdqdf2t6",
+        "name": "* Motivo: Já solicitou nas últimas 24h",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "Ux0awekjctN",
+        "name": "URA Explica o motivo do bloqueio SOLICITADO NAS ULTIMAS 24H",
+        "type": "Node"
+      },
+      "8": {
+        "id": "YKFpIHtegM4",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "ANpl2-h8ejQ",
+        "name": "URA pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio",
+        "type": "Node"
+      },
+      "10": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "13": {
+        "id": "76kWE_zSD_q",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "umyARxi0nHm",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "15": {
+        "id": "B4n3GplCVr6",
+        "name": "Não quer receber demais faturas",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "37": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Já solicitou nas últimas 24h",
+      "* É titular",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Quer receber todas as faturas",
+      "* Falha ao enviar demais faturas",
+      "Aceita ir para ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que já foi feito um pedido de desbloqueio em confiança nas ultimas 24h  e que está em andamento;",
+      "A URA Cognitiva pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e oferece transferencia para o ATH para concluir o atendimento;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "_obVdqdf2t6",
+        "name": "* Motivo: Já solicitou nas últimas 24h",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "Ux0awekjctN",
+        "name": "URA Explica o motivo do bloqueio SOLICITADO NAS ULTIMAS 24H",
+        "type": "Node"
+      },
+      "8": {
+        "id": "YKFpIHtegM4",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "ANpl2-h8ejQ",
+        "name": "URA pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio",
+        "type": "Node"
+      },
+      "10": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "13": {
+        "id": "76kWE_zSD_q",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "umyARxi0nHm",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "15": {
+        "id": "ivBQbkPG2EB",
+        "name": "Quer receber todas as faturas",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "95EY9kz8TuX",
+        "name": "* Falha ao enviar demais faturas",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "JMbhPvvZMiH",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "18": {
+        "id": "OapxVbrLj4c",
+        "name": "Aceita ir para ATH",
+        "type": "DecisionNode"
+      },
+      "19": {
+        "id": "AhWAgWCwry",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "38": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Já solicitou nas últimas 24h",
+      "* É titular",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Quer receber todas as faturas",
+      "* Falha ao enviar demais faturas",
+      "Não quer falar com ATH",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que já foi feito um pedido de desbloqueio em confiança nas ultimas 24h  e que está em andamento;",
+      "A URA Cognitiva pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e oferece transferencia para o ATH para concluir o atendimento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "_obVdqdf2t6",
+        "name": "* Motivo: Já solicitou nas últimas 24h",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "Ux0awekjctN",
+        "name": "URA Explica o motivo do bloqueio SOLICITADO NAS ULTIMAS 24H",
+        "type": "Node"
+      },
+      "8": {
+        "id": "YKFpIHtegM4",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "ANpl2-h8ejQ",
+        "name": "URA pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio",
+        "type": "Node"
+      },
+      "10": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "13": {
+        "id": "76kWE_zSD_q",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "umyARxi0nHm",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "15": {
+        "id": "ivBQbkPG2EB",
+        "name": "Quer receber todas as faturas",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "95EY9kz8TuX",
+        "name": "* Falha ao enviar demais faturas",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "JMbhPvvZMiH",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "18": {
+        "id": "hVc37IVQncg",
+        "name": "Não quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "19": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "20": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "39": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Já solicitou nas últimas 24h",
+      "* É titular",
+      "* Quer fatura do bloqueio",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Quer receber todas as faturas",
+      "* Sucesso ao enviar demais faturas",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que já foi feito um pedido de desbloqueio em confiança nas ultimas 24h  e que está em andamento;",
+      "A URA Cognitiva pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio;",
+      "A URA Cognitiva informa que enviou a(s) fatura(s);",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que enviou as demais faturas em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "_obVdqdf2t6",
+        "name": "* Motivo: Já solicitou nas últimas 24h",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "Ux0awekjctN",
+        "name": "URA Explica o motivo do bloqueio SOLICITADO NAS ULTIMAS 24H",
+        "type": "Node"
+      },
+      "8": {
+        "id": "YKFpIHtegM4",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "ANpl2-h8ejQ",
+        "name": "URA pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio",
+        "type": "Node"
+      },
+      "10": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "pfuXBH92wvk",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "0OAYETstG0Y",
+        "name": "Mensagem de Sucesso no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "13": {
+        "id": "76kWE_zSD_q",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "umyARxi0nHm",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "15": {
+        "id": "ivBQbkPG2EB",
+        "name": "Quer receber todas as faturas",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "ccPCklpe44H",
+        "name": "* Sucesso ao enviar demais faturas",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "aVBXXCtqhad",
+        "name": "URA informa que enviou as demais faturas",
+        "type": "Node"
+      },
+      "18": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "19": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "40": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Já solicitou nas últimas 24h",
+      "* É titular",
+      "* Quer fatura do bloqueio",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Aceita ir para ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que já foi feito um pedido de desbloqueio em confiança nas ultimas 24h  e que está em andamento;",
+      "A URA Cognitiva pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e oferece transferencia para o ATH para concluir o atendimento;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "_obVdqdf2t6",
+        "name": "* Motivo: Já solicitou nas últimas 24h",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "Ux0awekjctN",
+        "name": "URA Explica o motivo do bloqueio SOLICITADO NAS ULTIMAS 24H",
+        "type": "Node"
+      },
+      "8": {
+        "id": "YKFpIHtegM4",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "ANpl2-h8ejQ",
+        "name": "URA pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio",
+        "type": "Node"
+      },
+      "10": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "9FtXhEx0zqW",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "JMbhPvvZMiH",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "13": {
+        "id": "OapxVbrLj4c",
+        "name": "Aceita ir para ATH",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "AhWAgWCwry",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "41": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Já solicitou nas últimas 24h",
+      "* É titular",
+      "* Quer fatura do bloqueio",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Não quer falar com ATH",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que já foi feito um pedido de desbloqueio em confiança nas ultimas 24h  e que está em andamento;",
+      "A URA Cognitiva pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e oferece transferencia para o ATH para concluir o atendimento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "_obVdqdf2t6",
+        "name": "* Motivo: Já solicitou nas últimas 24h",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "Ux0awekjctN",
+        "name": "URA Explica o motivo do bloqueio SOLICITADO NAS ULTIMAS 24H",
+        "type": "Node"
+      },
+      "8": {
+        "id": "YKFpIHtegM4",
+        "name": "* É titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "ANpl2-h8ejQ",
+        "name": "URA pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio",
+        "type": "Node"
+      },
+      "10": {
+        "id": "-qDrKKNOvlf",
+        "name": "* Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "9FtXhEx0zqW",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "JMbhPvvZMiH",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "13": {
+        "id": "hVc37IVQncg",
+        "name": "Não quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "42": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Já solicitou nas últimas 24h",
+      "* Não é titular",
+      "Não quer fatura do bloqueio",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que já foi feito um pedido de desbloqueio em confiança nas ultimas 24h  e que está em andamento;",
+      "A URA Cognitiva pergunta se o usuário quer receber o codigo de barras da fatura que gerou este bloqueio;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "_obVdqdf2t6",
+        "name": "* Motivo: Já solicitou nas últimas 24h",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "Ux0awekjctN",
+        "name": "URA Explica o motivo do bloqueio SOLICITADO NAS ULTIMAS 24H",
+        "type": "Node"
+      },
+      "8": {
+        "id": "FDFCOee7E09",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "Z7YW2DmyEal",
+        "name": "URA pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio",
+        "type": "Node"
+      },
+      "10": {
+        "id": "F_boTv0hBpl",
+        "name": "Não quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "43": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Já solicitou nas últimas 24h",
+      "* Não é titular",
+      "Quer fatura do bloqueio",
+      "* Sucesso no envio SMS",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que já foi feito um pedido de desbloqueio em confiança nas ultimas 24h  e que está em andamento;",
+      "A URA Cognitiva pergunta se o usuário quer receber o codigo de barras da fatura que gerou este bloqueio;",
+      "A URA Cognitiva informa que as faturas foram enviadas por SMS;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "_obVdqdf2t6",
+        "name": "* Motivo: Já solicitou nas últimas 24h",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "Ux0awekjctN",
+        "name": "URA Explica o motivo do bloqueio SOLICITADO NAS ULTIMAS 24H",
+        "type": "Node"
+      },
+      "8": {
+        "id": "FDFCOee7E09",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "Z7YW2DmyEal",
+        "name": "URA pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio",
+        "type": "Node"
+      },
+      "10": {
+        "id": "vjyunA7_aIW",
+        "name": "Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "m8a4BkJQUEM",
+        "name": "* Sucesso no envio SMS",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "_ltDJRpq3Qo",
+        "name": "Informa que as faturas foram enviadas por SMS",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "44": {
+    "precondition": [
+      "Quer fazer Religa",
+      "* Cliente é BTO",
+      "* Não elegível ao Religa",
+      "* Motivo: Já solicitou nas últimas 24h",
+      "* Não é titular",
+      "Quer fatura do bloqueio",
+      "* Falha Serviço Cód.Barras",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva explica que já foi feito um pedido de desbloqueio em confiança nas ultimas 24h  e que está em andamento;",
+      "A URA Cognitiva pergunta se o usuário quer receber o codigo de barras da fatura que gerou este bloqueio;",
+      "A URA Cognitiva informa que o usuário pode acessar, negociar e fazer o pagamento das faturas pelo site;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "wRA2DyJgPgB",
+        "name": "* Cliente é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "31mPPS4RMR3",
+        "name": "* Não elegível ao Religa",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "_obVdqdf2t6",
+        "name": "* Motivo: Já solicitou nas últimas 24h",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "Ux0awekjctN",
+        "name": "URA Explica o motivo do bloqueio SOLICITADO NAS ULTIMAS 24H",
+        "type": "Node"
+      },
+      "8": {
+        "id": "FDFCOee7E09",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "Z7YW2DmyEal",
+        "name": "URA pergunta se o usuário quer receber a segunda via da fatura que gerou este bloqueio",
+        "type": "Node"
+      },
+      "10": {
+        "id": "vjyunA7_aIW",
+        "name": "Quer fatura do bloqueio",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "RmM9pn1uJNW",
+        "name": "* Falha Serviço Cód.Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "BMxWj6K4ZyZ",
+        "name": "Informa que usuário pode acessar faturas no site",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "45": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Sem dificuldades",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "mpqUw4W_rYO",
+        "name": "Sem dificuldades",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "46": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Sucesso na Consulta de Dados",
+      "* Navegação Reduzida",
+      "* Sucesso no billing",
+      "Quer pacote adicional",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva informa que a velocidade está reduzida e a data de renovação;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "rtWq9UJT1F8",
+        "name": "* Sucesso na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "23Bpa5XqZey",
+        "name": "* Navegação Reduzida",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "jPyfH0yafek",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "rxSOXk5NJTP",
+        "name": "Mensagem informando velocidade reduzida",
+        "type": "Node"
+      },
+      "13": {
+        "id": "DM7cgeRfGzv",
+        "name": "Quer pacote adicional",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "AhWAgWCwry",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "47": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Sucesso na Consulta de Dados",
+      "* Navegação Reduzida",
+      "* Sucesso no billing",
+      "Não quer pacote adicional",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva informa que a velocidade está reduzida e a data de renovação;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "rtWq9UJT1F8",
+        "name": "* Sucesso na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "23Bpa5XqZey",
+        "name": "* Navegação Reduzida",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "jPyfH0yafek",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "rxSOXk5NJTP",
+        "name": "Mensagem informando velocidade reduzida",
+        "type": "Node"
+      },
+      "13": {
+        "id": "OJxslEMpnnn",
+        "name": "Não quer pacote adicional",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "48": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Sucesso na Consulta de Dados",
+      "* Navegação Reduzida",
+      "* Falha no billing",
+      "Quer pacote adicional",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva pergunta se o usuário quer saber mais sobre os pacotes adicionais;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "rtWq9UJT1F8",
+        "name": "* Sucesso na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "23Bpa5XqZey",
+        "name": "* Navegação Reduzida",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "Tez7d28RyTy",
+        "name": "* Falha no billing",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "LKogrGi60pM",
+        "name": "URA pergunta se quer saber dos pacotes adicionais",
+        "type": "Node"
+      },
+      "13": {
+        "id": "DM7cgeRfGzv",
+        "name": "Quer pacote adicional",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "AhWAgWCwry",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "49": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Sucesso na Consulta de Dados",
+      "* Navegação Reduzida",
+      "* Falha no billing",
+      "Não quer pacote adicional",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva pergunta se o usuário quer saber mais sobre os pacotes adicionais;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "rtWq9UJT1F8",
+        "name": "* Sucesso na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "23Bpa5XqZey",
+        "name": "* Navegação Reduzida",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "Tez7d28RyTy",
+        "name": "* Falha no billing",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "LKogrGi60pM",
+        "name": "URA pergunta se quer saber dos pacotes adicionais",
+        "type": "Node"
+      },
+      "13": {
+        "id": "OJxslEMpnnn",
+        "name": "Não quer pacote adicional",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "50": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Sucesso na Consulta de Dados",
+      "* Navegação Normal",
+      "Quer falar com ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva informa que o usuário ainda possui internet para navegar normalmente;",
+      "A URA Cognitiva pergunta se o usuário quer continuar o atendimento ou falar com o ATH;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "rtWq9UJT1F8",
+        "name": "* Sucesso na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "nNt42YRwoRm",
+        "name": "* Navegação Normal",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "_NCF13Ao5Wm",
+        "name": "Mensagem informando internet normal",
+        "type": "Node"
+      },
+      "12": {
+        "id": "eR6Ho_MZIWS",
+        "name": "URA pergunta se quer continuar ou ir ATH",
+        "type": "Node"
+      },
+      "13": {
+        "id": "nIhIjrFTVLK",
+        "name": "Quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "AhWAgWCwry",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "51": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Sucesso na Consulta de Dados",
+      "* Navegação Normal",
+      "Quer continuar na URA",
+      "Já reiniciou",
+      "* Sucesso no Envio do Guia",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva informa que o usuário ainda possui internet para navegar normalmente;",
+      "A URA Cognitiva pergunta se o usuário quer continuar o atendimento ou falar com o ATH;",
+      "A URA Cognitiva informa que enviou o guia do aparelho por SMS para ajudar a configurar;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "rtWq9UJT1F8",
+        "name": "* Sucesso na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "nNt42YRwoRm",
+        "name": "* Navegação Normal",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "_NCF13Ao5Wm",
+        "name": "Mensagem informando internet normal",
+        "type": "Node"
+      },
+      "12": {
+        "id": "eR6Ho_MZIWS",
+        "name": "URA pergunta se quer continuar ou ir ATH",
+        "type": "Node"
+      },
+      "13": {
+        "id": "w99tEYqP3h8",
+        "name": "Quer continuar na URA",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "RtG7wwHdbm7",
+        "name": "Já reiniciou",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "Vz1afWc-W20",
+        "name": "* Sucesso no Envio do Guia",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "I_FZjD755Qv",
+        "name": "Mensagem informando que enviou o Guia de Aparelho",
+        "type": "Node"
+      },
+      "17": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "52": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Sucesso na Consulta de Dados",
+      "* Navegação Normal",
+      "Quer continuar na URA",
+      "Já reiniciou",
+      "* Falha no Envio do Guia",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva informa que o usuário ainda possui internet para navegar normalmente;",
+      "A URA Cognitiva pergunta se o usuário quer continuar o atendimento ou falar com o ATH;",
+      "A URA Cognitiva informa que o guia do aparelho está disponível no site para ajudar a configurar;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "rtWq9UJT1F8",
+        "name": "* Sucesso na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "nNt42YRwoRm",
+        "name": "* Navegação Normal",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "_NCF13Ao5Wm",
+        "name": "Mensagem informando internet normal",
+        "type": "Node"
+      },
+      "12": {
+        "id": "eR6Ho_MZIWS",
+        "name": "URA pergunta se quer continuar ou ir ATH",
+        "type": "Node"
+      },
+      "13": {
+        "id": "w99tEYqP3h8",
+        "name": "Quer continuar na URA",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "RtG7wwHdbm7",
+        "name": "Já reiniciou",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "OFRpukVg51A",
+        "name": "* Falha no Envio do Guia",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "CDSmYGHP8nN",
+        "name": "Mensagem informando que o guia do aparelho está disponivel no site",
+        "type": "Node"
+      },
+      "17": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "53": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Sucesso na Consulta de Dados",
+      "* Navegação Normal",
+      "Quer continuar na URA",
+      "Não reiniciou",
+      "Aceita Reiniciar"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva informa que o usuário ainda possui internet para navegar normalmente;",
+      "A URA Cognitiva pergunta se o usuário quer continuar o atendimento ou falar com o ATH;",
+      "A URA Cognitiva pergunta se usuário não gostaria de tentar reiniciar o aparelho;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "rtWq9UJT1F8",
+        "name": "* Sucesso na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "nNt42YRwoRm",
+        "name": "* Navegação Normal",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "_NCF13Ao5Wm",
+        "name": "Mensagem informando internet normal",
+        "type": "Node"
+      },
+      "12": {
+        "id": "eR6Ho_MZIWS",
+        "name": "URA pergunta se quer continuar ou ir ATH",
+        "type": "Node"
+      },
+      "13": {
+        "id": "w99tEYqP3h8",
+        "name": "Quer continuar na URA",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "7LcWTqy6bhl",
+        "name": "Não reiniciou",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "PteexCcOWNh",
+        "name": "URA insiste e pergunta se usuario nao gostaria de tentar reiniciar",
+        "type": "Node"
+      },
+      "16": {
+        "id": "dbNWs2w9PLp",
+        "name": "Aceita Reiniciar",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "54": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Sucesso na Consulta de Dados",
+      "* Navegação Normal",
+      "Quer continuar na URA",
+      "Não reiniciou",
+      "Não quer reiniciar",
+      "* Sucesso no Envio do Guia",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva informa que o usuário ainda possui internet para navegar normalmente;",
+      "A URA Cognitiva pergunta se o usuário quer continuar o atendimento ou falar com o ATH;",
+      "A URA Cognitiva pergunta se usuário não gostaria de tentar reiniciar o aparelho;",
+      "A URA Cognitiva informa que enviou o guia do aparelho por SMS para ajudar a configurar;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "rtWq9UJT1F8",
+        "name": "* Sucesso na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "nNt42YRwoRm",
+        "name": "* Navegação Normal",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "_NCF13Ao5Wm",
+        "name": "Mensagem informando internet normal",
+        "type": "Node"
+      },
+      "12": {
+        "id": "eR6Ho_MZIWS",
+        "name": "URA pergunta se quer continuar ou ir ATH",
+        "type": "Node"
+      },
+      "13": {
+        "id": "w99tEYqP3h8",
+        "name": "Quer continuar na URA",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "7LcWTqy6bhl",
+        "name": "Não reiniciou",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "PteexCcOWNh",
+        "name": "URA insiste e pergunta se usuario nao gostaria de tentar reiniciar",
+        "type": "Node"
+      },
+      "16": {
+        "id": "G9MvmExHKL2",
+        "name": "Não quer reiniciar",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "Vz1afWc-W20",
+        "name": "* Sucesso no Envio do Guia",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "I_FZjD755Qv",
+        "name": "Mensagem informando que enviou o Guia de Aparelho",
+        "type": "Node"
+      },
+      "19": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "20": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "55": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Sucesso na Consulta de Dados",
+      "* Navegação Normal",
+      "Quer continuar na URA",
+      "Não reiniciou",
+      "Não quer reiniciar",
+      "* Falha no Envio do Guia",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva informa que o usuário ainda possui internet para navegar normalmente;",
+      "A URA Cognitiva pergunta se o usuário quer continuar o atendimento ou falar com o ATH;",
+      "A URA Cognitiva pergunta se usuário não gostaria de tentar reiniciar o aparelho;",
+      "A URA Cognitiva informa que o guia do aparelho está disponível no site para ajudar a configurar;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "rtWq9UJT1F8",
+        "name": "* Sucesso na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "nNt42YRwoRm",
+        "name": "* Navegação Normal",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "_NCF13Ao5Wm",
+        "name": "Mensagem informando internet normal",
+        "type": "Node"
+      },
+      "12": {
+        "id": "eR6Ho_MZIWS",
+        "name": "URA pergunta se quer continuar ou ir ATH",
+        "type": "Node"
+      },
+      "13": {
+        "id": "w99tEYqP3h8",
+        "name": "Quer continuar na URA",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "7LcWTqy6bhl",
+        "name": "Não reiniciou",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "PteexCcOWNh",
+        "name": "URA insiste e pergunta se usuario nao gostaria de tentar reiniciar",
+        "type": "Node"
+      },
+      "16": {
+        "id": "G9MvmExHKL2",
+        "name": "Não quer reiniciar",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "OFRpukVg51A",
+        "name": "* Falha no Envio do Guia",
+        "type": "DecisionNode"
+      },
+      "18": {
+        "id": "CDSmYGHP8nN",
+        "name": "Mensagem informando que o guia do aparelho está disponivel no site",
+        "type": "Node"
+      },
+      "19": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "20": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "56": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Falha na Consulta de Dados",
+      "Já reiniciou",
+      "* Sucesso no Envio do Guia",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva informa que enviou o guia do aparelho por SMS para ajudar a configurar;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "OOSIhjQbaSs",
+        "name": "* Falha na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RtG7wwHdbm7",
+        "name": "Já reiniciou",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "Vz1afWc-W20",
+        "name": "* Sucesso no Envio do Guia",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "I_FZjD755Qv",
+        "name": "Mensagem informando que enviou o Guia de Aparelho",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "57": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Falha na Consulta de Dados",
+      "Já reiniciou",
+      "* Falha no Envio do Guia",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva informa que o guia do aparelho está disponível no site para ajudar a configurar;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "OOSIhjQbaSs",
+        "name": "* Falha na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RtG7wwHdbm7",
+        "name": "Já reiniciou",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "OFRpukVg51A",
+        "name": "* Falha no Envio do Guia",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "CDSmYGHP8nN",
+        "name": "Mensagem informando que o guia do aparelho está disponivel no site",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "58": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Falha na Consulta de Dados",
+      "Não reiniciou",
+      "Aceita Reiniciar"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva pergunta se usuário não gostaria de tentar reiniciar o aparelho;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "OOSIhjQbaSs",
+        "name": "* Falha na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "7LcWTqy6bhl",
+        "name": "Não reiniciou",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "PteexCcOWNh",
+        "name": "URA insiste e pergunta se usuario nao gostaria de tentar reiniciar",
+        "type": "Node"
+      },
+      "12": {
+        "id": "dbNWs2w9PLp",
+        "name": "Aceita Reiniciar",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "59": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Falha na Consulta de Dados",
+      "Não reiniciou",
+      "Não quer reiniciar",
+      "* Sucesso no Envio do Guia",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva pergunta se usuário não gostaria de tentar reiniciar o aparelho;",
+      "A URA Cognitiva informa que enviou o guia do aparelho por SMS para ajudar a configurar;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "OOSIhjQbaSs",
+        "name": "* Falha na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "7LcWTqy6bhl",
+        "name": "Não reiniciou",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "PteexCcOWNh",
+        "name": "URA insiste e pergunta se usuario nao gostaria de tentar reiniciar",
+        "type": "Node"
+      },
+      "12": {
+        "id": "G9MvmExHKL2",
+        "name": "Não quer reiniciar",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "Vz1afWc-W20",
+        "name": "* Sucesso no Envio do Guia",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "I_FZjD755Qv",
+        "name": "Mensagem informando que enviou o Guia de Aparelho",
+        "type": "Node"
+      },
+      "15": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "60": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema na Internet",
+      "* Falha na Consulta de Dados",
+      "Não reiniciou",
+      "Não quer reiniciar",
+      "* Falha no Envio do Guia",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva pergunta se usuário não gostaria de tentar reiniciar o aparelho;",
+      "A URA Cognitiva informa que o guia do aparelho está disponível no site para ajudar a configurar;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "3tY7US9pqYT",
+        "name": "Problema na Internet",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "OOSIhjQbaSs",
+        "name": "* Falha na Consulta de Dados",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "7LcWTqy6bhl",
+        "name": "Não reiniciou",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "PteexCcOWNh",
+        "name": "URA insiste e pergunta se usuario nao gostaria de tentar reiniciar",
+        "type": "Node"
+      },
+      "12": {
+        "id": "G9MvmExHKL2",
+        "name": "Não quer reiniciar",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "OFRpukVg51A",
+        "name": "* Falha no Envio do Guia",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "CDSmYGHP8nN",
+        "name": "Mensagem informando que o guia do aparelho está disponivel no site",
+        "type": "Node"
+      },
+      "15": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "61": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema nas ligações",
+      "Quer falar com ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "987o0-niJzE",
+        "name": "Problema nas ligações",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "nIhIjrFTVLK",
+        "name": "Quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "AhWAgWCwry",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "62": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema nas ligações",
+      "Quer continuar na URA",
+      "Já reiniciou",
+      "* Sucesso no Envio do Guia",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva informa que enviou o guia do aparelho por SMS para ajudar a configurar;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "987o0-niJzE",
+        "name": "Problema nas ligações",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "w99tEYqP3h8",
+        "name": "Quer continuar na URA",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RtG7wwHdbm7",
+        "name": "Já reiniciou",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "Vz1afWc-W20",
+        "name": "* Sucesso no Envio do Guia",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "I_FZjD755Qv",
+        "name": "Mensagem informando que enviou o Guia de Aparelho",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "63": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema nas ligações",
+      "Quer continuar na URA",
+      "Já reiniciou",
+      "* Falha no Envio do Guia",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva informa que o guia do aparelho está disponível no site para ajudar a configurar;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "987o0-niJzE",
+        "name": "Problema nas ligações",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "w99tEYqP3h8",
+        "name": "Quer continuar na URA",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RtG7wwHdbm7",
+        "name": "Já reiniciou",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "OFRpukVg51A",
+        "name": "* Falha no Envio do Guia",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "CDSmYGHP8nN",
+        "name": "Mensagem informando que o guia do aparelho está disponivel no site",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "64": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema nas ligações",
+      "Quer continuar na URA",
+      "Não reiniciou",
+      "Aceita Reiniciar"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva pergunta se usuário não gostaria de tentar reiniciar o aparelho;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "987o0-niJzE",
+        "name": "Problema nas ligações",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "w99tEYqP3h8",
+        "name": "Quer continuar na URA",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "7LcWTqy6bhl",
+        "name": "Não reiniciou",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "PteexCcOWNh",
+        "name": "URA insiste e pergunta se usuario nao gostaria de tentar reiniciar",
+        "type": "Node"
+      },
+      "12": {
+        "id": "dbNWs2w9PLp",
+        "name": "Aceita Reiniciar",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "65": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema nas ligações",
+      "Quer continuar na URA",
+      "Não reiniciou",
+      "Não quer reiniciar",
+      "* Sucesso no Envio do Guia",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva pergunta se usuário não gostaria de tentar reiniciar o aparelho;",
+      "A URA Cognitiva informa que enviou o guia do aparelho por SMS para ajudar a configurar;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "987o0-niJzE",
+        "name": "Problema nas ligações",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "w99tEYqP3h8",
+        "name": "Quer continuar na URA",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "7LcWTqy6bhl",
+        "name": "Não reiniciou",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "PteexCcOWNh",
+        "name": "URA insiste e pergunta se usuario nao gostaria de tentar reiniciar",
+        "type": "Node"
+      },
+      "12": {
+        "id": "G9MvmExHKL2",
+        "name": "Não quer reiniciar",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "Vz1afWc-W20",
+        "name": "* Sucesso no Envio do Guia",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "I_FZjD755Qv",
+        "name": "Mensagem informando que enviou o Guia de Aparelho",
+        "type": "Node"
+      },
+      "15": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "66": {
+    "precondition": [
+      "Quer fazer Religa",
+      "Está enfrentando dificuldade",
+      "Problema nas ligações",
+      "Quer continuar na URA",
+      "Não reiniciou",
+      "Não quer reiniciar",
+      "* Falha no Envio do Guia",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que existem faturas em aberto e pergunta se ele tem interesse no processo de Religa;",
+      "A URA Cognitiva pergunta se o usuário está com dificuldade para usar os serviços;",
+      "A URA Cognitiva pergunta em qual serviço o usuário está com dificuldades/problemas;",
+      "A URA Cognitiva pergunta se usuário não gostaria de tentar reiniciar o aparelho;",
+      "A URA Cognitiva informa que o guia do aparelho está disponível no site para ajudar a configurar;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "BmtHo8vrtS",
+        "name": "Inicia fluxo de religa",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "H_AjUuB716",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "3": {
+        "id": "wPOd3rPFai8",
+        "name": "* Cliente não é BTT",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "J6sou55H76K",
+        "name": "* Cliente não é BTO",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "p78LPHq_EfW",
+        "name": "Mensagem perguntando se ter dificuldade na internet",
+        "type": "Node"
+      },
+      "6": {
+        "id": "G0XMWIFPgVf",
+        "name": "Está enfrentando dificuldade",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RY2L9ZSyIRY",
+        "name": "Mensagem perguntando em qual serviço está com dificuldade",
+        "type": "Node"
+      },
+      "8": {
+        "id": "987o0-niJzE",
+        "name": "Problema nas ligações",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "w99tEYqP3h8",
+        "name": "Quer continuar na URA",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "7LcWTqy6bhl",
+        "name": "Não reiniciou",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "PteexCcOWNh",
+        "name": "URA insiste e pergunta se usuario nao gostaria de tentar reiniciar",
+        "type": "Node"
+      },
+      "12": {
+        "id": "G9MvmExHKL2",
+        "name": "Não quer reiniciar",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "OFRpukVg51A",
+        "name": "* Falha no Envio do Guia",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "CDSmYGHP8nN",
+        "name": "Mensagem informando que o guia do aparelho está disponivel no site",
+        "type": "Node"
+      },
+      "15": {
+        "id": "bHWOdi08hF",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "FRFyHvRZQ1h",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  }
+}

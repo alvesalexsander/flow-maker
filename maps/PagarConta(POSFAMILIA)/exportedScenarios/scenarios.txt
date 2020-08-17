@@ -1,0 +1,3352 @@
+{
+  "1": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* É conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Não possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva informa que como o cliente possui conta digital, recebe as faturas apenas por e-mail e que as também ficam disponíveis no App;",
+      "A URA Cognitiva informa que enviou a fatura que estava em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "syR41U75u_C",
+        "name": "* É conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "yzwF-tpH-Tx",
+        "name": "resposta caso seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "PRtEUA3Hneh",
+        "name": "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "zDEDCfjd6FK",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "PSYCEZ_95yA",
+        "name": "* Não possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "eLLXH_zfAVD",
+        "name": "Nao tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "13": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "2": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* É conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva informa que como o cliente possui conta digital, recebe as faturas apenas por e-mail e que as também ficam disponíveis no App;",
+      "A URA Cognitiva informa que enviou as faturas que estavam em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "syR41U75u_C",
+        "name": "* É conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "yzwF-tpH-Tx",
+        "name": "resposta caso seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "PRtEUA3Hneh",
+        "name": "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "zDEDCfjd6FK",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "sVlKSfGwoj0",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "xvGDAGvRY_D",
+        "name": "Tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "13": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "3": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* É conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Aceita ir para ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva informa que como o cliente possui conta digital, recebe as faturas apenas por e-mail e que as também ficam disponíveis no App;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e que as faturas estão disponiveis no site. Também oferece transferencia para o ATH para concluir o atendimento;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "syR41U75u_C",
+        "name": "* É conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "yzwF-tpH-Tx",
+        "name": "resposta caso seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "PRtEUA3Hneh",
+        "name": "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "liQw-ZQGWVk",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ysLe6kY1eHx",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "12": {
+        "id": "XFl1bIigsZB",
+        "name": "Aceita ir para ATH",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "xI6SHU2rPz",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "4": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* É conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Não quer falar com ATH",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva informa que como o cliente possui conta digital, recebe as faturas apenas por e-mail e que as também ficam disponíveis no App;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e que as faturas estão disponiveis no site. Também oferece transferencia para o ATH para concluir o atendimento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "syR41U75u_C",
+        "name": "* É conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "yzwF-tpH-Tx",
+        "name": "resposta caso seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "PRtEUA3Hneh",
+        "name": "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "liQw-ZQGWVk",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ysLe6kY1eHx",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "12": {
+        "id": "yfdAQ_7GGOI",
+        "name": "Não quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "5": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* É conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Aceita receber Código de Barras",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Não possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva informa que como o cliente possui conta digital, recebe as faturas apenas por e-mail e que as também ficam disponíveis no App;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que enviou a fatura que estava em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "syR41U75u_C",
+        "name": "* É conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "yzwF-tpH-Tx",
+        "name": "resposta caso seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "FYU4Ucr_Bp_",
+        "name": "Aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "zDEDCfjd6FK",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "PSYCEZ_95yA",
+        "name": "* Não possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "eLLXH_zfAVD",
+        "name": "Nao tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "15": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "6": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* É conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Aceita receber Código de Barras",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva informa que como o cliente possui conta digital, recebe as faturas apenas por e-mail e que as também ficam disponíveis no App;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que enviou as faturas que estavam em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "syR41U75u_C",
+        "name": "* É conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "yzwF-tpH-Tx",
+        "name": "resposta caso seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "FYU4Ucr_Bp_",
+        "name": "Aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "zDEDCfjd6FK",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "sVlKSfGwoj0",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "xvGDAGvRY_D",
+        "name": "Tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "15": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "7": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* É conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Aceita receber Código de Barras",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Aceita ir para ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva informa que como o cliente possui conta digital, recebe as faturas apenas por e-mail e que as também ficam disponíveis no App;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e que as faturas estão disponiveis no site. Também oferece transferencia para o ATH para concluir o atendimento;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "syR41U75u_C",
+        "name": "* É conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "yzwF-tpH-Tx",
+        "name": "resposta caso seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "FYU4Ucr_Bp_",
+        "name": "Aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "liQw-ZQGWVk",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "ysLe6kY1eHx",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "XFl1bIigsZB",
+        "name": "Aceita ir para ATH",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "xI6SHU2rPz",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "8": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* É conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Aceita receber Código de Barras",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Não quer falar com ATH",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva informa que como o cliente possui conta digital, recebe as faturas apenas por e-mail e que as também ficam disponíveis no App;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e que as faturas estão disponiveis no site. Também oferece transferencia para o ATH para concluir o atendimento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "syR41U75u_C",
+        "name": "* É conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "yzwF-tpH-Tx",
+        "name": "resposta caso seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "FYU4Ucr_Bp_",
+        "name": "Aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "liQw-ZQGWVk",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "ysLe6kY1eHx",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "yfdAQ_7GGOI",
+        "name": "Não quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "9": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* É conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Não aceita receber Código de Barras",
+      "Quer algo mais: #desambiguadorCodigoBarras ou SegundaVia ou Pagar Conta ou NaoRecebimentoFatura",
+      "* (insistencia) Não possui faturas em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva informa que como o cliente possui conta digital, recebe as faturas apenas por e-mail e que as também ficam disponíveis no App;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que apenas o titular do plano pode receber a segunda via e que caso precise da segunda vida, pedir para o titular entrar em contato;",
+      "A URA Cognitiva informa que apenas o titular do plano pode receber a segunda via e que caso precise da segunda vida, pedir para o titular entrar em contato;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "syR41U75u_C",
+        "name": "* É conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "yzwF-tpH-Tx",
+        "name": "resposta caso seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "wNulU10iHpF",
+        "name": "Não aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "_xl0jGMcxuj",
+        "name": "resposta caso não aceite código de barras",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bU5I7U3z7MP",
+        "name": "Quer algo mais: #desambiguadorCodigoBarras ou SegundaVia ou Pagar Conta ou NaoRecebimentoFatura",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "DnJrio5eCwn",
+        "name": "* (insistencia) Não possui faturas em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "Psu3W8FYm_a",
+        "name": "resposta caso não exista faturas em aberto insistencia",
+        "type": "Node"
+      },
+      "16": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "10": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* É conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Não aceita receber Código de Barras",
+      "Quer algo mais: #desambiguadorCodigoBarras ou SegundaVia ou Pagar Conta ou NaoRecebimentoFatura",
+      "* (insistencia) Possui faturas em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva informa que como o cliente possui conta digital, recebe as faturas apenas por e-mail e que as também ficam disponíveis no App;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que apenas o titular do plano pode receber a segunda via e que caso precise da segunda vida, pedir para o titular entrar em contato;",
+      "A URA Cognitiva informa que como o cliente não é o titular, não é possível enviar a segunda vida da fatura, mas que já enviou o código de barras;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "syR41U75u_C",
+        "name": "* É conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "yzwF-tpH-Tx",
+        "name": "resposta caso seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "wNulU10iHpF",
+        "name": "Não aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "_xl0jGMcxuj",
+        "name": "resposta caso não aceite código de barras",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bU5I7U3z7MP",
+        "name": "Quer algo mais: #desambiguadorCodigoBarras ou SegundaVia ou Pagar Conta ou NaoRecebimentoFatura",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "ojscwWOFGHT",
+        "name": "* (insistencia) Possui faturas em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "Ud5EVf9CTlI",
+        "name": "resposta caso exista faturas em aberto insistencia",
+        "type": "Node"
+      },
+      "16": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "11": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* É conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Não aceita receber Código de Barras",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva informa que como o cliente possui conta digital, recebe as faturas apenas por e-mail e que as também ficam disponíveis no App;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que apenas o titular do plano pode receber a segunda via e que caso precise da segunda vida, pedir para o titular entrar em contato;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "syR41U75u_C",
+        "name": "* É conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "yzwF-tpH-Tx",
+        "name": "resposta caso seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "wNulU10iHpF",
+        "name": "Não aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "_xl0jGMcxuj",
+        "name": "resposta caso não aceite código de barras",
+        "type": "Node"
+      },
+      "13": {
+        "id": "crDjJFr5ZyS",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "12": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* É conta digital",
+      "* Não é titular",
+      "* Não possui fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva informa que como o cliente possui conta digital, recebe as faturas apenas por e-mail e que as também ficam disponíveis no App;",
+      "A URA Cognitiva informa que o cliente não possui faturas em aberto e que apenas o titular do plano pode solicitar uma segunda via.;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "syR41U75u_C",
+        "name": "* É conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "yzwF-tpH-Tx",
+        "name": "resposta caso seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "kfWoISkulyk",
+        "name": "* Não possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "-J9ktg4BIRx",
+        "name": "cliente nao possui faturas em aberto",
+        "type": "Node"
+      },
+      "10": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "13": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* Não é conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Não possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva sugere que o cliente verifique se o endereço cadastrado no app está correto;",
+      "A URA Cognitiva informa que enviou a fatura que estava em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "ZtC_BkT7iDb",
+        "name": "* Não é conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "82V0DmN_BRi",
+        "name": "resposta caso não seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "PRtEUA3Hneh",
+        "name": "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "zDEDCfjd6FK",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "PSYCEZ_95yA",
+        "name": "* Não possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "eLLXH_zfAVD",
+        "name": "Nao tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "13": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "14": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* Não é conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva sugere que o cliente verifique se o endereço cadastrado no app está correto;",
+      "A URA Cognitiva informa que enviou as faturas que estavam em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "ZtC_BkT7iDb",
+        "name": "* Não é conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "82V0DmN_BRi",
+        "name": "resposta caso não seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "PRtEUA3Hneh",
+        "name": "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "zDEDCfjd6FK",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "sVlKSfGwoj0",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "xvGDAGvRY_D",
+        "name": "Tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "13": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "15": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* Não é conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Aceita ir para ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva sugere que o cliente verifique se o endereço cadastrado no app está correto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e que as faturas estão disponiveis no site. Também oferece transferencia para o ATH para concluir o atendimento;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "ZtC_BkT7iDb",
+        "name": "* Não é conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "82V0DmN_BRi",
+        "name": "resposta caso não seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "PRtEUA3Hneh",
+        "name": "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "liQw-ZQGWVk",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ysLe6kY1eHx",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "12": {
+        "id": "XFl1bIigsZB",
+        "name": "Aceita ir para ATH",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "xI6SHU2rPz",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "16": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* Não é conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Não quer falar com ATH",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva sugere que o cliente verifique se o endereço cadastrado no app está correto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e que as faturas estão disponiveis no site. Também oferece transferencia para o ATH para concluir o atendimento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "ZtC_BkT7iDb",
+        "name": "* Não é conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "82V0DmN_BRi",
+        "name": "resposta caso não seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "PRtEUA3Hneh",
+        "name": "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "liQw-ZQGWVk",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ysLe6kY1eHx",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "12": {
+        "id": "yfdAQ_7GGOI",
+        "name": "Não quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "17": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* Não é conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Aceita receber Código de Barras",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Não possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva sugere que o cliente verifique se o endereço cadastrado no app está correto;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que enviou a fatura que estava em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "ZtC_BkT7iDb",
+        "name": "* Não é conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "82V0DmN_BRi",
+        "name": "resposta caso não seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "FYU4Ucr_Bp_",
+        "name": "Aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "zDEDCfjd6FK",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "PSYCEZ_95yA",
+        "name": "* Não possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "eLLXH_zfAVD",
+        "name": "Nao tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "15": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "18": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* Não é conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Aceita receber Código de Barras",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva sugere que o cliente verifique se o endereço cadastrado no app está correto;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que enviou as faturas que estavam em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "ZtC_BkT7iDb",
+        "name": "* Não é conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "82V0DmN_BRi",
+        "name": "resposta caso não seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "FYU4Ucr_Bp_",
+        "name": "Aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "zDEDCfjd6FK",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "sVlKSfGwoj0",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "xvGDAGvRY_D",
+        "name": "Tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "15": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "19": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* Não é conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Aceita receber Código de Barras",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Aceita ir para ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva sugere que o cliente verifique se o endereço cadastrado no app está correto;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e que as faturas estão disponiveis no site. Também oferece transferencia para o ATH para concluir o atendimento;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "ZtC_BkT7iDb",
+        "name": "* Não é conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "82V0DmN_BRi",
+        "name": "resposta caso não seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "FYU4Ucr_Bp_",
+        "name": "Aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "liQw-ZQGWVk",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "ysLe6kY1eHx",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "XFl1bIigsZB",
+        "name": "Aceita ir para ATH",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "xI6SHU2rPz",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "20": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* Não é conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Aceita receber Código de Barras",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Não quer falar com ATH",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva sugere que o cliente verifique se o endereço cadastrado no app está correto;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e que as faturas estão disponiveis no site. Também oferece transferencia para o ATH para concluir o atendimento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "ZtC_BkT7iDb",
+        "name": "* Não é conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "82V0DmN_BRi",
+        "name": "resposta caso não seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "FYU4Ucr_Bp_",
+        "name": "Aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "liQw-ZQGWVk",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "ysLe6kY1eHx",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "14": {
+        "id": "yfdAQ_7GGOI",
+        "name": "Não quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "16": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "21": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* Não é conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Não aceita receber Código de Barras",
+      "Quer algo mais: #desambiguadorCodigoBarras ou SegundaVia ou Pagar Conta ou NaoRecebimentoFatura",
+      "* (insistencia) Não possui faturas em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva sugere que o cliente verifique se o endereço cadastrado no app está correto;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que apenas o titular do plano pode receber a segunda via e que caso precise da segunda vida, pedir para o titular entrar em contato;",
+      "A URA Cognitiva informa que apenas o titular do plano pode receber a segunda via e que caso precise da segunda vida, pedir para o titular entrar em contato;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "ZtC_BkT7iDb",
+        "name": "* Não é conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "82V0DmN_BRi",
+        "name": "resposta caso não seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "wNulU10iHpF",
+        "name": "Não aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "_xl0jGMcxuj",
+        "name": "resposta caso não aceite código de barras",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bU5I7U3z7MP",
+        "name": "Quer algo mais: #desambiguadorCodigoBarras ou SegundaVia ou Pagar Conta ou NaoRecebimentoFatura",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "DnJrio5eCwn",
+        "name": "* (insistencia) Não possui faturas em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "Psu3W8FYm_a",
+        "name": "resposta caso não exista faturas em aberto insistencia",
+        "type": "Node"
+      },
+      "16": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "22": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* Não é conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Não aceita receber Código de Barras",
+      "Quer algo mais: #desambiguadorCodigoBarras ou SegundaVia ou Pagar Conta ou NaoRecebimentoFatura",
+      "* (insistencia) Possui faturas em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva sugere que o cliente verifique se o endereço cadastrado no app está correto;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que apenas o titular do plano pode receber a segunda via e que caso precise da segunda vida, pedir para o titular entrar em contato;",
+      "A URA Cognitiva informa que como o cliente não é o titular, não é possível enviar a segunda vida da fatura, mas que já enviou o código de barras;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "ZtC_BkT7iDb",
+        "name": "* Não é conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "82V0DmN_BRi",
+        "name": "resposta caso não seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "wNulU10iHpF",
+        "name": "Não aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "_xl0jGMcxuj",
+        "name": "resposta caso não aceite código de barras",
+        "type": "Node"
+      },
+      "13": {
+        "id": "bU5I7U3z7MP",
+        "name": "Quer algo mais: #desambiguadorCodigoBarras ou SegundaVia ou Pagar Conta ou NaoRecebimentoFatura",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "ojscwWOFGHT",
+        "name": "* (insistencia) Possui faturas em aberto",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "Ud5EVf9CTlI",
+        "name": "resposta caso exista faturas em aberto insistencia",
+        "type": "Node"
+      },
+      "16": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "17": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "23": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* Não é conta digital",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Não aceita receber Código de Barras",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva sugere que o cliente verifique se o endereço cadastrado no app está correto;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que apenas o titular do plano pode receber a segunda via e que caso precise da segunda vida, pedir para o titular entrar em contato;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "ZtC_BkT7iDb",
+        "name": "* Não é conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "82V0DmN_BRi",
+        "name": "resposta caso não seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "11": {
+        "id": "wNulU10iHpF",
+        "name": "Não aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "_xl0jGMcxuj",
+        "name": "resposta caso não aceite código de barras",
+        "type": "Node"
+      },
+      "13": {
+        "id": "crDjJFr5ZyS",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "15": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "24": {
+    "precondition": [
+      "* Sucesso no billing",
+      "Veio de #desambiguadorNaoRecebimentoDeFatura",
+      "* Não é conta digital",
+      "* Não é titular",
+      "* Não possui fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que entendeu que o cliente está com problemas relacionados ao recebimento da fatura;",
+      "A URA Cognitiva sugere que o cliente verifique se o endereço cadastrado no app está correto;",
+      "A URA Cognitiva informa que o cliente não possui faturas em aberto e que apenas o titular do plano pode solicitar uma segunda via.;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "0C6ugmZk3Ta",
+        "name": "Veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "VCatQ1_3TvK",
+        "name": "URA informa que entendeu que está com problemas fatura",
+        "type": "Node"
+      },
+      "5": {
+        "id": "ZtC_BkT7iDb",
+        "name": "* Não é conta digital",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "82V0DmN_BRi",
+        "name": "resposta caso não seja conta digital",
+        "type": "Node"
+      },
+      "7": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "kfWoISkulyk",
+        "name": "* Não possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "-J9ktg4BIRx",
+        "name": "cliente nao possui faturas em aberto",
+        "type": "Node"
+      },
+      "10": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "25": {
+    "precondition": [
+      "* Sucesso no billing",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Não possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que enviou a fatura que estava em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "daVjg9izP-t",
+        "name": "Não veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "PRtEUA3Hneh",
+        "name": "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "zDEDCfjd6FK",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "PSYCEZ_95yA",
+        "name": "* Não possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "eLLXH_zfAVD",
+        "name": "Nao tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "10": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "26": {
+    "precondition": [
+      "* Sucesso no billing",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que enviou as faturas que estavam em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "daVjg9izP-t",
+        "name": "Não veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "PRtEUA3Hneh",
+        "name": "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "zDEDCfjd6FK",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "sVlKSfGwoj0",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "xvGDAGvRY_D",
+        "name": "Tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "10": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "27": {
+    "precondition": [
+      "* Sucesso no billing",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Aceita ir para ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e que as faturas estão disponiveis no site. Também oferece transferencia para o ATH para concluir o atendimento;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "daVjg9izP-t",
+        "name": "Não veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "PRtEUA3Hneh",
+        "name": "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "liQw-ZQGWVk",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "ysLe6kY1eHx",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "9": {
+        "id": "XFl1bIigsZB",
+        "name": "Aceita ir para ATH",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "xI6SHU2rPz",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "28": {
+    "precondition": [
+      "* Sucesso no billing",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Não quer falar com ATH",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e que as faturas estão disponiveis no site. Também oferece transferencia para o ATH para concluir o atendimento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "daVjg9izP-t",
+        "name": "Não veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "PRtEUA3Hneh",
+        "name": "VEIO DE DESAMBIGUADOR CODIGOBARRAS",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "liQw-ZQGWVk",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "ysLe6kY1eHx",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "9": {
+        "id": "yfdAQ_7GGOI",
+        "name": "Não quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "29": {
+    "precondition": [
+      "* Sucesso no billing",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Aceita receber Código de Barras",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Não possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que enviou a fatura que estava em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "daVjg9izP-t",
+        "name": "Não veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "8": {
+        "id": "FYU4Ucr_Bp_",
+        "name": "Aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "zDEDCfjd6FK",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "PSYCEZ_95yA",
+        "name": "* Não possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "eLLXH_zfAVD",
+        "name": "Nao tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "12": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "30": {
+    "precondition": [
+      "* Sucesso no billing",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Aceita receber Código de Barras",
+      "* Sucesso Serviço Cód.Barras/SMS",
+      "* Possui mais de 1 fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que enviou as faturas que estavam em aberto;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "daVjg9izP-t",
+        "name": "Não veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "8": {
+        "id": "FYU4Ucr_Bp_",
+        "name": "Aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "zDEDCfjd6FK",
+        "name": "* Sucesso Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "sVlKSfGwoj0",
+        "name": "* Possui mais de 1 fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "xvGDAGvRY_D",
+        "name": "Tem mais de uma fatura em aberto",
+        "type": "Node"
+      },
+      "12": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "31": {
+    "precondition": [
+      "* Sucesso no billing",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Aceita receber Código de Barras",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Aceita ir para ATH",
+      "Encaminha para o ATH."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e que as faturas estão disponiveis no site. Também oferece transferencia para o ATH para concluir o atendimento;",
+      "URA informa que vai tranferir para o ATH."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "daVjg9izP-t",
+        "name": "Não veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "8": {
+        "id": "FYU4Ucr_Bp_",
+        "name": "Aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "liQw-ZQGWVk",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ysLe6kY1eHx",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "11": {
+        "id": "XFl1bIigsZB",
+        "name": "Aceita ir para ATH",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "xI6SHU2rPz",
+        "name": "URA Informa que vai tranferir para o ATH",
+        "type": "Node"
+      }
+    }
+  },
+  "32": {
+    "precondition": [
+      "* Sucesso no billing",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Aceita receber Código de Barras",
+      "* Falha Serviço Cód.Barras/SMS",
+      "Não quer falar com ATH",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que por uma instabilidade no sistema não conseguiu enviar as faturas e que as faturas estão disponiveis no site. Também oferece transferencia para o ATH para concluir o atendimento;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "daVjg9izP-t",
+        "name": "Não veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "8": {
+        "id": "FYU4Ucr_Bp_",
+        "name": "Aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "liQw-ZQGWVk",
+        "name": "* Falha Serviço Cód.Barras/SMS",
+        "type": "DecisionNode"
+      },
+      "10": {
+        "id": "ysLe6kY1eHx",
+        "name": "Mensagem de Falha no serviço Codigo Barras 5",
+        "type": "Node"
+      },
+      "11": {
+        "id": "yfdAQ_7GGOI",
+        "name": "Não quer falar com ATH",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "13": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "33": {
+    "precondition": [
+      "* Sucesso no billing",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Não aceita receber Código de Barras",
+      "Quer algo mais: #desambiguadorCodigoBarras ou SegundaVia ou Pagar Conta ou NaoRecebimentoFatura",
+      "* (insistencia) Não possui faturas em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que apenas o titular do plano pode receber a segunda via e que caso precise da segunda vida, pedir para o titular entrar em contato;",
+      "A URA Cognitiva informa que apenas o titular do plano pode receber a segunda via e que caso precise da segunda vida, pedir para o titular entrar em contato;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "daVjg9izP-t",
+        "name": "Não veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "8": {
+        "id": "wNulU10iHpF",
+        "name": "Não aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "_xl0jGMcxuj",
+        "name": "resposta caso não aceite código de barras",
+        "type": "Node"
+      },
+      "10": {
+        "id": "bU5I7U3z7MP",
+        "name": "Quer algo mais: #desambiguadorCodigoBarras ou SegundaVia ou Pagar Conta ou NaoRecebimentoFatura",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "DnJrio5eCwn",
+        "name": "* (insistencia) Não possui faturas em aberto",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "Psu3W8FYm_a",
+        "name": "resposta caso não exista faturas em aberto insistencia",
+        "type": "Node"
+      },
+      "13": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "34": {
+    "precondition": [
+      "* Sucesso no billing",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Não aceita receber Código de Barras",
+      "Quer algo mais: #desambiguadorCodigoBarras ou SegundaVia ou Pagar Conta ou NaoRecebimentoFatura",
+      "* (insistencia) Possui faturas em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que apenas o titular do plano pode receber a segunda via e que caso precise da segunda vida, pedir para o titular entrar em contato;",
+      "A URA Cognitiva informa que como o cliente não é o titular, não é possível enviar a segunda vida da fatura, mas que já enviou o código de barras;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "daVjg9izP-t",
+        "name": "Não veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "8": {
+        "id": "wNulU10iHpF",
+        "name": "Não aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "_xl0jGMcxuj",
+        "name": "resposta caso não aceite código de barras",
+        "type": "Node"
+      },
+      "10": {
+        "id": "bU5I7U3z7MP",
+        "name": "Quer algo mais: #desambiguadorCodigoBarras ou SegundaVia ou Pagar Conta ou NaoRecebimentoFatura",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "ojscwWOFGHT",
+        "name": "* (insistencia) Possui faturas em aberto",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "Ud5EVf9CTlI",
+        "name": "resposta caso exista faturas em aberto insistencia",
+        "type": "Node"
+      },
+      "13": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "14": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "35": {
+    "precondition": [
+      "* Sucesso no billing",
+      "* Não é titular",
+      "* Possui fatura em aberto",
+      "Não veio de desambiguadorCodigoBarras",
+      "Não aceita receber Código de Barras",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva oferece o envio das demais faturas em aberto;",
+      "A URA Cognitiva informa que apenas o titular do plano pode receber a segunda via e que caso precise da segunda vida, pedir para o titular entrar em contato;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "daVjg9izP-t",
+        "name": "Não veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "bVCrO-QqaX1",
+        "name": "* Possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "hbVmhjXkNAi",
+        "name": "Não veio de desambiguadorCodigoBarras",
+        "type": "DecisionNode"
+      },
+      "7": {
+        "id": "RlIsWsRFfO4",
+        "name": "URA oferece enviar as demais faturas em aberto",
+        "type": "Node"
+      },
+      "8": {
+        "id": "wNulU10iHpF",
+        "name": "Não aceita receber Código de Barras",
+        "type": "DecisionNode"
+      },
+      "9": {
+        "id": "_xl0jGMcxuj",
+        "name": "resposta caso não aceite código de barras",
+        "type": "Node"
+      },
+      "10": {
+        "id": "crDjJFr5ZyS",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "11": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "12": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "36": {
+    "precondition": [
+      "* Sucesso no billing",
+      "* Não é titular",
+      "* Não possui fatura em aberto",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva informa que o cliente não possui faturas em aberto e que apenas o titular do plano pode solicitar uma segunda via.;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "r_tZARGE-QM",
+        "name": "* Sucesso no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "daVjg9izP-t",
+        "name": "Não veio de #desambiguadorNaoRecebimentoDeFatura",
+        "type": "DecisionNode"
+      },
+      "4": {
+        "id": "LodFVQY8u56",
+        "name": "* Não é titular",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "kfWoISkulyk",
+        "name": "* Não possui fatura em aberto",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "-J9ktg4BIRx",
+        "name": "cliente nao possui faturas em aberto",
+        "type": "Node"
+      },
+      "7": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "37": {
+    "precondition": [
+      "* Falha no billing",
+      "Quer pacote adicional",
+      "Encaminha para o Fluxo de Contratação de Pacotes."
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva pergunta se o usuário quer saber mais sobre os pacotes adicionais;",
+      "URA entra no fluxo de contratação de pacotes."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "U5JlRyjW04B",
+        "name": "* Falha no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "2RwgH5ciqTW",
+        "name": "URA pergunta se quer saber dos pacotes adicionais",
+        "type": "Node"
+      },
+      "4": {
+        "id": "lrOyHJr4-KG",
+        "name": "Quer pacote adicional",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "l7XMqwN3od",
+        "name": "URA encaminha para o fluxo de contratação de pacotes",
+        "type": "Node"
+      }
+    }
+  },
+  "38": {
+    "precondition": [
+      "* Falha no billing",
+      "Não quer pacote adicional",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "A URA Cognitiva pergunta se o usuário quer saber mais sobre os pacotes adicionais;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "U6oLsbUBqw",
+        "name": "Inicia fluxo de pagarConta",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "U5JlRyjW04B",
+        "name": "* Falha no billing",
+        "type": "DecisionNode"
+      },
+      "3": {
+        "id": "2RwgH5ciqTW",
+        "name": "URA pergunta se quer saber dos pacotes adicionais",
+        "type": "Node"
+      },
+      "4": {
+        "id": "aTh6CvXAjI5",
+        "name": "Não quer pacote adicional",
+        "type": "DecisionNode"
+      },
+      "5": {
+        "id": "nUJ7wX6RRn",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "5i9SI1CuiAB",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  }
+}

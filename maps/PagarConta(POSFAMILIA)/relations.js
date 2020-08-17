@@ -141,7 +141,7 @@ const {
     expectPrecisaSegundaVia,
     qualMesSegundaVia,
     expectMesInvalido,
-    segundaTentativaMes
+    segundaTentativaMes,
 } = require('./nodes');
 
 pagarConta.linkChain(
@@ -229,7 +229,7 @@ pagarConta.linkChain(
                 [faturaEmAberto.getPath('* Não possui fatura em aberto'), expectNaoPossuiFaturaAberto],
                     [expectNaoPossuiFaturaAberto, perguntaQuerAlgoMais],
             //        
-            [mainClienteTitular.getPath('* É titular'), pediuAlgumMes],
+            // [mainClienteTitular.getPath('* É titular'), pediuAlgumMes],
                 [pediuAlgumMes.getPath('Fatura de um mês espefícico'), mesPossuiFaturaAberto],
                     [mesPossuiFaturaAberto.getPath('Mês não está nas faturas em aberto'), faturaUltimos12meses],
                         [faturaUltimos12meses.getPath('Não é dos últimos 12 meses'), expectNaoUltimos12meses],
@@ -249,32 +249,29 @@ pagarConta.linkChain(
                                             [verificaProprioAparelhoSMS.getPath('* Ligando do próprio aparelho'), servicoFaturaSMS1],
                                                 [servicoFaturaSMS1.getPath('* Falha no serviço SMS').noStepMessage(), servicoCodigoBarras5.getPath('* Falha Serviço Cód.Barras/SMS')],
                                                 [servicoFaturaSMS1.getPath('* Sucesso no serviço SMS'), existemFaturasAbertoSMS],
-                                                    [existemFaturasAbertoSMS.getPath('* Sem faturas em aberto'), clienteContaDigital],
-                                                        [clienteContaDigital.getPath('* Não é conta Digital'), perguntaQuerAlgoMais],
-                                                        [clienteContaDigital.getPath('* É conta Digital'), expectTratNaoRecebimento],
+                                                    [existemFaturasAbertoSMS, clienteContaDigital],
+                                                        [clienteContaDigital, perguntaQuerAlgoMais],
                                                             [expectTratNaoRecebimento, perguntaQuerAlgoMais],
-                                                    [existemFaturasAbertoSMS.getPath('* Possui faturas em aberto'), expectFaturasEmAbertoSMS],
                                                         [expectFaturasEmAbertoSMS, querReceberFatEmAbertoSMS],
                                                         [querReceberFatEmAbertoSMS.getPath('Não quer receber faturas em aberto'), clienteContaDigital],
                                                         [querReceberFatEmAbertoSMS.getPath('Quer receber faturas em aberto'), enviaFaturasEmAbertoSMS],
                                                         [enviaFaturasEmAbertoSMS, clienteContaDigital],
                                             [verificaProprioAparelhoSMS.getPath('* Ligando de outro aparelho'), expectOutroAparelhoSMS],
                                                 [expectOutroAparelhoSMS, fluxoSenhaSMS],
-                                                    [fluxoSenhaSMS.getPath('* Falha no Fluxo de Senha'), ofereceATH],
+                                                    [fluxoSenhaSMS.getPath('* Senha Incorreta'), ofereceATH],
                                                     [fluxoSenhaSMS.getPath('* Sucesso no Fluxo de Senha'), servicoFaturaSMS1],
                                         // FIM SMS
                                         [escolhaRealizada.getPath('Quer receber por Email'), verificaProprioAparelhoEmail],
                                         [verificaProprioAparelhoEmail.getPath('* Ligando do próprio aparelho'), servicoFaturaEmail1],
                                             [servicoFaturaEmail1.getPath('* Sucesso no serviço Email'), existemFaturasAbertoEmail],
-                                                [existemFaturasAbertoEmail.getPath('* Sem faturas em aberto'), clienteContaDigital],
-                                                [existemFaturasAbertoEmail.getPath('* Possui faturas em aberto'), expectFaturasEmAbertoEmail],
+                                                [existemFaturasAbertoEmail, clienteContaDigital],
                                                     [expectFaturasEmAbertoEmail, querReceberFatEmAbertoEmail],
                                                     [querReceberFatEmAbertoEmail.getPath('Não quer receber faturas em aberto'), clienteContaDigital],
                                                     [querReceberFatEmAbertoEmail.getPath('Quer receber faturas em aberto'), enviaFaturasEmAbertoEmail],
                                                     [enviaFaturasEmAbertoEmail, clienteContaDigital],
                                         [verificaProprioAparelhoEmail.getPath('* Ligando de outro aparelho'), expectOutroAparelhoEmail],
                                             [expectOutroAparelhoEmail, fluxoSenhaEmail],
-                                                [fluxoSenhaEmail.getPath('* Falha no Fluxo de Senha'), ofereceATH],
+                                                [fluxoSenhaEmail.getPath('* Senha Incorreta'), ofereceATH],
                                                 [fluxoSenhaEmail.getPath('* Sucesso no Fluxo de Senha'), servicoFaturaEmail1],
                                         // FIM EMAIL
                                         [escolhaRealizada.getPath('Quer receber em Casa'), expectEscolheCasa],
@@ -284,15 +281,14 @@ pagarConta.linkChain(
                                             // COMEÇA
                                             [verificaProprioAparelhoCasa.getPath('* Ligando do próprio aparelho'), servicoFaturaCasa1],
                                                 [servicoFaturaCasa1.getPath('* Sucesso no serviço Correios'), existemFaturasAbertoCasa],
-                                                    [existemFaturasAbertoCasa.getPath('* Sem faturas em aberto'), clienteContaDigital],
-                                                    [existemFaturasAbertoCasa.getPath('* Possui faturas em aberto'), expectFaturasEmAbertoCasa],
+                                                    [existemFaturasAbertoCasa, clienteContaDigital],
                                                         [expectFaturasEmAbertoCasa, querReceberFatEmAbertoCasa],
                                                         [querReceberFatEmAbertoCasa.getPath('Não quer receber faturas em aberto'), clienteContaDigital],
                                                         [querReceberFatEmAbertoCasa.getPath('Quer receber faturas em aberto'), enviaFaturasEmAbertoCasa],
                                                         [enviaFaturasEmAbertoCasa, clienteContaDigital],
                                             [verificaProprioAparelhoCasa.getPath('* Ligando de outro aparelho'), expectOutroAparelhoCasa],
                                                 [expectOutroAparelhoCasa, fluxoSenhaCasa],
-                                                    [fluxoSenhaCasa.getPath('* Falha no Fluxo de Senha'), ofereceATH],
+                                                    [fluxoSenhaCasa.getPath('* Senha Incorreta'), ofereceATH],
                                                     [fluxoSenhaCasa.getPath('* Sucesso no Fluxo de Senha'), servicoFaturaCasa1],
                                         // FIM CASA
                                         [escolhaRealizada.getPath('Escolha inválida'), expectSegundaChance],
@@ -325,5 +321,6 @@ pagarConta.linkChain(
 
 
 pagarConta.mapScenarios();
-pagarConta.showScenarios();
+// pagarConta.showScenarios();
+pagarConta.exportScenariosToText();
 pagarConta.exportScenariosToExcel();

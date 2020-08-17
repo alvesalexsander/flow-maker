@@ -219,5 +219,6 @@ religa.linkChain(
 
 
 religa.mapScenarios();
-// religa.showScenarios();
+religa.showScenarios();
 religa.exportScenariosToExcel();
+religa.exportScenariosToText();
