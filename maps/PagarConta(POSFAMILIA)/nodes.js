@@ -298,6 +298,11 @@ const nodes = {
         expectedMessage: 'A URA Cognitiva informa que no site Negocia é possivel visualizar todas as faturas abertas e pergunta se mesmo assim gostaria que enviasse a fatura que gerou o bloqueio;'
     }),
 
+    falhaLinkNegocia2: pagarConta.newNode('node', {
+        name: 'Mensagem de falha no serviço link negocia 6',
+        expectedMessage: 'A URA Cognitiva informa que ocorreu um erro no sistema e não será possivel prosseguir. Também informa que o cliente pode acessar as faturas pelo site de forma rápida e segura;'
+    }),
+
     expectNaoQuerFatura: pagarConta.newNode('node', {
         name: 'Mensagem de falha no serviço link negocia 6',
         expectedMessage: 'A URA Cognitiva informa que no site Negocia é possivel visualizar todas as faturas abertas e pergunta se mesmo assim gostaria que enviasse a fatura que gerou o bloqueio;'
@@ -493,7 +498,17 @@ const nodes = {
         expectedMessage: 'A URA Cognitiva informa que para receber faturas mais antigas ela precisa transferir para o ATH;'
     }),
 
+    expectNaoUltimos12mesesAlt: pagarConta.newNode('node', {
+        name: 'Mensagem fatura nao é dos ultimos 12 meses',
+        expectedMessage: 'A URA Cognitiva informa que para receber faturas mais antigas ela precisa transferir para o ATH;'
+    }),
+
     faturaUltimos6meses: pagarConta.newNode('switch', {
+        name: 'verifica se a fatura é dos ultimos 6 meses',
+        pathCases: ['Não é dos ultimos 6 meses', 'É dos ultimos 6 meses']
+    }),
+
+    faturaUltimos6mesesAlt: pagarConta.newNode('switch', {
         name: 'verifica se a fatura é dos ultimos 6 meses',
         pathCases: ['Não é dos ultimos 6 meses', 'É dos ultimos 6 meses']
     }),
@@ -503,7 +518,17 @@ const nodes = {
         expectedMessage: 'A URA Cognitiva informa que para receber faturas mais antigas ela pode transferir para o ATH ou enviar por SMS um link para consultar a fatura;'
     }),
 
+    expectNaoUltimos6mesesAlt: pagarConta.newNode('node', {
+        name: 'Mensagem fatura nao é dos ultimos 6 meses',
+        expectedMessage: 'A URA Cognitiva informa que para receber faturas mais antigas ela pode transferir para o ATH ou enviar por SMS um link para consultar a fatura;'
+    }),
+
     querContinuarURA: pagarConta.newNode('switch', {
+        name: 'pergunta se quer ir para o ATH ou continuar',
+        pathCases: ['Quer continuar com o ATH', 'Quer continuar com a URA']
+    }),
+
+    querContinuarURAAlt: pagarConta.newNode('switch', {
         name: 'pergunta se quer ir para o ATH ou continuar',
         pathCases: ['Quer continuar com o ATH', 'Quer continuar com a URA']
     }),
@@ -523,7 +548,17 @@ const nodes = {
         expectedMessage: 'A URA Cognitiva pede para aguardar e se prepara para enviar por SMS;'
     }),
 
+    expectEmailInvalidoAlt: pagarConta.newNode('node', {
+        name: 'mensagem email do cliente inválido',
+        expectedMessage: 'A URA Cognitiva pede para aguardar e se prepara para enviar por SMS;'
+    }),
+
     expectComoPrefere: pagarConta.newNode('node', {
+        name: 'URA pergunta como o cliente quer receber segunda via',
+        expectedMessage: 'A URA Cognitiva pergunta como o cliente quer receber a segunda via (SMS, Email ou Correios);'
+    }),
+
+    expectComoPrefereAlt: pagarConta.newNode('node', {
         name: 'URA pergunta como o cliente quer receber segunda via',
         expectedMessage: 'A URA Cognitiva pergunta como o cliente quer receber a segunda via (SMS, Email ou Correios);'
     }),
@@ -538,7 +573,27 @@ const nodes = {
         ]
     }),
 
+    escolhaRealizadaAlt: pagarConta.newNode('switch', {
+        name: 'verifica se a escolha do cliente é válida ou invalida',
+        pathCases: [
+            'Quer receber por SMS',
+            'Quer receber por Email',
+            'Quer receber em Casa',
+            'Escolha inválida'
+        ]
+    }),
+
     verificaProprioAparelhoSMS: pagarConta.newNode('switch', {
+        name: 'verifica se o cliente está ligando do próprio aparelho ou não (SMS)',
+        pathCases: ['* Ligando do próprio aparelho', '* Ligando de outro aparelho']
+    }),
+
+    verificaProprioAparelhoSMSAlt: pagarConta.newNode('switch', {
+        name: 'verifica se o cliente está ligando do próprio aparelho ou não (SMS)',
+        pathCases: ['* Ligando do próprio aparelho', '* Ligando de outro aparelho']
+    }),
+
+    verificaProprioAparelhoSMSAlt2: pagarConta.newNode('switch', {
         name: 'verifica se o cliente está ligando do próprio aparelho ou não (SMS)',
         pathCases: ['* Ligando do próprio aparelho', '* Ligando de outro aparelho']
     }),
@@ -548,7 +603,17 @@ const nodes = {
         pathCases: ['* Ligando do próprio aparelho', '* Ligando de outro aparelho']
     }),
 
+    verificaProprioAparelhoEmailAlt: pagarConta.newNode('switch', {
+        name: 'verifica se o cliente está ligando do próprio aparelho ou não (EMAIL)',
+        pathCases: ['* Ligando do próprio aparelho', '* Ligando de outro aparelho']
+    }),
+
     verificaProprioAparelhoCasa: pagarConta.newNode('switch', {
+        name: 'verifica se o cliente está ligando do próprio aparelho ou não (CASA)',
+        pathCases: ['* Ligando do próprio aparelho', '* Ligando de outro aparelho']
+    }),
+
+    verificaProprioAparelhoCasaAlt: pagarConta.newNode('switch', {
         name: 'verifica se o cliente está ligando do próprio aparelho ou não (CASA)',
         pathCases: ['* Ligando do próprio aparelho', '* Ligando de outro aparelho']
     }),
@@ -558,12 +623,27 @@ const nodes = {
         pathCases: ['* Falha no serviço SMS', '* Sucesso no serviço SMS']
     }),
 
+    servicoFaturaSMS1Alt: pagarConta.newNode('switch', {
+        name: 'serviço envio SMS',
+        pathCases: ['* Falha no serviço SMS', '* Sucesso no serviço SMS']
+    }),
+
     servicoFaturaEmail1: pagarConta.newNode('switch', {
         name: 'serviço envio Email',
         pathCases: ['* Falha no serviço Email', '* Sucesso no serviço Email']
     }),
 
+    servicoFaturaEmail1Alt: pagarConta.newNode('switch', {
+        name: 'serviço envio Email',
+        pathCases: ['* Falha no serviço Email', '* Sucesso no serviço Email']
+    }),
+
     servicoFaturaCasa1: pagarConta.newNode('switch', {
+        name: 'serviço envio Casa',
+        pathCases: ['* Falha no serviço Correios', '* Sucesso no serviço Correios']
+    }),
+
+    servicoFaturaCasa1Alt: pagarConta.newNode('switch', {
         name: 'serviço envio Casa',
         pathCases: ['* Falha no serviço Correios', '* Sucesso no serviço Correios']
     }),
@@ -653,12 +733,32 @@ const nodes = {
         expectedMessage: 'A URA Cognitiva informa que por estar ligando de outro aparelho, precisa da senha única e invoca o Fluxo de Senha;'
     }),
 
+    expectOutroAparelhoSMSAlt: pagarConta.newNode('node', {
+        name: 'mensagem informando que está ligando de outro aparelho',
+        expectedMessage: 'A URA Cognitiva informa que por estar ligando de outro aparelho, precisa da senha única e invoca o Fluxo de Senha;'
+    }),
+
+    expectOutroAparelhoSMSAlt2: pagarConta.newNode('node', {
+        name: 'mensagem informando que está ligando de outro aparelho',
+        expectedMessage: 'A URA Cognitiva informa que por estar ligando de outro aparelho, precisa da senha única e invoca o Fluxo de Senha;'
+    }),
+
     expectOutroAparelhoEmail: pagarConta.newNode('node', {
         name: 'mensagem informando que está ligando de outro aparelho',
         expectedMessage: 'A URA Cognitiva informa que por estar ligando de outro aparelho, precisa da senha única e invoca o Fluxo de Senha;'
     }),
 
+    expectOutroAparelhoEmailAlt: pagarConta.newNode('node', {
+        name: 'mensagem informando que está ligando de outro aparelho',
+        expectedMessage: 'A URA Cognitiva informa que por estar ligando de outro aparelho, precisa da senha única e invoca o Fluxo de Senha;'
+    }),
+
     expectOutroAparelhoCasa: pagarConta.newNode('node', {
+        name: 'mensagem informando que está ligando de outro aparelho',
+        expectedMessage: 'A URA Cognitiva informa que por estar ligando de outro aparelho, precisa da senha única e invoca o Fluxo de Senha;'
+    }),
+
+    expectOutroAparelhoCasaAlt: pagarConta.newNode('node', {
         name: 'mensagem informando que está ligando de outro aparelho',
         expectedMessage: 'A URA Cognitiva informa que por estar ligando de outro aparelho, precisa da senha única e invoca o Fluxo de Senha;'
     }),
@@ -673,7 +773,22 @@ const nodes = {
         pathCases: ['* Senha Incorreta', '* Sucesso no Fluxo de Senha']
     }),
 
+    fluxoSenhaSMSAlt: pagarConta.newNode('switch', {
+        name: 'verifica se existem mais faturas em aberto',
+        pathCases: ['* Senha Incorreta', '* Sucesso no Fluxo de Senha']
+    }),
+
+    fluxoSenhaSMSAlt2: pagarConta.newNode('switch', {
+        name: 'verifica se existem mais faturas em aberto',
+        pathCases: ['* Senha Incorreta', '* Sucesso no Fluxo de Senha']
+    }),
+
     fluxoSenhaEmail: pagarConta.newNode('switch', {
+        name: 'verifica se existem mais faturas em aberto',
+        pathCases: ['* Senha Incorreta', '* Sucesso no Fluxo de Senha']
+    }),
+    
+    fluxoSenhaEmailAlt: pagarConta.newNode('switch', {
         name: 'verifica se existem mais faturas em aberto',
         pathCases: ['* Senha Incorreta', '* Sucesso no Fluxo de Senha']
     }),
@@ -683,12 +798,27 @@ const nodes = {
         pathCases: ['* Senha Incorreta', '* Sucesso no Fluxo de Senha']
     }),
 
+    fluxoSenhaCasaAlt: pagarConta.newNode('switch', {
+        name: 'verifica se existem mais faturas em aberto',
+        pathCases: ['* Senha Incorreta', '* Sucesso no Fluxo de Senha']
+    }),
+
     expectEscolheCasa: pagarConta.newNode('node', {
         name: 'mensagem perguntando se pode enviar por email para evitar correio',
         expectedMessage: 'A URA Cognitiva pergunta se pode enviar por correios;'
     }),
 
+    expectEscolheCasaAlt: pagarConta.newNode('node', {
+        name: 'mensagem perguntando se pode enviar por email para evitar correio',
+        expectedMessage: 'A URA Cognitiva pergunta se pode enviar por correios;'
+    }),
+
     confirmaCasa: pagarConta.newNode('switch', {
+        name: 'verifica se existem mais faturas em aberto',
+        pathCases: ['Aceita receber por e-mail', 'Insiste receber em casa']
+    }),
+
+    confirmaCasaAlt: pagarConta.newNode('switch', {
         name: 'verifica se existem mais faturas em aberto',
         pathCases: ['Aceita receber por e-mail', 'Insiste receber em casa']
     }),
@@ -798,7 +928,7 @@ const nodes = {
         pathCases: ['* Falha no serviço Correios', '* Sucesso no serviço Correios']
     }),
 
-    faturaUltimos12meses2: pagarConta.newNode('switch', {
+    faturaUltimos12mesesAlt: pagarConta.newNode('switch', {
         name: 'fatura dos ultimos 12 meses?',
         pathCases: ['Fatura dos ultimos 12 meses', 'Fatura não é dos ultimos 12 meses']
     }),
@@ -821,7 +951,12 @@ const nodes = {
     macete: pagarConta.newNode('switch', {
         name: 'macetinho',
         pathCases: ['primeiro', 'segundo']
-    })
+    }),
+
+    emailValidoAlt: pagarConta.newNode('switch', {
+        name: 'verifica se o email do cliente é válido',
+        pathCases: ['* Email inválido', '* Email válido']
+    }),
 
 
 
