@@ -181,7 +181,7 @@ class FlowMap {
      */
     mapScenarios() {
         if (this.inlet) {
-            return this.nodeRepository.getNode(this.inlet).mapScenarios()
+            return scenarioTracker.startTracking([], [], {}, this.nodeRepository.getNode(this.inlet))
                 .then(() => {
                     this.scenarios = scenarioStorage.extractScenarios();
                     // console.log(this.scenarios);

@@ -81,80 +81,80 @@ class Node {
         return data;
     }
 
-    mapScenarios(prevStepMessages, prevExpectedMessages, nodeRoad) {
-        if (prevStepMessages && this.nextNode) {
-            try {
-                const handles = {
-                    commonNode(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
-                        let nextNode = sessionStorage.getNode(thisNode.nextNode);
+    // mapScenarios(prevStepMessages, prevExpectedMessages, nodeRoad) {
+    //     if (prevStepMessages && this.nextNode) {
+    //         try {
+    //             const handles = {
+    //                 commonNode(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
+    //                     let nextNode = sessionStorage.getNode(thisNode.nextNode);
 
-                        prevStepMessages.push(thisNode.stepMessage);
-                        prevExpectedMessages.push(thisNode.expectedMessage);
-                        nodeRoad[Object.keys(nodeRoad).length + 1] = thisNode.getBasicInfo();
+    //                     prevStepMessages.push(thisNode.stepMessage);
+    //                     prevExpectedMessages.push(thisNode.expectedMessage);
+    //                     nodeRoad[Object.keys(nodeRoad).length + 1] = thisNode.getBasicInfo();
 
-                        if (nextNode.targetNode) {
-                            nextNode.endFlowScenario(prevStepMessages, prevExpectedMessages, nodeRoad);
-                        }
-                        else {
-                            nextNode.mapScenarios(prevStepMessages, prevExpectedMessages, nodeRoad);
-                        }
-                    },
+    //                     if (nextNode.targetNode) {
+    //                         nextNode.endFlowScenario(prevStepMessages, prevExpectedMessages, nodeRoad);
+    //                     }
+    //                     else {
+    //                         nextNode.mapScenarios(prevStepMessages, prevExpectedMessages, nodeRoad);
+    //                     }
+    //                 },
 
-                    Array(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
-                        let nextNodes = [];
-                        for (const path of thisNode.nextNode) {
-                            if (shortid.isValid(path)) {
-                                nextNodes.push(sessionStorage.getNode(path));
-                            }
-                            else {
-                                nextNodes.push(sessionStorage.getNode(path.id));
-                            }
-                        }
+    //                 Array(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
+    //                     let nextNodes = [];
+    //                     for (const path of thisNode.nextNode) {
+    //                         if (shortid.isValid(path)) {
+    //                             nextNodes.push(sessionStorage.getNode(path));
+    //                         }
+    //                         else {
+    //                             nextNodes.push(sessionStorage.getNode(path.id));
+    //                         }
+    //                     }
 
-                        for (const node of nextNodes) {
-                            let nodeStepMessage = [].concat(prevStepMessages);
-                            let nodeExpectedMessages = [].concat(prevExpectedMessages);
-                            let newRoad = { ...nodeRoad };
-                            nodeStepMessage.push(thisNode.stepMessage);
-                            nodeExpectedMessages.push(thisNode.expectedMessage);
-                            newRoad[Object.keys(nodeRoad).length + 1] = thisNode.getBasicInfo();
+    //                     for (const node of nextNodes) {
+    //                         let nodeStepMessage = [].concat(prevStepMessages);
+    //                         let nodeExpectedMessages = [].concat(prevExpectedMessages);
+    //                         let newRoad = { ...nodeRoad };
+    //                         nodeStepMessage.push(thisNode.stepMessage);
+    //                         nodeExpectedMessages.push(thisNode.expectedMessage);
+    //                         newRoad[Object.keys(nodeRoad).length + 1] = thisNode.getBasicInfo();
 
-                            node.mapScenarios(nodeStepMessage, nodeExpectedMessages, newRoad);
-                        }
-                    }
-                }
-                const handleFunction = this.nextNode && this.nextNode.constructor.name == 'Array' ? // Atribui handleFunction apenas se existe nextNode
-                    handles['Array'] : handles['commonNode'] // handleFunction para tratar corretamente o comportamento de nextNode
-                handleFunction(prevStepMessages, this, prevExpectedMessages, nodeRoad);
-            }
-            catch (error) {
-                console.log(`ERROR :: ${this.name} ('${this.type}') :: `);
-                console.log(error);
-            }
-        }
-        else {
-            console.log(`WARNING :: ${this.name} ('${this.type}') :: Unexpected end at 'mapScenarios' method / nextNode is ${this.nextNode}`);
-            console.log('Error at: ', this);
-        }
-    }
+    //                         node.mapScenarios(nodeStepMessage, nodeExpectedMessages, newRoad);
+    //                     }
+    //                 }
+    //             }
+    //             const handleFunction = this.nextNode && this.nextNode.constructor.name == 'Array' ? // Atribui handleFunction apenas se existe nextNode
+    //                 handles['Array'] : handles['commonNode'] // handleFunction para tratar corretamente o comportamento de nextNode
+    //             handleFunction(prevStepMessages, this, prevExpectedMessages, nodeRoad);
+    //         }
+    //         catch (error) {
+    //             console.log(`ERROR :: ${this.name} ('${this.type}') :: `);
+    //             console.log(error);
+    //         }
+    //     }
+    //     else {
+    //         console.log(`WARNING :: ${this.name} ('${this.type}') :: Unexpected end at 'mapScenarios' method / nextNode is ${this.nextNode}`);
+    //         console.log('Error at: ', this);
+    //     }
+    // }
 
-    endFlowScenario(prevStepMessages, prevExpectedMessages, nodeRoad) {
-        if (this.targetNode == true) {
-            prevStepMessages.push(this.stepMessage);
-            prevExpectedMessages.push(this.expectedMessage);
-            prevStepMessages = prevStepMessages.filter(stepMessage => stepMessage);
-            prevExpectedMessages = prevExpectedMessages.filter(expectedMessage => expectedMessage);
-            nodeRoad[Object.keys(nodeRoad).length + 1] = this.getBasicInfo();
+    // endFlowScenario(prevStepMessages, prevExpectedMessages, nodeRoad) {
+    //     if (this.targetNode == true) {
+    //         prevStepMessages.push(this.stepMessage);
+    //         prevExpectedMessages.push(this.expectedMessage);
+    //         prevStepMessages = prevStepMessages.filter(stepMessage => stepMessage);
+    //         prevExpectedMessages = prevExpectedMessages.filter(expectedMessage => expectedMessage);
+    //         nodeRoad[Object.keys(nodeRoad).length + 1] = this.getBasicInfo();
 
-            const testScenario = {
-                precondition: prevStepMessages,
-                expectedResult: prevExpectedMessages,
-                nodeRoad
-            }
+    //         const testScenario = {
+    //             precondition: prevStepMessages,
+    //             expectedResult: prevExpectedMessages,
+    //             nodeRoad
+    //         }
 
-            scenarioStorage.pushNewScenarios(testScenario);
-        }
-    }
+    //         scenarioStorage.pushNewScenarios(testScenario);
+    //     }
+    // }
 
     set(property, value) {
         // Verifica se o objeto instanciado possui a propriedade. Caso sim, atribui um novo valor.

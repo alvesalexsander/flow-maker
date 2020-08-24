@@ -1,0 +1,230 @@
+{
+  "1": {
+    "precondition": [
+      "Veio de #desambiguadorTrocaTitularidade",
+      "Sucesso no SMS",
+      "Quer algo mais"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "A URA Congnitiva informa que este serviço só pode ser feito nas lojas físicas;",
+      "A URA Congnitiva informa que enviou um SMS com o link para o site onde é possível fazer o agendamento em uma das lojas;",
+      "A URA Cognitiva transfere para o desambiguador."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "4GagsMbCzK",
+        "name": "Inicia fluxo de trocaTitularidade",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "xUT1r6rQ4T",
+        "name": "URA atende a ligação",
+        "type": "Node"
+      },
+      "3": {
+        "id": "Q4lfmSvTkD",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "4": {
+        "id": "F9VUQG60tD",
+        "name": "Informa sobre a troca de titularidade",
+        "type": "Node"
+      },
+      "5": {
+        "id": "dO90eGJ103",
+        "name": "Sucesso no SMS",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "kucd80On_3",
+        "name": "Informa que enviou o SMS",
+        "type": "Node"
+      },
+      "7": {
+        "id": "_EU-wC0pzz",
+        "name": "Quer algo mais",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "7PEY2qI_Db",
+        "name": "Usuário quer algo mais",
+        "type": "Node"
+      }
+    }
+  },
+  "2": {
+    "precondition": [
+      "Veio de #desambiguadorTrocaTitularidade",
+      "Sucesso no SMS",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "A URA Congnitiva informa que este serviço só pode ser feito nas lojas físicas;",
+      "A URA Congnitiva informa que enviou um SMS com o link para o site onde é possível fazer o agendamento em uma das lojas;",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "4GagsMbCzK",
+        "name": "Inicia fluxo de trocaTitularidade",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "xUT1r6rQ4T",
+        "name": "URA atende a ligação",
+        "type": "Node"
+      },
+      "3": {
+        "id": "Q4lfmSvTkD",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "4": {
+        "id": "F9VUQG60tD",
+        "name": "Informa sobre a troca de titularidade",
+        "type": "Node"
+      },
+      "5": {
+        "id": "dO90eGJ103",
+        "name": "Sucesso no SMS",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "kucd80On_3",
+        "name": "Informa que enviou o SMS",
+        "type": "Node"
+      },
+      "7": {
+        "id": "W7_j3NTf4u",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "0N4hlmnyHc",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  },
+  "3": {
+    "precondition": [
+      "Veio de #desambiguadorTrocaTitularidade",
+      "Falha no SMS",
+      "Quer algo mais"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "A URA Congnitiva informa que este serviço só pode ser feito nas lojas físicas;",
+      "A URA Congnitiva informa que é preciso agendar o atendimento em uma loja e, que para isto, o cliente deve acessar o site e clicar em \"Lojas\";",
+      "A URA Cognitiva transfere para o desambiguador."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "4GagsMbCzK",
+        "name": "Inicia fluxo de trocaTitularidade",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "xUT1r6rQ4T",
+        "name": "URA atende a ligação",
+        "type": "Node"
+      },
+      "3": {
+        "id": "Q4lfmSvTkD",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "4": {
+        "id": "F9VUQG60tD",
+        "name": "Informa sobre a troca de titularidade",
+        "type": "Node"
+      },
+      "5": {
+        "id": "sz4WASs5WF",
+        "name": "Falha no SMS",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "wEXP4p9-gHY",
+        "name": "Informa que enviou o SMS",
+        "type": "Node"
+      },
+      "7": {
+        "id": "_EU-wC0pzz",
+        "name": "Quer algo mais",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "7PEY2qI_Db",
+        "name": "Usuário quer algo mais",
+        "type": "Node"
+      }
+    }
+  },
+  "4": {
+    "precondition": [
+      "Veio de #desambiguadorTrocaTitularidade",
+      "Falha no SMS",
+      "Não quer mais nada"
+    ],
+    "expectedResult": [
+      "Chamada é encaminhada para a URA Cognitiva;",
+      "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
+      "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
+      "A URA Congnitiva informa que este serviço só pode ser feito nas lojas físicas;",
+      "A URA Congnitiva informa que é preciso agendar o atendimento em uma loja e, que para isto, o cliente deve acessar o site e clicar em \"Lojas\";",
+      "A URA Cognitiva agradece e encerra a ligação."
+    ],
+    "nodeRoad": {
+      "1": {
+        "id": "4GagsMbCzK",
+        "name": "Inicia fluxo de trocaTitularidade",
+        "type": "StartingNode"
+      },
+      "2": {
+        "id": "xUT1r6rQ4T",
+        "name": "URA atende a ligação",
+        "type": "Node"
+      },
+      "3": {
+        "id": "Q4lfmSvTkD",
+        "name": "Desambiguadores que acionam o fluxo",
+        "type": "Node"
+      },
+      "4": {
+        "id": "F9VUQG60tD",
+        "name": "Informa sobre a troca de titularidade",
+        "type": "Node"
+      },
+      "5": {
+        "id": "sz4WASs5WF",
+        "name": "Falha no SMS",
+        "type": "DecisionNode"
+      },
+      "6": {
+        "id": "wEXP4p9-gHY",
+        "name": "Informa que enviou o SMS",
+        "type": "Node"
+      },
+      "7": {
+        "id": "W7_j3NTf4u",
+        "name": "Não quer mais nada",
+        "type": "DecisionNode"
+      },
+      "8": {
+        "id": "0N4hlmnyHc",
+        "name": "URA agradece e desliga a ligação",
+        "type": "Node"
+      }
+    }
+  }
+}

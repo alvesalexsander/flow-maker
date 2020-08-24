@@ -31,60 +31,60 @@ class StartingNode extends Node {
         this.initialNode = this.fromFlow ? false : true;
     }
 
-    mapScenarios(prevStepMessages = [], prevExpectedMessages = [], nodeRoad = {}) {
-        const promise = new Promise((resolve, reject) => {
-            if (this.nextNode) {
-                prevStepMessages.push(this.stepMessage);
-                prevExpectedMessages.push(this.expectedMessage);
-                nodeRoad[Object.keys(nodeRoad).length + 1 || 1] = this.getBasicInfo();
+    // mapScenarios(prevStepMessages = [], prevExpectedMessages = [], nodeRoad = {}) {
+    //     const promise = new Promise((resolve, reject) => {
+    //         if (this.nextNode) {
+    //             prevStepMessages.push(this.stepMessage);
+    //             prevExpectedMessages.push(this.expectedMessage);
+    //             nodeRoad[Object.keys(nodeRoad).length + 1 || 1] = this.getBasicInfo();
 
-                const handles = {
-                    commonNode(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
-                        let nextNode = sessionStorage.getNode(thisNode.nextNode);
+    //             const handles = {
+    //                 commonNode(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
+    //                     let nextNode = sessionStorage.getNode(thisNode.nextNode);
 
-                        if (nextNode.targetNode) {
-                            resolve(nextNode.endFlowScenario(prevStepMessages, prevExpectedMessages, nodeRoad));
-                        }
-                        resolve(nextNode.mapScenarios(prevStepMessages, prevExpectedMessages, nodeRoad));
-                    },
+    //                     if (nextNode.targetNode) {
+    //                         resolve(nextNode.endFlowScenario(prevStepMessages, prevExpectedMessages, nodeRoad));
+    //                     }
+    //                     resolve(nextNode.mapScenarios(prevStepMessages, prevExpectedMessages, nodeRoad));
+    //                 },
 
-                    Array(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
-                        let nextNodes = [];
-                        for (const path of thisNode.nextNode) {
-                            if (shortid.isValid(path)) {
-                                nextNodes.push(sessionStorage.getNode(path));
-                            }
-                            else {
-                                nextNodes.push(sessionStorage.getNode(path.id));
-                            }
-                        }
+    //                 Array(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
+    //                     let nextNodes = [];
+    //                     for (const path of thisNode.nextNode) {
+    //                         if (shortid.isValid(path)) {
+    //                             nextNodes.push(sessionStorage.getNode(path));
+    //                         }
+    //                         else {
+    //                             nextNodes.push(sessionStorage.getNode(path.id));
+    //                         }
+    //                     }
 
-                        for (const node of nextNodes) {
-                            let nodeStepMessage = [].concat(prevStepMessages);
-                            let nodeExpectedMessages = [].concat(prevExpectedMessages);
-                            let newRoad = { ...nodeRoad };
-                            newRoad[Object.keys(nodeRoad).length + 1] = thisNode.getBasicInfo();
+    //                     for (const node of nextNodes) {
+    //                         let nodeStepMessage = [].concat(prevStepMessages);
+    //                         let nodeExpectedMessages = [].concat(prevExpectedMessages);
+    //                         let newRoad = { ...nodeRoad };
+    //                         newRoad[Object.keys(nodeRoad).length + 1] = thisNode.getBasicInfo();
 
-                            resolve(node.mapScenarios(nodeStepMessage, nodeExpectedMessages, nodeRoad));
-                        }
-                        // for (const node of thisNode.nextNode) {
-                        //     if (node.mapScenarios) {
+    //                         resolve(node.mapScenarios(nodeStepMessage, nodeExpectedMessages, nodeRoad));
+    //                     }
+    //                     // for (const node of thisNode.nextNode) {
+    //                     //     if (node.mapScenarios) {
 
-                        //     }
-                        // }
-                    }
-                }
-                const handleFunction = this.nextNode && this.nextNode.constructor.name == 'Array' ? // Atribui handleFunction apenas se existe nextNode
-                    handles['Array'] : handles['commonNode'] // handleFunction para tratar corretamente o comportamento de nextNode
-                handleFunction(prevStepMessages, this, prevExpectedMessages, nodeRoad);
-            }
-            else {
-                console.log(`WARNING :: ${this.name} ('${this.type}') :: Unexpected end at 'mapScenarios' method / nextNode is ${this.nextNode}`);
-                console.log(this);
-            }
-        })
-        return promise;
-    }
+    //                     //     }
+    //                     // }
+    //                 }
+    //             }
+    //             const handleFunction = this.nextNode && this.nextNode.constructor.name == 'Array' ? // Atribui handleFunction apenas se existe nextNode
+    //                 handles['Array'] : handles['commonNode'] // handleFunction para tratar corretamente o comportamento de nextNode
+    //             handleFunction(prevStepMessages, this, prevExpectedMessages, nodeRoad);
+    //         }
+    //         else {
+    //             console.log(`WARNING :: ${this.name} ('${this.type}') :: Unexpected end at 'mapScenarios' method / nextNode is ${this.nextNode}`);
+    //             console.log(this);
+    //         }
+    //     })
+    //     return promise;
+    // }
 }
 
 module.exports = StartingNode;
