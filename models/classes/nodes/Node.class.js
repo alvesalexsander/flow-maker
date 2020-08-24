@@ -3,14 +3,12 @@ const cloneDeep = require('lodash.clonedeep');
 
 class Node {
     // Node básico. Contém propriedades e metódos que podem ser extendidos por quase todos os outros Nodes.
-    id
-    name
-    description
-    stepMessage
-    expectedMessage
-    nextNode
-    alts = []
-    // prevNode
+    id;
+    name;
+    description;
+    stepMessage;
+    expectedMessage;
+    nextNode;
     targetNode = false;
 
     constructor({
@@ -73,6 +71,15 @@ class Node {
             return false;
         }
     } */
+
+    getScenarioData() {
+        const data = {
+            stepMessage: this.stepMessage,
+            expectedMessage: this.expectedMessage,
+            info: this.getBasicInfo()
+        }
+        return data;
+    }
 
     mapScenarios(prevStepMessages, prevExpectedMessages, nodeRoad) {
         if (prevStepMessages && this.nextNode) {

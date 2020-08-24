@@ -4,11 +4,12 @@ const write = require('write');
 const xl = require('excel4node');
 
 const Factory = require('../common/Factory.class');
+const NodeRepository = require('../nodes/NodeRepository.class');
 
 class FlowMap {
     factory = new Factory().createNodeFactory();
+    nodeRepository = new NodeRepository();
 
-    flowchartNodes = [];
     scenarios = {};
     outlets = [];
 
@@ -30,7 +31,7 @@ class FlowMap {
             const newNode = this.factory[build](params);
             if (newNode) {
                 newNode.flowmap = this.id;
-                this.flowchartNodes.push(newNode);
+                this.nodeRepository.addNode(newNode);
                 if (newNode.type == 'StartingNode') {
                     this.inlet = this.queryNode(newNode.id);
                     this.factory.buildStarting = () => console.log('NODEFACTORY :: StartingNode already created :: StartingNode production Closed.');
@@ -50,16 +51,17 @@ class FlowMap {
      * @param {String} data Valor da propriedade 'id' de um node ou nome do node.
      */
     queryNode(data) {
-        for (const node of this.flowchartNodes) {
+        for (const nodeId in this.nodeRepository) {
+            let nodeObject = this.nodeRepository.getNode(nodeId);
             // console.log(node.hasOwnProperty('pathNodes'), node.type)
-            if (node.id == data) {
-                return this.flowchartNodes[this.flowchartNodes.indexOf(node)];
+            if (nodeObject.id == data) {
+                return this.nodeRepository[nodeObject.id];
             }
-            if (node.name == data) {
-                return this.flowchartNodes[this.flowchartNodes.indexOf(node)];
+            if (nodeObject.name == data) {
+                return this.nodeRepository[nodeObject.id];
             }
-            if (node.hasOwnProperty('pathNodes')) {
-                for (const path of node.pathNodes) {
+            if (nodeObject.hasOwnProperty('pathNodes')) {
+                for (const path of nodeObject.pathNodes) {
                     if (path.id == data) {
                         return path;
                     }
@@ -145,9 +147,6 @@ class FlowMap {
         const rules = {
             PreconditionsNode: (() => {
                 if (fromNodeType == 'PreconditionsNode' && toNodeType == 'PreconditionsNode') {
-                    // /* this.queryNode(toId).set('prevNode', this.queryNode(fromId));
-                    // this.queryNode(fromId).nextNode = this.queryNode(fromId).mountPathNodes();
-                    // return this.queryNode(toId).mountPathNodes(); */
                     const errorMessage = 'Error Linking PreconditionNode a outro PreconditionNode :: Por favor, unifique os dois nós de precondicao em um só.'
                     console.log(new Error(errorMessage))
                 }
@@ -225,7 +224,7 @@ class FlowMap {
      * Conta quantos nodes este FlowMap possui
      */
     getNodesCount() {
-        return this.flowchartNodes.length;
+        return Object.keys(this.nodeRepository).length;
     }
 
     /**

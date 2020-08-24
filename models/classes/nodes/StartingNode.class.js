@@ -1,4 +1,4 @@
-const valueDefault = require('../../integrityRequirements/valueDefault');
+require('../../../index');
 
 const Node = require('./Node.class');
 
@@ -36,6 +36,7 @@ class StartingNode extends Node {
                 prevStepMessages.push(this.stepMessage);
                 prevExpectedMessages.push(this.expectedMessage);
                 nodeRoad[Object.keys(nodeRoad).length + 1 || 1] = this.getBasicInfo();
+
                 const handles = {
                     commonNode(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
                         if (thisNode.nextNode.targetNode) {
