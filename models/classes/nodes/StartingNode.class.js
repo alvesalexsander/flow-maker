@@ -1,6 +1,7 @@
 require('../../../index');
 
 const Node = require('./Node.class');
+const shortid = require('shortid');
 
 class StartingNode extends Node {
     // Node inicial de um fluxo (FlowMap)
@@ -39,14 +40,26 @@ class StartingNode extends Node {
 
                 const handles = {
                     commonNode(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
-                        if (thisNode.nextNode.targetNode) {
-                            resolve(thisNode.nextNode.endFlowScenario(prevStepMessages, prevExpectedMessages, nodeRoad));
+                        let nextNode = sessionStorage.getNode(thisNode.nextNode);
+
+                        if (nextNode.targetNode) {
+                            resolve(nextNode.endFlowScenario(prevStepMessages, prevExpectedMessages, nodeRoad));
                         }
-                        resolve(thisNode.nextNode.mapScenarios(prevStepMessages, prevExpectedMessages, nodeRoad));
+                        resolve(nextNode.mapScenarios(prevStepMessages, prevExpectedMessages, nodeRoad));
                     },
 
                     Array(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
-                        for (const node of thisNode.nextNode) {
+                        let nextNodes = [];
+                        for (const path of thisNode.nextNode) {
+                            if (shortid.isValid(path)) {
+                                nextNodes.push(sessionStorage.getNode(path));
+                            }
+                            else {
+                                nextNodes.push(sessionStorage.getNode(path.id));
+                            }
+                        }
+
+                        for (const node of nextNodes) {
                             let nodeStepMessage = [].concat(prevStepMessages);
                             let nodeExpectedMessages = [].concat(prevExpectedMessages);
                             let newRoad = { ...nodeRoad };

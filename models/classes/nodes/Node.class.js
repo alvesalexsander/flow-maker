@@ -1,5 +1,5 @@
+
 const shortid = require('shortid');
-const cloneDeep = require('lodash.clonedeep');
 
 class Node {
     // Node básico. Contém propriedades e metódos que podem ser extendidos por quase todos os outros Nodes.
@@ -86,20 +86,32 @@ class Node {
             try {
                 const handles = {
                     commonNode(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
+                        let nextNode = sessionStorage.getNode(thisNode.nextNode);
+
                         prevStepMessages.push(thisNode.stepMessage);
                         prevExpectedMessages.push(thisNode.expectedMessage);
                         nodeRoad[Object.keys(nodeRoad).length + 1] = thisNode.getBasicInfo();
 
-                        if (thisNode.nextNode.targetNode) {
-                            thisNode.nextNode.endFlowScenario(prevStepMessages, prevExpectedMessages, nodeRoad);
+                        if (nextNode.targetNode) {
+                            nextNode.endFlowScenario(prevStepMessages, prevExpectedMessages, nodeRoad);
                         }
                         else {
-                            thisNode.nextNode.mapScenarios(prevStepMessages, prevExpectedMessages, nodeRoad);
+                            nextNode.mapScenarios(prevStepMessages, prevExpectedMessages, nodeRoad);
                         }
                     },
 
                     Array(prevStepMessages, thisNode, prevExpectedMessages, nodeRoad) {
-                        for (const node of thisNode.nextNode) {
+                        let nextNodes = [];
+                        for (const path of thisNode.nextNode) {
+                            if (shortid.isValid(path)) {
+                                nextNodes.push(sessionStorage.getNode(path));
+                            }
+                            else {
+                                nextNodes.push(sessionStorage.getNode(path.id));
+                            }
+                        }
+
+                        for (const node of nextNodes) {
                             let nodeStepMessage = [].concat(prevStepMessages);
                             let nodeExpectedMessages = [].concat(prevExpectedMessages);
                             let newRoad = { ...nodeRoad };
@@ -122,7 +134,7 @@ class Node {
         }
         else {
             console.log(`WARNING :: ${this.name} ('${this.type}') :: Unexpected end at 'mapScenarios' method / nextNode is ${this.nextNode}`);
-            console.log(this);
+            console.log('Error at: ', this);
         }
     }
 
