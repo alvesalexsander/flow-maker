@@ -31,3 +31,6 @@ trocaTitularidade.linkChain(
 trocaTitularidade.mapScenarios();
 trocaTitularidade.showScenarios();
 trocaTitularidade.exportScenariosToExcel();
+const fs = require('fs');
+
+fs.writeFileSync('testeEscrita.json', JSON.stringify(trocaTitularidade, null, 2))
