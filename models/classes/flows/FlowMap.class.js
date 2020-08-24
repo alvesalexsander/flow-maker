@@ -33,7 +33,7 @@ class FlowMap {
                 newNode.flowmap = this.id;
                 this.nodeRepository.addNode(newNode);
                 if (newNode.type == 'StartingNode') {
-                    this.inlet = this.queryNode(newNode.id);
+                    this.inlet = newNode.id;
                     this.factory.buildStarting = () => console.log('NODEFACTORY :: StartingNode already created :: StartingNode production Closed.');
                     this.factory.produces = this.factory.produces.filter(product => product != 'StartingNode');
                     console.log('NODEFACTORY :: StartingNode created successfully :: StartingNode production Closed.');
@@ -105,16 +105,19 @@ class FlowMap {
      */
     linkNext(from, to) {
         const updateNextNode = this.nextNodeRules(from, to);
-        if (to.id && !from.id) {
-            this.queryNode(from).set('nextNode', to);
+        if (to.id && !from.id && typeof from === 'string' && shortid.isValid(from)) {
+            // Se o destino(to) veio um objeto Node e o from veio um 'id', busca o Node com o 'id' from e conecta
+            this.queryNode(from).set('nextNode', to.id);
             return;
         }
-        else if (from.id && !to.id) {
-            from.set('nextNode', this.queryNode(to));
+        else if (from.id && !to.id && typeof to === 'string' && shortid.isValid(to)) {
+            // Se a origem(from) veio um objeto Node e o to veio um 'id', busca o Node com o 'id' to e conecta
+            from.set('nextNode', this.queryNode(to).id);
             return;
         }
         else if (from.id && to.id) {
-            from.set('nextNode', to);
+            // Se vieram dois objetos Node completos, conecta os dois.
+            from.set('nextNode', to.id);
             return;
         }
         if (updateNextNode) {
@@ -127,7 +130,7 @@ class FlowMap {
         }
         else {
             try {
-                this.queryNode(from).set('nextNode', this.queryNode(to));
+                this.queryNode(from).set('nextNode', this.queryNode(to).id);
             }
             catch (e) {
                 console.log(e);
@@ -160,10 +163,10 @@ class FlowMap {
                 }
                 if (fromNodeType == "DecisionNode") {
                     this.queryNode(toId).set('prevNode', this.queryNode(fromId));
-                    return this.queryNode(toId).get('pathNodes');
+                    return this.queryNode(toId).get('pathNodes').map((path) => path.id);
                 }
                 this.queryNode(toId).prevNode = this.queryNode(fromId);
-                return this.queryNode(toId).get('pathNodes');
+                return this.queryNode(toId).get('pathNodes').map((path) => path.id);
                 // return this.queryNode(toId).mountPathNodes();
             }),
         }
@@ -178,7 +181,7 @@ class FlowMap {
      */
     mapScenarios() {
         if (this.inlet) {
-            return this.inlet.mapScenarios()
+            return this.nodeRepository.getNode(this.inlet).mapScenarios()
                 .then(() => {
                     this.scenarios = scenarioStorage.extractScenarios();
                     // console.log(this.scenarios);

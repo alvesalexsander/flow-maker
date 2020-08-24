@@ -1,7 +1,19 @@
 class NodeRepository {
 
+    constructor() {
+        sessionStorage.getNode = (id) => this.getNode(id);
+    }
+
     addNode(node) {
-        this[node.id] = node;
+        if (node.type !== 'SwitchNode'){
+            this[node.id] = node;
+        }
+        else {
+            for (const path of node.pathNodes) {
+                this[path.id] = path;
+            }
+            this[node.id] = node;
+        }
     }
 
     getNode(id) {
