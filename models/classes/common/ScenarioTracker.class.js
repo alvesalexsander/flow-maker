@@ -2,7 +2,11 @@ const shortid = require('shortid');
 
 class ScenarioTracker {
 
-    startTracking(prevStepMessages = [], prevExpectedMessages = [], nodeRoad = {}, startingNode) {
+    startTracking(startingNode) {
+        const prevStepMessages = [];
+        const prevExpectedMessages = [];
+        const nodeRoad = {};
+
         const promise = new Promise((resolve, reject) => {
             if (startingNode.nextNode) {
                 prevStepMessages.push(startingNode.stepMessage);
@@ -131,7 +135,7 @@ class ScenarioTracker {
             scenarioStorage.pushNewScenarios(testScenario);
         }
     }
-    
+
 }
 
 module.exports = ScenarioTracker;

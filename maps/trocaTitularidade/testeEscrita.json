@@ -10,69 +10,69 @@
     ]
   },
   "nodeRepository": {
-    "4GagsMbCzK": {
-      "id": "4GagsMbCzK",
+    "1QIz7D9ggq": {
+      "id": "1QIz7D9ggq",
       "name": "Inicia fluxo de trocaTitularidade",
       "expectedMessage": "Chamada é encaminhada para a URA Cognitiva;",
-      "nextNode": "xUT1r6rQ4T",
+      "nextNode": "KfZo2wNQSJ",
       "type": "StartingNode",
       "initialNode": true,
-      "flowmap": "TLl7dOCF3"
+      "flowmap": "cs3JIcH7K"
     },
-    "xUT1r6rQ4T": {
-      "id": "xUT1r6rQ4T",
+    "KfZo2wNQSJ": {
+      "id": "KfZo2wNQSJ",
       "name": "URA atende a ligação",
       "expectedMessage": "Ouvir a saudacão da URA Cognitiva conforme descrito na DF.",
-      "nextNode": "Q4lfmSvTkD",
+      "nextNode": "axZMqgiwpo",
       "targetNode": false,
       "type": "Node",
-      "flowmap": "TLl7dOCF3"
+      "flowmap": "cs3JIcH7K"
     },
-    "TEc6q6aWtS": {
-      "id": "TEc6q6aWtS",
+    "vM0EjbJCZu": {
+      "id": "vM0EjbJCZu",
       "name": "URA Informa que vai tranferir para o ATH",
       "stepMessage": "Encaminha para o ATH.",
       "expectedMessage": "URA Informa que vai tranferir para o ATH",
       "targetNode": true,
       "type": "Node",
-      "flowmap": "TLl7dOCF3"
+      "flowmap": "cs3JIcH7K"
     },
-    "3NKE7N7KwA": {
-      "id": "3NKE7N7KwA",
+    "OG2rTAc2Qb": {
+      "id": "OG2rTAc2Qb",
       "name": "URA encerra a ligação",
       "stepMessage": "URA agradece e desliga a ligação",
       "targetNode": true,
       "type": "Node",
-      "flowmap": "TLl7dOCF3"
+      "flowmap": "cs3JIcH7K"
     },
-    "Q4lfmSvTkD": {
-      "id": "Q4lfmSvTkD",
+    "axZMqgiwpo": {
+      "id": "axZMqgiwpo",
       "name": "Desambiguadores que acionam o fluxo",
       "stepMessage": "Veio de #desambiguadorTrocaTitularidade",
       "expectedMessage": "A URA Congnitiva informa que entendeu que deseja falar sobre Troca de Titularidade;",
-      "nextNode": "F9VUQG60tD",
+      "nextNode": "XBuWf72oPb",
       "targetNode": false,
       "type": "Node",
-      "flowmap": "TLl7dOCF3"
+      "flowmap": "cs3JIcH7K"
     },
-    "_EU-wC0pzz": {
-      "id": "_EU-wC0pzz",
+    "DpNdaHJR5G": {
+      "id": "DpNdaHJR5G",
       "name": "Quer algo mais",
       "stepMessage": "Quer algo mais",
-      "nextNode": "7PEY2qI_Db",
+      "nextNode": "Xtkww0E9zu",
       "type": "DecisionNode",
-      "parent": "eNRyQN8ooe"
+      "parent": "t7Yl2zOznD"
     },
-    "W7_j3NTf4u": {
-      "id": "W7_j3NTf4u",
+    "J5FRz7ppkH": {
+      "id": "J5FRz7ppkH",
       "name": "Não quer mais nada",
       "stepMessage": "Não quer mais nada",
-      "nextNode": "0N4hlmnyHc",
+      "nextNode": "5YjKD29he8",
       "type": "DecisionNode",
-      "parent": "eNRyQN8ooe"
+      "parent": "t7Yl2zOznD"
     },
-    "eNRyQN8ooe": {
-      "id": "eNRyQN8ooe",
+    "t7Yl2zOznD": {
+      "id": "t7Yl2zOznD",
       "name": "Pergunta se o usuario quer algo mais",
       "targetNode": false,
       "type": "SwitchNode",
@@ -82,82 +82,82 @@
       ],
       "pathNodes": [
         {
-          "id": "_EU-wC0pzz",
+          "id": "DpNdaHJR5G",
           "name": "Quer algo mais",
           "stepMessage": "Quer algo mais",
-          "nextNode": "7PEY2qI_Db",
+          "nextNode": "Xtkww0E9zu",
           "type": "DecisionNode",
-          "parent": "eNRyQN8ooe"
+          "parent": "t7Yl2zOznD"
         },
         {
-          "id": "W7_j3NTf4u",
+          "id": "J5FRz7ppkH",
           "name": "Não quer mais nada",
           "stepMessage": "Não quer mais nada",
-          "nextNode": "0N4hlmnyHc",
+          "nextNode": "5YjKD29he8",
           "type": "DecisionNode",
-          "parent": "eNRyQN8ooe"
+          "parent": "t7Yl2zOznD"
         }
       ],
-      "flowmap": "TLl7dOCF3",
+      "flowmap": "cs3JIcH7K",
       "prevNode": {
-        "id": "wEXP4p9-gHY",
+        "id": "J5pNzhKc2V0",
         "name": "Informa que enviou o SMS",
         "expectedMessage": "A URA Congnitiva informa que é preciso agendar o atendimento em uma loja e, que para isto, o cliente deve acessar o site e clicar em \"Lojas\";",
         "nextNode": [
-          "_EU-wC0pzz",
-          "W7_j3NTf4u"
+          "DpNdaHJR5G",
+          "J5FRz7ppkH"
         ],
         "targetNode": false,
         "type": "Node",
-        "flowmap": "TLl7dOCF3"
+        "flowmap": "cs3JIcH7K"
       }
     },
-    "7PEY2qI_Db": {
-      "id": "7PEY2qI_Db",
+    "Xtkww0E9zu": {
+      "id": "Xtkww0E9zu",
       "name": "Usuário quer algo mais",
       "expectedMessage": "A URA Cognitiva transfere para o desambiguador.",
       "targetNode": true,
       "type": "Node",
-      "flowmap": "TLl7dOCF3"
+      "flowmap": "cs3JIcH7K"
     },
-    "0N4hlmnyHc": {
-      "id": "0N4hlmnyHc",
+    "5YjKD29he8": {
+      "id": "5YjKD29he8",
       "name": "URA agradece e desliga a ligação",
       "expectedMessage": "A URA Cognitiva agradece e encerra a ligação.",
       "targetNode": true,
       "type": "Node",
-      "flowmap": "TLl7dOCF3"
+      "flowmap": "cs3JIcH7K"
     },
-    "F9VUQG60tD": {
-      "id": "F9VUQG60tD",
+    "XBuWf72oPb": {
+      "id": "XBuWf72oPb",
       "name": "Informa sobre a troca de titularidade",
       "expectedMessage": "A URA Congnitiva informa que este serviço só pode ser feito nas lojas físicas;",
       "nextNode": [
-        "dO90eGJ103",
-        "sz4WASs5WF"
+        "R6ZEC6hMIK",
+        "MSd0DN9BfW"
       ],
       "targetNode": false,
       "type": "Node",
-      "flowmap": "TLl7dOCF3"
+      "flowmap": "cs3JIcH7K"
     },
-    "dO90eGJ103": {
-      "id": "dO90eGJ103",
+    "R6ZEC6hMIK": {
+      "id": "R6ZEC6hMIK",
       "name": "Sucesso no SMS",
       "stepMessage": "Sucesso no SMS",
-      "nextNode": "kucd80On_3",
+      "nextNode": "1za7-7Lgvo",
       "type": "DecisionNode",
-      "parent": "MG7TWjg-h_"
+      "parent": "SogXbMvk3w"
     },
-    "sz4WASs5WF": {
-      "id": "sz4WASs5WF",
+    "MSd0DN9BfW": {
+      "id": "MSd0DN9BfW",
       "name": "Falha no SMS",
       "stepMessage": "Falha no SMS",
-      "nextNode": "wEXP4p9-gHY",
+      "nextNode": "J5pNzhKc2V0",
       "type": "DecisionNode",
-      "parent": "MG7TWjg-h_"
+      "parent": "SogXbMvk3w"
     },
-    "MG7TWjg-h_": {
-      "id": "MG7TWjg-h_",
+    "SogXbMvk3w": {
+      "id": "SogXbMvk3w",
       "name": "Envia SMS Link Agendamento Lojas Fisicas",
       "targetNode": false,
       "type": "SwitchNode",
@@ -167,66 +167,66 @@
       ],
       "pathNodes": [
         {
-          "id": "dO90eGJ103",
+          "id": "R6ZEC6hMIK",
           "name": "Sucesso no SMS",
           "stepMessage": "Sucesso no SMS",
-          "nextNode": "kucd80On_3",
+          "nextNode": "1za7-7Lgvo",
           "type": "DecisionNode",
-          "parent": "MG7TWjg-h_"
+          "parent": "SogXbMvk3w"
         },
         {
-          "id": "sz4WASs5WF",
+          "id": "MSd0DN9BfW",
           "name": "Falha no SMS",
           "stepMessage": "Falha no SMS",
-          "nextNode": "wEXP4p9-gHY",
+          "nextNode": "J5pNzhKc2V0",
           "type": "DecisionNode",
-          "parent": "MG7TWjg-h_"
+          "parent": "SogXbMvk3w"
         }
       ],
-      "flowmap": "TLl7dOCF3",
+      "flowmap": "cs3JIcH7K",
       "prevNode": {
-        "id": "F9VUQG60tD",
+        "id": "XBuWf72oPb",
         "name": "Informa sobre a troca de titularidade",
         "expectedMessage": "A URA Congnitiva informa que este serviço só pode ser feito nas lojas físicas;",
         "nextNode": [
-          "dO90eGJ103",
-          "sz4WASs5WF"
+          "R6ZEC6hMIK",
+          "MSd0DN9BfW"
         ],
         "targetNode": false,
         "type": "Node",
-        "flowmap": "TLl7dOCF3"
+        "flowmap": "cs3JIcH7K"
       }
     },
-    "kucd80On_3": {
-      "id": "kucd80On_3",
+    "1za7-7Lgvo": {
+      "id": "1za7-7Lgvo",
       "name": "Informa que enviou o SMS",
       "expectedMessage": "A URA Congnitiva informa que enviou um SMS com o link para o site onde é possível fazer o agendamento em uma das lojas;",
       "nextNode": [
-        "_EU-wC0pzz",
-        "W7_j3NTf4u"
+        "DpNdaHJR5G",
+        "J5FRz7ppkH"
       ],
       "targetNode": false,
       "type": "Node",
-      "flowmap": "TLl7dOCF3"
+      "flowmap": "cs3JIcH7K"
     },
-    "wEXP4p9-gHY": {
-      "id": "wEXP4p9-gHY",
+    "J5pNzhKc2V0": {
+      "id": "J5pNzhKc2V0",
       "name": "Informa que enviou o SMS",
       "expectedMessage": "A URA Congnitiva informa que é preciso agendar o atendimento em uma loja e, que para isto, o cliente deve acessar o site e clicar em \"Lojas\";",
       "nextNode": [
-        "_EU-wC0pzz",
-        "W7_j3NTf4u"
+        "DpNdaHJR5G",
+        "J5FRz7ppkH"
       ],
       "targetNode": false,
       "type": "Node",
-      "flowmap": "TLl7dOCF3"
+      "flowmap": "cs3JIcH7K"
     }
   },
   "scenarios": {},
   "outlets": [],
-  "id": "TLl7dOCF3",
+  "id": "cs3JIcH7K",
   "name": "Troca Titularidade",
   "segment": "Pós-Pago Família",
   "scenarioPrefix": "03",
-  "inlet": "4GagsMbCzK"
+  "inlet": "1QIz7D9ggq"
 }

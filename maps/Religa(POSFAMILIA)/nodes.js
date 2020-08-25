@@ -52,9 +52,35 @@ const nodes = {
         pathCases: ['* Sucesso fluxo de senha', '* Falha fluxo de senha']
     }),
 
+    informaQuePrecisaSenha: religa.newNode('node', {
+        name: 'Precisa da senha',
+        expectedMessage: 'URA Cognitiva informa que por estar ligando de outro celular, irá precisar verificar a senha única'
+    }),
+
+    verificaSenhaUnica2: religa.newNode('switch', {
+        name: 'Verifica senha única',
+        pathCases: ['* Sucesso fluxo de senha', '* Falha fluxo de senha']
+    }),
+
     perguntaQuerAlgoMais: religa.newNode('switch', {
         name: 'Pergunta se o usuario quer algo mais',
         pathCases: [/* 'Quer algo mais',  */'Não quer mais nada']
+    }),
+
+    perguntaQuerAlgoMais2: religa.newNode('switch', {
+        name: 'Pergunta se o usuario quer algo mais (depois do serviçoreliga)',
+        pathCases: ['Quer fatura por e-mail (quando perguntar te ajudo em algo mais)', 'Não quer mais nada']
+    }),
+
+    perguntaQuerAlgoMais2Email: religa.newNode('switch', {
+        name: 'Pergunta se o usuario quer algo mais (depois do serviçoReliga)',
+        pathCases: ['Mês válido (últimos 6 meses)', 'Quer todas as faturas']
+    }),
+
+    perguntaQuerAlgoMais2EmailSucesso: religa.newNode('node', {
+        name: 'Sucesso no envio email depois do serviçoReliga',
+        stepMessage: '* Sucesso no envio do e-mail',
+        expectedMessage: 'A URA Cognitiva informa que enviou a(as) faturas por e-mail.'
     }),
 
     desambiguador: religa.newNode('node', {
@@ -106,6 +132,36 @@ const nodes = {
     servicoCodigoBarras7: religa.newNode('switch', {
         name: 'Chama o servico de Codigo Barras SMS 7',
         pathCases: ['* Sucesso no envio SMS', '* Falha Serviço Cód.Barras']
+    }),
+
+    servicoCodigoBarras3: religa.newNode('switch', {
+        name: 'Chama o servico de Codigo Barras SMS 3',
+        pathCases: ['* Sucesso no envio SMS', '* Falha Serviço Cód.Barras']
+    }),
+
+    expectFalhaCodBarra3: religa.newNode('node', {
+        name: 'Mensagem de Falha no serviço Codigo Barras 3',
+        expectedMessage: 'A URA Cognitiva informa que o religa foi efetuado com sucesso e que o serviço estará disponivel em no máximo 24h;'
+    }),
+
+    expectSucessoCodBarra3: religa.newNode('node', {
+        name: 'Mensagem de Falha no serviço Codigo Barras 3',
+        expectedMessage: 'A URA Cognitiva informa que o religa foi efetuado com sucesso e que o serviço estará disponivel em no máximo 24h e que um SMS foi enviado com o código de barras da fatura e um link para acessar a segunda via das faturas;'
+    }),
+
+    servicoCodigoBarras8: religa.newNode('switch', {
+        name: 'Chama o servico de Codigo Barras SMS 8',
+        pathCases: ['* Sucesso no envio SMS', '* Falha Serviço Cód.Barras']
+    }),
+
+    expectFalhaCodBarra8: religa.newNode('node', {
+        name: 'Mensagem de Falha no serviço Codigo Barras 8',
+        expectedMessage: 'A URA Cognitiva informa que o religa foi efetuado com sucesso e que o serviço estará disponivel em no máximo 24h e que no SITE o cliente pode acessar todas as faturas;'
+    }),
+
+    expectSucessoCodBarras8: religa.newNode('node', {
+        name: 'Mensagem de Falha no serviço Codigo Barras 8',
+        expectedMessage: 'A URA Cognitiva informa que o religa foi efetuado com sucesso e que o serviço estará disponivel em no máximo 24h e que um SMS foi enviado com o código de barras da fatura e um link para acessar a segunda via da fatura. Se houver mais de uma fatura em aberto, pergunta se quer recebê-las e envia em caso positivo;'
     }),
 
     servicoCodigoBarras1: religa.newNode('switch', {
@@ -396,6 +452,16 @@ const nodes = {
     expectInsisteReinicio: religa.newNode('node', {
         name: 'URA insiste e pergunta se usuario nao gostaria de tentar reiniciar',
         expectedMessage: 'A URA Cognitiva pergunta se usuário não gostaria de tentar reiniciar o aparelho;'
+    }),
+
+    veioFluxoInformaContaPaga1: religa.newNode('switch', {
+        name: 'Veio fluxo informa conta paga',
+        pathCases: ['* Veio de "Informa Conta Paga"', '* Não veio de "Informa Conta Paga"']
+    }),
+
+    veioFluxoPagarConta: religa.newNode('switch', {
+        name: 'Veio fluxo pagar conta',
+        pathCases: ['* Veio de "Pagar Conta"', '* Não veio de "Pagar Conta"']
     }),
 
 };
